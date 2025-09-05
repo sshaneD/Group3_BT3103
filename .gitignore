@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/EventDriven.Project.App/EventDriven.Project.App/EventDriven.Project.App/.vs
+/.vs/Group3_BT3103/CopilotIndices/17.12.38.29086
+/EventDriven.Project.App/EventDriven.Project.App/EventDriven.Project.App/EventDriven.Project.Businesslogic/bin/Debug/net8.0
+/EventDriven.Project.Businesslogic/bin/Debug/net8.0
+/EventDriven.Project.Businesslogic/obj
+/EventDriven.Project.DB/bin/Debug
+/EventDriven.Project.DB/obj/Debug
+/EventDriven.Project.Model/bin
+/EventDriven.Project.Model/obj
+/EventDriven.Project.UI/bin/Debug
+/EventDriven.Project.UI/obj
