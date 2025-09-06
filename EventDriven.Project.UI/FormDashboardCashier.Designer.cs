@@ -80,6 +80,7 @@
             button5.TabIndex = 6;
             button5.Text = "Billing";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button1
             // 
@@ -113,7 +114,7 @@
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
-            // DashboardCashier
+            // FormDashboardCashier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -121,7 +122,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "DashboardCashier";
+            Name = "FormDashboardCashier";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DashboardCashier";
             panel1.ResumeLayout(false);

@@ -84,5 +84,10 @@ namespace EventDriven.Project.UI
         {
 
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -20,8 +20,13 @@ namespace EventDriven.Project.UI
         private void button7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormLogin formLogin = new FormLogin(); 
+            FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
