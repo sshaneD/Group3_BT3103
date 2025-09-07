@@ -1,7 +1,5 @@
 ﻿using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace EventDriven.Project.UI
 {
@@ -9,15 +7,14 @@ namespace EventDriven.Project.UI
     {
 
         private UserController userController;
-        private int loginAttempts = 0;
 
-        private string CONNECTIONSTRING = "Data Source=.\\sqlexpress;Initial Catalog=userDB;Integrated Security=True;Encrypt=False";
-
+        private string CONNECTIONSTRING = "Data Source=LAPTOP-M9KS1VVV\\SQLEXPRESS;Initial Catalog=Project1;Integrated Security=True;TrustServerCertificate=True";
         public FormLogin()
         {
             InitializeComponent();
             userController = new UserController();
         }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -26,82 +23,71 @@ namespace EventDriven.Project.UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            if (txtUsername.Text.Equals("Admin"))
             {
-                bool loginSuccess = false;
-
-                if (txtUsername.Text.Equals("admin") && txtPassword.Text.Equals("admin"))
-                {
-                    loginSuccess = true;
-                    this.Hide();
-                    FormDashboard formDashboard = new FormDashboard();
-                    formDashboard.ShowDialog();
-                }
-                else if (txtUsername.Text.Equals("receptionist") && txtPassword.Text.Equals("reception123"))
-                {
-                    loginSuccess = true;
-                    this.Hide();
-                    FormDashboardFront formDashboardFront = new FormDashboardFront();
-                    formDashboardFront.ShowDialog();
-                }
-                else if (txtUsername.Text.Equals("cashier") && txtPassword.Text.Equals("cashier123"))
-                {
-                    loginSuccess = true;
-                    this.Hide();
-                    FormDashboardCashier formDashboardCashier = new FormDashboardCashier();
-                    formDashboardCashier.ShowDialog();
-                }
-                else
-                {
-                    // Database login validation
-                    using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
-                    {
-                        con.Open();
-                        string query = "SELECT * FROM dbo.[User] WHERE Username=@username AND Password=@password";
-                        SqlCommand command = new SqlCommand(query, con);
-                        command.Parameters.AddWithValue("@username", txtUsername.Text);
-                        command.Parameters.AddWithValue("@password", txtPassword.Text);
-
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable table = new DataTable();
-                        adapter.Fill(table);
-
-                        if (table.Rows.Count >= 1)
-                        {
-                            loginSuccess = true;
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
-                        }
-                    }
-                }
+                this.Hide();
+                FormDashboard formDashboard = new FormDashboard();
+                formDashboard.ShowDialog();
             }
-            catch (Exception ex)
+            else if (txtUsername.Text.Equals("Receptionist"))
             {
-                loginAttempts++;
-                if (loginAttempts >= 3)
-                {
-                    MessageBox.Show("Too many failed login attempts. Application will now close.",
-                                    "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    Application.Exit();
-                }
-                else
-                {
-                    MessageBox.Show($"Login failed ({ex.Message}). Attempts left: {3 - loginAttempts}",
-                                    "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
+                this.Hide();
+                FormDashboardFront formDashboardFront = new FormDashboardFront();
+                formDashboardFront.ShowDialog();
             }
+            else if (txtUsername.Text.Equals("Cashier"))
+            {
+                this.Hide();
+                FormDashboardCashier formDashboardCashier = new FormDashboardCashier();
+                formDashboardCashier.ShowDialog();
+            }
+
+            //try
+            //{
+            //    UserModel matchingUser = userController.ValidateUser(txtUsername.Text, txtPassword.Text);
+            //    if (matchingUser != null)
+            //    {
+            //        this.DialogResult = DialogResult.OK;
+            //        this.Close(); ;
+            //    }
+            //    else throw new Exception("Invalid Credentials");
+
+            //UserModel matchingUser = new UserModel();
+            //using (SqlConnection Hotel = new SqlConnection(CONNECTIONSTRING))
+            //{
+            //    Hotel.Open();
+            //    string query = "SELECT * FROM dbo.[User] WHERE Username ='" + txtUsername.Text + "'AND Password ='" + txtPassword.Text + "'";
+            //    SqlCommand command = new SqlCommand(query, Hotel);
+
+
+            //    SqlDataAdapter adapter = new SqlDataAdapter(command);
+            //    DataTable table = new DataTable();
+            //    adapter.Fill(table);
+            //    if (table.Rows.Count >= 1)
+            //    {
+            //        this.DialogResult = DialogResult.OK;
+            //        this.Close(); ;
+
+
+            //    }
+            //    else { MessageBox.Show("Invalid Credentials", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            //}
+            //}
+
+            //catch (Exception EX)
+            //{
+            //    MessageBox.Show(EX.Message);
+            //}
         }
-
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+
         }
     }
 }
-
-           
