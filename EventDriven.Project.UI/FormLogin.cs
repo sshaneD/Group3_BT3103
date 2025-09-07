@@ -41,43 +41,6 @@ namespace EventDriven.Project.UI
                 FormDashboardCashier formDashboardCashier = new FormDashboardCashier();
                 formDashboardCashier.ShowDialog();
             }
-
-            //try
-            //{
-            //    UserModel matchingUser = userController.ValidateUser(txtUsername.Text, txtPassword.Text);
-            //    if (matchingUser != null)
-            //    {
-            //        this.DialogResult = DialogResult.OK;
-            //        this.Close(); ;
-            //    }
-            //    else throw new Exception("Invalid Credentials");
-
-            //UserModel matchingUser = new UserModel();
-            //using (SqlConnection Hotel = new SqlConnection(CONNECTIONSTRING))
-            //{
-            //    Hotel.Open();
-            //    string query = "SELECT * FROM dbo.[User] WHERE Username ='" + txtUsername.Text + "'AND Password ='" + txtPassword.Text + "'";
-            //    SqlCommand command = new SqlCommand(query, Hotel);
-
-
-            //    SqlDataAdapter adapter = new SqlDataAdapter(command);
-            //    DataTable table = new DataTable();
-            //    adapter.Fill(table);
-            //    if (table.Rows.Count >= 1)
-            //    {
-            //        this.DialogResult = DialogResult.OK;
-            //        this.Close(); ;
-
-
-            //    }
-            //    else { MessageBox.Show("Invalid Credentials", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            //}
-            //}
-
-            //catch (Exception EX)
-            //{
-            //    MessageBox.Show(EX.Message);
-            //}
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
