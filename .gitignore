@@ -13,3 +13,5 @@
 /EventDriven.Project.Model/obj
 /EventDriven.Project.UI/bin/Debug
 /EventDriven.Project.UI/obj
+/.vs
+/EventDriven.Project.App/EventDriven.Project.App/EventDriven.Project.App/EventDriven.Project.Businesslogic/obj/Debug/net8.0

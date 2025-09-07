@@ -69,5 +69,45 @@ namespace EventDriven.Project.UI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Modern_Minimalist_Black_and_White_Report_Presentation__15_ {
+            get {
+                object obj = ResourceManager.GetObject("Modern_Minimalist_Black_and_White_Report_Presentation_(15)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Modern_Minimalist_Black_and_White_Report_Presentation__15_1 {
+            get {
+                object obj = ResourceManager.GetObject("Modern Minimalist Black and White Report Presentation (15)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Modern_Minimalist_Black_and_White_Report_Presentation__17_ {
+            get {
+                object obj = ResourceManager.GetObject("Modern Minimalist Black and White Report Presentation (17)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Modern_Minimalist_Black_and_White_Report_Presentation__19_ {
+            get {
+                object obj = ResourceManager.GetObject("Modern Minimalist Black and White Report Presentation (19)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -7,11 +7,28 @@ Post-Deployment Script Template
 
 
 -- Insert records into User table
-INSERT INTO [dbo].[User]
+
+CREATE TABLE [dbo].[User]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY (1,1),
+	[Username] NVARCHAR(50) NULL,
+	[Password] NVARCHAR(50) NULL, 
+    [Role] NVARCHAR(50) NULL
+
+)
+
+
+INSERT INTO [User] 
 (
 [Username], 
-[Password])
-VALUES('admin','admin')
+[Password],
+[Role])
+VALUES
+('admin','admin','admin'),
+('cashier','chashier123','cashier'),
+('receptionist','receptionist1234','receptionist');
+
+select*from [User]
 
 
 -- Insert records into Client table
