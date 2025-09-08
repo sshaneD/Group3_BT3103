@@ -1,5 +1,7 @@
 ﻿using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace EventDriven.Project.UI
 {
@@ -7,50 +9,74 @@ namespace EventDriven.Project.UI
     {
 
         private UserController userController;
-
-        private string CONNECTIONSTRING = "Data Source=LAPTOP-M9KS1VVV\\SQLEXPRESS;Initial Catalog=Project1;Integrated Security=True;TrustServerCertificate=True";
+        private int loginAttempts = 3;
         public FormLogin()
         {
             InitializeComponent();
             userController = new UserController();
         }
 
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
+        bool loginSuccess;
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text.Equals("Admin"))
+            try
             {
-                this.Hide();
-                FormDashboard formDashboard = new FormDashboard();
-                formDashboard.ShowDialog();
+
+                UserModel matchUser = userController.ValidateUser(txtUsername.Text, txtPassword.Text);
+
+                if (matchUser == null)
+                {
+                    loginAttempts--;
+                    if (loginAttempts <= 0)
+                    {
+                        MessageBox.Show("Too many failed login attempts. Application will now close.",
+                                        "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        Application.Exit();
+                    } else
+                    {
+                        MessageBox.Show("Invalid Credentials. You have " + loginAttempts + " more attempts.");
+                    }
+                }
+                else if (matchUser != null)
+                {
+                    if (matchUser.Role == "admin")
+                    {
+                        this.Hide();
+                        FormDashboard formDashboard = new FormDashboard();
+                        formDashboard.ShowDialog();
+                    } else if (matchUser.Role == "cashier")
+                    {
+                        this.Hide();
+                        FormDashboardCashier formDashboardCashier = new FormDashboardCashier();
+                        formDashboardCashier.ShowDialog();
+                    } else if (matchUser.Role == "receptionist")
+                    {
+                        this.Hide();
+                        FormDashboardFront formDashboardFront = new FormDashboardFront();
+                        formDashboardFront.ShowDialog();
+                    }
+                }
             }
-            else if (txtUsername.Text.Equals("Receptionist"))
+            catch (Exception ex)
             {
-                this.Hide();
-                FormDashboardFront formDashboardFront = new FormDashboardFront();
-                formDashboardFront.ShowDialog();
+                loginAttempts++;
+                if (loginAttempts >= 3)
+                {
+                    MessageBox.Show("Too many failed login attempts. Application will now close.",
+                                    "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    Application.Exit();
+                }
+                else
+                {
+                    MessageBox.Show($"Login failed ({ex.Message}). Attempts left: {3 - loginAttempts}",
+                                    "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (txtUsername.Text.Equals("Cashier"))
-            {
-                this.Hide();
-                FormDashboardCashier formDashboardCashier = new FormDashboardCashier();
-                formDashboardCashier.ShowDialog();
-            }
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

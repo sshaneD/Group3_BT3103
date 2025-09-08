@@ -1,4 +1,5 @@
-﻿namespace EventDriven.Project.UI
+﻿
+namespace EventDriven.Project.UI
 {
     partial class FormLogin
     {
@@ -152,6 +153,14 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
         }
 
         #endregion

@@ -12,17 +12,8 @@ namespace EventDriven.Project.UI
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            using (FormLogin loginForm = new FormLogin())
-            {
-                if (loginForm.ShowDialog() == DialogResult.OK)
-                {
-                    Application.Run(new FormMain());
-                }
-                else
-                {
-                    Application.Exit();
-                }
-            }
+            FormLogin formLogin = new FormLogin();
+            Application.Run(formLogin);
            
         }
     }
