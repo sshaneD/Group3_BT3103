@@ -6,7 +6,7 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     internal class UserRepository
     {
-        private string CONNECTIONSTRING = "Data Source=LAPTOP-M9KS1VVV\\SQLEXPRESS;Initial Catalog=Project1;Integrated Security=True;TrustServerCertificate=True";
+        private string CONNECTIONSTRING = "Data Source=jace\\sqlexpress;Initial Catalog=master;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
 
          public UserModel ValidateUser(string Username, string Password)//Form1 Validate User
         {
@@ -14,14 +14,12 @@ namespace EventDriven.Project.Businesslogic.Repository
             try
             {
                 UserModel matchingUser = new UserModel();
-                using (SqlConnection Hotel = new SqlConnection(CONNECTIONSTRING))
+                using (SqlConnection Hospital = new SqlConnection(CONNECTIONSTRING))
                 {
-                    Hotel.Open();
-                    string query = "SELECT * FROM dbo.[User] WHERE Username = @username AND Password = @password";
-                    SqlCommand command = new SqlCommand(query, Hotel);
-                    command.Parameters.AddWithValue("@username", Username);
-                    command.Parameters.AddWithValue("@password", Password);
-                    
+                    Hospital.Open();
+                    string query = "SELECT * FROM [dbo].[User] WHERE Username = '" + Username + "' AND Password = '" + Password + "'";
+                    SqlCommand command = new SqlCommand(query, Hospital);
+                   
 
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable table = new DataTable();
@@ -31,7 +29,8 @@ namespace EventDriven.Project.Businesslogic.Repository
                         matchingUser = new UserModel
                         {
                             Username = Username,
-                            Password = Password
+                            Password = Password,
+                            Role = table.Rows[0]["Role"].ToString()
                         };
                         return matchingUser;
                         

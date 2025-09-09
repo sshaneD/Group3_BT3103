@@ -146,8 +146,9 @@
             button7.TabIndex = 3;
             button7.Text = "Log out";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
-            // DashboardFront
+            // FormDashboardFront
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -155,7 +156,7 @@
             Controls.Add(panel1);
             Controls.Add(pictureBox2);
             Controls.Add(panel2);
-            Name = "DashboardFront";
+            Name = "FormDashboardFront";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DashboardFront";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
