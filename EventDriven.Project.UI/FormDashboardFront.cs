@@ -23,5 +23,10 @@ namespace EventDriven.Project.UI
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

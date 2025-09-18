@@ -47,12 +47,12 @@
             panel1.Controls.Add(button7);
             panel1.Location = new Point(-3, -1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1404, 62);
+            panel1.Size = new Size(1927, 85);
             panel1.TabIndex = 1;
             // 
             // button7
             // 
-            button7.Location = new Point(1297, 26);
+            button7.Location = new Point(1797, 44);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
             button7.TabIndex = 3;
@@ -66,15 +66,15 @@
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(0, 61);
+            panel2.Location = new Point(1, 85);
             panel2.Name = "panel2";
-            panel2.Size = new Size(283, 683);
+            panel2.Size = new Size(283, 1008);
             panel2.TabIndex = 2;
             // 
             // button5
             // 
             button5.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(34, 323);
+            button5.Location = new Point(34, 445);
             button5.Name = "button5";
             button5.Size = new Size(206, 46);
             button5.TabIndex = 6;
@@ -87,7 +87,7 @@
             button1.BackColor = Color.LightGray;
             button1.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(34, 255);
+            button1.Location = new Point(34, 365);
             button1.Name = "button1";
             button1.Size = new Size(206, 46);
             button1.TabIndex = 2;
@@ -97,9 +97,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Modern_Minimalist_Black_and_White_Report_Presentation__17_;
-            pictureBox1.Location = new Point(55, 80);
+            pictureBox1.Location = new Point(25, 104);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(167, 153);
+            pictureBox1.Size = new Size(215, 212);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -107,9 +107,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Modern_Minimalist_Black_and_White_Report_Presentation__19_;
-            pictureBox2.Location = new Point(323, 101);
+            pictureBox2.Location = new Point(323, 158);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1044, 566);
+            pictureBox2.Size = new Size(1547, 863);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
@@ -118,13 +118,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1399, 708);
+            ClientSize = new Size(1920, 1080);
             Controls.Add(pictureBox2);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormDashboardCashier";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DashboardCashier";
+            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

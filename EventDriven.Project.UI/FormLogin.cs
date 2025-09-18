@@ -37,7 +37,8 @@ namespace EventDriven.Project.UI
                         MessageBox.Show("Too many failed login attempts. Application will now close.",
                                         "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         Application.Exit();
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show("Invalid Credentials. You have " + loginAttempts + " more attempts.");
                     }
@@ -49,12 +50,14 @@ namespace EventDriven.Project.UI
                         this.Hide();
                         FormDashboard formDashboard = new FormDashboard();
                         formDashboard.ShowDialog();
-                    } else if (matchUser.Role == "cashier")
+                    }
+                    else if (matchUser.Role == "cashier")
                     {
                         this.Hide();
                         FormDashboardCashier formDashboardCashier = new FormDashboardCashier();
                         formDashboardCashier.ShowDialog();
-                    } else if (matchUser.Role == "receptionist")
+                    }
+                    else if (matchUser.Role == "receptionist")
                     {
                         this.Hide();
                         FormDashboardFront formDashboardFront = new FormDashboardFront();
@@ -77,6 +80,11 @@ namespace EventDriven.Project.UI
                                     "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

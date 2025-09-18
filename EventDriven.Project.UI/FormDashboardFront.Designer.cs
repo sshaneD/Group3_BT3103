@@ -47,9 +47,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Modern_Minimalist_Black_and_White_Report_Presentation__19_;
-            pictureBox2.Location = new Point(323, 87);
+            pictureBox2.Location = new Point(332, 158);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1044, 566);
+            pictureBox2.Size = new Size(1547, 863);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
@@ -63,15 +63,15 @@
             panel2.Controls.Add(button2);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(5, 44);
+            panel2.Location = new Point(5, 81);
             panel2.Name = "panel2";
-            panel2.Size = new Size(283, 683);
+            panel2.Size = new Size(291, 1035);
             panel2.TabIndex = 4;
             // 
             // button6
             // 
             button6.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(34, 520);
+            button6.Location = new Point(34, 677);
             button6.Name = "button6";
             button6.Size = new Size(206, 46);
             button6.TabIndex = 7;
@@ -81,7 +81,7 @@
             // button4
             // 
             button4.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(34, 451);
+            button4.Location = new Point(34, 594);
             button4.Name = "button4";
             button4.Size = new Size(206, 46);
             button4.TabIndex = 5;
@@ -91,7 +91,7 @@
             // button3
             // 
             button3.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(34, 385);
+            button3.Location = new Point(34, 508);
             button3.Name = "button3";
             button3.Size = new Size(206, 46);
             button3.TabIndex = 4;
@@ -101,7 +101,7 @@
             // button2
             // 
             button2.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(34, 318);
+            button2.Location = new Point(34, 426);
             button2.Name = "button2";
             button2.Size = new Size(206, 46);
             button2.TabIndex = 3;
@@ -112,19 +112,20 @@
             // 
             button1.BackColor = Color.LightGray;
             button1.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(34, 255);
+            button1.Location = new Point(34, 344);
             button1.Name = "button1";
             button1.Size = new Size(206, 46);
             button1.TabIndex = 2;
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Modern_Minimalist_Black_and_White_Report_Presentation__17_;
-            pictureBox1.Location = new Point(55, 80);
+            pictureBox1.Location = new Point(25, 82);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(167, 153);
+            pictureBox1.Size = new Size(215, 212);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -135,12 +136,12 @@
             panel1.Controls.Add(button7);
             panel1.Location = new Point(2, -4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1404, 62);
+            panel1.Size = new Size(1927, 85);
             panel1.TabIndex = 3;
             // 
             // button7
             // 
-            button7.Location = new Point(1297, 26);
+            button7.Location = new Point(1794, 48);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
             button7.TabIndex = 3;
@@ -152,13 +153,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1399, 708);
+            ClientSize = new Size(1902, 1033);
             Controls.Add(panel1);
             Controls.Add(pictureBox2);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormDashboardFront";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DashboardFront";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
