@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label14 = new Label();
             button7 = new Button();
             panel2 = new Panel();
             button6 = new Button();
@@ -39,7 +40,6 @@
             button1 = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            label14 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -55,6 +55,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1927, 85);
             panel1.TabIndex = 0;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = SystemColors.ButtonHighlight;
+            label14.Location = new Point(34, 35);
+            label14.Name = "label14";
+            label14.Size = new Size(297, 36);
+            label14.TabIndex = 30;
+            label14.Text = "Apex Medical Center";
             // 
             // button7
             // 
@@ -130,6 +141,7 @@
             button2.TabIndex = 3;
             button2.Text = "Patient Information";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -161,17 +173,6 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.ForeColor = SystemColors.ButtonHighlight;
-            label14.Location = new Point(34, 35);
-            label14.Name = "label14";
-            label14.Size = new Size(297, 36);
-            label14.TabIndex = 30;
-            label14.Text = "Apex Medical Center";
             // 
             // FormDashboard
             // 

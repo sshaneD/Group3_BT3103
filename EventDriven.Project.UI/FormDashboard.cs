@@ -13,5 +13,12 @@
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FormPatientInfo formPatientInfo = new FormPatientInfo();    
+            formPatientInfo.ShowDialog();   
+        }
     }
 }
