@@ -35,6 +35,7 @@
             button1 = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            label14 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -44,6 +45,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(11, 143, 172);
+            panel1.Controls.Add(label14);
             panel1.Controls.Add(button7);
             panel1.Location = new Point(-3, -1);
             panel1.Name = "panel1";
@@ -114,6 +116,17 @@
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = SystemColors.ButtonHighlight;
+            label14.Location = new Point(38, 36);
+            label14.Name = "label14";
+            label14.Size = new Size(297, 36);
+            label14.TabIndex = 30;
+            label14.Text = "Apex Medical Center";
+            // 
             // FormDashboardCashier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -128,6 +141,7 @@
             Text = "DashboardCashier";
             WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -143,5 +157,6 @@
         private Button button1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private Label label14;
     }
 }

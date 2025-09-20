@@ -38,6 +38,7 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             button7 = new Button();
+            label14 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -133,10 +134,11 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(11, 143, 172);
+            panel1.Controls.Add(label14);
             panel1.Controls.Add(button7);
-            panel1.Location = new Point(2, -4);
+            panel1.Location = new Point(0, -4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1927, 85);
+            panel1.Size = new Size(1929, 85);
             panel1.TabIndex = 3;
             // 
             // button7
@@ -148,6 +150,18 @@
             button7.Text = "Log out";
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = SystemColors.ButtonHighlight;
+            label14.Location = new Point(30, 37);
+            label14.Name = "label14";
+            label14.Size = new Size(297, 36);
+            label14.TabIndex = 30;
+            label14.Text = "Apex Medical Center";
+            label14.Click += label14_Click;
             // 
             // FormDashboardFront
             // 
@@ -166,6 +180,7 @@
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -181,5 +196,6 @@
         private PictureBox pictureBox1;
         private Panel panel1;
         private Button button7;
+        private Label label14;
     }
 }
