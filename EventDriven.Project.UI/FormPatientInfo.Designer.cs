@@ -95,11 +95,11 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(btnBilling);
             flowLayoutPanel1.Controls.Add(button1);
             flowLayoutPanel1.Controls.Add(btnPatientInfo);
-            flowLayoutPanel1.Controls.Add(button3);
             flowLayoutPanel1.Controls.Add(btnAdmission);
+            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(btnBilling);
             flowLayoutPanel1.Controls.Add(btnADischarge);
             flowLayoutPanel1.Location = new Point(34, 347);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -109,7 +109,7 @@
             // btnBilling
             // 
             btnBilling.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBilling.Location = new Point(3, 3);
+            btnBilling.Location = new Point(3, 319);
             btnBilling.Margin = new Padding(3, 3, 3, 30);
             btnBilling.Name = "btnBilling";
             btnBilling.Size = new Size(212, 46);
@@ -121,7 +121,7 @@
             // 
             button1.BackColor = Color.Transparent;
             button1.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(3, 82);
+            button1.Location = new Point(3, 3);
             button1.Margin = new Padding(3, 3, 3, 30);
             button1.Name = "button1";
             button1.Size = new Size(212, 46);
@@ -133,7 +133,7 @@
             // 
             btnPatientInfo.BackColor = Color.LightGray;
             btnPatientInfo.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPatientInfo.Location = new Point(3, 161);
+            btnPatientInfo.Location = new Point(3, 82);
             btnPatientInfo.Margin = new Padding(3, 3, 3, 30);
             btnPatientInfo.Name = "btnPatientInfo";
             btnPatientInfo.Size = new Size(212, 46);
@@ -157,7 +157,7 @@
             // 
             btnAdmission.BackColor = Color.White;
             btnAdmission.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdmission.Location = new Point(3, 319);
+            btnAdmission.Location = new Point(3, 161);
             btnAdmission.Margin = new Padding(3, 3, 3, 30);
             btnAdmission.Name = "btnAdmission";
             btnAdmission.Size = new Size(212, 46);
