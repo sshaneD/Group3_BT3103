@@ -43,7 +43,6 @@
             dataGridView1 = new DataGridView();
             button7 = new Button();
             button8 = new Button();
-            button9 = new Button();
             button10 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -104,7 +103,7 @@
             flowLayoutPanel1.Controls.Add(btnADischarge);
             flowLayoutPanel1.Location = new Point(34, 347);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(241, 523);
+            flowLayoutPanel1.Size = new Size(215, 523);
             flowLayoutPanel1.TabIndex = 34;
             // 
             // btnBilling
@@ -219,20 +218,10 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
-            // button9
-            // 
-            button9.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button9.Location = new Point(711, 180);
-            button9.Name = "button9";
-            button9.Size = new Size(163, 51);
-            button9.TabIndex = 32;
-            button9.Text = "View";
-            button9.UseVisualStyleBackColor = true;
-            // 
             // button10
             // 
             button10.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button10.Location = new Point(890, 180);
+            button10.Location = new Point(713, 180);
             button10.Name = "button10";
             button10.Size = new Size(163, 51);
             button10.TabIndex = 33;
@@ -246,7 +235,6 @@
             BackColor = Color.LightGray;
             ClientSize = new Size(1902, 1033);
             Controls.Add(button10);
-            Controls.Add(button9);
             Controls.Add(button8);
             Controls.Add(button7);
             Controls.Add(dataGridView1);
@@ -276,7 +264,6 @@
         private DataGridView dataGridView1;
         private Button button7;
         private Button button8;
-        private Button button9;
         private Button button10;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnBilling;
