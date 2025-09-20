@@ -33,5 +33,12 @@ namespace EventDriven.Project.UI
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();    
+            FormPatientInfo formPatientInfo = new FormPatientInfo();
+            formPatientInfo.ShowDialog();
+        }
     }
 }

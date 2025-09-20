@@ -32,12 +32,13 @@
             label14 = new Label();
             btnAPLogout = new Button();
             panel2 = new Panel();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnBilling = new Button();
             button1 = new Button();
+            btnPatientInfo = new Button();
+            button3 = new Button();
+            btnAdmission = new Button();
+            btnADischarge = new Button();
             pictureBox1 = new PictureBox();
             dataGridView1 = new DataGridView();
             button7 = new Button();
@@ -46,6 +47,7 @@
             button10 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -80,83 +82,101 @@
             btnAPLogout.TabIndex = 3;
             btnAPLogout.Text = "Log out";
             btnAPLogout.UseVisualStyleBackColor = true;
+            btnAPLogout.Click += btnAPLogout_Click;
             // 
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(button6);
-            panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(flowLayoutPanel1);
             panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(1, 87);
+            panel2.Location = new Point(1, 83);
             panel2.Name = "panel2";
-            panel2.Size = new Size(291, 1035);
+            panel2.Size = new Size(291, 1037);
             panel2.TabIndex = 3;
             // 
-            // button6
+            // flowLayoutPanel1
             // 
-            button6.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(38, 782);
-            button6.Name = "button6";
-            button6.Size = new Size(206, 46);
-            button6.TabIndex = 7;
-            button6.Text = "Discharge";
-            button6.UseVisualStyleBackColor = true;
+            flowLayoutPanel1.Controls.Add(btnBilling);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(btnPatientInfo);
+            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(btnAdmission);
+            flowLayoutPanel1.Controls.Add(btnADischarge);
+            flowLayoutPanel1.Location = new Point(34, 347);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(241, 523);
+            flowLayoutPanel1.TabIndex = 34;
             // 
-            // button5
+            // btnBilling
             // 
-            button5.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(38, 697);
-            button5.Name = "button5";
-            button5.Size = new Size(206, 46);
-            button5.TabIndex = 6;
-            button5.Text = "Billing";
-            button5.UseVisualStyleBackColor = true;
+            btnBilling.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBilling.Location = new Point(3, 3);
+            btnBilling.Margin = new Padding(3, 3, 3, 30);
+            btnBilling.Name = "btnBilling";
+            btnBilling.Size = new Size(212, 46);
+            btnBilling.TabIndex = 6;
+            btnBilling.Text = "Billing";
+            btnBilling.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // button1
             // 
-            button4.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(38, 619);
-            button4.Name = "button4";
-            button4.Size = new Size(206, 46);
-            button4.TabIndex = 5;
-            button4.Text = "Admission";
-            button4.UseVisualStyleBackColor = true;
+            button1.BackColor = Color.Transparent;
+            button1.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(3, 82);
+            button1.Margin = new Padding(3, 3, 3, 30);
+            button1.Name = "button1";
+            button1.Size = new Size(212, 46);
+            button1.TabIndex = 2;
+            button1.Text = "Dashboard";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // btnPatientInfo
+            // 
+            btnPatientInfo.BackColor = Color.LightGray;
+            btnPatientInfo.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPatientInfo.Location = new Point(3, 161);
+            btnPatientInfo.Margin = new Padding(3, 3, 3, 30);
+            btnPatientInfo.Name = "btnPatientInfo";
+            btnPatientInfo.Size = new Size(212, 46);
+            btnPatientInfo.TabIndex = 3;
+            btnPatientInfo.Text = "Patient Information";
+            btnPatientInfo.UseVisualStyleBackColor = false;
+            btnPatientInfo.Click += btnPatientInfo_Click;
             // 
             // button3
             // 
             button3.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(38, 537);
+            button3.Location = new Point(3, 240);
+            button3.Margin = new Padding(3, 3, 3, 30);
             button3.Name = "button3";
-            button3.Size = new Size(206, 46);
+            button3.Size = new Size(212, 46);
             button3.TabIndex = 4;
             button3.Text = "Room Search";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnAdmission
             // 
-            button2.BackColor = Color.LightGray;
-            button2.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(38, 464);
-            button2.Name = "button2";
-            button2.Size = new Size(206, 46);
-            button2.TabIndex = 3;
-            button2.Text = "Patient Information";
-            button2.UseVisualStyleBackColor = false;
+            btnAdmission.BackColor = Color.White;
+            btnAdmission.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdmission.Location = new Point(3, 319);
+            btnAdmission.Margin = new Padding(3, 3, 3, 30);
+            btnAdmission.Name = "btnAdmission";
+            btnAdmission.Size = new Size(212, 46);
+            btnAdmission.TabIndex = 5;
+            btnAdmission.Text = "Admission";
+            btnAdmission.UseVisualStyleBackColor = false;
+            btnAdmission.Click += btnAdmission_Click;
             // 
-            // button1
+            // btnADischarge
             // 
-            button1.BackColor = Color.White;
-            button1.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(38, 392);
-            button1.Name = "button1";
-            button1.Size = new Size(206, 46);
-            button1.TabIndex = 2;
-            button1.Text = "Dashboard";
-            button1.UseVisualStyleBackColor = false;
+            btnADischarge.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnADischarge.Location = new Point(3, 398);
+            btnADischarge.Margin = new Padding(3, 3, 3, 30);
+            btnADischarge.Name = "btnADischarge";
+            btnADischarge.Size = new Size(212, 46);
+            btnADischarge.TabIndex = 7;
+            btnADischarge.Text = "Discharge";
+            btnADischarge.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -197,6 +217,7 @@
             button8.TabIndex = 31;
             button8.Text = "Edit";
             button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // button9
             // 
@@ -235,9 +256,11 @@
             Name = "FormPatientInfo";
             Text = "FormPatientInfo";
             WindowState = FormWindowState.Maximized;
+            Load += FormPatientInfo_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -249,17 +272,18 @@
         private Label label14;
         private Button btnAPLogout;
         private Panel panel2;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
         private PictureBox pictureBox1;
         private DataGridView dataGridView1;
         private Button button7;
         private Button button8;
         private Button button9;
         private Button button10;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button btnBilling;
+        private Button button1;
+        private Button btnPatientInfo;
+        private Button button3;
+        private Button btnAdmission;
+        private Button btnADischarge;
     }
 }
