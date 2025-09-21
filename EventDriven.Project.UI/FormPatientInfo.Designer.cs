@@ -28,12 +28,238 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormPatientInfo";
+            panel1 = new Panel();
+            label14 = new Label();
+            btnAPLogout = new Button();
+            panel2 = new Panel();
+            button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            pictureBox1 = new PictureBox();
+            dataGridView1 = new DataGridView();
+            button7 = new Button();
+            button8 = new Button();
+            button9 = new Button();
+            button10 = new Button();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(11, 143, 172);
+            panel1.Controls.Add(label14);
+            panel1.Controls.Add(btnAPLogout);
+            panel1.Location = new Point(0, -1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1927, 85);
+            panel1.TabIndex = 2;
+            panel1.Paint += panel1_Paint;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Microsoft JhengHei UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = SystemColors.ButtonHighlight;
+            label14.Location = new Point(25, 34);
+            label14.Name = "label14";
+            label14.Size = new Size(297, 36);
+            label14.TabIndex = 29;
+            label14.Text = "Apex Medical Center";
+            // 
+            // btnAPLogout
+            // 
+            btnAPLogout.Location = new Point(1800, 43);
+            btnAPLogout.Name = "btnAPLogout";
+            btnAPLogout.Size = new Size(94, 29);
+            btnAPLogout.TabIndex = 3;
+            btnAPLogout.Text = "Log out";
+            btnAPLogout.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(button6);
+            panel2.Controls.Add(button5);
+            panel2.Controls.Add(button4);
+            panel2.Controls.Add(button3);
+            panel2.Controls.Add(button2);
+            panel2.Controls.Add(button1);
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(1, 87);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(291, 1035);
+            panel2.TabIndex = 3;
+            // 
+            // button6
+            // 
+            button6.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button6.Location = new Point(38, 782);
+            button6.Name = "button6";
+            button6.Size = new Size(206, 46);
+            button6.TabIndex = 7;
+            button6.Text = "Discharge";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button5.Location = new Point(38, 697);
+            button5.Name = "button5";
+            button5.Size = new Size(206, 46);
+            button5.TabIndex = 6;
+            button5.Text = "Billing";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.Location = new Point(38, 619);
+            button4.Name = "button4";
+            button4.Size = new Size(206, 46);
+            button4.TabIndex = 5;
+            button4.Text = "Admission";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(38, 537);
+            button3.Name = "button3";
+            button3.Size = new Size(206, 46);
+            button3.TabIndex = 4;
+            button3.Text = "Room Search";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.LightGray;
+            button2.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(38, 464);
+            button2.Name = "button2";
+            button2.Size = new Size(206, 46);
+            button2.TabIndex = 3;
+            button2.Text = "Patient Information";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.White;
+            button1.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(38, 392);
+            button1.Name = "button1";
+            button1.Size = new Size(206, 46);
+            button1.TabIndex = 2;
+            button1.Text = "Dashboard";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Modern_Minimalist_Black_and_White_Report_Presentation__17_;
+            pictureBox1.Location = new Point(34, 87);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(215, 212);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(327, 249);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1539, 730);
+            dataGridView1.TabIndex = 4;
+            // 
+            // button7
+            // 
+            button7.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button7.Location = new Point(349, 180);
+            button7.Name = "button7";
+            button7.Size = new Size(163, 51);
+            button7.TabIndex = 30;
+            button7.Text = "Add ";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // button8
+            // 
+            button8.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button8.Location = new Point(531, 180);
+            button8.Name = "button8";
+            button8.Size = new Size(163, 51);
+            button8.TabIndex = 31;
+            button8.Text = "Edit";
+            button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            button9.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button9.Location = new Point(711, 180);
+            button9.Name = "button9";
+            button9.Size = new Size(163, 51);
+            button9.TabIndex = 32;
+            button9.Text = "View";
+            button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            button10.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button10.Location = new Point(890, 180);
+            button10.Name = "button10";
+            button10.Size = new Size(163, 51);
+            button10.TabIndex = 33;
+            button10.Text = "Delete";
+            button10.UseVisualStyleBackColor = true;
+            // 
+            // FormPatientInfo
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightGray;
+            ClientSize = new Size(1902, 1033);
+            Controls.Add(button10);
+            Controls.Add(button9);
+            Controls.Add(button8);
+            Controls.Add(button7);
+            Controls.Add(dataGridView1);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "FormPatientInfo";
+            Text = "FormPatientInfo";
+            WindowState = FormWindowState.Maximized;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
+        private Label label14;
+        private Button btnAPLogout;
+        private Panel panel2;
+        private Button button6;
+        private Button button5;
+        private Button button4;
+        private Button button3;
+        private Button button2;
+        private Button button1;
+        private PictureBox pictureBox1;
+        private DataGridView dataGridView1;
+        private Button button7;
+        private Button button8;
+        private Button button9;
+        private Button button10;
     }
 }
