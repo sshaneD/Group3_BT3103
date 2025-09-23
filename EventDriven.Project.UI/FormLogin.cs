@@ -10,6 +10,8 @@ namespace EventDriven.Project.UI
 
         private UserController userController;
         private int loginAttempts = 3;
+        public static String Role;
+
         public FormLogin()
         {
             InitializeComponent();
@@ -45,6 +47,7 @@ namespace EventDriven.Project.UI
                 }
                 else if (matchUser != null)
                 {
+                    Role = matchUser.Role;
                     if (matchUser.Role == "admin")
                     {
                         this.Hide();

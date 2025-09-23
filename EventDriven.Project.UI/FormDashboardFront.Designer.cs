@@ -37,8 +37,8 @@
             button1 = new Button();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            button7 = new Button();
             label14 = new Label();
+            button7 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -108,6 +108,7 @@
             button2.TabIndex = 3;
             button2.Text = "Patient Information";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -141,16 +142,6 @@
             panel1.Size = new Size(1929, 85);
             panel1.TabIndex = 3;
             // 
-            // button7
-            // 
-            button7.Location = new Point(1794, 48);
-            button7.Name = "button7";
-            button7.Size = new Size(94, 29);
-            button7.TabIndex = 3;
-            button7.Text = "Log out";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
-            // 
             // label14
             // 
             label14.AutoSize = true;
@@ -162,6 +153,16 @@
             label14.TabIndex = 30;
             label14.Text = "Apex Medical Center";
             label14.Click += label14_Click;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(1794, 48);
+            button7.Name = "button7";
+            button7.Size = new Size(94, 29);
+            button7.TabIndex = 3;
+            button7.Text = "Log out";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // FormDashboardFront
             // 

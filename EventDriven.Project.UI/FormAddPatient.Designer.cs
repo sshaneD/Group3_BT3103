@@ -32,18 +32,20 @@
             label14 = new Label();
             btnAPLogout = new Button();
             panel2 = new Panel();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnBilling = new Button();
             button1 = new Button();
+            btnPatientInfo = new Button();
+            button3 = new Button();
+            btnAdmission = new Button();
+            btnADischarge = new Button();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
+            lblTitle = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             label2 = new Label();
             panel3 = new Panel();
+            btnADCancel = new Button();
             comboBox3 = new ComboBox();
             label13 = new Label();
             button7 = new Button();
@@ -68,9 +70,9 @@
             label3 = new Label();
             btnViewDN = new Button();
             button8 = new Button();
-            btnADCancel = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -109,79 +111,97 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(button6);
-            panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(flowLayoutPanel1);
             panel2.Controls.Add(pictureBox1);
             panel2.Location = new Point(0, 85);
             panel2.Name = "panel2";
             panel2.Size = new Size(291, 1035);
             panel2.TabIndex = 2;
             // 
-            // button6
+            // flowLayoutPanel1
             // 
-            button6.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(38, 779);
-            button6.Name = "button6";
-            button6.Size = new Size(206, 46);
-            button6.TabIndex = 7;
-            button6.Text = "Discharge";
-            button6.UseVisualStyleBackColor = true;
+            flowLayoutPanel1.Controls.Add(btnBilling);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(btnPatientInfo);
+            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(btnAdmission);
+            flowLayoutPanel1.Controls.Add(btnADischarge);
+            flowLayoutPanel1.Location = new Point(34, 332);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(215, 523);
+            flowLayoutPanel1.TabIndex = 32;
             // 
-            // button5
+            // btnBilling
             // 
-            button5.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(38, 697);
-            button5.Name = "button5";
-            button5.Size = new Size(206, 46);
-            button5.TabIndex = 6;
-            button5.Text = "Billing";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.LightGray;
-            button4.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(38, 619);
-            button4.Name = "button4";
-            button4.Size = new Size(206, 46);
-            button4.TabIndex = 5;
-            button4.Text = "Admission";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(38, 537);
-            button3.Name = "button3";
-            button3.Size = new Size(206, 46);
-            button3.TabIndex = 4;
-            button3.Text = "Room Search";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(38, 464);
-            button2.Name = "button2";
-            button2.Size = new Size(206, 46);
-            button2.TabIndex = 3;
-            button2.Text = "Patient Information";
-            button2.UseVisualStyleBackColor = true;
+            btnBilling.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBilling.Location = new Point(3, 3);
+            btnBilling.Margin = new Padding(3, 3, 3, 30);
+            btnBilling.Name = "btnBilling";
+            btnBilling.Size = new Size(212, 46);
+            btnBilling.TabIndex = 6;
+            btnBilling.Text = "Billing";
+            btnBilling.UseVisualStyleBackColor = true;
+            btnBilling.Click += button5_Click;
             // 
             // button1
             // 
             button1.BackColor = Color.Transparent;
             button1.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(38, 392);
+            button1.Location = new Point(3, 82);
+            button1.Margin = new Padding(3, 3, 3, 30);
             button1.Name = "button1";
-            button1.Size = new Size(206, 46);
+            button1.Size = new Size(212, 46);
             button1.TabIndex = 2;
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = false;
+            // 
+            // btnPatientInfo
+            // 
+            btnPatientInfo.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPatientInfo.Location = new Point(3, 161);
+            btnPatientInfo.Margin = new Padding(3, 3, 3, 30);
+            btnPatientInfo.Name = "btnPatientInfo";
+            btnPatientInfo.Size = new Size(212, 46);
+            btnPatientInfo.TabIndex = 3;
+            btnPatientInfo.Text = "Patient Information";
+            btnPatientInfo.UseVisualStyleBackColor = true;
+            btnPatientInfo.Click += btnPatientInfo_Click;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(3, 240);
+            button3.Margin = new Padding(3, 3, 3, 30);
+            button3.Name = "button3";
+            button3.Size = new Size(212, 46);
+            button3.TabIndex = 4;
+            button3.Text = "Room Search";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // btnAdmission
+            // 
+            btnAdmission.BackColor = Color.LightGray;
+            btnAdmission.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdmission.Location = new Point(3, 319);
+            btnAdmission.Margin = new Padding(3, 3, 3, 30);
+            btnAdmission.Name = "btnAdmission";
+            btnAdmission.Size = new Size(212, 46);
+            btnAdmission.TabIndex = 5;
+            btnAdmission.Text = "Admission";
+            btnAdmission.UseVisualStyleBackColor = false;
+            btnAdmission.Click += btnAdmission_Click;
+            // 
+            // btnADischarge
+            // 
+            btnADischarge.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnADischarge.Location = new Point(3, 398);
+            btnADischarge.Margin = new Padding(3, 3, 3, 30);
+            btnADischarge.Name = "btnADischarge";
+            btnADischarge.Size = new Size(212, 46);
+            btnADischarge.TabIndex = 7;
+            btnADischarge.Text = "Discharge";
+            btnADischarge.UseVisualStyleBackColor = true;
+            btnADischarge.Click += button6_Click;
             // 
             // pictureBox1
             // 
@@ -193,15 +213,15 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
-            // label1
+            // lblTitle
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(369, 145);
-            label1.Name = "label1";
-            label1.Size = new Size(253, 38);
-            label1.TabIndex = 3;
-            label1.Text = "Admission Form";
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Microsoft JhengHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Location = new Point(369, 145);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(253, 38);
+            lblTitle.TabIndex = 3;
+            lblTitle.Text = "Admission Form";
             // 
             // textBox1
             // 
@@ -266,6 +286,17 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1515, 826);
             panel3.TabIndex = 7;
+            // 
+            // btnADCancel
+            // 
+            btnADCancel.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnADCancel.Location = new Point(1155, 760);
+            btnADCancel.Name = "btnADCancel";
+            btnADCancel.Size = new Size(160, 37);
+            btnADCancel.TabIndex = 31;
+            btnADCancel.Text = "Cancel";
+            btnADCancel.UseVisualStyleBackColor = true;
+            btnADCancel.Click += btnADCancel_Click;
             // 
             // comboBox3
             // 
@@ -509,16 +540,6 @@
             button8.Text = "View Admission History\r\n";
             button8.UseVisualStyleBackColor = true;
             // 
-            // btnADCancel
-            // 
-            btnADCancel.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnADCancel.Location = new Point(1155, 760);
-            btnADCancel.Name = "btnADCancel";
-            btnADCancel.Size = new Size(160, 37);
-            btnADCancel.TabIndex = 31;
-            btnADCancel.Text = "Cancel";
-            btnADCancel.UseVisualStyleBackColor = true;
-            // 
             // FormAddPatient
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -527,7 +548,7 @@
             ClientSize = new Size(1920, 1080);
             Controls.Add(button8);
             Controls.Add(btnViewDN);
-            Controls.Add(label1);
+            Controls.Add(lblTitle);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
@@ -539,6 +560,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -551,14 +573,14 @@
         private Panel panel1;
         private Button btnAPLogout;
         private Panel panel2;
-        private Button button6;
-        private Button button5;
-        private Button button4;
+        private Button btnADischarge;
+        private Button btnBilling;
+        private Button btnAdmission;
         private Button button3;
-        private Button button2;
+        private Button btnPatientInfo;
         private Button button1;
         private PictureBox pictureBox1;
-        private Label label1;
+        private Label lblTitle;
         private TextBox textBox1;
         private TextBox textBox2;
         private Label label2;
@@ -589,5 +611,6 @@
         private Button button8;
         private Label label14;
         private Button btnADCancel;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
