@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EventDriven.Project.Businesslogic.Controller;
 
 namespace EventDriven.Project.UI
 {
     public partial class FormPatientInfo : Form
     {
+        PatientController patientController;
         public static String Function;
         public FormPatientInfo()
         {
             InitializeComponent();
+            patientController = new PatientController();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -49,6 +52,7 @@ namespace EventDriven.Project.UI
             {
                 btnBilling.Visible = false;
             }
+            dataGridView1.DataSource = patientController.GetAllPatients();
         }
 
         private void btnAPLogout_Click(object sender, EventArgs e)
