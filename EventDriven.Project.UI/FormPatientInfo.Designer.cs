@@ -33,11 +33,11 @@
             btnAPLogout = new Button();
             panel2 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            btnBilling = new Button();
             button1 = new Button();
             btnPatientInfo = new Button();
-            button3 = new Button();
             btnAdmission = new Button();
+            button3 = new Button();
+            btnBilling = new Button();
             btnADischarge = new Button();
             pictureBox1 = new PictureBox();
             dataGridView1 = new DataGridView();
@@ -106,17 +106,6 @@
             flowLayoutPanel1.Size = new Size(215, 523);
             flowLayoutPanel1.TabIndex = 34;
             // 
-            // btnBilling
-            // 
-            btnBilling.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBilling.Location = new Point(3, 319);
-            btnBilling.Margin = new Padding(3, 3, 3, 30);
-            btnBilling.Name = "btnBilling";
-            btnBilling.Size = new Size(212, 46);
-            btnBilling.TabIndex = 6;
-            btnBilling.Text = "Billing";
-            btnBilling.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             button1.BackColor = Color.Transparent;
@@ -142,17 +131,6 @@
             btnPatientInfo.UseVisualStyleBackColor = false;
             btnPatientInfo.Click += btnPatientInfo_Click;
             // 
-            // button3
-            // 
-            button3.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(3, 240);
-            button3.Margin = new Padding(3, 3, 3, 30);
-            button3.Name = "button3";
-            button3.Size = new Size(212, 46);
-            button3.TabIndex = 4;
-            button3.Text = "Room Search";
-            button3.UseVisualStyleBackColor = true;
-            // 
             // btnAdmission
             // 
             btnAdmission.BackColor = Color.White;
@@ -165,6 +143,28 @@
             btnAdmission.Text = "Admission";
             btnAdmission.UseVisualStyleBackColor = false;
             btnAdmission.Click += btnAdmission_Click;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(3, 240);
+            button3.Margin = new Padding(3, 3, 3, 30);
+            button3.Name = "button3";
+            button3.Size = new Size(212, 46);
+            button3.TabIndex = 4;
+            button3.Text = "Room Search";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // btnBilling
+            // 
+            btnBilling.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBilling.Location = new Point(3, 319);
+            btnBilling.Margin = new Padding(3, 3, 3, 30);
+            btnBilling.Name = "btnBilling";
+            btnBilling.Size = new Size(212, 46);
+            btnBilling.TabIndex = 6;
+            btnBilling.Text = "Billing";
+            btnBilling.UseVisualStyleBackColor = true;
             // 
             // btnADischarge
             // 
@@ -189,6 +189,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(327, 249);
             dataGridView1.Name = "dataGridView1";
