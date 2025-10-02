@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EventDriven.Project.Businesslogic.Controller;
+using EventDriven.Project.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,11 @@ namespace EventDriven.Project.UI
 {
     public partial class FormAddPatient : Form
     {
+        PatientController patientController;
         public FormAddPatient()
         {
             InitializeComponent();
+            patientController = new PatientController();
 
         }
 
@@ -90,6 +94,24 @@ namespace EventDriven.Project.UI
             Hide();
             FormAddPatient formAddPatient = new FormAddPatient();
             formAddPatient.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            PatientModel patient = new PatientModel{
+                PatientID = Convert.ToInt32(lblID.Text),
+                FirstName = textBox1.Text,
+                LastName = textBox2.Text,
+                Age = Convert.ToInt32 (textBox3.Text),
+                Gender = comboBox1.Text,
+                Diagnosis = textBox8.Text,
+                RoomNo = Convert.ToInt32(comboBox3.Text),
+                GuardianName = textBox4.Text,
+                GuardianNo = textBox5.Text
+
+            };
+            patientController.AddPatient(patient);
+            MessageBox.Show("The patient has been added!");
         }
     }
 }
