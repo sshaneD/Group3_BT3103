@@ -74,6 +74,8 @@
     <Build Include="dbo\StoredProcedure\DeleteClientAccount.sql" />
     <Build Include="dbo\Tables\Patient.sql" />
     <Build Include="dbo\StoredProcedure\GetAllPatients.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientByID.sql" />
+    <Build Include="dbo\StoredProcedure\EditPatient.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />
