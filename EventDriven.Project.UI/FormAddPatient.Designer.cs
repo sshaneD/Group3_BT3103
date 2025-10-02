@@ -327,6 +327,7 @@
             button7.TabIndex = 28;
             button7.Text = "Add";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // label12
             // 
@@ -496,9 +497,9 @@
             label4.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(57, 373);
             label4.Name = "label4";
-            label4.Size = new Size(120, 22);
+            label4.Size = new Size(47, 22);
             label4.TabIndex = 10;
-            label4.Text = "Date of Birth:";
+            label4.Text = "Age:";
             // 
             // textBox3
             // 
