@@ -28,6 +28,9 @@ namespace EventDriven.Project.Businesslogic.Controller
         public PatientModel GetPatientById(int id)
         {
             return patientRepo.GetPatientByID(id);
+        public void AddPatient(PatientModel patient)
+        {
+            patientRepo.AddPatient(patient);
         }
     }
 }

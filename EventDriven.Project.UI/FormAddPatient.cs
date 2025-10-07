@@ -19,6 +19,7 @@ namespace EventDriven.Project.UI
         {
             InitializeComponent();
             patientController = new PatientController();
+
         }
 
         private void FormAddPatient_Load(object sender, EventArgs e)
@@ -143,6 +144,20 @@ namespace EventDriven.Project.UI
                 patientController.EditPatient(patient);
                 MessageBox.Show("The patient has been added!");
             }
+            PatientModel patient = new PatientModel{
+                PatientID = Convert.ToInt32(lblID.Text),
+                FirstName = textBox1.Text,
+                LastName = textBox2.Text,
+                Age = Convert.ToInt32 (textBox3.Text),
+                Gender = comboBox1.Text,
+                Diagnosis = textBox8.Text,
+                RoomNo = Convert.ToInt32(comboBox3.Text),
+                GuardianName = textBox4.Text,
+                GuardianNo = textBox5.Text
+
+            };
+            patientController.AddPatient(patient);
+            MessageBox.Show("The patient has been added!");
         }
     }
 }

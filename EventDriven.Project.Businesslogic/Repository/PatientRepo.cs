@@ -102,6 +102,16 @@ namespace EventDriven.Project.Businesslogic.Repository
                     SqlCommand cmd = new SqlCommand("dbo.EditPatient", conn);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PatientID", patient.PatientID);
+        public void AddPatient(PatientModel patient) 
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("dbo.addpatient", conn);
+                    
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@FirstName", patient.FirstName);
                     cmd.Parameters.AddWithValue("@LastName", patient.LastName);
                     cmd.Parameters.AddWithValue("@Age", patient.Age);
@@ -119,5 +129,14 @@ namespace EventDriven.Project.Businesslogic.Repository
             }
         }
 
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
     }
 }
