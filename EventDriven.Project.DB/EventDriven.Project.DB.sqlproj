@@ -78,6 +78,7 @@
     <Build Include="dbo\StoredProcedure\EditPatient.sql" />
     <Build Include="dbo\StoredProcedure\addpatient.sql" />
     <Build Include="dbo\StoredProcedure\SearchPatient.sql" />
+    <Build Include="dbo\StoredProcedure\DeletePatient.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />
