@@ -30,6 +30,16 @@ namespace EventDriven.Project.UI
                 lblTitle.Text = "Edit Patient";
                 btnPatientInfo.BackColor = Color.LightGray;
                 btnAdmission.BackColor = Color.White;
+                PatientModel patient = patientController.GetPatientById(FormPatientInfo.selectedPatientID);
+                lblID.Text = patient.PatientID.ToString();
+                textBox1.Text = patient.FirstName;
+                textBox2.Text = patient.LastName;
+                textBox3.Text = patient.Age.ToString();
+                comboBox1.Text = patient.Gender;
+                textBox4.Text = patient.GuardianName;
+                textBox5.Text = patient.GuardianNo;
+                comboBox3.Text = patient.RoomNo.ToString();
+                textBox8.Text = patient.Diagnosis;
             }
 
             else if (FormPatientInfo.Function == "Add")
@@ -98,6 +108,42 @@ namespace EventDriven.Project.UI
 
         private void button7_Click(object sender, EventArgs e)
         {
+            if (FormPatientInfo.Function == "Add")
+            {
+                PatientModel patient = new PatientModel
+                {
+                    PatientID = Convert.ToInt32(lblID.Text),
+                    FirstName = textBox1.Text,
+                    LastName = textBox2.Text,
+                    Age = Convert.ToInt32(textBox3.Text),
+                    Gender = comboBox1.Text,
+                    Diagnosis = textBox8.Text,
+                    RoomNo = Convert.ToInt32(comboBox3.Text),
+                    GuardianName = textBox4.Text,
+                    GuardianNo = textBox5.Text
+
+                };
+                //patientController.AddPatient(patient);
+                MessageBox.Show("The patient has been added!");
+            }
+            else if (FormPatientInfo.Function == "Edit")
+            {
+                PatientModel patient = new PatientModel
+                {
+                    PatientID = Convert.ToInt32(lblID.Text),
+                    FirstName = textBox1.Text,
+                    LastName = textBox2.Text,
+                    Age = Convert.ToInt32(textBox3.Text),
+                    Gender = comboBox1.Text,
+                    Diagnosis = textBox8.Text,
+                    RoomNo = Convert.ToInt32(comboBox3.Text),
+                    GuardianName = textBox4.Text,
+                    GuardianNo = textBox5.Text
+
+                };
+                patientController.EditPatient(patient);
+                MessageBox.Show("The patient has been added!");
+            }
             PatientModel patient = new PatientModel{
                 PatientID = Convert.ToInt32(lblID.Text),
                 FirstName = textBox1.Text,

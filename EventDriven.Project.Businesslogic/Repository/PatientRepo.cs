@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text;
 using System.Threading.Tasks;
 using EventDriven.Project.Model;
@@ -49,6 +51,57 @@ namespace EventDriven.Project.Businesslogic.Repository
             return null;
         }
 
+        public PatientModel GetPatientByID(int ID)
+        {
+            try
+            {
+                PatientModel patient;
+                using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("dbo.GetPatientByID", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@PatientID", ID);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                patient = new PatientModel
+                                {
+                                    PatientID = (int)reader["PatientID"],
+                                    FirstName = (string)reader["FirstName"],
+                                    LastName = (string)reader["LastName"],
+                                    Age = (int)reader["Age"],
+                                    Gender = (string)reader["Gender"],
+                                    Diagnosis = (string)reader["Diagnosis"],
+                                    RoomNo = (int)reader["RoomNo"],
+                                    GuardianName = (string)reader["GuardianName"],
+                                    GuardianNo = (string)reader["GuardianNo"],
+                                };
+                                return patient;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return null;
+        }
+
+         public void EditPatient(PatientModel patient)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("dbo.EditPatient", conn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", patient.PatientID);
         public void AddPatient(PatientModel patient) 
         {
             try
@@ -68,6 +121,14 @@ namespace EventDriven.Project.Businesslogic.Repository
                     cmd.Parameters.AddWithValue("@GuardianName", patient.GuardianName);
                     cmd.Parameters.AddWithValue("@GuardianNo", patient.GuardianNo);
                     cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex) 
+            {
+                Debug.WriteLine (ex.Message);
+            }
+        }
+
 
 
                 }

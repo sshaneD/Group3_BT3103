@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EventDriven.Project.Businesslogic.Controller;
+using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
 {
@@ -15,6 +16,7 @@ namespace EventDriven.Project.UI
     {
         PatientController patientController;
         public static String Function;
+        public static int selectedPatientID;
         public FormPatientInfo()
         {
             InitializeComponent();
@@ -37,6 +39,12 @@ namespace EventDriven.Project.UI
 
         private void button8_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow != null)
+            {
+                DataGridViewRow row = dataGridView1.CurrentRow;
+                int selected = Convert.ToInt32(row.Cells["PatientID"].Value);
+                selectedPatientID = selected;
+            }
             Function = "Edit";
             Hide();
             FormAddPatient addPatient = new FormAddPatient();
