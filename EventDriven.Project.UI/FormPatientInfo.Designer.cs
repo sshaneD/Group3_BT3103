@@ -44,6 +44,8 @@
             button7 = new Button();
             button8 = new Button();
             button10 = new Button();
+            button2 = new Button();
+            textBox1 = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -200,7 +202,7 @@
             // button7
             // 
             button7.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button7.Location = new Point(349, 180);
+            button7.Location = new Point(349, 182);
             button7.Name = "button7";
             button7.Size = new Size(163, 51);
             button7.TabIndex = 30;
@@ -211,7 +213,7 @@
             // button8
             // 
             button8.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button8.Location = new Point(531, 180);
+            button8.Location = new Point(531, 182);
             button8.Name = "button8";
             button8.Size = new Size(163, 51);
             button8.TabIndex = 31;
@@ -222,12 +224,31 @@
             // button10
             // 
             button10.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button10.Location = new Point(713, 180);
+            button10.Location = new Point(713, 182);
             button10.Name = "button10";
             button10.Size = new Size(163, 51);
             button10.TabIndex = 33;
             button10.Text = "Delete";
             button10.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(1703, 182);
+            button2.Name = "button2";
+            button2.Size = new Size(163, 51);
+            button2.TabIndex = 34;
+            button2.Text = "Search";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Microsoft JhengHei UI", 16F);
+            textBox1.Location = new Point(1324, 187);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(373, 41);
+            textBox1.TabIndex = 35;
             // 
             // FormPatientInfo
             // 
@@ -235,6 +256,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(textBox1);
+            Controls.Add(button2);
             Controls.Add(button10);
             Controls.Add(button8);
             Controls.Add(button7);
@@ -253,6 +276,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -273,5 +297,7 @@
         private Button button3;
         private Button btnAdmission;
         private Button btnADischarge;
+        private Button button2;
+        private TextBox textBox1;
     }
 }

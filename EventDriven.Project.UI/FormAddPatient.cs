@@ -40,11 +40,13 @@ namespace EventDriven.Project.UI
                 textBox5.Text = patient.GuardianNo;
                 comboBox3.Text = patient.RoomNo.ToString();
                 textBox8.Text = patient.Diagnosis;
+                button7.Text = "Save";
             }
 
             else if (FormPatientInfo.Function == "Add")
 
             {
+                button7.Text = "Add";
                 btnADCancel.Visible = false;
             }
 
@@ -110,7 +112,7 @@ namespace EventDriven.Project.UI
         {
             if (FormPatientInfo.Function == "Add")
             {
-                PatientModel patient = new PatientModel
+                PatientModel addPatient = new PatientModel
                 {
                     PatientID = Convert.ToInt32(lblID.Text),
                     FirstName = textBox1.Text,
@@ -123,12 +125,12 @@ namespace EventDriven.Project.UI
                     GuardianNo = textBox5.Text
 
                 };
-                //patientController.AddPatient(patient);
+                patientController.AddPatient(addPatient);
                 MessageBox.Show("The patient has been added!");
             }
             else if (FormPatientInfo.Function == "Edit")
             {
-                PatientModel patient = new PatientModel
+                PatientModel editPatient = new PatientModel
                 {
                     PatientID = Convert.ToInt32(lblID.Text),
                     FirstName = textBox1.Text,
@@ -141,23 +143,9 @@ namespace EventDriven.Project.UI
                     GuardianNo = textBox5.Text
 
                 };
-                patientController.EditPatient(patient);
-                MessageBox.Show("The patient has been added!");
+                patientController.EditPatient(editPatient);
+                MessageBox.Show("The patient has been edited!");
             }
-            PatientModel patient = new PatientModel{
-                PatientID = Convert.ToInt32(lblID.Text),
-                FirstName = textBox1.Text,
-                LastName = textBox2.Text,
-                Age = Convert.ToInt32 (textBox3.Text),
-                Gender = comboBox1.Text,
-                Diagnosis = textBox8.Text,
-                RoomNo = Convert.ToInt32(comboBox3.Text),
-                GuardianName = textBox4.Text,
-                GuardianNo = textBox5.Text
-
-            };
-            patientController.AddPatient(patient);
-            MessageBox.Show("The patient has been added!");
         }
     }
 }
