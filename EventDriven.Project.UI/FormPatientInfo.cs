@@ -83,5 +83,16 @@ namespace EventDriven.Project.UI
             FormAddPatient formAddPatient = new FormAddPatient();
             formAddPatient.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView1.DataSource=patientController.SearchPatient(textBox1.Text);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
     }
 }
