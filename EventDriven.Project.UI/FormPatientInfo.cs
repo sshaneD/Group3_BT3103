@@ -88,10 +88,27 @@ namespace EventDriven.Project.UI
         {
             try
             {
-                dataGridView1.DataSource=patientController.SearchPatient(textBox1.Text);
+                dataGridView1.DataSource = patientController.SearchPatient(textBox1.Text);
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            int patientID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["PatientID"].Value);
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                patientController.DeletePatient(patientID);
+                MessageBox.Show("Patient Deleted!");
+                dataGridView1.DataSource = patientController.GetAllPatients();
+                textBox1.Clear();
+            }
+            else 
+            {
+                MessageBox.Show("Deletion Canceled");
             }
         }
     }

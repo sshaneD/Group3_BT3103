@@ -184,6 +184,23 @@ namespace EventDriven.Project.Businesslogic.Repository
             }
             return null;
         }
-
+        public void DeletePatient(int PatientID)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("DeletePatient", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
     }
 }
