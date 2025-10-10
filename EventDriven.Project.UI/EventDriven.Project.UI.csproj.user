@@ -16,6 +16,15 @@
     <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UserControlUI\Admission.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControlUI\Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControlUI\PatientInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

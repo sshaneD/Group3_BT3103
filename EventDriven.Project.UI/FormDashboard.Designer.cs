@@ -32,18 +32,20 @@
             label14 = new Label();
             button7 = new Button();
             panel2 = new Panel();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnDischarge = new Button();
+            btnBilling = new Button();
+            btnAdmission = new Button();
+            btnRooms = new Button();
+            btnPatientInfo = new Button();
+            btnDashboard = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            MainPanel = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            MainPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -69,7 +71,8 @@
             // 
             // button7
             // 
-            button7.Location = new Point(1800, 43);
+            button7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button7.Location = new Point(1806, 28);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
             button7.TabIndex = 3;
@@ -80,79 +83,81 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(button6);
-            panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(btnDischarge);
+            panel2.Controls.Add(btnBilling);
+            panel2.Controls.Add(btnAdmission);
+            panel2.Controls.Add(btnRooms);
+            panel2.Controls.Add(btnPatientInfo);
+            panel2.Controls.Add(btnDashboard);
             panel2.Controls.Add(pictureBox1);
             panel2.Location = new Point(-4, 84);
             panel2.Name = "panel2";
             panel2.Size = new Size(291, 1035);
             panel2.TabIndex = 1;
             // 
-            // button6
+            // btnDischarge
             // 
-            button6.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(38, 782);
-            button6.Name = "button6";
-            button6.Size = new Size(206, 46);
-            button6.TabIndex = 7;
-            button6.Text = "Discharge";
-            button6.UseVisualStyleBackColor = true;
+            btnDischarge.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDischarge.Location = new Point(38, 782);
+            btnDischarge.Name = "btnDischarge";
+            btnDischarge.Size = new Size(206, 46);
+            btnDischarge.TabIndex = 7;
+            btnDischarge.Text = "Discharge";
+            btnDischarge.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnBilling
             // 
-            button5.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(38, 697);
-            button5.Name = "button5";
-            button5.Size = new Size(206, 46);
-            button5.TabIndex = 6;
-            button5.Text = "Billing";
-            button5.UseVisualStyleBackColor = true;
+            btnBilling.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBilling.Location = new Point(38, 697);
+            btnBilling.Name = "btnBilling";
+            btnBilling.Size = new Size(206, 46);
+            btnBilling.TabIndex = 6;
+            btnBilling.Text = "Billing";
+            btnBilling.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnAdmission
             // 
-            button4.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(38, 619);
-            button4.Name = "button4";
-            button4.Size = new Size(206, 46);
-            button4.TabIndex = 5;
-            button4.Text = "Admission";
-            button4.UseVisualStyleBackColor = true;
+            btnAdmission.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdmission.Location = new Point(38, 619);
+            btnAdmission.Name = "btnAdmission";
+            btnAdmission.Size = new Size(206, 46);
+            btnAdmission.TabIndex = 5;
+            btnAdmission.Text = "Admission";
+            btnAdmission.UseVisualStyleBackColor = true;
+            btnAdmission.Click += button4_Click;
             // 
-            // button3
+            // btnRooms
             // 
-            button3.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(38, 537);
-            button3.Name = "button3";
-            button3.Size = new Size(206, 46);
-            button3.TabIndex = 4;
-            button3.Text = "Room Search";
-            button3.UseVisualStyleBackColor = true;
+            btnRooms.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRooms.Location = new Point(38, 537);
+            btnRooms.Name = "btnRooms";
+            btnRooms.Size = new Size(206, 46);
+            btnRooms.TabIndex = 4;
+            btnRooms.Text = "Room Search";
+            btnRooms.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnPatientInfo
             // 
-            button2.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(38, 464);
-            button2.Name = "button2";
-            button2.Size = new Size(206, 46);
-            button2.TabIndex = 3;
-            button2.Text = "Patient Information";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnPatientInfo.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPatientInfo.Location = new Point(38, 464);
+            btnPatientInfo.Name = "btnPatientInfo";
+            btnPatientInfo.Size = new Size(206, 46);
+            btnPatientInfo.TabIndex = 3;
+            btnPatientInfo.Text = "Patient Information";
+            btnPatientInfo.UseVisualStyleBackColor = true;
+            btnPatientInfo.Click += button2_Click;
             // 
-            // button1
+            // btnDashboard
             // 
-            button1.BackColor = Color.LightGray;
-            button1.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(38, 392);
-            button1.Name = "button1";
-            button1.Size = new Size(206, 46);
-            button1.TabIndex = 2;
-            button1.Text = "Dashboard";
-            button1.UseVisualStyleBackColor = false;
+            btnDashboard.BackColor = Color.LightGray;
+            btnDashboard.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDashboard.Location = new Point(38, 392);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Size = new Size(206, 46);
+            btnDashboard.TabIndex = 2;
+            btnDashboard.Text = "Dashboard";
+            btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += button1_Click;
             // 
             // pictureBox1
             // 
@@ -167,12 +172,20 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Modern_Minimalist_Black_and_White_Report_Presentation__19_;
-            pictureBox2.Location = new Point(319, 157);
+            pictureBox2.Location = new Point(33, 66);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(1547, 863);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
+            // 
+            // MainPanel
+            // 
+            MainPanel.Controls.Add(pictureBox2);
+            MainPanel.Location = new Point(283, 84);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Size = new Size(1637, 998);
+            MainPanel.TabIndex = 3;
             // 
             // FormDashboard
             // 
@@ -180,9 +193,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(217, 217, 217);
             ClientSize = new Size(1920, 1080);
-            Controls.Add(pictureBox2);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(MainPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormDashboard";
             StartPosition = FormStartPosition.CenterScreen;
@@ -193,6 +206,7 @@
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            MainPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -200,15 +214,16 @@
 
         private Panel panel1;
         private Panel panel2;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button btnDischarge;
+        private Button btnBilling;
+        private Button btnAdmission;
+        private Button btnRooms;
+        private Button btnPatientInfo;
+        private Button btnDashboard;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private Button button7;
         private Label label14;
+        private PictureBox pictureBox2;
+        private Panel MainPanel;
     }
 }

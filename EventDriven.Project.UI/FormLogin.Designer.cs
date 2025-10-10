@@ -72,7 +72,6 @@ namespace EventDriven.Project.UI
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(442, 53);
             txtPassword.TabIndex = 5;
-            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // lblPassword
             // 
@@ -157,14 +156,6 @@ namespace EventDriven.Project.UI
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-        }
-
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
         }
 
         #endregion
