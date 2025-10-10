@@ -73,19 +73,3 @@ insert into [dbo].[Patient] (FirstName, LastName, Age, Gender, Diagnosis, RoomNo
 ('Oliver','Jimenez',12,'Male','Dehydration',149,'Sonia Jimenez','09759013459'),
 ('Aurora','Torres',11,'Female','Pneumonia',150,'Juan Torres','09860124560');
 
-
--- Insert records into Account table
-INSERT INTO [dbo].[Account] (ClientId, Balance, ModifiedDate)
-VALUES 
-(1, 1000.00, GETDATE()),
-(2, 2500.50, GETDATE()),
-(3, 500.75, GETDATE()),
-(4, 3000.00, GETDATE()),
-(5, 750.25, GETDATE()),
-(6, 1200.00, GETDATE()),
-(7, 2000.00, GETDATE()),
-(8, 1800.75, GETDATE()),
-(9, 150.00, GETDATE()),
-(10, 5000.00, GETDATE());
-
-

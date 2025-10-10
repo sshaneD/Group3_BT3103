@@ -7,7 +7,7 @@ namespace EventDriven.Project.UI
 {
     public partial class FormLogin : Form
     {
-
+        public static string Logout = "No";
         private UserController userController;
         private int loginAttempts = 3;
         public static String Role;
@@ -88,6 +88,12 @@ namespace EventDriven.Project.UI
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            if (Logout == "Yes") MessageBox.Show("You have logged out successfully.");
+            Logout = "No";
         }
     }
 }

@@ -75,6 +75,7 @@ namespace EventDriven.Project.UI
             Hide();
             FormPatientInfo formPatientInfo = new FormPatientInfo();
             formPatientInfo.ShowDialog();
+
         }
 
         private void btnAdmission_Click(object sender, EventArgs e)
