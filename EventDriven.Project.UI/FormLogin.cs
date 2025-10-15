@@ -43,29 +43,15 @@ namespace EventDriven.Project.UI
                     else
                     {
                         MessageBox.Show("Invalid Credentials. You have " + loginAttempts + " more attempts.");
+                        txtUsername.Clear();
+                        txtPassword.Clear();
                     }
                 }
-                else if (matchUser != null)
+                else
                 {
-                    Role = matchUser.Role;
-                    if (matchUser.Role == "admin")
-                    {
-                        this.Hide();
-                        FormDashboard formDashboard = new FormDashboard();
-                        formDashboard.ShowDialog();
-                    }
-                    else if (matchUser.Role == "cashier")
-                    {
-                        this.Hide();
-                        FormDashboardCashier formDashboardCashier = new FormDashboardCashier();
-                        formDashboardCashier.ShowDialog();
-                    }
-                    else if (matchUser.Role == "receptionist")
-                    {
-                        this.Hide();
-                        FormDashboardFront formDashboardFront = new FormDashboardFront();
-                        formDashboardFront.ShowDialog();
-                    }
+                    Hide();
+                    FormMain form = new FormMain();
+                    form.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -94,6 +80,14 @@ namespace EventDriven.Project.UI
         {
             if (Logout == "Yes") MessageBox.Show("You have logged out successfully.");
             Logout = "No";
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
         }
     }
 }
