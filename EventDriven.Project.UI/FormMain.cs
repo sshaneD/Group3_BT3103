@@ -1,34 +1,78 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using EventDriven.Project.UI.UserControlUI;
 
 namespace EventDriven.Project.UI
 {
     public partial class FormMain : Form
     {
+        public static string AdmissionAction;
+        public static int selectedPatientID = 0;
         public FormMain()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
+            AdmissionAction = "Add";
+            ShowControl(new Dashboard());
+
         }
 
-        private void manageToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-            FormClient child = new FormClient(); 
-            child.MdiParent = this;
-            child.WindowState = FormWindowState.Maximized;
-            child.Show();
+            FormLogin.Logout = "Yes";
+            this.Hide();
+            FormLogin formLogin = new FormLogin();
+            formLogin.ShowDialog();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            ShowControl(new PatientInformation());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowControl(new Dashboard());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormMain.AdmissionAction = "Add";
+            ShowControl(new Admission());
+        }
+
+        private void ShowControl (UserControl userControl)
+        {
+            btnDashboard.BackColor = Color.Transparent;
+            btnPatientInfo.BackColor = Color.Transparent;
+            btnAdmission.BackColor = Color.Transparent;
+            btnRooms.BackColor = Color.Transparent;
+            btnBilling.BackColor = Color.Transparent;
+            btnDischarge.BackColor = Color.Transparent;
+
+            if (userControl is PatientInformation patientInfo)
+            {
+                btnPatientInfo.BackColor = Color.LightGray;
+                patientInfo.GoToAdmissionAdd += (s, e) => ShowControl(new Admission());
+                patientInfo.GoToAdmissionEdit += (s, e) => ShowControl(new Admission());
+            }
+            else if (userControl is Admission admission)
+            {
+                if (AdmissionAction == "Add")
+                {
+                    btnAdmission.BackColor = Color.LightGray;
+                }
+                else if (AdmissionAction == "Edit")
+                {
+                    btnPatientInfo.BackColor = Color.LightGray;
+                }
+                admission.GoToPatientInfo += (s, e) => ShowControl(new PatientInformation());
+
+            }
+            else if (userControl is Dashboard dashboard)
+            {
+                btnDashboard.BackColor = Color.LightGray;
+            }
+
+                MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(userControl);
         }
     }
 }

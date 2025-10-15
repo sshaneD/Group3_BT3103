@@ -27,7 +27,7 @@ namespace EventDriven.Project.UI.UserControlUI
 
         private void button7_Click(object sender, EventArgs e)
         {
-            FormDashboard.AdmissionAction = "Add";
+            FormMain.AdmissionAction = "Add";
             GoToAdmissionAdd?.Invoke(this, EventArgs.Empty);
         }
 
@@ -36,9 +36,9 @@ namespace EventDriven.Project.UI.UserControlUI
             if (DGPatientRecord.CurrentRow != null)
             {
                 int selected = Convert.ToInt32(DGPatientRecord.CurrentRow.Cells["PatientID"].Value);
-                FormDashboard.selectedPatientID = selected;
+                FormMain.selectedPatientID = selected;
             }
-            FormDashboard.AdmissionAction = "Edit";
+            FormMain.AdmissionAction = "Edit";
             GoToAdmissionEdit?.Invoke(this, EventArgs.Empty);
         }
 
@@ -52,7 +52,7 @@ namespace EventDriven.Project.UI.UserControlUI
                     int selected = Convert.ToInt32(row.Cells["PatientID"].Value);
                     selectedPatients.Add(selected);
                 }
-                var confirmResult = MessageBox.Show("Are you sure to delete the selected patient(s)?",
+                DialogResult confirmResult = MessageBox.Show("Are you sure to delete the selected patient(s)?",
                                      "Confirm Delete!!",
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
@@ -61,9 +61,35 @@ namespace EventDriven.Project.UI.UserControlUI
                     {
                         patientController.DeletePatient(selectedPatients[i]);
                     }
-                        MessageBox.Show("Patient(s) deleted successfully.");
-                        DGPatientRecord.DataSource = patientController.GetAllPatients();
+                    MessageBox.Show("Patient(s) deleted successfully.");
+                    DGPatientRecord.DataSource = patientController.GetAllPatients();
                 }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == String.Empty)
+            {
+                MessageBox.Show("Please input a name");
+                DGPatientRecord.DataSource = patientController.GetAllPatients();
+            }
+            List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text);
+            try
+            {
+                DGPatientRecord.DataSource = patients;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Search: " + ex.Message);
+            }
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch.PerformClick();
             }
         }
     }

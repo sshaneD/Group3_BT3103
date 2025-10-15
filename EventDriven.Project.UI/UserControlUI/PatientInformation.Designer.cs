@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            button2 = new Button();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
             btnDelete = new Button();
             button8 = new Button();
             button7 = new Button();
@@ -40,29 +40,30 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Font = new Font("Microsoft JhengHei UI", 16F);
-            textBox1.Location = new Point(1024, 20);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(373, 35);
-            textBox1.TabIndex = 41;
+            txtSearch.Font = new Font("Microsoft JhengHei UI", 12F);
+            txtSearch.Location = new Point(1026, 17);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(373, 33);
+            txtSearch.TabIndex = 41;
+            txtSearch.KeyPress += txtSearch_KeyPress;
             // 
-            // button2
+            // btnSearch
             // 
-            button2.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(1403, 20);
-            button2.Name = "button2";
-            button2.Size = new Size(121, 35);
-            button2.TabIndex = 40;
-            button2.Text = "Search";
-            button2.UseVisualStyleBackColor = true;
+            btnSearch.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.Location = new Point(1405, 16);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(121, 35);
+            btnSearch.TabIndex = 40;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnDelete
             // 
             btnDelete.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(370, 118);
+            btnDelete.Location = new Point(327, 15);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(121, 35);
             btnDelete.TabIndex = 39;
@@ -73,7 +74,7 @@
             // button8
             // 
             button8.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button8.Location = new Point(216, 118);
+            button8.Location = new Point(176, 15);
             button8.Name = "button8";
             button8.Size = new Size(121, 35);
             button8.TabIndex = 38;
@@ -84,7 +85,7 @@
             // button7
             // 
             button7.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button7.Location = new Point(67, 117);
+            button7.Location = new Point(25, 14);
             button7.Name = "button7";
             button7.Size = new Size(121, 35);
             button7.TabIndex = 37;
@@ -108,8 +109,11 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(11, 143, 172);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(btnSearch);
+            panel1.Controls.Add(btnDelete);
+            panel1.Controls.Add(button8);
+            panel1.Controls.Add(txtSearch);
+            panel1.Controls.Add(button7);
             panel1.Location = new Point(49, 97);
             panel1.Name = "panel1";
             panel1.Size = new Size(1539, 65);
@@ -130,9 +134,6 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
-            Controls.Add(btnDelete);
-            Controls.Add(button8);
-            Controls.Add(button7);
             Controls.Add(DGPatientRecord);
             Controls.Add(panel1);
             Name = "PatientInformation";
@@ -146,8 +147,8 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private Button button2;
+        private TextBox txtSearch;
+        private Button btnSearch;
         private Button btnDelete;
         private Button button8;
         private Button button7;

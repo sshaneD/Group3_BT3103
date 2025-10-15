@@ -4,16 +4,10 @@
     <_LastSelectedProfileId>C:\Users\USER\OneDrive\Documents\STI\SY2025-2026\1stSem\Event-Driven\EventDriven.Project.App\EventDriven.Project.App\EventDriven.Project.App\EventDriven.Project.UI\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="FormDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FormClient.cs">
+    <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserControlUI\Admission.cs">

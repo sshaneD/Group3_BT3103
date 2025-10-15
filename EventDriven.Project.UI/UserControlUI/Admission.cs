@@ -25,13 +25,13 @@ namespace EventDriven.Project.UI.UserControlUI
 
         private void CheckAction()
         {
-            if (FormDashboard.AdmissionAction == "Add")
+            if (FormMain.AdmissionAction == "Add")
             {
                 btnSubmit.Text = "Admit";
                 btnCancel.Visible = false;
                 lblTitle.Text = "Admission Form";
             }
-            else if (FormDashboard.AdmissionAction == "Edit")
+            else if (FormMain.AdmissionAction == "Edit")
             {
                 LoadData();
                 btnSubmit.Text = "Save";
@@ -42,7 +42,7 @@ namespace EventDriven.Project.UI.UserControlUI
 
         private void LoadData()
         {
-            PatientModel patient = patientController.GetPatientById(FormDashboard.selectedPatientID);
+            PatientModel patient = patientController.GetPatientById(FormMain.selectedPatientID);
             lblID.Text = patient.PatientID.ToString();
             txtFN.Text = patient.FirstName;
             txtLN.Text = patient.LastName;
@@ -67,7 +67,7 @@ namespace EventDriven.Project.UI.UserControlUI
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (FormDashboard.AdmissionAction == "Add")
+            if (FormMain.AdmissionAction == "Add")
             {
                 PatientModel newPatient = new PatientModel
                 {
@@ -83,11 +83,11 @@ namespace EventDriven.Project.UI.UserControlUI
                 patientController.AddPatient(newPatient);
                 MessageBox.Show("Patient admitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (FormDashboard.AdmissionAction == "Edit")
+            else if (FormMain.AdmissionAction == "Edit")
             {
                 PatientModel updatedPatient = new PatientModel
                 {
-                    PatientID = FormDashboard.selectedPatientID,
+                    PatientID = FormMain.selectedPatientID,
                     FirstName = txtFN.Text,
                     LastName = txtLN.Text,
                     Age = int.Parse(txtAge.Text),

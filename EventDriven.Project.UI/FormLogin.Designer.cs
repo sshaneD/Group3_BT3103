@@ -43,7 +43,7 @@ namespace EventDriven.Project.UI
             // 
             // txtUsername
             // 
-            txtUsername.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.Font = new Font("Segoe UI", 13.2F);
             txtUsername.Location = new Point(123, 422);
             txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Multiline = true;
@@ -65,13 +65,14 @@ namespace EventDriven.Project.UI
             // 
             // txtPassword
             // 
-            txtPassword.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPassword.Font = new Font("Segoe UI", 13.2F);
             txtPassword.Location = new Point(123, 563);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(442, 53);
+            txtPassword.Size = new Size(442, 52);
             txtPassword.TabIndex = 5;
+            txtPassword.KeyPress += txtPassword_KeyPress;
             // 
             // lblPassword
             // 
@@ -87,8 +88,8 @@ namespace EventDriven.Project.UI
             // btnCancel
             // 
             btnCancel.BackColor = Color.FromArgb(123, 183, 193);
-            btnCancel.Font = new Font("Palatino Linotype", 13.8F);
-            btnCancel.Location = new Point(355, 676);
+            btnCancel.Font = new Font("Palatino Linotype", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancel.Location = new Point(358, 674);
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(158, 49);
@@ -100,8 +101,8 @@ namespace EventDriven.Project.UI
             // btnLogin
             // 
             btnLogin.BackColor = Color.FromArgb(123, 183, 193);
-            btnLogin.Font = new Font("Palatino Linotype", 13.8F);
-            btnLogin.Location = new Point(137, 676);
+            btnLogin.Font = new Font("Palatino Linotype", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.Location = new Point(158, 674);
             btnLogin.Margin = new Padding(3, 4, 3, 4);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(158, 49);
