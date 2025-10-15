@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[EditPatient]
+﻿	CREATE PROCEDURE [dbo].[EditPatient]
 	
 	@PatientID int,
 	@FirstName Varchar(50),

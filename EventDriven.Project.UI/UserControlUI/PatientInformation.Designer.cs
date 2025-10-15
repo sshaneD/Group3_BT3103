@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             txtSearch = new TextBox();
             btnSearch = new Button();
             btnDelete = new Button();
@@ -45,6 +46,7 @@
             txtSearch.Font = new Font("Microsoft JhengHei UI", 12F);
             txtSearch.Location = new Point(1026, 17);
             txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Search for Patient ID or Name";
             txtSearch.Size = new Size(373, 33);
             txtSearch.TabIndex = 41;
             txtSearch.KeyPress += txtSearch_KeyPress;
@@ -97,7 +99,16 @@
             // 
             DGPatientRecord.AllowUserToResizeRows = false;
             DGPatientRecord.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            DGPatientRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DGPatientRecord.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGPatientRecord.EnableHeadersVisualStyles = false;
             DGPatientRecord.Location = new Point(49, 168);
             DGPatientRecord.Name = "DGPatientRecord";
             DGPatientRecord.RowHeadersVisible = false;

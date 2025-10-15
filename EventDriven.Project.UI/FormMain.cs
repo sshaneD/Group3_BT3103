@@ -11,7 +11,24 @@ namespace EventDriven.Project.UI
             InitializeComponent();
             AdmissionAction = "Add";
             ShowControl(new Dashboard());
+            CheckLoggedUser();
+        }
 
+        private void CheckLoggedUser()
+        {
+            switch (FormLogin.Role)
+            {
+                case "admin":
+                    break;
+                case "receptionist":
+                    btnBilling.Visible = false;
+                    break;
+                case "cashier":
+                    btnAdmission.Visible = false;
+                    btnRooms.Visible = false;
+                    btnDischarge.Visible = false;
+                    break;
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)

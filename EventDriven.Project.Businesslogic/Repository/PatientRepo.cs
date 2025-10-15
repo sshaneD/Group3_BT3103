@@ -13,7 +13,7 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     internal class PatientRepo
     {
-        private string CONNECTIONSTRING = "Data Source=KOUTAIBA;Initial Catalog=master;Integrated Security=True;TrustServerCertificate=True";
+        private string CONNECTIONSTRING = "Data Source=KOUTAIBA;Initial Catalog=STEF;Integrated Security=True;TrustServerCertificate=True";
 
         public List <PatientModel> GetAllPatient()
         {
@@ -154,7 +154,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand("dbo.SearchPatient", conn))
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@SearchTerm", SearchTerm);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {

@@ -154,8 +154,9 @@
             // 
             // cbRoomNo
             // 
+            cbRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRoomNo.FormattingEnabled = true;
-            cbRoomNo.Items.AddRange(new object[] { "Female", "Male" });
+            cbRoomNo.Items.AddRange(new object[] { "101", "102", "103", "201", "202", "203", "301", "302" });
             cbRoomNo.Location = new Point(992, 146);
             cbRoomNo.Name = "cbRoomNo";
             cbRoomNo.Size = new Size(177, 28);
@@ -246,6 +247,7 @@
             // 
             // cbRoom
             // 
+            cbRoom.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRoom.FormattingEnabled = true;
             cbRoom.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Nursery Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
             cbRoom.Location = new Point(707, 146);
@@ -347,6 +349,7 @@
             // 
             // cbGender
             // 
+            cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGender.FormattingEnabled = true;
             cbGender.Items.AddRange(new object[] { "Female", "Male" });
             cbGender.Location = new Point(194, 489);

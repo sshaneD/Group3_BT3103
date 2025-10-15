@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EventDriven.Project.UI.UserControlUI
 {
@@ -52,7 +53,7 @@ namespace EventDriven.Project.UI.UserControlUI
                     int selected = Convert.ToInt32(row.Cells["PatientID"].Value);
                     selectedPatients.Add(selected);
                 }
-                DialogResult confirmResult = MessageBox.Show("Are you sure to delete the selected patient(s)?",
+                DialogResult confirmResult = MessageBox.Show("Are you sure you want to delete the selected patient(s)?",
                                      "Confirm Delete!!",
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
@@ -74,9 +75,13 @@ namespace EventDriven.Project.UI.UserControlUI
                 MessageBox.Show("Please input a name");
                 DGPatientRecord.DataSource = patientController.GetAllPatients();
             }
-            List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text);
             try
             {
+                List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text);
+                if (patients == null)
+                {
+                    MessageBox.Show("Patient not found!");
+                }
                 DGPatientRecord.DataSource = patients;
             }
             catch (Exception ex)
@@ -94,3 +99,4 @@ namespace EventDriven.Project.UI.UserControlUI
         }
     }
 }
+
