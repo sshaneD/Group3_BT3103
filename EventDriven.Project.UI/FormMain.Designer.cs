@@ -34,7 +34,7 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            btnDashboard = new Button();
+            btnHome = new Button();
             btnPatientInfo = new Button();
             btnAdmission = new Button();
             btnRooms = new Button();
@@ -104,7 +104,7 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(btnDashboard);
+            flowLayoutPanel1.Controls.Add(btnHome);
             flowLayoutPanel1.Controls.Add(btnPatientInfo);
             flowLayoutPanel1.Controls.Add(btnAdmission);
             flowLayoutPanel1.Controls.Add(btnRooms);
@@ -116,19 +116,19 @@
             flowLayoutPanel1.Size = new Size(288, 680);
             flowLayoutPanel1.TabIndex = 8;
             // 
-            // btnDashboard
+            // btnHome
             // 
-            btnDashboard.BackColor = Color.LightGray;
-            btnDashboard.FlatAppearance.BorderSize = 0;
-            btnDashboard.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDashboard.Location = new Point(20, 30);
-            btnDashboard.Margin = new Padding(20, 30, 3, 3);
-            btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(248, 61);
-            btnDashboard.TabIndex = 2;
-            btnDashboard.Text = "Dashboard";
-            btnDashboard.UseVisualStyleBackColor = false;
-            btnDashboard.Click += button1_Click;
+            btnHome.BackColor = Color.LightGray;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHome.Location = new Point(20, 30);
+            btnHome.Margin = new Padding(20, 30, 3, 3);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(248, 61);
+            btnHome.TabIndex = 2;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += button1_Click;
             // 
             // btnPatientInfo
             // 
@@ -164,6 +164,7 @@
             btnRooms.TabIndex = 4;
             btnRooms.Text = "Rooms";
             btnRooms.UseVisualStyleBackColor = true;
+            btnRooms.Click += btnRooms_Click;
             // 
             // btnBilling
             // 
@@ -238,7 +239,7 @@
         private Button btnAdmission;
         private Button btnRooms;
         private Button btnPatientInfo;
-        private Button btnDashboard;
+        private Button btnHome;
         private PictureBox pictureBox1;
         private Button button7;
         private Label label14;

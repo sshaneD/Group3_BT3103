@@ -72,23 +72,31 @@ namespace EventDriven.Project.UI.UserControlUI
         {
             if (txtSearch.Text == String.Empty)
             {
-                MessageBox.Show("Please input a name");
+                MessageBox.Show("Please input a Name or Patient ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DGPatientRecord.DataSource = patientController.GetAllPatients();
             }
             try
             {
                 List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text);
-                if (patients == null)
+                if (patients == null || patients.Count == 0)
                 {
-                    MessageBox.Show("Patient not found!");
+                    MessageBox.Show("Patient not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DGPatientRecord.DataSource = patientController.GetAllPatients();
+                    txtSearch.Text = String.Empty;
+                    return;
                 }
                 DGPatientRecord.DataSource = patients;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Search: " + ex.Message);
+
             }
+
         }
+
+
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -96,6 +104,11 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 btnSearch.PerformClick();
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

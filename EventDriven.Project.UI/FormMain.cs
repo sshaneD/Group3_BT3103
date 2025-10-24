@@ -1,4 +1,5 @@
-﻿using EventDriven.Project.UI.UserControlUI;
+﻿using System.Diagnostics.Eventing.Reader;
+using EventDriven.Project.UI.UserControlUI;
 
 namespace EventDriven.Project.UI
 {
@@ -55,9 +56,9 @@ namespace EventDriven.Project.UI
             ShowControl(new Admission());
         }
 
-        private void ShowControl (UserControl userControl)
+        private void ShowControl(UserControl userControl)
         {
-            btnDashboard.BackColor = Color.Transparent;
+            btnHome.BackColor = Color.Transparent;
             btnPatientInfo.BackColor = Color.Transparent;
             btnAdmission.BackColor = Color.Transparent;
             btnRooms.BackColor = Color.Transparent;
@@ -72,6 +73,7 @@ namespace EventDriven.Project.UI
             }
             else if (userControl is Admission admission)
             {
+
                 if (AdmissionAction == "Add")
                 {
                     btnAdmission.BackColor = Color.LightGray;
@@ -81,15 +83,27 @@ namespace EventDriven.Project.UI
                     btnPatientInfo.BackColor = Color.LightGray;
                 }
                 admission.GoToPatientInfo += (s, e) => ShowControl(new PatientInformation());
-
+              
             }
+
+            else if (userControl is RoomManagement roomManagement)
+            {
+                btnRooms.BackColor = Color.LightGray;
+                roomManagement.GoToRooms += (s, e) => ShowControl(new Rooms());
+            }
+
             else if (userControl is Dashboard dashboard)
             {
-                btnDashboard.BackColor = Color.LightGray;
+                btnHome.BackColor = Color.LightGray;
             }
 
-                MainPanel.Controls.Clear();
+            MainPanel.Controls.Clear();
             MainPanel.Controls.Add(userControl);
+        }
+
+        private void btnRooms_Click(object sender, EventArgs e)
+        {
+            ShowControl(new RoomManagement());
         }
     }
 }

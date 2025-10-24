@@ -36,6 +36,7 @@ namespace EventDriven.Project.UI
             btnCancel = new Button();
             btnLogin = new Button();
             panel1 = new Panel();
+            checkBox1 = new CheckBox();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -68,7 +69,6 @@ namespace EventDriven.Project.UI
             txtPassword.Location = new Point(123, 563);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(442, 37);
             txtPassword.TabIndex = 5;
             txtPassword.UseSystemPasswordChar = true;
@@ -114,10 +114,11 @@ namespace EventDriven.Project.UI
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(11, 143, 172);
+            panel1.Controls.Add(btnLogin);
+            panel1.Controls.Add(txtPassword);
+            panel1.Controls.Add(checkBox1);
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(btnCancel);
-            panel1.Controls.Add(txtPassword);
-            panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(lblFname);
             panel1.Controls.Add(lblPassword);
             panel1.Dock = DockStyle.Left;
@@ -127,6 +128,19 @@ namespace EventDriven.Project.UI
             panel1.Size = new Size(737, 1080);
             panel1.TabIndex = 17;
             panel1.Paint += panel1_Paint;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Cambria Math", 10F);
+            checkBox1.ForeColor = SystemColors.ButtonHighlight;
+            checkBox1.Location = new Point(123, 591);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(175, 99);
+            checkBox1.TabIndex = 19;
+            checkBox1.Text = "Show Password";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // pictureBox1
             // 
@@ -171,5 +185,6 @@ namespace EventDriven.Project.UI
         private Button btnLogin;
         private Panel panel1;
         private PictureBox pictureBox1;
+        private CheckBox checkBox1;
     }
 }

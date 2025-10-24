@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EventDriven.Project.UI.UserControlUI
 {
     public partial class Admission : UserControl
     {
         public event EventHandler GoToPatientInfo;
+        public event EventHandler GoToTreatment;
         private PatientController patientController;
         public Admission()
         {
@@ -51,7 +53,6 @@ namespace EventDriven.Project.UI.UserControlUI
             txtGN.Text = patient.GuardianName;
             txtGCN.Text = patient.GuardianNo;
             cbRoomNo.Text = patient.RoomNo.ToString();
-            txtDiagnosis.Text = patient.Diagnosis;
         }
 
         private void btnADCancel_Click(object sender, EventArgs e)
@@ -78,10 +79,17 @@ namespace EventDriven.Project.UI.UserControlUI
                     GuardianName = txtGN.Text,
                     GuardianNo = txtGCN.Text,
                     RoomNo = int.Parse(cbRoomNo.Text),
-                    Diagnosis = txtDiagnosis.Text
                 };
                 patientController.AddPatient(newPatient);
                 MessageBox.Show("Patient admitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtFN.Clear();
+                txtLN.Clear();
+                txtAge.Clear();
+                cbGender.SelectedIndex = -1;
+                txtGN.Clear();
+                txtGCN.Clear();
+                cbRoomNo.SelectedIndex = -1;
             }
             else if (FormMain.AdmissionAction == "Edit")
             {
@@ -95,12 +103,38 @@ namespace EventDriven.Project.UI.UserControlUI
                     GuardianName = txtGN.Text,
                     GuardianNo = txtGCN.Text,
                     RoomNo = int.Parse(cbRoomNo.Text),
-                    Diagnosis = txtDiagnosis.Text
                 };
                 patientController.EditPatient(updatedPatient);
                 MessageBox.Show("Patient information updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GoToPatientInfo?.Invoke(this, EventArgs.Empty);
+
+                txtFN.Clear();
+                txtLN.Clear();
+                txtAge.Clear();
+                cbGender.SelectedIndex = -1;
+                txtGN.Clear();
+                txtGCN.Clear();
+                cbRoomNo.SelectedIndex = -1;
             }
+        }
+
+        private void txtDoctor_TextChanged(object sender, EventArgs e)
+        {
+            FormStaffAssignment doctorStaff = new FormStaffAssignment();
+            doctorStaff.ShowDialog();
+        }
+
+        private void txtNurses_TextChanged(object sender, EventArgs e)
+        {
+            FormStaffAssignment nurseStaff = new FormStaffAssignment();
+            nurseStaff.ShowDialog();
+
+        }
+
+        private void btnViewDN_Click(object sender, EventArgs e)
+        {
+            FormAddMedicalRecord med = new FormAddMedicalRecord();
+            med.ShowDialog();
         }
     }
 }

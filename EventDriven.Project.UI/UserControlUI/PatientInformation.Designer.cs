@@ -32,10 +32,11 @@
             txtSearch = new TextBox();
             btnSearch = new Button();
             btnDelete = new Button();
-            button8 = new Button();
-            button7 = new Button();
+            btnEdit = new Button();
+            btnAdd = new Button();
             DGPatientRecord = new DataGridView();
             panel1 = new Panel();
+            btnMedRecord = new Button();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)DGPatientRecord).BeginInit();
             panel1.SuspendLayout();
@@ -49,6 +50,7 @@
             txtSearch.PlaceholderText = "Search for Patient ID or Name";
             txtSearch.Size = new Size(373, 33);
             txtSearch.TabIndex = 41;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             txtSearch.KeyPress += txtSearch_KeyPress;
             // 
             // btnSearch
@@ -65,7 +67,7 @@
             // btnDelete
             // 
             btnDelete.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(327, 15);
+            btnDelete.Location = new Point(323, 15);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(121, 35);
             btnDelete.TabIndex = 39;
@@ -73,27 +75,27 @@
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
-            // button8
+            // btnEdit
             // 
-            button8.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button8.Location = new Point(176, 15);
-            button8.Name = "button8";
-            button8.Size = new Size(121, 35);
-            button8.TabIndex = 38;
-            button8.Text = "Edit";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
+            btnEdit.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEdit.Location = new Point(174, 15);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(121, 35);
+            btnEdit.TabIndex = 38;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += button8_Click;
             // 
-            // button7
+            // btnAdd
             // 
-            button7.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button7.Location = new Point(25, 14);
-            button7.Name = "button7";
-            button7.Size = new Size(121, 35);
-            button7.TabIndex = 37;
-            button7.Text = "Add ";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            btnAdd.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.Location = new Point(25, 14);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(121, 35);
+            btnAdd.TabIndex = 37;
+            btnAdd.Text = "Add ";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += button7_Click;
             // 
             // DGPatientRecord
             // 
@@ -120,15 +122,26 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(11, 143, 172);
+            panel1.Controls.Add(btnMedRecord);
             panel1.Controls.Add(btnSearch);
             panel1.Controls.Add(btnDelete);
-            panel1.Controls.Add(button8);
+            panel1.Controls.Add(btnEdit);
             panel1.Controls.Add(txtSearch);
-            panel1.Controls.Add(button7);
+            panel1.Controls.Add(btnAdd);
             panel1.Location = new Point(49, 97);
             panel1.Name = "panel1";
             panel1.Size = new Size(1539, 65);
             panel1.TabIndex = 42;
+            // 
+            // btnMedRecord
+            // 
+            btnMedRecord.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMedRecord.Location = new Point(472, 15);
+            btnMedRecord.Name = "btnMedRecord";
+            btnMedRecord.Size = new Size(185, 35);
+            btnMedRecord.TabIndex = 42;
+            btnMedRecord.Text = "Medical Record";
+            btnMedRecord.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -161,10 +174,11 @@
         private TextBox txtSearch;
         private Button btnSearch;
         private Button btnDelete;
-        private Button button8;
-        private Button button7;
+        private Button btnEdit;
+        private Button btnAdd;
         private DataGridView DGPatientRecord;
         private Panel panel1;
         private Label label1;
+        private Button btnMedRecord;
     }
 }

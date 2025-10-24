@@ -28,15 +28,15 @@ namespace EventDriven.Project.Businesslogic.Repository
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             while (reader.Read()) {
                                 patients.Add(new PatientModel {
-                                    PatientID = (int)reader["PatientID"],
-                                    FirstName = (string)reader["FirstName"],
-                                    LastName = (string)reader["LastName"],
+                                    PatientID = (int)reader["Patient ID"],
+                                    FirstName = (string)reader["First Name"],
+                                    LastName = (string)reader["Last Name"],
                                     Age = (int)reader["Age"],
                                     Gender = (string)reader["Gender"],
                                     Diagnosis = (string)reader["Diagnosis"],
-                                    RoomNo = (int)reader["RoomNo"],
-                                    GuardianName = (string)reader["GuardianName"],
-                                    GuardianNo = (string)reader["GuardianNo"],
+                                    RoomNo = (int)reader["Room Number"],
+                                    GuardianName = (string)reader["Guardian Name"],
+                                    GuardianNo = (string)reader["Guardian Number"],
                                 });
                             }
                             return patients;
@@ -162,15 +162,15 @@ namespace EventDriven.Project.Businesslogic.Repository
                             {
                                 patients.Add(new PatientModel
                                 {
-                                    PatientID = (int)reader["PatientID"],
-                                    FirstName = (string)reader["FirstName"],
-                                    LastName = (string)reader["LastName"],
+                                    PatientID = (int)reader["Patient ID"],
+                                    FirstName = (string)reader["First Name"],
+                                    LastName = (string)reader["Last Name"],
                                     Age = (int)reader["Age"],
                                     Gender = (string)reader["Gender"],
                                     Diagnosis = (string)reader["Diagnosis"],
-                                    RoomNo = (int)reader["RoomNo"],
-                                    GuardianName = (string)reader["GuardianName"],
-                                    GuardianNo = (string)reader["GuardianNo"],
+                                    RoomNo = (int)reader["Room Number"],
+                                    GuardianName = (string)reader["Guardian Name"],
+                                    GuardianNo = (string)reader["Guardian Number"],
                                 });
                             }
                             return patients;

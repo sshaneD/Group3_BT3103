@@ -95,5 +95,17 @@ namespace EventDriven.Project.UI
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+          if (checkBox1.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+          else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
     }
 }
