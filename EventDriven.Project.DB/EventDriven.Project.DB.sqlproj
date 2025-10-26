@@ -76,6 +76,8 @@
     <Build Include="dbo\StoredProcedure\DeletePatient.sql" />
     <Build Include="dbo\Tables\Rooms.sql" />
     <Build Include="dbo\Tables\RoomAssignments.sql" />
+    <Build Include="dbo\Tables\Staff.sql" />
+    <Build Include="dbo\Tables\StaffAssignment.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />
