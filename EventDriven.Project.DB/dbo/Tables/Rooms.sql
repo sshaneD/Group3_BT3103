@@ -1,4 +1,0 @@
-﻿CREATE TABLE [dbo].[Rooms]
-(
-	[Id] INT NOT NULL PRIMARY KEY
-)

@@ -74,13 +74,8 @@
     <Build Include="dbo\StoredProcedure\addpatient.sql" />
     <Build Include="dbo\StoredProcedure\SearchPatient.sql" />
     <Build Include="dbo\StoredProcedure\DeletePatient.sql" />
-    <Build Include="dbo\Tables\Rooms.sql" />
-    <Build Include="dbo\Tables\RoomAssignments.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="EventDriven.Project.DB.refactorlog" />
   </ItemGroup>
 </Project>
