@@ -49,6 +49,7 @@ namespace EventDriven.Project.UI
                 }
                 else
                 {
+                    Role = matchUser.Role;
                     Hide();
                     FormMain form = new FormMain();
                     form.ShowDialog();
@@ -87,6 +88,23 @@ namespace EventDriven.Project.UI
             if (e.KeyChar == (char)Keys.Enter)
             {
                 btnLogin.PerformClick();
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+          if (checkBox1.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+          else
+            {
+                txtPassword.UseSystemPasswordChar = true;
             }
         }
     }

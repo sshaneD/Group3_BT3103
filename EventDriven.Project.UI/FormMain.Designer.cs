@@ -32,18 +32,20 @@
             label14 = new Label();
             button7 = new Button();
             panel2 = new Panel();
-            btnDischarge = new Button();
-            btnBilling = new Button();
+            pictureBox1 = new PictureBox();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnHome = new Button();
+            btnPatientInfo = new Button();
             btnAdmission = new Button();
             btnRooms = new Button();
-            btnPatientInfo = new Button();
-            btnDashboard = new Button();
-            pictureBox1 = new PictureBox();
+            btnBilling = new Button();
+            btnDischarge = new Button();
             pictureBox2 = new PictureBox();
             MainPanel = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             MainPanel.SuspendLayout();
             SuspendLayout();
@@ -83,81 +85,12 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(btnDischarge);
-            panel2.Controls.Add(btnBilling);
-            panel2.Controls.Add(btnAdmission);
-            panel2.Controls.Add(btnRooms);
-            panel2.Controls.Add(btnPatientInfo);
-            panel2.Controls.Add(btnDashboard);
             panel2.Controls.Add(pictureBox1);
+            panel2.Controls.Add(flowLayoutPanel1);
             panel2.Location = new Point(-4, 84);
             panel2.Name = "panel2";
             panel2.Size = new Size(291, 1035);
             panel2.TabIndex = 1;
-            // 
-            // btnDischarge
-            // 
-            btnDischarge.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDischarge.Location = new Point(38, 782);
-            btnDischarge.Name = "btnDischarge";
-            btnDischarge.Size = new Size(206, 46);
-            btnDischarge.TabIndex = 7;
-            btnDischarge.Text = "Discharge";
-            btnDischarge.UseVisualStyleBackColor = true;
-            // 
-            // btnBilling
-            // 
-            btnBilling.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBilling.Location = new Point(38, 697);
-            btnBilling.Name = "btnBilling";
-            btnBilling.Size = new Size(206, 46);
-            btnBilling.TabIndex = 6;
-            btnBilling.Text = "Billing";
-            btnBilling.UseVisualStyleBackColor = true;
-            // 
-            // btnAdmission
-            // 
-            btnAdmission.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdmission.Location = new Point(38, 619);
-            btnAdmission.Name = "btnAdmission";
-            btnAdmission.Size = new Size(206, 46);
-            btnAdmission.TabIndex = 5;
-            btnAdmission.Text = "Admission";
-            btnAdmission.UseVisualStyleBackColor = true;
-            btnAdmission.Click += button4_Click;
-            // 
-            // btnRooms
-            // 
-            btnRooms.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRooms.Location = new Point(38, 537);
-            btnRooms.Name = "btnRooms";
-            btnRooms.Size = new Size(206, 46);
-            btnRooms.TabIndex = 4;
-            btnRooms.Text = "Room Search";
-            btnRooms.UseVisualStyleBackColor = true;
-            // 
-            // btnPatientInfo
-            // 
-            btnPatientInfo.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPatientInfo.Location = new Point(38, 464);
-            btnPatientInfo.Name = "btnPatientInfo";
-            btnPatientInfo.Size = new Size(206, 46);
-            btnPatientInfo.TabIndex = 3;
-            btnPatientInfo.Text = "Patient Information";
-            btnPatientInfo.UseVisualStyleBackColor = true;
-            btnPatientInfo.Click += button2_Click;
-            // 
-            // btnDashboard
-            // 
-            btnDashboard.BackColor = Color.LightGray;
-            btnDashboard.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDashboard.Location = new Point(38, 392);
-            btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(206, 46);
-            btnDashboard.TabIndex = 2;
-            btnDashboard.Text = "Dashboard";
-            btnDashboard.UseVisualStyleBackColor = false;
-            btnDashboard.Click += button1_Click;
             // 
             // pictureBox1
             // 
@@ -168,6 +101,92 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(btnHome);
+            flowLayoutPanel1.Controls.Add(btnPatientInfo);
+            flowLayoutPanel1.Controls.Add(btnAdmission);
+            flowLayoutPanel1.Controls.Add(btnRooms);
+            flowLayoutPanel1.Controls.Add(btnBilling);
+            flowLayoutPanel1.Controls.Add(btnDischarge);
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(3, 315);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(288, 680);
+            flowLayoutPanel1.TabIndex = 8;
+            // 
+            // btnHome
+            // 
+            btnHome.BackColor = Color.LightGray;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHome.Location = new Point(20, 30);
+            btnHome.Margin = new Padding(20, 30, 3, 3);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(248, 61);
+            btnHome.TabIndex = 2;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += button1_Click;
+            // 
+            // btnPatientInfo
+            // 
+            btnPatientInfo.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPatientInfo.Location = new Point(20, 124);
+            btnPatientInfo.Margin = new Padding(20, 30, 3, 3);
+            btnPatientInfo.Name = "btnPatientInfo";
+            btnPatientInfo.Size = new Size(248, 61);
+            btnPatientInfo.TabIndex = 3;
+            btnPatientInfo.Text = "Patient Information";
+            btnPatientInfo.UseVisualStyleBackColor = true;
+            btnPatientInfo.Click += button2_Click;
+            // 
+            // btnAdmission
+            // 
+            btnAdmission.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdmission.Location = new Point(20, 218);
+            btnAdmission.Margin = new Padding(20, 30, 3, 3);
+            btnAdmission.Name = "btnAdmission";
+            btnAdmission.Size = new Size(248, 61);
+            btnAdmission.TabIndex = 5;
+            btnAdmission.Text = "Admission";
+            btnAdmission.UseVisualStyleBackColor = true;
+            btnAdmission.Click += button4_Click;
+            // 
+            // btnRooms
+            // 
+            btnRooms.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRooms.Location = new Point(20, 312);
+            btnRooms.Margin = new Padding(20, 30, 3, 3);
+            btnRooms.Name = "btnRooms";
+            btnRooms.Size = new Size(248, 61);
+            btnRooms.TabIndex = 4;
+            btnRooms.Text = "Rooms";
+            btnRooms.UseVisualStyleBackColor = true;
+            btnRooms.Click += btnRooms_Click;
+            // 
+            // btnBilling
+            // 
+            btnBilling.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBilling.Location = new Point(20, 406);
+            btnBilling.Margin = new Padding(20, 30, 3, 3);
+            btnBilling.Name = "btnBilling";
+            btnBilling.Size = new Size(248, 61);
+            btnBilling.TabIndex = 6;
+            btnBilling.Text = "Billing";
+            btnBilling.UseVisualStyleBackColor = true;
+            // 
+            // btnDischarge
+            // 
+            btnDischarge.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDischarge.Location = new Point(20, 500);
+            btnDischarge.Margin = new Padding(20, 30, 3, 3);
+            btnDischarge.Name = "btnDischarge";
+            btnDischarge.Size = new Size(248, 61);
+            btnDischarge.TabIndex = 7;
+            btnDischarge.Text = "Discharge";
+            btnDischarge.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -187,7 +206,7 @@
             MainPanel.Size = new Size(1637, 998);
             MainPanel.TabIndex = 3;
             // 
-            // FormDashboard
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -197,7 +216,7 @@
             Controls.Add(panel1);
             Controls.Add(MainPanel);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormDashboard";
+            Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             WindowState = FormWindowState.Maximized;
@@ -205,6 +224,7 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             MainPanel.ResumeLayout(false);
             ResumeLayout(false);
@@ -219,11 +239,12 @@
         private Button btnAdmission;
         private Button btnRooms;
         private Button btnPatientInfo;
-        private Button btnDashboard;
+        private Button btnHome;
         private PictureBox pictureBox1;
         private Button button7;
         private Label label14;
         private PictureBox pictureBox2;
         private Panel MainPanel;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

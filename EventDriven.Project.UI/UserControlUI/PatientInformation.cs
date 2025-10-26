@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EventDriven.Project.UI.UserControlUI
 {
@@ -52,7 +53,7 @@ namespace EventDriven.Project.UI.UserControlUI
                     int selected = Convert.ToInt32(row.Cells["PatientID"].Value);
                     selectedPatients.Add(selected);
                 }
-                DialogResult confirmResult = MessageBox.Show("Are you sure to delete the selected patient(s)?",
+                DialogResult confirmResult = MessageBox.Show("Are you sure you want to delete the selected patient(s)?",
                                      "Confirm Delete!!",
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
@@ -71,19 +72,31 @@ namespace EventDriven.Project.UI.UserControlUI
         {
             if (txtSearch.Text == String.Empty)
             {
-                MessageBox.Show("Please input a name");
+                MessageBox.Show("Please input a Name or Patient ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DGPatientRecord.DataSource = patientController.GetAllPatients();
             }
-            List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text);
             try
             {
+                List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text);
+                if (patients == null || patients.Count == 0)
+                {
+                    MessageBox.Show("Patient not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DGPatientRecord.DataSource = patientController.GetAllPatients();
+                    txtSearch.Text = String.Empty;
+                    return;
+                }
                 DGPatientRecord.DataSource = patients;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error in Search: " + ex.Message);
+
             }
+
         }
+
+
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -92,5 +105,11 @@ namespace EventDriven.Project.UI.UserControlUI
                 btnSearch.PerformClick();
             }
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

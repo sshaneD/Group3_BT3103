@@ -31,16 +31,16 @@
             button8 = new Button();
             lblTitle = new Label();
             panel3 = new Panel();
+            txtNurses3 = new TextBox();
+            txtDoctor2 = new TextBox();
             txtMN = new TextBox();
             label14 = new Label();
             btnCancel = new Button();
             cbRoomNo = new ComboBox();
             label13 = new Label();
             btnSubmit = new Button();
-            label12 = new Label();
-            txtDiagnosis = new TextBox();
             label11 = new Label();
-            txtNurses = new TextBox();
+            txtNurse2 = new TextBox();
             label10 = new Label();
             label9 = new Label();
             cbRoom = new ComboBox();
@@ -59,13 +59,15 @@
             txtAge = new TextBox();
             label3 = new Label();
             txtLN = new TextBox();
-            btnViewDN = new Button();
+            btnTreatment = new Button();
+            txtDoctor3 = new TextBox();
+            txtNurse = new TextBox();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
             // button8
             // 
-            button8.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button8.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
             button8.Location = new Point(1325, 81);
             button8.Name = "button8";
             button8.Size = new Size(251, 35);
@@ -86,16 +88,18 @@
             // panel3
             // 
             panel3.BackColor = Color.Silver;
+            panel3.Controls.Add(txtNurse);
+            panel3.Controls.Add(txtDoctor3);
+            panel3.Controls.Add(txtNurses3);
+            panel3.Controls.Add(txtDoctor2);
             panel3.Controls.Add(txtMN);
             panel3.Controls.Add(label14);
             panel3.Controls.Add(btnCancel);
             panel3.Controls.Add(cbRoomNo);
             panel3.Controls.Add(label13);
             panel3.Controls.Add(btnSubmit);
-            panel3.Controls.Add(label12);
-            panel3.Controls.Add(txtDiagnosis);
             panel3.Controls.Add(label11);
-            panel3.Controls.Add(txtNurses);
+            panel3.Controls.Add(txtNurse2);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(label9);
             panel3.Controls.Add(cbRoom);
@@ -121,6 +125,24 @@
             panel3.TabIndex = 30;
             panel3.Paint += panel3_Paint;
             // 
+            // txtNurses3
+            // 
+            txtNurses3.Font = new Font("Segoe UI", 10.2F);
+            txtNurses3.Location = new Point(707, 669);
+            txtNurses3.Multiline = true;
+            txtNurses3.Name = "txtNurses3";
+            txtNurses3.Size = new Size(462, 39);
+            txtNurses3.TabIndex = 36;
+            // 
+            // txtDoctor2
+            // 
+            txtDoctor2.Font = new Font("Segoe UI", 10.2F);
+            txtDoctor2.Location = new Point(707, 313);
+            txtDoctor2.Multiline = true;
+            txtDoctor2.Name = "txtDoctor2";
+            txtDoctor2.Size = new Size(462, 39);
+            txtDoctor2.TabIndex = 35;
+            // 
             // txtMN
             // 
             txtMN.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -143,7 +165,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancel.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.Location = new Point(1122, 760);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(134, 37);
@@ -154,8 +176,9 @@
             // 
             // cbRoomNo
             // 
+            cbRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRoomNo.FormattingEnabled = true;
-            cbRoomNo.Items.AddRange(new object[] { "Female", "Male" });
+            cbRoomNo.Items.AddRange(new object[] { "101", "102", "103", "201", "202", "203", "301", "302" });
             cbRoomNo.Location = new Point(992, 146);
             cbRoomNo.Name = "cbRoomNo";
             cbRoomNo.Size = new Size(177, 28);
@@ -174,7 +197,7 @@
             // 
             // btnSubmit
             // 
-            btnSubmit.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSubmit.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSubmit.Location = new Point(1262, 760);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(134, 37);
@@ -183,44 +206,27 @@
             btnSubmit.UseVisualStyleBackColor = true;
             btnSubmit.Click += btnSubmit_Click;
             // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.Transparent;
-            label12.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(707, 387);
-            label12.Name = "label12";
-            label12.Size = new Size(176, 22);
-            label12.TabIndex = 26;
-            label12.Text = "Diagnosis/Remarks:";
-            // 
-            // txtDiagnosis
-            // 
-            txtDiagnosis.Location = new Point(707, 412);
-            txtDiagnosis.Multiline = true;
-            txtDiagnosis.Name = "txtDiagnosis";
-            txtDiagnosis.Size = new Size(462, 298);
-            txtDiagnosis.TabIndex = 25;
-            // 
             // label11
             // 
             label11.AutoSize = true;
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(707, 287);
+            label11.Location = new Point(715, 464);
             label11.Name = "label11";
             label11.Size = new Size(80, 22);
             label11.TabIndex = 24;
             label11.Text = "Nurse/s:";
             // 
-            // txtNurses
+            // txtNurse2
             // 
-            txtNurses.Font = new Font("Segoe UI", 10.2F);
-            txtNurses.Location = new Point(707, 312);
-            txtNurses.Multiline = true;
-            txtNurses.Name = "txtNurses";
-            txtNurses.Size = new Size(462, 39);
-            txtNurses.TabIndex = 23;
+            txtNurse2.Font = new Font("Segoe UI", 10.2F);
+            txtNurse2.Location = new Point(707, 579);
+            txtNurse2.Multiline = true;
+            txtNurse2.Name = "txtNurse2";
+            txtNurse2.Size = new Size(462, 39);
+            txtNurse2.TabIndex = 23;
+            txtNurse2.Click += txtNurses_TextChanged;
+            txtNurse2.TextChanged += txtNurses_TextChanged;
             // 
             // label10
             // 
@@ -246,6 +252,7 @@
             // 
             // cbRoom
             // 
+            cbRoom.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRoom.FormattingEnabled = true;
             cbRoom.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Nursery Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
             cbRoom.Location = new Point(707, 146);
@@ -261,6 +268,8 @@
             txtDoctor.Name = "txtDoctor";
             txtDoctor.Size = new Size(462, 39);
             txtDoctor.TabIndex = 19;
+            txtDoctor.Click += txtDoctor_TextChanged;
+            txtDoctor.TextChanged += txtDoctor_TextChanged;
             // 
             // label8
             // 
@@ -347,6 +356,7 @@
             // 
             // cbGender
             // 
+            cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGender.FormattingEnabled = true;
             cbGender.Items.AddRange(new object[] { "Female", "Male" });
             cbGender.Location = new Point(194, 489);
@@ -357,7 +367,7 @@
             // txtGN
             // 
             txtGN.Font = new Font("Segoe UI", 10.2F);
-            txtGN.Location = new Point(194, 574);
+            txtGN.Location = new Point(194, 579);
             txtGN.Multiline = true;
             txtGN.Name = "txtGN";
             txtGN.Size = new Size(412, 39);
@@ -403,15 +413,34 @@
             txtLN.Size = new Size(412, 39);
             txtLN.TabIndex = 5;
             // 
-            // btnViewDN
+            // btnTreatment
             // 
-            btnViewDN.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnViewDN.Location = new Point(1325, 40);
-            btnViewDN.Name = "btnViewDN";
-            btnViewDN.Size = new Size(251, 35);
-            btnViewDN.TabIndex = 31;
-            btnViewDN.Text = "View Nurse/Doctor";
-            btnViewDN.UseVisualStyleBackColor = true;
+            btnTreatment.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            btnTreatment.Location = new Point(1325, 40);
+            btnTreatment.Name = "btnTreatment";
+            btnTreatment.Size = new Size(251, 35);
+            btnTreatment.TabIndex = 31;
+            btnTreatment.Text = "Treatment";
+            btnTreatment.UseVisualStyleBackColor = true;
+            btnTreatment.Click += btnViewDN_Click;
+            // 
+            // txtDoctor3
+            // 
+            txtDoctor3.Font = new Font("Segoe UI", 10.2F);
+            txtDoctor3.Location = new Point(707, 399);
+            txtDoctor3.Multiline = true;
+            txtDoctor3.Name = "txtDoctor3";
+            txtDoctor3.Size = new Size(462, 39);
+            txtDoctor3.TabIndex = 37;
+            // 
+            // txtNurse
+            // 
+            txtNurse.Font = new Font("Segoe UI", 10.2F);
+            txtNurse.Location = new Point(707, 489);
+            txtNurse.Multiline = true;
+            txtNurse.Name = "txtNurse";
+            txtNurse.Size = new Size(462, 39);
+            txtNurse.TabIndex = 38;
             // 
             // Admission
             // 
@@ -420,7 +449,7 @@
             Controls.Add(button8);
             Controls.Add(lblTitle);
             Controls.Add(panel3);
-            Controls.Add(btnViewDN);
+            Controls.Add(btnTreatment);
             Name = "Admission";
             Size = new Size(1637, 998);
             panel3.ResumeLayout(false);
@@ -437,10 +466,8 @@
         private ComboBox cbRoomNo;
         private Label label13;
         private Button btnSubmit;
-        private Label label12;
-        private TextBox txtDiagnosis;
         private Label label11;
-        private TextBox txtNurses;
+        private TextBox txtNurse2;
         private Label label10;
         private Label label9;
         private ComboBox cbRoom;
@@ -459,9 +486,13 @@
         private TextBox txtAge;
         private Label label3;
         private TextBox txtLN;
-        private Button btnViewDN;
+        private Button btnTreatment;
         private TextBox txtMN;
         private Label label14;
         private Button btnCancel;
+        private TextBox txtNurses3;
+        private TextBox txtDoctor2;
+        private TextBox txtNurse;
+        private TextBox txtDoctor3;
     }
 }

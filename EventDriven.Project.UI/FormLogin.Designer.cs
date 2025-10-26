@@ -36,6 +36,7 @@ namespace EventDriven.Project.UI
             btnCancel = new Button();
             btnLogin = new Button();
             panel1 = new Panel();
+            checkBox1 = new CheckBox();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -46,20 +47,19 @@ namespace EventDriven.Project.UI
             txtUsername.Font = new Font("Segoe UI", 13.2F);
             txtUsername.Location = new Point(123, 422);
             txtUsername.Margin = new Padding(3, 4, 3, 4);
-            txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(442, 52);
+            txtUsername.Size = new Size(442, 37);
             txtUsername.TabIndex = 3;
             txtUsername.TextChanged += txtUsername_TextChanged;
             // 
             // lblFname
             // 
             lblFname.AutoSize = true;
-            lblFname.Font = new Font("Cambria Math", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFname.Font = new Font("Cambria Math", 13.2F);
             lblFname.ForeColor = SystemColors.ButtonHighlight;
-            lblFname.Location = new Point(106, 318);
+            lblFname.Location = new Point(106, 341);
             lblFname.Name = "lblFname";
-            lblFname.Size = new Size(195, 156);
+            lblFname.Size = new Size(153, 123);
             lblFname.TabIndex = 2;
             lblFname.Text = "Username:";
             // 
@@ -68,27 +68,27 @@ namespace EventDriven.Project.UI
             txtPassword.Font = new Font("Segoe UI", 13.2F);
             txtPassword.Location = new Point(123, 563);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
-            txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(442, 52);
+            txtPassword.Size = new Size(442, 37);
             txtPassword.TabIndex = 5;
+            txtPassword.UseSystemPasswordChar = true;
             txtPassword.KeyPress += txtPassword_KeyPress;
             // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Font = new Font("Cambria Math", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPassword.Font = new Font("Cambria Math", 13.2F);
             lblPassword.ForeColor = SystemColors.ButtonHighlight;
-            lblPassword.Location = new Point(107, 460);
+            lblPassword.Location = new Point(107, 483);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(190, 156);
+            lblPassword.Size = new Size(150, 123);
             lblPassword.TabIndex = 4;
             lblPassword.Text = "Password:";
             // 
             // btnCancel
             // 
             btnCancel.BackColor = Color.FromArgb(123, 183, 193);
-            btnCancel.Font = new Font("Palatino Linotype", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancel.Font = new Font("Microsoft Sans Serif", 13.2000008F);
             btnCancel.Location = new Point(358, 674);
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
@@ -101,7 +101,7 @@ namespace EventDriven.Project.UI
             // btnLogin
             // 
             btnLogin.BackColor = Color.FromArgb(123, 183, 193);
-            btnLogin.Font = new Font("Palatino Linotype", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.Font = new Font("Microsoft Sans Serif", 13.2000008F);
             btnLogin.Location = new Point(158, 674);
             btnLogin.Margin = new Padding(3, 4, 3, 4);
             btnLogin.Name = "btnLogin";
@@ -114,17 +114,33 @@ namespace EventDriven.Project.UI
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(11, 143, 172);
+            panel1.Controls.Add(btnLogin);
+            panel1.Controls.Add(txtPassword);
+            panel1.Controls.Add(checkBox1);
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(btnCancel);
-            panel1.Controls.Add(txtPassword);
-            panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(lblFname);
             panel1.Controls.Add(lblPassword);
             panel1.Dock = DockStyle.Left;
+            panel1.Font = new Font("Microsoft Sans Serif", 13.2000008F);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(737, 1080);
             panel1.TabIndex = 17;
+            panel1.Paint += panel1_Paint;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Cambria Math", 10F);
+            checkBox1.ForeColor = SystemColors.ButtonHighlight;
+            checkBox1.Location = new Point(123, 591);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(175, 99);
+            checkBox1.TabIndex = 19;
+            checkBox1.Text = "Show Password";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // pictureBox1
             // 
@@ -169,5 +185,6 @@ namespace EventDriven.Project.UI
         private Button btnLogin;
         private Panel panel1;
         private PictureBox pictureBox1;
+        private CheckBox checkBox1;
     }
 }
