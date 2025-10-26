@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventDriven.Project.Businesslogic.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace EventDriven.Project.UI
 {
     public partial class FormStaffAssignment : Form
     {
+        StaffController staffController;
         public FormStaffAssignment()
         {
+            staffController = new StaffController();
             InitializeComponent();
+            dataGridAssignmentM.DataSource = staffController.GetAllStaff();
         }
 
 

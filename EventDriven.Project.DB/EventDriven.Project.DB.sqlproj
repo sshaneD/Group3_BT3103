@@ -78,6 +78,8 @@
     <Build Include="dbo\Tables\RoomAssignments.sql" />
     <Build Include="dbo\Tables\Staff.sql" />
     <Build Include="dbo\Tables\StaffAssignment.sql" />
+    <Build Include="dbo\Tables\Department.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllStaff.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />
