@@ -31,6 +31,11 @@
             button8 = new Button();
             lblTitle = new Label();
             panel3 = new Panel();
+            dateOfBirth = new DateTimePicker();
+            dateAdmission = new DateTimePicker();
+            label1 = new Label();
+            txtNurse = new TextBox();
+            txtDoctor3 = new TextBox();
             txtNurses3 = new TextBox();
             txtDoctor2 = new TextBox();
             txtMN = new TextBox();
@@ -48,20 +53,15 @@
             label8 = new Label();
             txtGCN = new TextBox();
             label7 = new Label();
-            lblID = new Label();
-            label6 = new Label();
             label2 = new Label();
             txtFN = new TextBox();
             label5 = new Label();
             cbGender = new ComboBox();
             txtGN = new TextBox();
             label4 = new Label();
-            txtAge = new TextBox();
             label3 = new Label();
             txtLN = new TextBox();
             btnTreatment = new Button();
-            txtDoctor3 = new TextBox();
-            txtNurse = new TextBox();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -88,6 +88,9 @@
             // panel3
             // 
             panel3.BackColor = Color.Silver;
+            panel3.Controls.Add(dateOfBirth);
+            panel3.Controls.Add(dateAdmission);
+            panel3.Controls.Add(label1);
             panel3.Controls.Add(txtNurse);
             panel3.Controls.Add(txtDoctor3);
             panel3.Controls.Add(txtNurses3);
@@ -107,15 +110,12 @@
             panel3.Controls.Add(label8);
             panel3.Controls.Add(txtGCN);
             panel3.Controls.Add(label7);
-            panel3.Controls.Add(lblID);
-            panel3.Controls.Add(label6);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(txtFN);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(cbGender);
             panel3.Controls.Add(txtGN);
             panel3.Controls.Add(label4);
-            panel3.Controls.Add(txtAge);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(txtLN);
             panel3.ForeColor = SystemColors.ActiveCaptionText;
@@ -124,6 +124,51 @@
             panel3.Size = new Size(1426, 826);
             panel3.TabIndex = 30;
             panel3.Paint += panel3_Paint;
+            // 
+            // dateOfBirth
+            // 
+            dateOfBirth.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold);
+            dateOfBirth.Format = DateTimePickerFormat.Short;
+            dateOfBirth.Location = new Point(194, 404);
+            dateOfBirth.Name = "dateOfBirth";
+            dateOfBirth.Size = new Size(220, 29);
+            dateOfBirth.TabIndex = 41;
+            // 
+            // dateAdmission
+            // 
+            dateAdmission.Format = DateTimePickerFormat.Short;
+            dateAdmission.Location = new Point(1273, 39);
+            dateAdmission.Name = "dateAdmission";
+            dateAdmission.Size = new Size(110, 27);
+            dateAdmission.TabIndex = 40;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold);
+            label1.Location = new Point(1122, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(145, 22);
+            label1.TabIndex = 39;
+            label1.Text = "Admission Date:";
+            // 
+            // txtNurse
+            // 
+            txtNurse.Font = new Font("Segoe UI", 10.2F);
+            txtNurse.Location = new Point(707, 489);
+            txtNurse.Multiline = true;
+            txtNurse.Name = "txtNurse";
+            txtNurse.Size = new Size(462, 39);
+            txtNurse.TabIndex = 38;
+            // 
+            // txtDoctor3
+            // 
+            txtDoctor3.Font = new Font("Segoe UI", 10.2F);
+            txtDoctor3.Location = new Point(707, 399);
+            txtDoctor3.Multiline = true;
+            txtDoctor3.Name = "txtDoctor3";
+            txtDoctor3.Size = new Size(462, 39);
+            txtDoctor3.TabIndex = 37;
             // 
             // txtNurses3
             // 
@@ -301,28 +346,6 @@
             label7.TabIndex = 16;
             label7.Text = "Guardian Name:";
             // 
-            // lblID
-            // 
-            lblID.AutoSize = true;
-            lblID.BackColor = Color.Transparent;
-            lblID.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblID.Location = new Point(232, 50);
-            lblID.Name = "lblID";
-            lblID.Size = new Size(69, 29);
-            lblID.TabIndex = 15;
-            lblID.Text = "1001";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(98, 50);
-            label6.Name = "label6";
-            label6.Size = new Size(128, 29);
-            label6.TabIndex = 14;
-            label6.Text = "Patient ID:";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -380,18 +403,9 @@
             label4.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(198, 375);
             label4.Name = "label4";
-            label4.Size = new Size(47, 22);
+            label4.Size = new Size(99, 22);
             label4.TabIndex = 10;
-            label4.Text = "Age:";
-            // 
-            // txtAge
-            // 
-            txtAge.Font = new Font("Segoe UI", 10.2F);
-            txtAge.Location = new Point(194, 400);
-            txtAge.Multiline = true;
-            txtAge.Name = "txtAge";
-            txtAge.Size = new Size(220, 39);
-            txtAge.TabIndex = 9;
+            label4.Text = "Birth Date:";
             // 
             // label3
             // 
@@ -423,24 +437,6 @@
             btnTreatment.Text = "Treatment";
             btnTreatment.UseVisualStyleBackColor = true;
             btnTreatment.Click += btnViewDN_Click;
-            // 
-            // txtDoctor3
-            // 
-            txtDoctor3.Font = new Font("Segoe UI", 10.2F);
-            txtDoctor3.Location = new Point(707, 399);
-            txtDoctor3.Multiline = true;
-            txtDoctor3.Name = "txtDoctor3";
-            txtDoctor3.Size = new Size(462, 39);
-            txtDoctor3.TabIndex = 37;
-            // 
-            // txtNurse
-            // 
-            txtNurse.Font = new Font("Segoe UI", 10.2F);
-            txtNurse.Location = new Point(707, 489);
-            txtNurse.Multiline = true;
-            txtNurse.Name = "txtNurse";
-            txtNurse.Size = new Size(462, 39);
-            txtNurse.TabIndex = 38;
             // 
             // Admission
             // 
@@ -475,15 +471,12 @@
         private Label label8;
         private TextBox txtGCN;
         private Label label7;
-        private Label lblID;
-        private Label label6;
         private Label label2;
         private TextBox txtFN;
         private Label label5;
         private ComboBox cbGender;
         private TextBox txtGN;
         private Label label4;
-        private TextBox txtAge;
         private Label label3;
         private TextBox txtLN;
         private Button btnTreatment;
@@ -494,5 +487,8 @@
         private TextBox txtDoctor2;
         private TextBox txtNurse;
         private TextBox txtDoctor3;
+        private Label label1;
+        private DateTimePicker dateOfBirth;
+        private DateTimePicker dateAdmission;
     }
 }

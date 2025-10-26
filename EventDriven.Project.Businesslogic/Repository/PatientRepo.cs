@@ -24,20 +24,22 @@ namespace EventDriven.Project.Businesslogic.Repository
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand("dbo.GetAllPatients", conn)) {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = CommandType.StoredProcedure;
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             while (reader.Read()) {
-                                patients.Add(new PatientModel {
-                                    PatientID = (int)reader["Patient ID"],
-                                    FirstName = (string)reader["First Name"],
-                                    LastName = (string)reader["Last Name"],
+                                PatientModel patient = new PatientModel {
+                                    PatientID = (int)reader["PatientID"],
+                                    FirstName = (string)reader["FirstName"],
+                                    MiddleName = (string)reader["MiddleName"],
+                                    LastName = (string)reader["LastName"],
+                                    AdmissionDate = (DateTime)reader["AdmissionDate"],
+                                    DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Age = (int)reader["Age"],
                                     Gender = (string)reader["Gender"],
-                                    Diagnosis = (string)reader["Diagnosis"],
-                                    RoomNo = (int)reader["Room Number"],
-                                    GuardianName = (string)reader["Guardian Name"],
-                                    GuardianNo = (string)reader["Guardian Number"],
-                                });
+                                    GuardianName = (string)reader["GuardianName"],
+                                    GuardianNo = (string)reader["GuardianNo"],
+                                };
+                                patients.Add(patient);
                             }
                             return patients;
                         }
@@ -71,11 +73,12 @@ namespace EventDriven.Project.Businesslogic.Repository
                                 {
                                     PatientID = (int)reader["PatientID"],
                                     FirstName = (string)reader["FirstName"],
+                                    MiddleName = (string)reader["MiddleName"],
                                     LastName = (string)reader["LastName"],
+                                    AdmissionDate = (DateTime)reader["AdmissionDate"],
+                                    DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Age = (int)reader["Age"],
                                     Gender = (string)reader["Gender"],
-                                    Diagnosis = (string)reader["Diagnosis"],
-                                    RoomNo = (int)reader["RoomNo"],
                                     GuardianName = (string)reader["GuardianName"],
                                     GuardianNo = (string)reader["GuardianNo"],
                                 };
@@ -103,11 +106,12 @@ namespace EventDriven.Project.Businesslogic.Repository
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PatientID", patient.PatientID);
                     cmd.Parameters.AddWithValue("@FirstName", patient.FirstName);
+                    cmd.Parameters.AddWithValue("@MiddleName", patient.MiddleName);
                     cmd.Parameters.AddWithValue("@LastName", patient.LastName);
+                    cmd.Parameters.AddWithValue("@AdmissionDate", patient.AdmissionDate);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", patient.DateOfBirth);
                     cmd.Parameters.AddWithValue("@Age", patient.Age);
                     cmd.Parameters.AddWithValue("@Gender", patient.Gender);
-                    cmd.Parameters.AddWithValue("@Diagnosis", patient.Diagnosis);
-                    cmd.Parameters.AddWithValue("@RoomNo", patient.RoomNo);
                     cmd.Parameters.AddWithValue("@GuardianName", patient.GuardianName);
                     cmd.Parameters.AddWithValue("@GuardianNo", patient.GuardianNo);
                     cmd.ExecuteNonQuery();
@@ -129,11 +133,12 @@ namespace EventDriven.Project.Businesslogic.Repository
                     
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@FirstName", patient.FirstName);
+                    cmd.Parameters.AddWithValue("@MiddleName", patient.MiddleName);
                     cmd.Parameters.AddWithValue("@LastName", patient.LastName);
+                    cmd.Parameters.AddWithValue("@AdmissionDate", patient.AdmissionDate);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", patient.DateOfBirth);
                     cmd.Parameters.AddWithValue("@Age", patient.Age);
                     cmd.Parameters.AddWithValue("@Gender", patient.Gender);
-                    cmd.Parameters.AddWithValue("@Diagnosis", patient.Diagnosis);
-                    cmd.Parameters.AddWithValue("@RoomNo", patient.RoomNo);
                     cmd.Parameters.AddWithValue("@GuardianName", patient.GuardianName);
                     cmd.Parameters.AddWithValue("@GuardianNo", patient.GuardianNo);
                     cmd.ExecuteNonQuery();
@@ -162,15 +167,16 @@ namespace EventDriven.Project.Businesslogic.Repository
                             {
                                 patients.Add(new PatientModel
                                 {
-                                    PatientID = (int)reader["Patient ID"],
-                                    FirstName = (string)reader["First Name"],
-                                    LastName = (string)reader["Last Name"],
+                                    PatientID = (int)reader["PatientID"],
+                                    FirstName = (string)reader["FirstName"],
+                                    MiddleName = (string)reader["MiddleName"],
+                                    LastName = (string)reader["LastName"],
+                                    AdmissionDate = (DateTime)reader["AdmissionDate"],
+                                    DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Age = (int)reader["Age"],
                                     Gender = (string)reader["Gender"],
-                                    Diagnosis = (string)reader["Diagnosis"],
-                                    RoomNo = (int)reader["Room Number"],
-                                    GuardianName = (string)reader["Guardian Name"],
-                                    GuardianNo = (string)reader["Guardian Number"],
+                                    GuardianName = (string)reader["GuardianName"],
+                                    GuardianNo = (string)reader["GuardianNo"],
                                 });
                             }
                             return patients;
