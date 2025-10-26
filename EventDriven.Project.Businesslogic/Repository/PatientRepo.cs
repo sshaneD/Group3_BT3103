@@ -13,7 +13,7 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     internal class PatientRepo
     {
-        private string CONNECTIONSTRING = "Data Source=KOUTAIBA;Initial Catalog=STEF;Integrated Security=True;TrustServerCertificate=True";
+        private string CONNECTIONSTRING = "Data Source=jace\\sqlexpress;Initial Catalog=master;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
 
         public List <PatientModel> GetAllPatient()
         {
