@@ -45,14 +45,14 @@ namespace EventDriven.Project.UI.UserControlUI
         private void LoadData()
         {
             PatientModel patient = patientController.GetPatientById(FormMain.selectedPatientID);
-            lblID.Text = patient.PatientID.ToString();
             txtFN.Text = patient.FirstName;
+            txtMN.Text = patient.MiddleName;
             txtLN.Text = patient.LastName;
-            txtAge.Text = patient.Age.ToString();
+            dateAdmission.Value = patient.AdmissionDate;
+            dateOfBirth.Value = patient.DateOfBirth;
             cbGender.Text = patient.Gender;
             txtGN.Text = patient.GuardianName;
             txtGCN.Text = patient.GuardianNo;
-            cbRoomNo.Text = patient.RoomNo.ToString();
         }
 
         private void btnADCancel_Click(object sender, EventArgs e)
@@ -73,19 +73,23 @@ namespace EventDriven.Project.UI.UserControlUI
                 PatientModel newPatient = new PatientModel
                 {
                     FirstName = txtFN.Text,
+                    MiddleName = txtMN.Text,
                     LastName = txtLN.Text,
-                    Age = int.Parse(txtAge.Text),
+                    AdmissionDate = dateAdmission.Value.Date,
+                    DateOfBirth = dateOfBirth.Value.Date,
+                    Age = calculateAge(dateOfBirth.Value.Date),
                     Gender = cbGender.Text,
                     GuardianName = txtGN.Text,
                     GuardianNo = txtGCN.Text,
-                    RoomNo = int.Parse(cbRoomNo.Text),
                 };
                 patientController.AddPatient(newPatient);
                 MessageBox.Show("Patient admitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtFN.Clear();
+                txtMN.Clear();
                 txtLN.Clear();
-                txtAge.Clear();
+                dateAdmission.Value = DateTime.Now.Date;
+                dateOfBirth.Value = DateTime.Now.Date;
                 cbGender.SelectedIndex = -1;
                 txtGN.Clear();
                 txtGCN.Clear();
@@ -97,20 +101,24 @@ namespace EventDriven.Project.UI.UserControlUI
                 {
                     PatientID = FormMain.selectedPatientID,
                     FirstName = txtFN.Text,
+                    MiddleName = txtMN.Text,
                     LastName = txtLN.Text,
-                    Age = int.Parse(txtAge.Text),
+                    AdmissionDate = dateAdmission.Value.Date,
+                    DateOfBirth = dateOfBirth.Value.Date,
+                    Age = calculateAge(dateOfBirth.Value.Date),
                     Gender = cbGender.Text,
                     GuardianName = txtGN.Text,
                     GuardianNo = txtGCN.Text,
-                    RoomNo = int.Parse(cbRoomNo.Text),
-                };
+                }; 
                 patientController.EditPatient(updatedPatient);
                 MessageBox.Show("Patient information updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GoToPatientInfo?.Invoke(this, EventArgs.Empty);
 
                 txtFN.Clear();
+                txtMN.Clear();
                 txtLN.Clear();
-                txtAge.Clear();
+                dateAdmission.Value = DateTime.Now.Date;
+                dateOfBirth.Value = DateTime.Now.Date;
                 cbGender.SelectedIndex = -1;
                 txtGN.Clear();
                 txtGCN.Clear();
@@ -135,6 +143,14 @@ namespace EventDriven.Project.UI.UserControlUI
         {
             FormAddMedicalRecord med = new FormAddMedicalRecord();
             med.ShowDialog();
+        }
+
+        private int calculateAge(DateTime dateOfBirth)
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - dateOfBirth.Year;
+            if (dateOfBirth.Date > today.AddYears(-age)) age--;
+            return age;
         }
     }
 }

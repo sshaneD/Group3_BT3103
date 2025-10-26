@@ -2,11 +2,12 @@
 	
 	@PatientID int,
 	@FirstName Varchar(50),
+	@MiddleName Varchar(50),
 	@LastName Varchar(50),
+	@AdmissionDate DateTime,
+	@DateOfBirth DateTime,
 	@Age int,
 	@Gender Varchar(50),
-	@Diagnosis Varchar(50),
-	@RoomNo int,
 	@GuardianName Varchar(50),
 	@GuardianNo Varchar(50)
 
@@ -15,11 +16,12 @@ AS
 	Update dbo.Patient Set 
 	
 	FirstName = @FirstName,
+	MiddleName = @MiddleName,
 	LastName = @LastName,
+	AdmissionDate = @AdmissionDate,
+	DateOfBirth = @DateOfBirth,
 	Age = @Age,
 	Gender = @Gender,
-	Diagnosis = @Diagnosis,
-	RoomNo = @RoomNo, 
 	GuardianName = @GuardianName,
 	GuardianNo = @GuardianName 
 
