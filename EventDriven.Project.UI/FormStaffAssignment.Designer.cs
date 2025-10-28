@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             panel2 = new Panel();
             label1 = new Label();
@@ -81,10 +82,24 @@
             // 
             // dataGridAssignmentM
             // 
+            dataGridAssignmentM.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridAssignmentM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridAssignmentM.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridAssignmentM.EnableHeadersVisualStyles = false;
             dataGridAssignmentM.Location = new Point(91, 214);
+            dataGridAssignmentM.MultiSelect = false;
             dataGridAssignmentM.Name = "dataGridAssignmentM";
+            dataGridAssignmentM.ReadOnly = true;
+            dataGridAssignmentM.RowHeadersVisible = false;
             dataGridAssignmentM.RowHeadersWidth = 51;
+            dataGridAssignmentM.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridAssignmentM.Size = new Size(1010, 415);
             dataGridAssignmentM.TabIndex = 9;
             // 

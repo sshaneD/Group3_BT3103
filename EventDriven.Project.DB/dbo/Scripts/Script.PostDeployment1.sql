@@ -74,3 +74,30 @@ VALUES
 ('Camila','Perez','Perez','2025-01-16','2009-08-28',16,'Female','Julia Perez','09648902348'),
 ('Oliver','Jimenez','Jimenez','2025-02-18','2013-03-17',12,'Male','Sonia Jimenez','09759013459'),
 ('Aurora','Torres','Torres','2025-03-23','2014-10-22',11,'Female','Juan Torres','09860124560');
+
+INSERT INTO [dbo].[Department] ([DepartmentID], [DepartmentName])
+VALUES 
+(1, 'Emergency'),
+(2, 'Surgery'),
+(3, 'Pediatrics'),
+(4, 'Radiology'),
+(5, 'Cardiology'),
+(6, 'Obstetrics and Gynecology'),
+(7, 'General Medicine');
+
+INSERT INTO [dbo].[Staff] ([StaffID], [DepartmentID], [FirstName], [LastName], [Role])
+VALUES
+(3001, 1, 'Maria', 'De Leon', 'Doctor'),
+(3002, 1, 'James', 'Villanueva', 'Nurse'),
+(3003, 2, 'Carlos', 'Reyes', 'Doctor'),
+(3004, 2, 'Angela', 'Cruz', 'Nurse'),
+(3005, 3, 'Ella', 'Santos', 'Doctor'),
+(3006, 3, 'Luis', 'Domingo', 'Nurse'),
+(3007, 4, 'Rafael', 'Torres', 'Doctor'),
+(3008, 4, 'Diana', 'Garcia', 'Nurse'),
+(3009, 5, 'Jace', 'Sarmiento', 'Doctor'),
+(3010, 5, 'Bea', 'Gomez', 'Nurse'),
+(3011, 6, 'Nina', 'Lopez', 'Doctor'),
+(3012, 6, 'Erwin', 'Castillo', 'Nurse'),
+(3013, 7, 'Hannah', 'Lim', 'Doctor'),
+(3014, 7, 'Marco', 'Ramos', 'Nurse');
