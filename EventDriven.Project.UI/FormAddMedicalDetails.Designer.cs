@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI
 {
-    partial class FormAddMedicalRecord
+    partial class FormAddMedicalDetails
     {
         /// <summary>
         /// Required designer variable.

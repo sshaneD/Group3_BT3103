@@ -18,6 +18,8 @@ namespace EventDriven.Project.UI.UserControlUI
     {
         public event EventHandler GoToAdmissionAdd;
         public event EventHandler GoToAdmissionEdit;
+        public event EventHandler GoToMedicalRecord;
+
         private PatientController patientController;
         public PatientInformation()
         {
@@ -109,6 +111,11 @@ namespace EventDriven.Project.UI.UserControlUI
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMedRecord_Click(object sender, EventArgs e)
+        {
+            GoToMedicalRecord?.Invoke(this, EventArgs.Empty);
         }
     }
 }

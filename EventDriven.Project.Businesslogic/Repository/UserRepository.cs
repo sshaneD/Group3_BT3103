@@ -6,9 +6,9 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     internal class UserRepository
     {
-        private string CONNECTIONSTRING = "Data Source=jace\\sqlexpress;Initial Catalog=Hospital;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+        private string CONNECTIONSTRING = ConfigurationHelper.GetConnectionString();
 
-         public UserModel ValidateUser(string Username, string Password)//Form1 Validate User
+        public UserModel ValidateUser(string Username, string Password)//Form1 Validate User
         {
             
             try

@@ -142,6 +142,7 @@
             btnMedRecord.TabIndex = 42;
             btnMedRecord.Text = "Medical Record";
             btnMedRecord.UseVisualStyleBackColor = true;
+            btnMedRecord.Click += btnMedRecord_Click;
             // 
             // label1
             // 

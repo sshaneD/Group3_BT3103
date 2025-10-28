@@ -70,6 +70,7 @@ namespace EventDriven.Project.UI
                 btnPatientInfo.BackColor = Color.LightGray;
                 patientInfo.GoToAdmissionAdd += (s, e) => ShowControl(new Admission());
                 patientInfo.GoToAdmissionEdit += (s, e) => ShowControl(new Admission());
+                patientInfo.GoToMedicalRecord += (s, e) => ShowControl(new MedicalRecord());
             }
             else if (userControl is Admission admission)
             {

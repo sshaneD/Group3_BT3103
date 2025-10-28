@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using EventDriven.Project.Businesslogic.Controller;
+﻿using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EventDriven.Project.UI.UserControlUI
 {
@@ -109,7 +99,7 @@ namespace EventDriven.Project.UI.UserControlUI
                     Gender = cbGender.Text,
                     GuardianName = txtGN.Text,
                     GuardianNo = txtGCN.Text,
-                }; 
+                };
                 patientController.EditPatient(updatedPatient);
                 MessageBox.Show("Patient information updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GoToPatientInfo?.Invoke(this, EventArgs.Empty);
@@ -141,7 +131,7 @@ namespace EventDriven.Project.UI.UserControlUI
 
         private void btnViewDN_Click(object sender, EventArgs e)
         {
-            FormAddMedicalRecord med = new FormAddMedicalRecord();
+            FormAddMedicalDetails med = new FormAddMedicalDetails();
             med.ShowDialog();
         }
 
