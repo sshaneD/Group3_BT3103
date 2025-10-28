@@ -71,7 +71,7 @@
             button8.Location = new Point(1325, 81);
             button8.Name = "button8";
             button8.Size = new Size(251, 35);
-            button8.TabIndex = 32;
+            button8.TabIndex = 18;
             button8.Text = "View Admission History\r\n";
             button8.UseVisualStyleBackColor = true;
             // 
@@ -132,7 +132,7 @@
             dateOfBirth.Location = new Point(194, 404);
             dateOfBirth.Name = "dateOfBirth";
             dateOfBirth.Size = new Size(220, 29);
-            dateOfBirth.TabIndex = 41;
+            dateOfBirth.TabIndex = 5;
             // 
             // dateAdmission
             // 
@@ -140,7 +140,7 @@
             dateAdmission.Location = new Point(1273, 39);
             dateAdmission.Name = "dateAdmission";
             dateAdmission.Size = new Size(110, 27);
-            dateAdmission.TabIndex = 40;
+            dateAdmission.TabIndex = 1;
             // 
             // label1
             // 
@@ -154,39 +154,47 @@
             // 
             // txtNurse
             // 
+            txtNurse.Cursor = Cursors.Hand;
             txtNurse.Font = new Font("Segoe UI", 10.2F);
             txtNurse.Location = new Point(707, 489);
             txtNurse.Multiline = true;
             txtNurse.Name = "txtNurse";
+            txtNurse.ReadOnly = true;
             txtNurse.Size = new Size(462, 39);
-            txtNurse.TabIndex = 38;
+            txtNurse.TabIndex = 14;
             // 
             // txtDoctor3
             // 
+            txtDoctor3.Cursor = Cursors.Hand;
             txtDoctor3.Font = new Font("Segoe UI", 10.2F);
             txtDoctor3.Location = new Point(707, 399);
             txtDoctor3.Multiline = true;
             txtDoctor3.Name = "txtDoctor3";
+            txtDoctor3.ReadOnly = true;
             txtDoctor3.Size = new Size(462, 39);
-            txtDoctor3.TabIndex = 37;
+            txtDoctor3.TabIndex = 13;
             // 
             // txtNurses3
             // 
+            txtNurses3.Cursor = Cursors.Hand;
             txtNurses3.Font = new Font("Segoe UI", 10.2F);
             txtNurses3.Location = new Point(707, 669);
             txtNurses3.Multiline = true;
             txtNurses3.Name = "txtNurses3";
+            txtNurses3.ReadOnly = true;
             txtNurses3.Size = new Size(462, 39);
-            txtNurses3.TabIndex = 36;
+            txtNurses3.TabIndex = 16;
             // 
             // txtDoctor2
             // 
+            txtDoctor2.Cursor = Cursors.Hand;
             txtDoctor2.Font = new Font("Segoe UI", 10.2F);
             txtDoctor2.Location = new Point(707, 313);
             txtDoctor2.Multiline = true;
             txtDoctor2.Name = "txtDoctor2";
+            txtDoctor2.ReadOnly = true;
             txtDoctor2.Size = new Size(462, 39);
-            txtDoctor2.TabIndex = 35;
+            txtDoctor2.TabIndex = 12;
             // 
             // txtMN
             // 
@@ -195,7 +203,7 @@
             txtMN.Multiline = true;
             txtMN.Name = "txtMN";
             txtMN.Size = new Size(412, 39);
-            txtMN.TabIndex = 34;
+            txtMN.TabIndex = 3;
             // 
             // label14
             // 
@@ -214,7 +222,7 @@
             btnCancel.Location = new Point(1122, 760);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(134, 37);
-            btnCancel.TabIndex = 31;
+            btnCancel.TabIndex = 19;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnADCancel_Click;
@@ -227,7 +235,7 @@
             cbRoomNo.Location = new Point(992, 146);
             cbRoomNo.Name = "cbRoomNo";
             cbRoomNo.Size = new Size(177, 28);
-            cbRoomNo.TabIndex = 30;
+            cbRoomNo.TabIndex = 10;
             // 
             // label13
             // 
@@ -246,7 +254,7 @@
             btnSubmit.Location = new Point(1262, 760);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(134, 37);
-            btnSubmit.TabIndex = 28;
+            btnSubmit.TabIndex = 20;
             btnSubmit.Text = "Admit";
             btnSubmit.UseVisualStyleBackColor = true;
             btnSubmit.Click += btnSubmit_Click;
@@ -264,12 +272,14 @@
             // 
             // txtNurse2
             // 
+            txtNurse2.Cursor = Cursors.Hand;
             txtNurse2.Font = new Font("Segoe UI", 10.2F);
             txtNurse2.Location = new Point(707, 579);
             txtNurse2.Multiline = true;
             txtNurse2.Name = "txtNurse2";
+            txtNurse2.ReadOnly = true;
             txtNurse2.Size = new Size(462, 39);
-            txtNurse2.TabIndex = 23;
+            txtNurse2.TabIndex = 15;
             txtNurse2.Click += txtNurses_TextChanged;
             txtNurse2.TextChanged += txtNurses_TextChanged;
             // 
@@ -303,16 +313,18 @@
             cbRoom.Location = new Point(707, 146);
             cbRoom.Name = "cbRoom";
             cbRoom.Size = new Size(268, 28);
-            cbRoom.TabIndex = 20;
+            cbRoom.TabIndex = 9;
             // 
             // txtDoctor
             // 
+            txtDoctor.Cursor = Cursors.Hand;
             txtDoctor.Font = new Font("Segoe UI", 10.2F);
             txtDoctor.Location = new Point(707, 227);
             txtDoctor.Multiline = true;
             txtDoctor.Name = "txtDoctor";
+            txtDoctor.ReadOnly = true;
             txtDoctor.Size = new Size(462, 39);
-            txtDoctor.TabIndex = 19;
+            txtDoctor.TabIndex = 11;
             txtDoctor.Click += txtDoctor_TextChanged;
             txtDoctor.TextChanged += txtDoctor_TextChanged;
             // 
@@ -333,7 +345,7 @@
             txtGCN.Multiline = true;
             txtGCN.Name = "txtGCN";
             txtGCN.Size = new Size(412, 39);
-            txtGCN.TabIndex = 17;
+            txtGCN.TabIndex = 8;
             // 
             // label7
             // 
@@ -364,7 +376,7 @@
             txtFN.Multiline = true;
             txtFN.Name = "txtFN";
             txtFN.Size = new Size(412, 39);
-            txtFN.TabIndex = 4;
+            txtFN.TabIndex = 2;
             // 
             // label5
             // 
@@ -385,7 +397,7 @@
             cbGender.Location = new Point(194, 489);
             cbGender.Name = "cbGender";
             cbGender.Size = new Size(220, 28);
-            cbGender.TabIndex = 12;
+            cbGender.TabIndex = 6;
             // 
             // txtGN
             // 
@@ -394,7 +406,7 @@
             txtGN.Multiline = true;
             txtGN.Name = "txtGN";
             txtGN.Size = new Size(412, 39);
-            txtGN.TabIndex = 11;
+            txtGN.TabIndex = 7;
             // 
             // label4
             // 
@@ -425,7 +437,7 @@
             txtLN.Multiline = true;
             txtLN.Name = "txtLN";
             txtLN.Size = new Size(412, 39);
-            txtLN.TabIndex = 5;
+            txtLN.TabIndex = 4;
             // 
             // btnTreatment
             // 
@@ -433,7 +445,7 @@
             btnTreatment.Location = new Point(1325, 40);
             btnTreatment.Name = "btnTreatment";
             btnTreatment.Size = new Size(251, 35);
-            btnTreatment.TabIndex = 31;
+            btnTreatment.TabIndex = 17;
             btnTreatment.Text = "Treatment";
             btnTreatment.UseVisualStyleBackColor = true;
             btnTreatment.Click += btnViewDN_Click;
