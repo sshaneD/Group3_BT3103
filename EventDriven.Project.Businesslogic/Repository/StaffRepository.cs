@@ -1,6 +1,7 @@
 ﻿using EventDriven.Project.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,20 @@ namespace EventDriven.Project.Businesslogic.Repository
                         }
                             return staffs;
                     }
+                }
+            }
+        }
+        public void AssignStaff(int PatientID, int StaffID)
+        {
+            using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("AssignStaff", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.Parameters.AddWithValue("@StaffID", StaffID);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

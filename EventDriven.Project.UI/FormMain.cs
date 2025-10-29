@@ -7,6 +7,7 @@ namespace EventDriven.Project.UI
     {
         public static string AdmissionAction;
         public static int selectedPatientID = 0;
+        public static string staffRole;
         public FormMain()
         {
             InitializeComponent();

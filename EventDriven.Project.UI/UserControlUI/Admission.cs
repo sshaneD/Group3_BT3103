@@ -109,7 +109,7 @@ namespace EventDriven.Project.UI.UserControlUI
                     Gender = cbGender.Text,
                     GuardianName = txtGN.Text,
                     GuardianNo = txtGCN.Text,
-                }; 
+                };
                 patientController.EditPatient(updatedPatient);
                 MessageBox.Show("Patient information updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GoToPatientInfo?.Invoke(this, EventArgs.Empty);
@@ -126,19 +126,6 @@ namespace EventDriven.Project.UI.UserControlUI
             }
         }
 
-        private void txtDoctor_TextChanged(object sender, EventArgs e)
-        {
-            FormStaffAssignment doctorStaff = new FormStaffAssignment();
-            doctorStaff.ShowDialog();
-        }
-
-        private void txtNurses_TextChanged(object sender, EventArgs e)
-        {
-            FormStaffAssignment nurseStaff = new FormStaffAssignment();
-            nurseStaff.ShowDialog();
-
-        }
-
         private void btnViewDN_Click(object sender, EventArgs e)
         {
             FormAddMedicalRecord med = new FormAddMedicalRecord();
@@ -151,6 +138,20 @@ namespace EventDriven.Project.UI.UserControlUI
             int age = today.Year - dateOfBirth.Year;
             if (dateOfBirth.Date > today.AddYears(-age)) age--;
             return age;
+        }
+
+        private void txtDoctor_Click(object sender, EventArgs e)
+        {
+            FormMain.staffRole = "Doctor";
+            FormStaffAssignment doctorStaff = new FormStaffAssignment();
+            doctorStaff.ShowDialog();
+        }
+
+        private void txtNurse_Click(object sender, EventArgs e)
+        {
+            FormMain.staffRole = "Nurse";
+            FormStaffAssignment doctorStaff = new FormStaffAssignment();
+            doctorStaff.ShowDialog();
         }
     }
 }

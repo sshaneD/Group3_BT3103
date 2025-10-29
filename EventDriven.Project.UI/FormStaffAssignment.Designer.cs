@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             panel2 = new Panel();
-            label1 = new Label();
+            labelTitle = new Label();
             dataGridAssignmentM = new DataGridView();
             btnCancelAssign = new Button();
             lblStaff = new Label();
@@ -63,34 +63,34 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(11, 143, 172);
-            panel2.Controls.Add(label1);
+            panel2.Controls.Add(labelTitle);
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(1191, 69);
             panel2.TabIndex = 10;
             // 
-            // label1
+            // labelTitle
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(13, 27);
-            label1.Name = "label1";
-            label1.Size = new Size(229, 29);
-            label1.TabIndex = 3;
-            label1.Text = "Doctor Assignment";
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Microsoft JhengHei UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitle.ForeColor = SystemColors.ButtonHighlight;
+            labelTitle.Location = new Point(13, 27);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(229, 29);
+            labelTitle.TabIndex = 3;
+            labelTitle.Text = "Doctor Assignment";
             // 
             // dataGridAssignmentM
             // 
             dataGridAssignmentM.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridAssignmentM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridAssignmentM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridAssignmentM.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridAssignmentM.EnableHeadersVisualStyles = false;
             dataGridAssignmentM.Location = new Point(91, 214);
@@ -179,7 +179,7 @@
         private DataGridView dataGridView2;
         private Panel panel1;
         private Panel panel2;
-        private Label label1;
+        private Label labelTitle;
         private DataGridView dataGridAssignmentM;
         private Button btnCancelAssign;
         private Label lblStaff;

@@ -160,6 +160,7 @@
             txtNurse.Name = "txtNurse";
             txtNurse.Size = new Size(462, 39);
             txtNurse.TabIndex = 38;
+            txtNurse.Click += txtNurse_Click;
             // 
             // txtDoctor3
             // 
@@ -169,6 +170,7 @@
             txtDoctor3.Name = "txtDoctor3";
             txtDoctor3.Size = new Size(462, 39);
             txtDoctor3.TabIndex = 37;
+            txtDoctor3.Click += txtDoctor_Click;
             // 
             // txtNurses3
             // 
@@ -178,6 +180,7 @@
             txtNurses3.Name = "txtNurses3";
             txtNurses3.Size = new Size(462, 39);
             txtNurses3.TabIndex = 36;
+            txtNurses3.Click += txtNurse_Click;
             // 
             // txtDoctor2
             // 
@@ -187,6 +190,7 @@
             txtDoctor2.Name = "txtDoctor2";
             txtDoctor2.Size = new Size(462, 39);
             txtDoctor2.TabIndex = 35;
+            txtDoctor2.Click += txtDoctor_Click;
             // 
             // txtMN
             // 
@@ -270,8 +274,7 @@
             txtNurse2.Name = "txtNurse2";
             txtNurse2.Size = new Size(462, 39);
             txtNurse2.TabIndex = 23;
-            txtNurse2.Click += txtNurses_TextChanged;
-            txtNurse2.TextChanged += txtNurses_TextChanged;
+            txtNurse2.Click += txtNurse_Click;
             // 
             // label10
             // 
@@ -313,8 +316,7 @@
             txtDoctor.Name = "txtDoctor";
             txtDoctor.Size = new Size(462, 39);
             txtDoctor.TabIndex = 19;
-            txtDoctor.Click += txtDoctor_TextChanged;
-            txtDoctor.TextChanged += txtDoctor_TextChanged;
+            txtDoctor.Click += txtDoctor_Click;
             // 
             // label8
             // 

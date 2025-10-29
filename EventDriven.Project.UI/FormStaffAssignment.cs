@@ -1,4 +1,5 @@
 ﻿using EventDriven.Project.Businesslogic.Controller;
+using EventDriven.Project.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,14 +15,44 @@ namespace EventDriven.Project.UI
     public partial class FormStaffAssignment : Form
     {
         StaffController staffController;
+        string role;
         public FormStaffAssignment()
         {
             staffController = new StaffController();
+            role = FormMain.staffRole;
             InitializeComponent();
-            dataGridAssignmentM.DataSource = staffController.GetAllStaff();
+            CheckRole();
+            LoadData();
         }
 
+        private void CheckRole()
+        {
+            if (role.Equals("Doctor"))
+            {
+                labelTitle.Text = "Doctor Assignment";
+                txtSearchStaff.PlaceholderText = "Search Doctor";
+                lblStaff.Text = "Available Doctors";
+            }
+            else
+            {
+                labelTitle.Text = "Nurse Assignment";
+                txtSearchStaff.PlaceholderText = "Search Nurse";
+                lblStaff.Text = "Available Nurses";
+            }
+        }
 
+        private void LoadData()
+        {
+            List<StaffModel> allStaff = staffController.GetAllStaff();
+            for (int i = 0; i < allStaff.Count; i++)
+            {
+                if (!allStaff[i].Role.Equals(role))
+                {
+                    allStaff.Remove(allStaff[i]);
+                }
+            }
+            dataGridAssignmentM.DataSource = allStaff;
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {

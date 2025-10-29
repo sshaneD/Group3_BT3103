@@ -19,5 +19,9 @@ namespace EventDriven.Project.Businesslogic.Controller
         {
             return staffRepository.GetAllStaff();
         }
+        public void AddStaff(int PatientID, int StaffID)
+        {
+            staffRepository.AssignStaff(PatientID, StaffID);
+        }
     }
 }
