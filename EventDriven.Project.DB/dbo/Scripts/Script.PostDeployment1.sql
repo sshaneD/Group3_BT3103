@@ -85,35 +85,67 @@ VALUES
 (6, 'Obstetrics and Gynecology'),
 (7, 'General Medicine');
 
-INSERT INTO [dbo].[Staff] ([StaffID], [DepartmentID], [FirstName], [LastName], [Role])
+INSERT INTO [dbo].[Staff] ([StaffID], [DepartmentID], [FirstName], [LastName], [Role], [Shift])
 VALUES
-(3001, 1, 'Maria', 'De Leon', 'Doctor'),
-(3002, 1, 'James', 'Villanueva', 'Nurse'),
-(3003, 2, 'Carlos', 'Reyes', 'Doctor'),
-(3004, 2, 'Angela', 'Cruz', 'Nurse'),
-(3005, 3, 'Ella', 'Santos', 'Doctor'),
-(3006, 3, 'Luis', 'Domingo', 'Nurse'),
-(3007, 4, 'Rafael', 'Torres', 'Doctor'),
-(3008, 4, 'Diana', 'Garcia', 'Nurse'),
-(3009, 5, 'Jace', 'Sarmiento', 'Doctor'),
-(3010, 5, 'Bea', 'Gomez', 'Nurse'),
-(3011, 6, 'Nina', 'Lopez', 'Doctor'),
-(3012, 6, 'Erwin', 'Castillo', 'Nurse'),
-(3013, 7, 'Hannah', 'Lim', 'Doctor'),
-(3014, 7, 'Marco', 'Ramos', 'Nurse'),
-(3015, 1, 'Tristan', 'Valdez', 'Doctor'),
-(3016, 1, 'Lea', 'Mendoza', 'Nurse'),
-(3017, 2, 'Patrick', 'Aquino', 'Doctor'),
-(3018, 2, 'Clarisse', 'Tan', 'Nurse'),
-(3019, 3, 'Isabel', 'Morales', 'Doctor'),
-(3020, 3, 'Jerome', 'Gutierrez', 'Nurse'),
-(3021, 4, 'Kyle', 'Navarro', 'Doctor'),
-(3022, 4, 'Faith', 'Dizon', 'Nurse'),
-(3023, 5, 'Arthur', 'Santos', 'Doctor'),
-(3024, 5, 'Lara', 'Villareal', 'Nurse'),
-(3025, 6, 'Monica', 'Soriano', 'Doctor'),
-(3026, 6, 'Victor', 'Salazar', 'Nurse'),
-(3027, 7, 'Ethan', 'Cabrera', 'Doctor'),
-(3028, 7, 'Alyssa', 'Rivera', 'Nurse'),
-(3029, 7, 'Sophia', 'Manalo', 'Doctor'),
-(3030, 6, 'Noel', 'Roxas', 'Nurse');
+('03001', 1, 'Maria', 'De Leon', 'Doctor', '7:00AM-3:00PM'),
+('03002', 1, 'James', 'Villanueva', 'Nurse', '7:00AM-3:00PM'),
+('03003', 2, 'Carlos', 'Reyes', 'Doctor', '3:00PM-11:00PM'),
+('03004', 2, 'Angela', 'Cruz', 'Nurse', '3:00PM-11:00PM'),
+('03005', 3, 'Ella', 'Santos', 'Doctor', '11:00PM-7:00AM'),
+('03006', 3, 'Luis', 'Domingo', 'Nurse', '11:00PM-7:00AM'),
+('03007', 4, 'Rafael', 'Torres', 'Doctor', '7:00AM-3:00PM'),
+('03008', 4, 'Diana', 'Garcia', 'Nurse', '7:00AM-3:00PM'),
+('03009', 5, 'Jace', 'Sarmiento', 'Doctor', '3:00PM-11:00PM'),
+('03010', 5, 'Bea', 'Gomez', 'Nurse', '3:00PM-11:00PM'),
+('03011', 6, 'Nina', 'Lopez', 'Doctor', '11:00PM-7:00AM'),
+('03012', 6, 'Erwin', 'Castillo', 'Nurse', '11:00PM-7:00AM'),
+('03013', 7, 'Hannah', 'Lim', 'Doctor', '7:00AM-3:00PM'),
+('03014', 7, 'Marco', 'Ramos', 'Nurse', '7:00AM-3:00PM'),
+('03015', 1, 'Tristan', 'Valdez', 'Doctor', '3:00PM-11:00PM'),
+('03016', 1, 'Lea', 'Mendoza', 'Nurse', '3:00PM-11:00PM'),
+('03017', 2, 'Patrick', 'Aquino', 'Doctor', '11:00PM-7:00AM'),
+('03018', 2, 'Clarisse', 'Tan', 'Nurse', '11:00PM-7:00AM'),
+('03019', 3, 'Isabel', 'Morales', 'Doctor', '7:00AM-3:00PM'),
+('03020', 3, 'Jerome', 'Gutierrez', 'Nurse', '7:00AM-3:00PM'),
+('03021', 4, 'Kyle', 'Navarro', 'Doctor', '3:00PM-11:00PM'),
+('03022', 4, 'Faith', 'Dizon', 'Nurse', '3:00PM-11:00PM'),
+('03023', 5, 'Arthur', 'Santos', 'Doctor', '11:00PM-7:00AM'),
+('03024', 5, 'Lara', 'Villareal', 'Nurse', '11:00PM-7:00AM'),
+('03025', 6, 'Monica', 'Soriano', 'Doctor', '7:00AM-3:00PM'),
+('03026', 6, 'Victor', 'Salazar', 'Nurse', '7:00AM-3:00PM'),
+('03027', 7, 'Ethan', 'Cabrera', 'Doctor', '3:00PM-11:00PM'),
+('03028', 7, 'Alyssa', 'Rivera', 'Nurse', '3:00PM-11:00PM'),
+('03029', 7, 'Sophia', 'Manalo', 'Doctor', '11:00PM-7:00AM'),
+('03030', 6, 'Noel', 'Roxas', 'Nurse', '11:00PM-7:00AM');
+
+INSERT INTO [dbo].[StaffAssignment] ([PatientID], [StaffID], [Role])
+SELECT 1000, 3001, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3001 UNION ALL
+SELECT 1000, 3002, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3002 UNION ALL
+SELECT 1001, 3003, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3003 UNION ALL
+SELECT 1001, 3004, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3004 UNION ALL
+SELECT 1002, 3005, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3005 UNION ALL
+SELECT 1002, 3006, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3006 UNION ALL
+SELECT 1003, 3007, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3007 UNION ALL
+SELECT 1003, 3008, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3008 UNION ALL
+SELECT 1004, 3009, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3009 UNION ALL
+SELECT 1004, 3010, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3010 UNION ALL
+SELECT 1005, 3011, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3011 UNION ALL
+SELECT 1005, 3012, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3012 UNION ALL
+SELECT 1006, 3013, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3013 UNION ALL
+SELECT 1006, 3014, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3014 UNION ALL
+SELECT 1007, 3015, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3015 UNION ALL
+SELECT 1007, 3016, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3016 UNION ALL
+SELECT 1008, 3017, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3017 UNION ALL
+SELECT 1008, 3018, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3018 UNION ALL
+SELECT 1009, 3019, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3019 UNION ALL
+SELECT 1009, 3020, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3020 UNION ALL
+SELECT 1010, 3021, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3021 UNION ALL
+SELECT 1010, 3022, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3022 UNION ALL
+SELECT 1011, 3023, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3023 UNION ALL
+SELECT 1011, 3024, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3024 UNION ALL
+SELECT 1012, 3025, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3025 UNION ALL
+SELECT 1012, 3026, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3026 UNION ALL
+SELECT 1013, 3027, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3027 UNION ALL
+SELECT 1013, 3028, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3028 UNION ALL
+SELECT 1014, 3029, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3029 UNION ALL
+SELECT 1014, 3030, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3030;

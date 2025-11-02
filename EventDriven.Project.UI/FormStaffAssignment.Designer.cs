@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             panel2 = new Panel();
             labelTitle = new Label();
@@ -83,18 +83,17 @@
             // dataGridAssignmentM
             // 
             dataGridAssignmentM.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridAssignmentM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridAssignmentM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridAssignmentM.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridAssignmentM.EnableHeadersVisualStyles = false;
             dataGridAssignmentM.Location = new Point(91, 214);
-            dataGridAssignmentM.MultiSelect = false;
             dataGridAssignmentM.Name = "dataGridAssignmentM";
             dataGridAssignmentM.ReadOnly = true;
             dataGridAssignmentM.RowHeadersVisible = false;
@@ -102,6 +101,7 @@
             dataGridAssignmentM.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridAssignmentM.Size = new Size(1010, 415);
             dataGridAssignmentM.TabIndex = 9;
+            dataGridAssignmentM.SelectionChanged += dataGridAssignmentM_SelectionChanged;
             // 
             // btnCancelAssign
             // 
@@ -151,6 +151,7 @@
             btnAssignStaff.TabIndex = 11;
             btnAssignStaff.Text = "Assign";
             btnAssignStaff.UseVisualStyleBackColor = true;
+            btnAssignStaff.Click += btnAssignStaff_Click;
             // 
             // FormStaffAssignment
             // 
@@ -165,6 +166,7 @@
             Name = "FormStaffAssignment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormStaffAssignment";
+            Load += FormStaffAssignment_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

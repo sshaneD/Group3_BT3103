@@ -41,5 +41,9 @@ namespace EventDriven.Project.Businesslogic.Controller
         {
             patientRepo.DeletePatient(PatientID);
         }
+        public int GetNextPatientID()
+        {
+            return patientRepo.GetNextPatientID();
+        }
     }
 }

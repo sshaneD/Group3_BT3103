@@ -36,7 +36,7 @@
             label1 = new Label();
             txtNurse = new TextBox();
             txtDoctor3 = new TextBox();
-            txtNurses3 = new TextBox();
+            txtNurse3 = new TextBox();
             txtDoctor2 = new TextBox();
             txtMN = new TextBox();
             label14 = new Label();
@@ -93,7 +93,7 @@
             panel3.Controls.Add(label1);
             panel3.Controls.Add(txtNurse);
             panel3.Controls.Add(txtDoctor3);
-            panel3.Controls.Add(txtNurses3);
+            panel3.Controls.Add(txtNurse3);
             panel3.Controls.Add(txtDoctor2);
             panel3.Controls.Add(txtMN);
             panel3.Controls.Add(label14);
@@ -158,6 +158,7 @@
             txtNurse.Location = new Point(707, 489);
             txtNurse.Multiline = true;
             txtNurse.Name = "txtNurse";
+            txtNurse.ReadOnly = true;
             txtNurse.Size = new Size(462, 39);
             txtNurse.TabIndex = 38;
             txtNurse.Click += txtNurse_Click;
@@ -168,19 +169,21 @@
             txtDoctor3.Location = new Point(707, 399);
             txtDoctor3.Multiline = true;
             txtDoctor3.Name = "txtDoctor3";
+            txtDoctor3.ReadOnly = true;
             txtDoctor3.Size = new Size(462, 39);
             txtDoctor3.TabIndex = 37;
             txtDoctor3.Click += txtDoctor_Click;
             // 
-            // txtNurses3
+            // txtNurse3
             // 
-            txtNurses3.Font = new Font("Segoe UI", 10.2F);
-            txtNurses3.Location = new Point(707, 669);
-            txtNurses3.Multiline = true;
-            txtNurses3.Name = "txtNurses3";
-            txtNurses3.Size = new Size(462, 39);
-            txtNurses3.TabIndex = 36;
-            txtNurses3.Click += txtNurse_Click;
+            txtNurse3.Font = new Font("Segoe UI", 10.2F);
+            txtNurse3.Location = new Point(707, 669);
+            txtNurse3.Multiline = true;
+            txtNurse3.Name = "txtNurse3";
+            txtNurse3.ReadOnly = true;
+            txtNurse3.Size = new Size(462, 39);
+            txtNurse3.TabIndex = 36;
+            txtNurse3.Click += txtNurse_Click;
             // 
             // txtDoctor2
             // 
@@ -188,6 +191,7 @@
             txtDoctor2.Location = new Point(707, 313);
             txtDoctor2.Multiline = true;
             txtDoctor2.Name = "txtDoctor2";
+            txtDoctor2.ReadOnly = true;
             txtDoctor2.Size = new Size(462, 39);
             txtDoctor2.TabIndex = 35;
             txtDoctor2.Click += txtDoctor_Click;
@@ -272,6 +276,7 @@
             txtNurse2.Location = new Point(707, 579);
             txtNurse2.Multiline = true;
             txtNurse2.Name = "txtNurse2";
+            txtNurse2.ReadOnly = true;
             txtNurse2.Size = new Size(462, 39);
             txtNurse2.TabIndex = 23;
             txtNurse2.Click += txtNurse_Click;
@@ -314,6 +319,7 @@
             txtDoctor.Location = new Point(707, 227);
             txtDoctor.Multiline = true;
             txtDoctor.Name = "txtDoctor";
+            txtDoctor.ReadOnly = true;
             txtDoctor.Size = new Size(462, 39);
             txtDoctor.TabIndex = 19;
             txtDoctor.Click += txtDoctor_Click;
@@ -485,7 +491,7 @@
         private TextBox txtMN;
         private Label label14;
         private Button btnCancel;
-        private TextBox txtNurses3;
+        private TextBox txtNurse3;
         private TextBox txtDoctor2;
         private TextBox txtNurse;
         private TextBox txtDoctor3;
