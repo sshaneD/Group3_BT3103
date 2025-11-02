@@ -13,7 +13,7 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     internal class PatientRepo
     {
-        private string CONNECTIONSTRING = "Data Source=jace\\sqlexpress;Initial Catalog=Hospital;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+        private string CONNECTIONSTRING = "Data Source=KOUTAIBA;Initial Catalog=STEF;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
 
         public List <PatientModel> GetAllPatient()
         {
@@ -206,6 +206,22 @@ namespace EventDriven.Project.Businesslogic.Repository
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
+            }
+        }
+
+        public int GetNextPatientID()
+        {
+            using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("GetNextPatientID", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        return reader.GetInt32(0);
+                    }
+                }
             }
         }
     }

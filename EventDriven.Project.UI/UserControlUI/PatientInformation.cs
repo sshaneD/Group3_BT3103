@@ -19,10 +19,12 @@ namespace EventDriven.Project.UI.UserControlUI
         public event EventHandler GoToAdmissionAdd;
         public event EventHandler GoToAdmissionEdit;
         private PatientController patientController;
+        private StaffController staffController;
         public PatientInformation()
         {
             InitializeComponent();
             patientController = new PatientController();
+            staffController = new StaffController();
             DGPatientRecord.DataSource = patientController.GetAllPatients();
         }
 
@@ -38,6 +40,11 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 int selected = Convert.ToInt32(DGPatientRecord.CurrentRow.Cells["PatientID"].Value);
                 FormMain.selectedPatientID = selected;
+                List<int> staffIDs = staffController.GetAssignedStaff(selected);
+                foreach (int staffID in staffIDs)
+                {
+                    FormMain.assignedStaff.Add(staffController.GetStaffByID(staffID));
+                }
             }
             FormMain.AdmissionAction = "Edit";
             GoToAdmissionEdit?.Invoke(this, EventArgs.Empty);

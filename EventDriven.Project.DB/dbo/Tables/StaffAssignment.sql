@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[StaffAssignment]
 (
-	[StaffAssignmentID] INT NOT NULL PRIMARY KEY, 
+	[StaffAssignmentID] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [PatientID] INT NULL, 
     [StaffID] INT NULL, 
     [Role] NVARCHAR(50) NULL,

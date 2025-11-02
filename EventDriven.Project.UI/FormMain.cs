@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.Eventing.Reader;
+using EventDriven.Project.Model;
 using EventDriven.Project.UI.UserControlUI;
 
 namespace EventDriven.Project.UI
@@ -7,6 +8,8 @@ namespace EventDriven.Project.UI
     {
         public static string AdmissionAction;
         public static int selectedPatientID = 0;
+        public static string staffRole;
+        public static List<StaffModel> assignedStaff = new List<StaffModel>();
         public FormMain()
         {
             InitializeComponent();
