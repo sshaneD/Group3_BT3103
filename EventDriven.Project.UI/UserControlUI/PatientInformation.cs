@@ -18,6 +18,7 @@ namespace EventDriven.Project.UI.UserControlUI
     {
         public event EventHandler GoToAdmissionAdd;
         public event EventHandler GoToAdmissionEdit;
+        public event EventHandler GoToBOS;
         private PatientController patientController;
         private StaffController staffController;
         public PatientInformation()
@@ -26,8 +27,26 @@ namespace EventDriven.Project.UI.UserControlUI
             patientController = new PatientController();
             staffController = new StaffController();
             DGPatientRecord.DataSource = patientController.GetAllPatients();
+            CheckLoggedUser();
         }
 
+        private void CheckLoggedUser()
+        {
+            switch (FormLogin.Role)
+            {
+                case "admin":
+                    break;
+                case "receptionist":
+                    btnBOS.Visible = false;
+                    break;
+                case "cashier":
+                    btnAdd.Visible = false;
+                    btnEdit.Visible = false;
+                    btnDelete.Visible = false;
+                    btnMedRecord.Visible = false;
+                    break;
+            }
+        }
         private void button7_Click(object sender, EventArgs e)
         {
             FormMain.AdmissionAction = "Add";
@@ -116,6 +135,16 @@ namespace EventDriven.Project.UI.UserControlUI
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBOS_Click(object sender, EventArgs e)
+        {
+            GoToBOS?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnMedRecord_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

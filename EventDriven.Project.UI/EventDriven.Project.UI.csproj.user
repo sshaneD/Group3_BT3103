@@ -16,10 +16,16 @@
     <Compile Update="UserControlUI\Admission.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControlUI\BillOfStatement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControlUI\Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControlUI\PatientInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControlUI\Payment.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControlUI\RoomManagement.cs">

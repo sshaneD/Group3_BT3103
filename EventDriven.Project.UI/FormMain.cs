@@ -73,6 +73,7 @@ namespace EventDriven.Project.UI
                 btnPatientInfo.BackColor = Color.LightGray;
                 patientInfo.GoToAdmissionAdd += (s, e) => ShowControl(new Admission());
                 patientInfo.GoToAdmissionEdit += (s, e) => ShowControl(new Admission());
+                patientInfo.GoToBOS += (s, e) => ShowControl(new BillOfStatement());
             }
             else if (userControl is Admission admission)
             {
@@ -86,7 +87,7 @@ namespace EventDriven.Project.UI
                     btnPatientInfo.BackColor = Color.LightGray;
                 }
                 admission.GoToPatientInfo += (s, e) => ShowControl(new PatientInformation());
-              
+
             }
 
 
@@ -96,6 +97,10 @@ namespace EventDriven.Project.UI
                 roomManagement.GoToRooms += (s, e) => ShowControl(new Rooms());
             }
 
+            else if (userControl is BillOfStatement BOS)
+            {
+                btnBilling.BackColor = Color.LightGray;
+            }
             else if (userControl is Dashboard dashboard)
             {
                 btnHome.BackColor = Color.LightGray;
@@ -108,6 +113,11 @@ namespace EventDriven.Project.UI
         private void btnRooms_Click(object sender, EventArgs e)
         {
             ShowControl(new RoomManagement());
+        }
+
+        private void btnBilling_Click(object sender, EventArgs e)
+        {
+            ShowControl(new BillOfStatement());
         }
     }
 }
