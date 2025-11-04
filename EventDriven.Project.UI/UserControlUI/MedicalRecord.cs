@@ -8,18 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EventDriven.Project.UI
+namespace EventDriven.Project.UI.UserControlUI
 {
-    public partial class FormAddMedicalRecord : Form
+    public partial class MedicalRecord : UserControl
     {
-        public FormAddMedicalRecord()
+        public MedicalRecord()
         {
             InitializeComponent();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,7 +11,7 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     internal class StaffRepository
     {
-        private string CONNECTIONSTRING = "Data Source=JACE\\SQLEXPRESS;Initial Catalog=Hospital;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+        private string CONNECTIONSTRING = ConfigurationHelper.GetConnectionString();
         public List<StaffModel> GetAllStaff()
         {
             List<StaffModel> staffs = new List<StaffModel>();
