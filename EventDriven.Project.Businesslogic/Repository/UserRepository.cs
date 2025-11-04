@@ -8,7 +8,7 @@ namespace EventDriven.Project.Businesslogic.Repository
     {
         private string CONNECTIONSTRING = ConfigurationHelper.GetConnectionString();
 
-         public UserModel ValidateUser(string Username, string Password)//Form1 Validate User
+        public UserModel ValidateUser(string Username, string Password)//Form1 Validate User
         {
             
             try

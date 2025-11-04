@@ -176,6 +176,7 @@
             btnBilling.TabIndex = 6;
             btnBilling.Text = "Billing";
             btnBilling.UseVisualStyleBackColor = true;
+            btnBilling.Click += btnBilling_Click;
             // 
             // btnDischarge
             // 

@@ -38,8 +38,8 @@
             button1 = new Button();
             button2 = new Button();
             panel1 = new Panel();
-            label4 = new Label();
             textBox3 = new TextBox();
+            label4 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -140,10 +140,19 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(txtTreatment);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(0, 48);
+            panel1.Location = new Point(0, 55);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1198, 598);
+            panel1.Size = new Size(1198, 609);
             panel1.TabIndex = 0;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(837, 105);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(268, 191);
+            textBox3.TabIndex = 10;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // label4
             // 
@@ -154,15 +163,6 @@
             label4.Size = new Size(128, 29);
             label4.TabIndex = 9;
             label4.Text = "Diagnosis:";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(837, 105);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(268, 191);
-            textBox3.TabIndex = 10;
-            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // Treatment
             // 
