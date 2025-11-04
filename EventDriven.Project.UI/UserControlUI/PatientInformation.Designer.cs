@@ -38,8 +38,11 @@
             panel1 = new Panel();
             btnMedRecord = new Button();
             label1 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnBOS = new Button();
             ((System.ComponentModel.ISupportInitialize)DGPatientRecord).BeginInit();
             panel1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // txtSearch
@@ -67,7 +70,7 @@
             // btnDelete
             // 
             btnDelete.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(323, 15);
+            btnDelete.Location = new Point(257, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(121, 35);
             btnDelete.TabIndex = 39;
@@ -78,7 +81,7 @@
             // btnEdit
             // 
             btnEdit.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEdit.Location = new Point(174, 15);
+            btnEdit.Location = new Point(130, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(121, 35);
             btnEdit.TabIndex = 38;
@@ -89,7 +92,7 @@
             // btnAdd
             // 
             btnAdd.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.Location = new Point(25, 14);
+            btnAdd.Location = new Point(3, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(121, 35);
             btnAdd.TabIndex = 37;
@@ -122,12 +125,8 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(11, 143, 172);
-            panel1.Controls.Add(btnMedRecord);
             panel1.Controls.Add(btnSearch);
-            panel1.Controls.Add(btnDelete);
-            panel1.Controls.Add(btnEdit);
             panel1.Controls.Add(txtSearch);
-            panel1.Controls.Add(btnAdd);
             panel1.Location = new Point(49, 97);
             panel1.Name = "panel1";
             panel1.Size = new Size(1539, 65);
@@ -136,7 +135,7 @@
             // btnMedRecord
             // 
             btnMedRecord.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMedRecord.Location = new Point(472, 15);
+            btnMedRecord.Location = new Point(384, 3);
             btnMedRecord.Name = "btnMedRecord";
             btnMedRecord.Size = new Size(185, 35);
             btnMedRecord.TabIndex = 42;
@@ -154,11 +153,36 @@
             label1.TabIndex = 43;
             label1.Text = "Patient Information";
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(11, 143, 172);
+            flowLayoutPanel1.Controls.Add(btnAdd);
+            flowLayoutPanel1.Controls.Add(btnEdit);
+            flowLayoutPanel1.Controls.Add(btnDelete);
+            flowLayoutPanel1.Controls.Add(btnMedRecord);
+            flowLayoutPanel1.Controls.Add(btnBOS);
+            flowLayoutPanel1.Location = new Point(62, 113);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(970, 49);
+            flowLayoutPanel1.TabIndex = 44;
+            // 
+            // btnBOS
+            // 
+            btnBOS.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBOS.Location = new Point(575, 3);
+            btnBOS.Name = "btnBOS";
+            btnBOS.Size = new Size(205, 35);
+            btnBOS.TabIndex = 43;
+            btnBOS.Text = "Bill of Statement";
+            btnBOS.UseVisualStyleBackColor = true;
+            btnBOS.Click += btnBOS_Click;
+            // 
             // PatientInformation
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(DGPatientRecord);
             Controls.Add(panel1);
             Name = "PatientInformation";
@@ -166,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)DGPatientRecord).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,5 +206,7 @@
         private Panel panel1;
         private Label label1;
         private Button btnMedRecord;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button btnBOS;
     }
 }

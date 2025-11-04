@@ -176,14 +176,7 @@
             // 
             // txtNurse3
             // 
-            txtNurses3.Cursor = Cursors.Hand;
-            txtNurses3.Font = new Font("Segoe UI", 10.2F);
-            txtNurses3.Location = new Point(707, 669);
-            txtNurses3.Multiline = true;
-            txtNurses3.Name = "txtNurses3";
-            txtNurses3.ReadOnly = true;
-            txtNurses3.Size = new Size(462, 39);
-            txtNurses3.TabIndex = 16;
+           
             // 
             // txtDoctor2
             // 
@@ -280,8 +273,7 @@
             txtNurse2.ReadOnly = true;
             txtNurse2.Size = new Size(462, 39);
             txtNurse2.TabIndex = 15;
-            txtNurse2.Click += txtNurses_TextChanged;
-            txtNurse2.TextChanged += txtNurses_TextChanged;
+          
             // 
             // label10
             // 
@@ -325,8 +317,7 @@
             txtDoctor.ReadOnly = true;
             txtDoctor.Size = new Size(462, 39);
             txtDoctor.TabIndex = 11;
-            txtDoctor.Click += txtDoctor_TextChanged;
-            txtDoctor.TextChanged += txtDoctor_TextChanged;
+           
             // 
             // label8
             // 
