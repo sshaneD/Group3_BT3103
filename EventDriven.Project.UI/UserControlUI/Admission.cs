@@ -1,5 +1,7 @@
 ﻿using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace EventDriven.Project.UI.UserControlUI
 {
@@ -8,10 +10,12 @@ namespace EventDriven.Project.UI.UserControlUI
         public event EventHandler GoToPatientInfo;
         public event EventHandler GoToTreatment;
         private PatientController patientController;
+        private StaffController staffController;
         public Admission()
         {
             InitializeComponent();
             patientController = new PatientController();
+            staffController = new StaffController();
             CheckAction();
         }
 
@@ -43,6 +47,7 @@ namespace EventDriven.Project.UI.UserControlUI
             cbGender.Text = patient.Gender;
             txtGN.Text = patient.GuardianName;
             txtGCN.Text = patient.GuardianNo;
+            LoadTextbox();
         }
 
         private void btnADCancel_Click(object sender, EventArgs e)
@@ -73,6 +78,7 @@ namespace EventDriven.Project.UI.UserControlUI
                     GuardianNo = txtGCN.Text,
                 };
                 patientController.AddPatient(newPatient);
+                AssignStaff();
                 MessageBox.Show("Patient admitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtFN.Clear();
@@ -84,6 +90,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 txtGN.Clear();
                 txtGCN.Clear();
                 cbRoomNo.SelectedIndex = -1;
+                FormMain.assignedStaff.Clear();
             }
             else if (FormMain.AdmissionAction == "Edit")
             {
@@ -101,6 +108,7 @@ namespace EventDriven.Project.UI.UserControlUI
                     GuardianNo = txtGCN.Text,
                 };
                 patientController.EditPatient(updatedPatient);
+                AssignStaff();
                 MessageBox.Show("Patient information updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GoToPatientInfo?.Invoke(this, EventArgs.Empty);
 
@@ -113,20 +121,23 @@ namespace EventDriven.Project.UI.UserControlUI
                 txtGN.Clear();
                 txtGCN.Clear();
                 cbRoomNo.SelectedIndex = -1;
+                FormMain.assignedStaff.Clear();
             }
         }
 
-        private void txtDoctor_TextChanged(object sender, EventArgs e)
+        private void AssignStaff()
         {
-            FormStaffAssignment doctorStaff = new FormStaffAssignment();
-            doctorStaff.ShowDialog();
-        }
-
-        private void txtNurses_TextChanged(object sender, EventArgs e)
-        {
-            FormStaffAssignment nurseStaff = new FormStaffAssignment();
-            nurseStaff.ShowDialog();
-
+            //FormMain.assignedStaff.Clear();
+            
+            int selectedPatientID = FormMain.AdmissionAction.Equals("Add") ? patientController.GetNextPatientID() : FormMain.selectedPatientID;
+            if (FormMain.AdmissionAction.Equals("Edit"))
+            {
+                staffController.RemoveAssignedStaff(selectedPatientID);
+            }
+            for (int i = 0; i < FormMain.assignedStaff.Count; i++)
+            {
+                staffController.AddStaff(selectedPatientID, FormMain.assignedStaff[i].StaffID);
+            }
         }
 
         private void btnViewDN_Click(object sender, EventArgs e)
@@ -141,6 +152,64 @@ namespace EventDriven.Project.UI.UserControlUI
             int age = today.Year - dateOfBirth.Year;
             if (dateOfBirth.Date > today.AddYears(-age)) age--;
             return age;
+        }
+
+        private void txtDoctor_Click(object sender, EventArgs e)
+        {
+            FormMain.staffRole = "Doctor";
+            FormStaffAssignment doctorStaff = new FormStaffAssignment();
+            doctorStaff.ShowDialog();
+            if (doctorStaff.DialogResult == DialogResult.OK)
+            {
+                LoadTextbox();
+            }
+        }
+
+        private void txtNurse_Click(object sender, EventArgs e)
+        {
+            FormMain.staffRole = "Nurse";
+            FormStaffAssignment doctorStaff = new FormStaffAssignment();
+            doctorStaff.ShowDialog();
+            if (doctorStaff.DialogResult == DialogResult.OK)
+            {
+                LoadTextbox();
+            }
+        }
+
+        private void LoadTextbox()
+        {
+            TextBox[] textBoxes = { txtDoctor, txtDoctor2, txtDoctor3, txtNurse, txtNurse2, txtNurse3 };
+            TextBox[] doctorTextboxes = { txtDoctor, txtDoctor2, txtDoctor3 };
+            TextBox[] nurseTextboxes = { txtNurse, txtNurse2, txtNurse3 };
+            List<StaffModel> doctors = new List<StaffModel>();
+            List<StaffModel> nurses = new List<StaffModel>();
+
+            foreach (TextBox tb in textBoxes)
+            {
+                tb.Clear();
+            }
+
+            foreach (StaffModel staff in FormMain.assignedStaff)
+            {
+                if (staff.Role.Equals("Doctor"))
+                {
+                    doctors.Add(staff);
+                }
+                else
+                {
+                    nurses.Add(staff);
+                }
+            }
+
+            for (int i = 0; i < doctors.Count; i++)
+            {
+                doctorTextboxes[i].Text = $"{doctors[i].FirstName} {doctors[i].LastName} ({doctors[i].DepartmentName})";
+            }
+
+            for (int i = 0; i < nurses.Count; i++)
+            {
+                nurseTextboxes[i].Text = $"{nurses[i].FirstName} {nurses[i].LastName} ({nurses[i].DepartmentName})";
+            }
         }
     }
 }

@@ -208,5 +208,21 @@ namespace EventDriven.Project.Businesslogic.Repository
                 Debug.WriteLine(e.Message);
             }
         }
+
+        public int GetNextPatientID()
+        {
+            using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("GetNextPatientID", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        return reader.GetInt32(0);
+                    }
+                }
+            }
+        }
     }
 }

@@ -36,7 +36,7 @@
             label1 = new Label();
             txtNurse = new TextBox();
             txtDoctor3 = new TextBox();
-            txtNurses3 = new TextBox();
+            txtNurse3 = new TextBox();
             txtDoctor2 = new TextBox();
             txtMN = new TextBox();
             label14 = new Label();
@@ -93,7 +93,7 @@
             panel3.Controls.Add(label1);
             panel3.Controls.Add(txtNurse);
             panel3.Controls.Add(txtDoctor3);
-            panel3.Controls.Add(txtNurses3);
+            panel3.Controls.Add(txtNurse3);
             panel3.Controls.Add(txtDoctor2);
             panel3.Controls.Add(txtMN);
             panel3.Controls.Add(label14);
@@ -174,7 +174,7 @@
             txtDoctor3.Size = new Size(462, 39);
             txtDoctor3.TabIndex = 13;
             // 
-            // txtNurses3
+            // txtNurse3
             // 
             txtNurses3.Cursor = Cursors.Hand;
             txtNurses3.Font = new Font("Segoe UI", 10.2F);
@@ -495,7 +495,7 @@
         private TextBox txtMN;
         private Label label14;
         private Button btnCancel;
-        private TextBox txtNurses3;
+        private TextBox txtNurse3;
         private TextBox txtDoctor2;
         private TextBox txtNurse;
         private TextBox txtDoctor3;
