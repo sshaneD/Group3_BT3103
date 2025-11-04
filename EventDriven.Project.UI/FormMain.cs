@@ -9,6 +9,7 @@ namespace EventDriven.Project.UI
         public static string AdmissionAction;
         public static int selectedPatientID = 0;
         public static string staffRole;
+        public static RoomInfoModel SelectedRoom;
         public static List<StaffModel> assignedStaff = new List<StaffModel>();
         public FormMain()
         {
@@ -89,7 +90,6 @@ namespace EventDriven.Project.UI
               
             }
 
-
             else if (userControl is RoomManagement roomManagement)
             {
                 btnRooms.BackColor = Color.LightGray;
@@ -101,7 +101,12 @@ namespace EventDriven.Project.UI
                 btnHome.BackColor = Color.LightGray;
             }
 
-            MainPanel.Controls.Clear();
+            else if (userControl is Rooms rooms)
+            {
+                rooms.GoToRoomManagement += (s, e) => ShowControl(new RoomManagement());
+            }
+
+                MainPanel.Controls.Clear();
             MainPanel.Controls.Add(userControl);
         }
 

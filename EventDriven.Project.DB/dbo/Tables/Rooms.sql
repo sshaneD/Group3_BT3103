@@ -4,7 +4,5 @@
 	[RoomNumber] INT NOT NULL, 
     [RoomType] VARCHAR(50) NOT NULL, 
     [RatePerDay] DECIMAL(10, 2) NOT NULL, 
-    [Capacity] INT NOT NULL, 
-    [Availability] INT NOT NULL, 
-    [Status] VARCHAR(50) NOT NULL
+    [Capacity] INT NOT NULL
 )

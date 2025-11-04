@@ -1,3 +1,3 @@
 ﻿CREATE PROCEDURE [dbo].[GetNextPatientID]
 AS
-	SELECT IDENT_CURRENT('Patient') + IDENT_INCR('Patient') AS NextID;
+	SELECT CAST(IDENT_CURRENT('Patient') + IDENT_INCR('Patient') AS INT) AS NextID;

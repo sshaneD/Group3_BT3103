@@ -8,47 +8,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EventDriven.Project.Businesslogic.Controller;
+using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI.UserControlUI
 {
     public partial class Rooms : UserControl
     {
+        RoomController roomController;
+        RoomInfoModel room;
+        public event EventHandler GoToRoomManagement;
         public Rooms()
         {
             InitializeComponent();
-        }
 
-        private void RoundButton(Button btn, int radius)
-        {
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(btn.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(btn.Width - radius, btn.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, btn.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            btn.Region = new Region(path);
-
+            roomController = new RoomController();
+            room = FormMain.SelectedRoom;
         }
 
         private void Rooms_Load(object sender, EventArgs e)
         {
-            RoundButton(btnWard, 50);
+            RoomOccupationModel occupation = roomController.GetRoomTypeAvailability(room.RoomType);
+            lblOccupied.Text = occupation.TotalAvailableBeds.ToString() + "/" + occupation.Capacity;
+            lblRoomType.Text = room.RoomType;
+            lblPrice.Text = "PHP " + room.RatePerDay.ToString("N2");
+            dgRooms.DataSource = roomController.GetRoomModel(room.RoomType);
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-
+            GoToRoomManagement?.Invoke(this, EventArgs.Empty);
         }
 
-        private void btnWard_Click(object sender, EventArgs e)
+        private void lblPrice_Click(object sender, EventArgs e)
         {
-            
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

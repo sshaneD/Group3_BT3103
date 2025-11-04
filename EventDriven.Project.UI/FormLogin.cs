@@ -29,6 +29,12 @@ namespace EventDriven.Project.UI
             try
             {
 
+                if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
+                {
+                    MessageBox.Show("Fields cannot be empty", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 UserModel matchUser = userController.ValidateUser(txtUsername.Text, txtPassword.Text);
 
                 if (matchUser == null)

@@ -16,18 +16,22 @@ namespace EventDriven.Project.UI.UserControlUI
 {
     public partial class Admission : UserControl
     {
+        #region Local Variables
         public event EventHandler GoToPatientInfo;
         public event EventHandler GoToTreatment;
         private PatientController patientController;
         private StaffController staffController;
+        private RoomController roomController;
+        #endregion
         public Admission()
         {
             InitializeComponent();
             patientController = new PatientController();
             staffController = new StaffController();
+            roomController = new RoomController();
             CheckAction();
+            LoadRoomNumber();
         }
-
         private void CheckAction()
         {
             if (FormMain.AdmissionAction == "Add")
@@ -44,7 +48,6 @@ namespace EventDriven.Project.UI.UserControlUI
                 lblTitle.Text = "Edit Patient Information";
             }
         }
-
         private void LoadData()
         {
             PatientModel patient = patientController.GetPatientById(FormMain.selectedPatientID);
@@ -58,18 +61,11 @@ namespace EventDriven.Project.UI.UserControlUI
             txtGCN.Text = patient.GuardianNo;
             LoadTextbox();
         }
-
         private void btnADCancel_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Changes are not saved.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
             GoToPatientInfo?.Invoke(this, EventArgs.Empty);
         }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (FormMain.AdmissionAction == "Add")
@@ -88,6 +84,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 };
                 patientController.AddPatient(newPatient);
                 AssignStaff();
+                assignRoom();
                 MessageBox.Show("Patient admitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtFN.Clear();
@@ -98,6 +95,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 cbGender.SelectedIndex = -1;
                 txtGN.Clear();
                 txtGCN.Clear();
+                cbRoom.SelectedIndex = -1;
                 cbRoomNo.SelectedIndex = -1;
                 FormMain.assignedStaff.Clear();
             }
@@ -118,6 +116,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 };
                 patientController.EditPatient(updatedPatient);
                 AssignStaff();
+                assignRoom();
                 MessageBox.Show("Patient information updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GoToPatientInfo?.Invoke(this, EventArgs.Empty);
 
@@ -133,12 +132,11 @@ namespace EventDriven.Project.UI.UserControlUI
                 FormMain.assignedStaff.Clear();
             }
         }
-
         private void AssignStaff()
         {
             //FormMain.assignedStaff.Clear();
-            
-            int selectedPatientID = FormMain.AdmissionAction.Equals("Add") ? patientController.GetNextPatientID() : FormMain.selectedPatientID;
+
+            int selectedPatientID = FormMain.AdmissionAction.Equals("Add") ? patientController.GetNextPatientID() - 1 : FormMain.selectedPatientID;
             if (FormMain.AdmissionAction.Equals("Edit"))
             {
                 staffController.RemoveAssignedStaff(selectedPatientID);
@@ -148,13 +146,11 @@ namespace EventDriven.Project.UI.UserControlUI
                 staffController.AddStaff(selectedPatientID, FormMain.assignedStaff[i].StaffID);
             }
         }
-
         private void btnViewDN_Click(object sender, EventArgs e)
         {
             FormAddMedicalRecord med = new FormAddMedicalRecord();
             med.ShowDialog();
         }
-
         private int calculateAge(DateTime dateOfBirth)
         {
             DateTime today = DateTime.Today;
@@ -162,7 +158,6 @@ namespace EventDriven.Project.UI.UserControlUI
             if (dateOfBirth.Date > today.AddYears(-age)) age--;
             return age;
         }
-
         private void txtDoctor_Click(object sender, EventArgs e)
         {
             FormMain.staffRole = "Doctor";
@@ -173,7 +168,6 @@ namespace EventDriven.Project.UI.UserControlUI
                 LoadTextbox();
             }
         }
-
         private void txtNurse_Click(object sender, EventArgs e)
         {
             FormMain.staffRole = "Nurse";
@@ -184,7 +178,6 @@ namespace EventDriven.Project.UI.UserControlUI
                 LoadTextbox();
             }
         }
-
         private void LoadTextbox()
         {
             TextBox[] textBoxes = { txtDoctor, txtDoctor2, txtDoctor3, txtNurse, txtNurse2, txtNurse3 };
@@ -219,6 +212,78 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 nurseTextboxes[i].Text = $"{nurses[i].FirstName} {nurses[i].LastName} ({nurses[i].DepartmentName})";
             }
+
+            List<RoomOccupationModel> rooms =
+            [
+                roomController.GetRoomTypeAvailability("Ward"),
+                roomController.GetRoomTypeAvailability("Private Room"),
+                roomController.GetRoomTypeAvailability("Nursery Room"),
+                roomController.GetRoomTypeAvailability("Emergency Room"),
+                roomController.GetRoomTypeAvailability("Intensive Care Unit (ICU)"),
+                roomController.GetRoomTypeAvailability("Neonatal Intensive Care Unit (NICU)"),
+            ];
+
+            foreach (RoomOccupationModel room in rooms)
+            {
+                cbRoom.Items.Add(room.RoomType);
+            }
+        }
+        private void LoadRoomNumber()
+        {
+            cbRoomNo.Enabled = true;
+            cbRoomNo.Items.Clear();
+            if (cbRoom.SelectedItem != null)
+            {
+                string selectedRoomType = cbRoom.SelectedItem.ToString();
+                List<RoomModel> roomModel = roomController.GetRoomModel(selectedRoomType);
+                foreach (RoomModel room in roomModel)
+                {
+                    if (room.AvailableBeds > 0)
+                    {
+                        cbRoomNo.Items.Add(room.RoomNumber.ToString());
+                    }
+                    else
+                    {
+                        cbRoomNo.Items.Add($"{room.RoomNumber} (Full)");
+                    }
+                }
+            }
+            else
+            {
+                cbRoomNo.Items.Add("Please select a Room");
+                cbRoomNo.SelectedIndex = 0;
+                cbRoomNo.Enabled = false;
+            }
+        }
+        private void cbRoomNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedRoomNo = string.Empty;
+            if (cbRoomNo.SelectedIndex > -1)
+                selectedRoomNo = cbRoomNo.SelectedItem.ToString();
+            if (selectedRoomNo.Contains("Full"))
+            {
+                cbRoomNo.SelectedIndex = -1;
+                MessageBox.Show("This Room is full. Please select another Room.", "Room Full", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void cbRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadRoomNumber();
+        }
+        private void assignRoom()
+        {
+            List<RoomInfoModel> allRooms = roomController.GetAllRooms();
+            RoomInfoModel selectedRoom = allRooms.Where(ar => ar.RoomType == cbRoom.SelectedItem.ToString() && ar.RoomNumber == Convert.ToInt32(cbRoomNo.SelectedItem.ToString())).First();
+            RoomNumberModel roomNumber = roomController.GetRoomNumberInfo(Convert.ToInt32(cbRoomNo.SelectedItem.ToString()));
+            AssignedRoomModel assignedRoom = new AssignedRoomModel
+            {
+                RoomID = selectedRoom.RoomID,
+                PatientID = FormMain.AdmissionAction.Equals("Add") ? patientController.GetNextPatientID() - 1 : FormMain.selectedPatientID,
+                BedNumber = (roomNumber.OccupiedBeds + 1).ToString(),
+                StartDate = DateTime.Now,
+                EndDate = null
+            };
+            roomController.AssignRoom(assignedRoom);
         }
     }
 }

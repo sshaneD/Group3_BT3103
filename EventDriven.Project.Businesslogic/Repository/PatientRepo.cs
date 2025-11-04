@@ -13,7 +13,7 @@ namespace EventDriven.Project.Businesslogic.Repository
 {
     internal class PatientRepo
     {
-        private string CONNECTIONSTRING = "Data Source=KOUTAIBA;Initial Catalog=STEF;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+        private string CONNECTIONSTRING = ConfigurationHelper.GetConnectionString();
 
         public List <PatientModel> GetAllPatient()
         {
@@ -129,19 +129,20 @@ namespace EventDriven.Project.Businesslogic.Repository
                 using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("dbo.addpatient", conn);
-                    
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@FirstName", patient.FirstName);
-                    cmd.Parameters.AddWithValue("@MiddleName", patient.MiddleName);
-                    cmd.Parameters.AddWithValue("@LastName", patient.LastName);
-                    cmd.Parameters.AddWithValue("@AdmissionDate", patient.AdmissionDate);
-                    cmd.Parameters.AddWithValue("@DateOfBirth", patient.DateOfBirth);
-                    cmd.Parameters.AddWithValue("@Age", patient.Age);
-                    cmd.Parameters.AddWithValue("@Gender", patient.Gender);
-                    cmd.Parameters.AddWithValue("@GuardianName", patient.GuardianName);
-                    cmd.Parameters.AddWithValue("@GuardianNo", patient.GuardianNo);
-                    cmd.ExecuteNonQuery();
+                    using (SqlCommand cmd = new SqlCommand("dbo.addpatient", conn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@FirstName", patient.FirstName);
+                        cmd.Parameters.AddWithValue("@MiddleName", patient.MiddleName);
+                        cmd.Parameters.AddWithValue("@LastName", patient.LastName);
+                        cmd.Parameters.AddWithValue("@AdmissionDate", patient.AdmissionDate);
+                        cmd.Parameters.AddWithValue("@DateOfBirth", patient.DateOfBirth);
+                        cmd.Parameters.AddWithValue("@Age", patient.Age);
+                        cmd.Parameters.AddWithValue("@Gender", patient.Gender);
+                        cmd.Parameters.AddWithValue("@GuardianName", patient.GuardianName);
+                        cmd.Parameters.AddWithValue("@GuardianNo", patient.GuardianNo);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception ex) 
@@ -208,7 +209,6 @@ namespace EventDriven.Project.Businesslogic.Repository
                 Debug.WriteLine(e.Message);
             }
         }
-
         public int GetNextPatientID()
         {
             using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
@@ -219,7 +219,11 @@ namespace EventDriven.Project.Businesslogic.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        return reader.GetInt32(0);
+                        if (reader.Read())
+                        {
+                            return reader.GetInt32(0);
+                        }
+                        else return 0;
                     }
                 }
             }

@@ -1,0 +1,4 @@
+﻿CREATE PROCEDURE [dbo].[GetRoomByRoomID]
+	@RoomID INT
+AS
+	SELECT * FROM Rooms WHERE RoomID = @RoomID

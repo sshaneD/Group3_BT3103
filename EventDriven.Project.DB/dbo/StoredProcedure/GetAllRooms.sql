@@ -1,0 +1,3 @@
+﻿CREATE PROCEDURE [dbo].[GetAllRooms]
+AS
+	SELECT * FROM Rooms

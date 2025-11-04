@@ -85,6 +85,15 @@
     <Build Include="dbo\StoredProcedure\GetAssignedStaff.sql" />
     <Build Include="dbo\StoredProcedure\RemoveAssignedStaff.sql" />
     <Build Include="dbo\StoredProcedure\GetNextPatientID.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllRooms.sql" />
+    <Build Include="dbo\StoredProcedure\GetAllAssignedRooms.sql" />
+    <Build Include="dbo\StoredProcedure\AssignRoom.sql" />
+    <Build Include="dbo\StoredProcedure\DeleteAssignedRoom.sql" />
+    <Build Include="dbo\StoredProcedure\GetCurrentRoom.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomByRoomID.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomModel.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomTypeAvailability.sql" />
+    <Build Include="dbo\StoredProcedure\GetRoomNumberInfo.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />

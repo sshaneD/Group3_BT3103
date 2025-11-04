@@ -20,11 +20,13 @@ namespace EventDriven.Project.UI.UserControlUI
         public event EventHandler GoToAdmissionEdit;
         private PatientController patientController;
         private StaffController staffController;
+        private RoomController roomController;
         public PatientInformation()
         {
             InitializeComponent();
             patientController = new PatientController();
             staffController = new StaffController();
+            roomController = new RoomController();
             DGPatientRecord.DataSource = patientController.GetAllPatients();
         }
 
@@ -67,6 +69,8 @@ namespace EventDriven.Project.UI.UserControlUI
                 {
                     for (int i = 0; i < selectedPatients.Count; i++)
                     {
+                        staffController.RemoveAssignedStaff(selectedPatients[i]);
+                        roomController.DeleteAssignedRoom(selectedPatients[i]);
                         patientController.DeletePatient(selectedPatients[i]);
                     }
                     MessageBox.Show("Patient(s) deleted successfully.");
