@@ -43,5 +43,9 @@ namespace EventDriven.Project.Businesslogic.Controller
         {
             roomRepository.DeleteAssignedRoom(PatientID);
         }
+        public AssignedRoomModel GetAssignedRoom(int PatientID)
+        {
+            return roomRepository.GetAssignedRoom(PatientID);
+        }
     }
 }

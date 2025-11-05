@@ -37,9 +37,6 @@
     <Compile Update="UserControlUI\Rooms.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControlUI\Treatment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

@@ -176,5 +176,33 @@ namespace EventDriven.Project.Businesslogic.Repository
                 }
             }        
         }
+        public AssignedRoomModel GetAssignedRoom(int PatientID)
+        {
+            AssignedRoomModel assignedRoom = null;
+            using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("GetAssignedRoom", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            assignedRoom = new AssignedRoomModel()
+                            {
+                                RoomID = reader.GetInt32(1),
+                                PatientID = reader.GetInt32(2),
+                                BedNumber = reader.GetString(3),
+                                StartDate = reader.GetDateTime(4),
+                                EndDate = reader.IsDBNull(5) ? null : reader.GetDateTime(5)
+                            };
+                        }
+                    }
+                }
+            }
+            return assignedRoom;
+        }
     }
 }

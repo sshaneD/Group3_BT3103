@@ -18,6 +18,7 @@ namespace EventDriven.Project.UI.UserControlUI
     {
         public event EventHandler GoToAdmissionAdd;
         public event EventHandler GoToAdmissionEdit;
+        public event EventHandler GoToMedicalRecord;
         public event EventHandler GoToBOS;
         private PatientController patientController;
         private StaffController staffController;
@@ -62,6 +63,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 int selected = Convert.ToInt32(DGPatientRecord.CurrentRow.Cells["PatientID"].Value);
                 FormMain.selectedPatientID = selected;
                 List<int> staffIDs = staffController.GetAssignedStaff(selected);
+                FormMain.assignedStaff.Clear();
                 foreach (int staffID in staffIDs)
                 {
                     FormMain.assignedStaff.Add(staffController.GetStaffByID(staffID));
@@ -148,7 +150,7 @@ namespace EventDriven.Project.UI.UserControlUI
 
         private void btnMedRecord_Click(object sender, EventArgs e)
         {
-           
+           GoToMedicalRecord?.Invoke(this, EventArgs.Empty);
         }
     }
 }

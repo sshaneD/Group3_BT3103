@@ -42,6 +42,7 @@ namespace EventDriven.Project.UI.UserControlUI
         private void LoadData()
         {
             PatientModel patient = patientController.GetPatientById(FormMain.selectedPatientID);
+            AssignedRoomModel assignedRoom = roomController.GetAssignedRoom(FormMain.selectedPatientID);
             txtFN.Text = patient.FirstName;
             txtMN.Text = patient.MiddleName;
             txtLN.Text = patient.LastName;
@@ -50,7 +51,17 @@ namespace EventDriven.Project.UI.UserControlUI
             cbGender.Text = patient.Gender;
             txtGN.Text = patient.GuardianName;
             txtGCN.Text = patient.GuardianNo;
+
             LoadTextbox();
+
+            List<RoomInfoModel> allRooms = roomController.GetAllRooms();
+            RoomInfoModel selectedRoom = allRooms.Where(ar => ar.RoomID == assignedRoom.RoomID).First();
+            cbRoom.SelectedItem = selectedRoom.RoomType;
+            cbRoomNo.Enabled = true;
+            cbRoomNo.SelectedItem = selectedRoom.RoomNumber.ToString();
+            dateStartDate.Value = assignedRoom.StartDate;
+            dateEndDate.Value = assignedRoom.EndDate ?? DateTime.Now;
+
         }
         private void btnADCancel_Click(object sender, EventArgs e)
         {
@@ -88,6 +99,12 @@ namespace EventDriven.Project.UI.UserControlUI
                 txtGCN.Clear();
                 cbRoom.SelectedIndex = -1;
                 cbRoomNo.SelectedIndex = -1;
+                txtDoctor.Clear();
+                txtDoctor2.Clear();
+                txtDoctor3.Clear();
+                txtNurse.Clear();
+                txtNurse2.Clear();
+                txtNurse3.Clear();
                 FormMain.assignedStaff.Clear();
             }
             else if (FormMain.AdmissionAction == "Edit")
@@ -119,7 +136,14 @@ namespace EventDriven.Project.UI.UserControlUI
                 cbGender.SelectedIndex = -1;
                 txtGN.Clear();
                 txtGCN.Clear();
+                cbRoom.SelectedIndex = -1;
                 cbRoomNo.SelectedIndex = -1;
+                txtDoctor.Clear();
+                txtDoctor2.Clear();
+                txtDoctor3.Clear();
+                txtNurse.Clear();
+                txtNurse2.Clear();
+                txtNurse3.Clear();
                 FormMain.assignedStaff.Clear();
             }
         }
@@ -218,6 +242,8 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 cbRoom.Items.Add(room.RoomType);
             }
+
+
         }
         private void LoadRoomNumber()
         {

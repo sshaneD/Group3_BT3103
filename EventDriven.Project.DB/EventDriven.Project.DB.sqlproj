@@ -94,6 +94,10 @@
     <Build Include="dbo\StoredProcedure\GetRoomModel.sql" />
     <Build Include="dbo\StoredProcedure\GetRoomTypeAvailability.sql" />
     <Build Include="dbo\StoredProcedure\GetRoomNumberInfo.sql" />
+    <Build Include="dbo\StoredProcedure\GetAssignedRoom.sql" />
+    <Build Include="dbo\Tables\MedicalRecords.sql" />
+    <Build Include="dbo\Tables\Treatments.sql" />
+    <Build Include="dbo\Tables\Medications.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />
