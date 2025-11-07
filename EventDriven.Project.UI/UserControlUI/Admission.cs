@@ -1,6 +1,5 @@
 ﻿using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using TextBox = System.Windows.Forms.TextBox;
 
 namespace EventDriven.Project.UI.UserControlUI
@@ -20,8 +19,8 @@ namespace EventDriven.Project.UI.UserControlUI
             patientController = new PatientController();
             staffController = new StaffController();
             roomController = new RoomController();
+            LoadData();
             CheckAction();
-            LoadRoomNumber();
         }
         private void CheckAction()
         {
@@ -42,6 +41,7 @@ namespace EventDriven.Project.UI.UserControlUI
         private void LoadData()
         {
             PatientModel patient = patientController.GetPatientById(FormMain.selectedPatientID);
+            AssignedRoomModel assignedRoom = roomController.GetAssignedRoom(FormMain.selectedPatientID);
             txtFN.Text = patient.FirstName;
             txtMN.Text = patient.MiddleName;
             txtLN.Text = patient.LastName;
@@ -50,7 +50,19 @@ namespace EventDriven.Project.UI.UserControlUI
             cbGender.Text = patient.Gender;
             txtGN.Text = patient.GuardianName;
             txtGCN.Text = patient.GuardianNo;
+
             LoadTextbox();
+
+            List<RoomInfoModel> allRooms = roomController.GetAllRooms();
+            RoomInfoModel selectedRoom = allRooms.Where(ar => ar.RoomID == assignedRoom.RoomID).First();
+            cbRoom.SelectedItem = selectedRoom.RoomType;
+            LoadRoomNumber();
+            cbRoomNo.SelectedIndexChanged -= cbRoomNo_SelectedIndexChanged;
+            cbRoomNo.SelectedIndex = cbRoomNo.Items.IndexOf(selectedRoom.RoomNumber.ToString());
+            cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
+            dateStartDate.Value = assignedRoom.StartDate;
+            dateEndDate.Value = assignedRoom.EndDate ?? DateTime.Now;
+
         }
         private void btnADCancel_Click(object sender, EventArgs e)
         {
@@ -88,6 +100,12 @@ namespace EventDriven.Project.UI.UserControlUI
                 txtGCN.Clear();
                 cbRoom.SelectedIndex = -1;
                 cbRoomNo.SelectedIndex = -1;
+                txtDoctor.Clear();
+                txtDoctor2.Clear();
+                txtDoctor3.Clear();
+                txtNurse.Clear();
+                txtNurse2.Clear();
+                txtNurse3.Clear();
                 FormMain.assignedStaff.Clear();
             }
             else if (FormMain.AdmissionAction == "Edit")
@@ -119,7 +137,14 @@ namespace EventDriven.Project.UI.UserControlUI
                 cbGender.SelectedIndex = -1;
                 txtGN.Clear();
                 txtGCN.Clear();
+                cbRoom.SelectedIndex = -1;
                 cbRoomNo.SelectedIndex = -1;
+                txtDoctor.Clear();
+                txtDoctor2.Clear();
+                txtDoctor3.Clear();
+                txtNurse.Clear();
+                txtNurse2.Clear();
+                txtNurse3.Clear();
                 FormMain.assignedStaff.Clear();
             }
         }
@@ -171,6 +196,8 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void LoadTextbox()
         {
+            cbRoom.Items.Clear();
+
             TextBox[] textBoxes = { txtDoctor, txtDoctor2, txtDoctor3, txtNurse, txtNurse2, txtNurse3 };
             TextBox[] doctorTextboxes = { txtDoctor, txtDoctor2, txtDoctor3 };
             TextBox[] nurseTextboxes = { txtNurse, txtNurse2, txtNurse3 };
@@ -218,10 +245,10 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 cbRoom.Items.Add(room.RoomType);
             }
+
         }
         private void LoadRoomNumber()
         {
-            cbRoomNo.Enabled = true;
             cbRoomNo.Items.Clear();
             if (cbRoom.SelectedItem != null)
             {
@@ -243,7 +270,6 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 cbRoomNo.Items.Add("Please select a Room");
                 cbRoomNo.SelectedIndex = 0;
-                cbRoomNo.Enabled = false;
             }
         }
         private void cbRoomNo_SelectedIndexChanged(object sender, EventArgs e)

@@ -30,35 +30,37 @@
         {
             label1 = new Label();
             panel1 = new Panel();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            panel2 = new Panel();
-            label15 = new Label();
-            label14 = new Label();
+            lblGender = new Label();
+            lblAge = new Label();
+            lblPatientID = new Label();
+            lblName = new Label();
+            panelAssignment = new Panel();
+            flowLayoutPanel4 = new FlowLayoutPanel();
+            lblRoomType = new Label();
+            lblRoomNum = new Label();
+            lblDate = new Label();
+            txtNurseList = new TextBox();
+            txtDoctorList = new TextBox();
             label13 = new Label();
             label12 = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            label11 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label10 = new Label();
+            panelDischarged = new Panel();
+            label2 = new Label();
             panel7 = new Panel();
-            button2 = new Button();
-            button1 = new Button();
-            flowLayoutPanel3 = new FlowLayoutPanel();
+            flowMedicalRecords = new FlowLayoutPanel();
+            btnDelete = new Button();
             label6 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtDiagnosis = new TextBox();
+            txtTreatment = new TextBox();
+            txtMedication = new TextBox();
             label7 = new Label();
             label8 = new Label();
-            textBox4 = new TextBox();
+            txtNotes = new TextBox();
             label9 = new Label();
-            btnPrint = new Button();
             btnExit = new Button();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            panelAssignment.SuspendLayout();
+            flowLayoutPanel4.SuspendLayout();
+            panelDischarged.SuspendLayout();
             panel7.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,90 +77,132 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(lblGender);
+            panel1.Controls.Add(lblAge);
+            panel1.Controls.Add(lblPatientID);
+            panel1.Controls.Add(lblName);
             panel1.Location = new Point(32, 84);
             panel1.Name = "panel1";
             panel1.Size = new Size(1019, 209);
             panel1.TabIndex = 1;
             // 
-            // label5
+            // lblGender
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(29, 153);
-            label5.Name = "label5";
-            label5.Size = new Size(77, 28);
-            label5.TabIndex = 3;
-            label5.Text = "Female";
+            lblGender.AutoSize = true;
+            lblGender.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGender.Location = new Point(29, 153);
+            lblGender.Name = "lblGender";
+            lblGender.Size = new Size(77, 28);
+            lblGender.TabIndex = 3;
+            lblGender.Text = "Female";
             // 
-            // label4
+            // lblAge
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(29, 114);
-            label4.Name = "label4";
-            label4.Size = new Size(122, 28);
-            label4.TabIndex = 2;
-            label4.Text = "21 Years Old";
+            lblAge.AutoSize = true;
+            lblAge.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAge.Location = new Point(29, 114);
+            lblAge.Name = "lblAge";
+            lblAge.Size = new Size(122, 28);
+            lblAge.TabIndex = 2;
+            lblAge.Text = "21 Years Old";
             // 
-            // label3
+            // lblPatientID
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(29, 74);
-            label3.Name = "label3";
-            label3.Size = new Size(106, 28);
-            label3.TabIndex = 1;
-            label3.Text = "Patient ID:";
+            lblPatientID.AutoSize = true;
+            lblPatientID.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPatientID.Location = new Point(29, 74);
+            lblPatientID.Name = "lblPatientID";
+            lblPatientID.Size = new Size(106, 28);
+            lblPatientID.TabIndex = 1;
+            lblPatientID.Text = "Patient ID:";
             // 
-            // label2
+            // lblName
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
-            label2.Location = new Point(18, 23);
-            label2.Name = "label2";
-            label2.Size = new Size(397, 40);
-            label2.TabIndex = 0;
-            label2.Text = "Stefanie Shane L Delos Reyes";
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
+            lblName.Location = new Point(18, 23);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(397, 40);
+            lblName.TabIndex = 0;
+            lblName.Text = "Stefanie Shane L Delos Reyes";
             // 
-            // panel2
+            // panelAssignment
             // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(label15);
-            panel2.Controls.Add(label14);
-            panel2.Controls.Add(label13);
-            panel2.Controls.Add(label12);
-            panel2.Controls.Add(flowLayoutPanel2);
-            panel2.Controls.Add(label11);
-            panel2.Controls.Add(flowLayoutPanel1);
-            panel2.Controls.Add(label10);
-            panel2.Location = new Point(32, 307);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1019, 172);
-            panel2.TabIndex = 2;
+            panelAssignment.BackColor = Color.White;
+            panelAssignment.Controls.Add(flowLayoutPanel4);
+            panelAssignment.Controls.Add(txtNurseList);
+            panelAssignment.Controls.Add(txtDoctorList);
+            panelAssignment.Controls.Add(label13);
+            panelAssignment.Controls.Add(label12);
+            panelAssignment.Controls.Add(panelDischarged);
+            panelAssignment.Location = new Point(32, 307);
+            panelAssignment.Name = "panelAssignment";
+            panelAssignment.Size = new Size(1019, 172);
+            panelAssignment.TabIndex = 2;
             // 
-            // label15
+            // flowLayoutPanel4
             // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.Location = new Point(21, 121);
-            label15.Name = "label15";
-            label15.Size = new Size(99, 28);
-            label15.TabIndex = 9;
-            label15.Text = "End Date:";
+            flowLayoutPanel4.Controls.Add(lblRoomType);
+            flowLayoutPanel4.Controls.Add(lblRoomNum);
+            flowLayoutPanel4.Controls.Add(lblDate);
+            flowLayoutPanel4.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel4.Location = new Point(18, 21);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Size = new Size(314, 148);
+            flowLayoutPanel4.TabIndex = 11;
             // 
-            // label14
+            // lblRoomType
             // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(20, 88);
-            label14.Name = "label14";
-            label14.Size = new Size(107, 28);
-            label14.TabIndex = 8;
-            label14.Text = "Start Date:";
+            lblRoomType.AutoSize = true;
+            lblRoomType.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRoomType.Location = new Point(3, 0);
+            lblRoomType.Margin = new Padding(3, 0, 3, 10);
+            lblRoomType.Name = "lblRoomType";
+            lblRoomType.Size = new Size(302, 56);
+            lblRoomType.TabIndex = 6;
+            lblRoomType.Text = "Room Type: Neonatal Intensive Care Unit (NICU)";
+            // 
+            // lblRoomNum
+            // 
+            lblRoomNum.AutoSize = true;
+            lblRoomNum.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRoomNum.Location = new Point(3, 66);
+            lblRoomNum.Margin = new Padding(3, 0, 3, 10);
+            lblRoomNum.Name = "lblRoomNum";
+            lblRoomNum.Size = new Size(257, 28);
+            lblRoomNum.TabIndex = 5;
+            lblRoomNum.Text = "Room Number: 301 (Bed 1)";
+            // 
+            // lblDate
+            // 
+            lblDate.AutoSize = true;
+            lblDate.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDate.Location = new Point(3, 104);
+            lblDate.Margin = new Padding(3, 0, 3, 10);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(228, 28);
+            lblDate.TabIndex = 4;
+            lblDate.Text = "11/05/2025 - 11/06/2025";
+            // 
+            // txtNurseList
+            // 
+            txtNurseList.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            txtNurseList.Location = new Point(676, 51);
+            txtNurseList.Multiline = true;
+            txtNurseList.Name = "txtNurseList";
+            txtNurseList.ReadOnly = true;
+            txtNurseList.Size = new Size(314, 95);
+            txtNurseList.TabIndex = 10;
+            // 
+            // txtDoctorList
+            // 
+            txtDoctorList.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            txtDoctorList.Location = new Point(338, 51);
+            txtDoctorList.Multiline = true;
+            txtDoctorList.Name = "txtDoctorList";
+            txtDoctorList.ReadOnly = true;
+            txtDoctorList.Size = new Size(314, 95);
+            txtDoctorList.TabIndex = 0;
             // 
             // label13
             // 
@@ -180,79 +224,55 @@
             label12.TabIndex = 6;
             label12.Text = "Doctors:";
             // 
-            // flowLayoutPanel2
+            // panelDischarged
             // 
-            flowLayoutPanel2.Location = new Point(676, 51);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(317, 98);
-            flowLayoutPanel2.TabIndex = 1;
+            panelDischarged.Controls.Add(label2);
+            panelDischarged.Location = new Point(0, 0);
+            panelDischarged.Name = "panelDischarged";
+            panelDischarged.Size = new Size(1019, 172);
+            panelDischarged.TabIndex = 12;
+            panelDischarged.Visible = false;
             // 
-            // label11
+            // label2
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(21, 54);
-            label11.Name = "label11";
-            label11.Size = new Size(188, 28);
-            label11.TabIndex = 5;
-            label11.Text = "Room Number: 201";
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(338, 51);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(317, 98);
-            flowLayoutPanel1.TabIndex = 0;
-            flowLayoutPanel1.WrapContents = false;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(20, 20);
-            label10.Name = "label10";
-            label10.Size = new Size(284, 28);
-            label10.TabIndex = 4;
-            label10.Text = "Room Type: Emergency Room";
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(386, 69);
+            label2.Name = "label2";
+            label2.Size = new Size(255, 35);
+            label2.TabIndex = 0;
+            label2.Text = "Patient is Discharged";
             // 
             // panel7
             // 
             panel7.BackColor = Color.White;
-            panel7.Controls.Add(button2);
-            panel7.Controls.Add(button1);
-            panel7.Controls.Add(flowLayoutPanel3);
+            panel7.Controls.Add(flowMedicalRecords);
             panel7.Location = new Point(1082, 84);
             panel7.Name = "panel7";
             panel7.Size = new Size(512, 868);
             panel7.TabIndex = 5;
             // 
-            // button2
+            // flowMedicalRecords
             // 
-            button2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            button2.Location = new Point(355, 800);
-            button2.Name = "button2";
-            button2.Size = new Size(144, 47);
-            button2.TabIndex = 15;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = true;
+            flowMedicalRecords.AutoScroll = true;
+            flowMedicalRecords.Dock = DockStyle.Fill;
+            flowMedicalRecords.FlowDirection = FlowDirection.TopDown;
+            flowMedicalRecords.Location = new Point(0, 0);
+            flowMedicalRecords.Name = "flowMedicalRecords";
+            flowMedicalRecords.Size = new Size(512, 868);
+            flowMedicalRecords.TabIndex = 0;
+            flowMedicalRecords.WrapContents = false;
             // 
-            // button1
+            // btnDelete
             // 
-            button1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            button1.Location = new Point(203, 800);
-            button1.Name = "button1";
-            button1.Size = new Size(144, 47);
-            button1.TabIndex = 14;
-            button1.Text = "Edit";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel3
-            // 
-            flowLayoutPanel3.Location = new Point(0, 0);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(512, 745);
-            flowLayoutPanel3.TabIndex = 0;
+            btnDelete.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            btnDelete.Location = new Point(907, 905);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(144, 47);
+            btnDelete.TabIndex = 15;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -265,29 +285,32 @@
             label6.Text = "Diagnosis:";
             label6.Click += label6_Click;
             // 
-            // textBox1
+            // txtDiagnosis
             // 
-            textBox1.Location = new Point(32, 538);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(306, 218);
-            textBox1.TabIndex = 0;
+            txtDiagnosis.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            txtDiagnosis.Location = new Point(32, 538);
+            txtDiagnosis.Multiline = true;
+            txtDiagnosis.Name = "txtDiagnosis";
+            txtDiagnosis.Size = new Size(306, 218);
+            txtDiagnosis.TabIndex = 0;
             // 
-            // textBox2
+            // txtTreatment
             // 
-            textBox2.Location = new Point(383, 538);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(306, 218);
-            textBox2.TabIndex = 6;
+            txtTreatment.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            txtTreatment.Location = new Point(383, 538);
+            txtTreatment.Multiline = true;
+            txtTreatment.Name = "txtTreatment";
+            txtTreatment.Size = new Size(306, 218);
+            txtTreatment.TabIndex = 6;
             // 
-            // textBox3
+            // txtMedication
             // 
-            textBox3.Location = new Point(745, 538);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(306, 218);
-            textBox3.TabIndex = 7;
+            txtMedication.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            txtMedication.Location = new Point(745, 538);
+            txtMedication.Multiline = true;
+            txtMedication.Name = "txtMedication";
+            txtMedication.Size = new Size(306, 218);
+            txtMedication.TabIndex = 7;
             // 
             // label7
             // 
@@ -309,13 +332,14 @@
             label8.TabIndex = 9;
             label8.Text = "Medication:";
             // 
-            // textBox4
+            // txtNotes
             // 
-            textBox4.Location = new Point(32, 806);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(1019, 146);
-            textBox4.TabIndex = 10;
+            txtNotes.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            txtNotes.Location = new Point(32, 806);
+            txtNotes.Multiline = true;
+            txtNotes.Name = "txtNotes";
+            txtNotes.Size = new Size(855, 146);
+            txtNotes.TabIndex = 10;
             // 
             // label9
             // 
@@ -327,51 +351,45 @@
             label9.TabIndex = 11;
             label9.Text = "Notes:";
             // 
-            // btnPrint
-            // 
-            btnPrint.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            btnPrint.Location = new Point(1223, 30);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(222, 47);
-            btnPrint.TabIndex = 12;
-            btnPrint.Text = "Print Medical Details";
-            btnPrint.UseVisualStyleBackColor = true;
-            btnPrint.Click += btnPrint_Click;
-            // 
             // btnExit
             // 
             btnExit.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            btnExit.Location = new Point(1450, 32);
+            btnExit.Location = new Point(1451, 28);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(144, 47);
             btnExit.TabIndex = 13;
-            btnExit.Text = "Exit";
+            btnExit.Text = "Back";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // MedicalRecord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnDelete);
             Controls.Add(btnExit);
-            Controls.Add(btnPrint);
             Controls.Add(label9);
-            Controls.Add(textBox4);
+            Controls.Add(txtNotes);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtMedication);
+            Controls.Add(txtTreatment);
+            Controls.Add(txtDiagnosis);
             Controls.Add(label6);
             Controls.Add(panel7);
-            Controls.Add(panel2);
+            Controls.Add(panelAssignment);
             Controls.Add(panel1);
             Controls.Add(label1);
             Name = "MedicalRecord";
             Size = new Size(1637, 998);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panelAssignment.ResumeLayout(false);
+            panelAssignment.PerformLayout();
+            flowLayoutPanel4.ResumeLayout(false);
+            flowLayoutPanel4.PerformLayout();
+            panelDischarged.ResumeLayout(false);
+            panelDischarged.PerformLayout();
             panel7.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -381,32 +399,37 @@
 
         private Label label1;
         private Panel panel1;
-        private Label label2;
-        private Label label3;
-        private Label label5;
-        private Label label4;
-        private Panel panel2;
+        private Label lblName;
+        private Label lblPatientID;
+        private Label lblGender;
+        private Label lblAge;
+        private Panel panelAssignment;
         private Label label6;
         private Panel panel7;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtDiagnosis;
+        private TextBox txtTreatment;
+        private TextBox txtMedication;
         private Label label7;
         private Label label11;
         private Label label10;
         private Label label8;
-        private TextBox textBox4;
+        private TextBox txtNotes;
         private Label label9;
-        private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label label15;
         private Label label14;
         private Label label13;
         private Label label12;
-        private Button btnPrint;
         private Button btnExit;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private Button button2;
-        private Button button1;
+        private FlowLayoutPanel flowMedicalRecords;
+        private Button btnDelete;
+        private TextBox txtDoctorList;
+        private TextBox txtNurseList;
+        private FlowLayoutPanel flowLayoutPanel4;
+        private Label lblRoomType;
+        private Label lblRoomNum;
+        private Label lblDate;
+        private Panel panelDischarged;
+        private Label label2;
     }
 }

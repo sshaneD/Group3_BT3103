@@ -18,6 +18,7 @@ namespace EventDriven.Project.UI.UserControlUI
     {
         public event EventHandler GoToAdmissionAdd;
         public event EventHandler GoToAdmissionEdit;
+        public event EventHandler GoToMedicalRecord;
         public event EventHandler GoToBOS;
         private PatientController patientController;
         private StaffController staffController;
@@ -62,6 +63,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 int selected = Convert.ToInt32(DGPatientRecord.CurrentRow.Cells["PatientID"].Value);
                 FormMain.selectedPatientID = selected;
                 List<int> staffIDs = staffController.GetAssignedStaff(selected);
+                FormMain.assignedStaff.Clear();
                 foreach (int staffID in staffIDs)
                 {
                     FormMain.assignedStaff.Add(staffController.GetStaffByID(staffID));
@@ -143,12 +145,30 @@ namespace EventDriven.Project.UI.UserControlUI
 
         private void btnBOS_Click(object sender, EventArgs e)
         {
-            GoToBOS?.Invoke(this, EventArgs.Empty);
+            if (DGPatientRecord.CurrentRow != null)
+            {
+                int selected = Convert.ToInt32(DGPatientRecord.SelectedRows[0].Cells[0].Value);
+                FormMain.selectedPatientID = selected;
+                GoToBOS?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient", "No Patient Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnMedRecord_Click(object sender, EventArgs e)
         {
-           
+            if (DGPatientRecord.CurrentRow != null)
+            {
+                int selected = Convert.ToInt32(DGPatientRecord.SelectedRows[0].Cells[0].Value);
+                FormMain.selectedPatientID = selected;
+                GoToMedicalRecord?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient", "No Patient Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

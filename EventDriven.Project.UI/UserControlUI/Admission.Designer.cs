@@ -45,7 +45,6 @@
             txtMN = new TextBox();
             label14 = new Label();
             btnCancel = new Button();
-            cbRoomNo = new ComboBox();
             label13 = new Label();
             btnSubmit = new Button();
             label11 = new Label();
@@ -66,6 +65,7 @@
             label3 = new Label();
             txtLN = new TextBox();
             btnTreatment = new Button();
+            cbRoomNo = new ComboBox();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -92,6 +92,7 @@
             // panel3
             // 
             panel3.BackColor = Color.Silver;
+            panel3.Controls.Add(cbRoomNo);
             panel3.Controls.Add(label6);
             panel3.Controls.Add(label12);
             panel3.Controls.Add(dateEndDate);
@@ -106,7 +107,6 @@
             panel3.Controls.Add(txtMN);
             panel3.Controls.Add(label14);
             panel3.Controls.Add(btnCancel);
-            panel3.Controls.Add(cbRoomNo);
             panel3.Controls.Add(label13);
             panel3.Controls.Add(btnSubmit);
             panel3.Controls.Add(label11);
@@ -277,16 +277,6 @@
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnADCancel_Click;
-            // 
-            // cbRoomNo
-            // 
-            cbRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbRoomNo.FormattingEnabled = true;
-            cbRoomNo.Location = new Point(992, 146);
-            cbRoomNo.Name = "cbRoomNo";
-            cbRoomNo.Size = new Size(177, 28);
-            cbRoomNo.TabIndex = 10;
-            cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
             // 
             // label13
             // 
@@ -500,6 +490,17 @@
             btnTreatment.UseVisualStyleBackColor = true;
             btnTreatment.Click += btnViewDN_Click;
             // 
+            // cbRoomNo
+            // 
+            cbRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRoomNo.FormattingEnabled = true;
+            cbRoomNo.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Nursery Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
+            cbRoomNo.Location = new Point(992, 146);
+            cbRoomNo.Name = "cbRoomNo";
+            cbRoomNo.Size = new Size(177, 28);
+            cbRoomNo.TabIndex = 45;
+            cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
+            // 
             // Admission
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -521,7 +522,6 @@
         private Button button8;
         private Label lblTitle;
         private Panel panel3;
-        private ComboBox cbRoomNo;
         private Label label13;
         private Button btnSubmit;
         private Label label11;
@@ -556,5 +556,6 @@
         private DateTimePicker dateStartDate;
         private Label label6;
         private Label label12;
+        private ComboBox cbRoomNo;
     }
 }

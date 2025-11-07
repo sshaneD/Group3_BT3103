@@ -25,6 +25,9 @@
     <Compile Update="UserControlUI\MedicalRecord.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControlUI\MedicalRecordCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControlUI\PatientInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -35,9 +38,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControlUI\Rooms.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UserControlUI\Treatment.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

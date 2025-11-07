@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Treatments]
+(
+	[TreatmentID] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
+	[RecordID] INT NOT NULL,
+	[TreatmentType] VARCHAR(50) NOT NULL,
+	[Price] DECIMAL(10,2) NOT NULL,
+	FOREIGN KEY (RecordID) REFERENCES MedicalRecords(RecordID)
+)
