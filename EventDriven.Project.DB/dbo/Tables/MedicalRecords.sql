@@ -4,6 +4,6 @@
     [PatientID] INT NOT NULL,
     [RecordDate] DATETIME NOT NULL,
     [Diagnosis] VARCHAR(50) NOT NULL, 
-    [Notes] VARCHAR(50) NOT NULL,
+    [Notes] VARCHAR(MAX) NOT NULL,
     FOREIGN KEY (PatientID) REFERENCES Patient(PatientID)
 )

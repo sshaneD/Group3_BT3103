@@ -98,6 +98,14 @@
     <Build Include="dbo\Tables\MedicalRecords.sql" />
     <Build Include="dbo\Tables\Treatments.sql" />
     <Build Include="dbo\Tables\Medications.sql" />
+    <Build Include="dbo\StoredProcedure\AddMedicalRecord.sql" />
+    <Build Include="dbo\StoredProcedure\GetMedicalRecordByID.sql" />
+    <Build Include="dbo\StoredProcedure\GetPatientMedicalRecords.sql" />
+    <Build Include="dbo\StoredProcedure\AddTreatment.sql" />
+    <Build Include="dbo\StoredProcedure\GetNextMedicalRecordID.sql" />
+    <Build Include="dbo\StoredProcedure\GetTreatmentByRecordID.sql" />
+    <Build Include="dbo\StoredProcedure\GetMedicationByRecordID.sql" />
+    <Build Include="dbo\StoredProcedure\AddMedication.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />

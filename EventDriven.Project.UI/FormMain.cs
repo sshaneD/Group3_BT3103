@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.Eventing.Reader;
-using EventDriven.Project.Model;
+﻿using EventDriven.Project.Model;
 using EventDriven.Project.UI.UserControlUI;
 
 namespace EventDriven.Project.UI
@@ -8,6 +7,7 @@ namespace EventDriven.Project.UI
     {
         public static string AdmissionAction;
         public static int selectedPatientID = 0;
+        public static int selectedRecordID = 0;
         public static string staffRole;
         public static RoomInfoModel SelectedRoom;
         public static List<StaffModel> assignedStaff = new List<StaffModel>();
@@ -76,7 +76,7 @@ namespace EventDriven.Project.UI
                 patientInfo.GoToAdmissionEdit += (s, e) => ShowControl(new Admission());
                 patientInfo.GoToMedicalRecord += (s, e) => ShowControl(new MedicalRecord());
                 patientInfo.GoToBOS += (s, e) => ShowControl(new BillOfStatement());
-                
+
             }
             else if (userControl is Admission admission)
             {
@@ -111,6 +111,11 @@ namespace EventDriven.Project.UI
             else if (userControl is Rooms rooms)
             {
                 rooms.GoToRoomManagement += (s, e) => ShowControl(new RoomManagement());
+            }
+
+            else if (userControl is MedicalRecord medicalRecord)
+            {
+                medicalRecord.GoToPatientInfo += (s, e) => ShowControl(new PatientInformation());
             }
 
                 MainPanel.Controls.Clear();

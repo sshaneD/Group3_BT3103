@@ -1,6 +1,5 @@
 ﻿using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using TextBox = System.Windows.Forms.TextBox;
 
 namespace EventDriven.Project.UI.UserControlUI
@@ -20,8 +19,8 @@ namespace EventDriven.Project.UI.UserControlUI
             patientController = new PatientController();
             staffController = new StaffController();
             roomController = new RoomController();
+            LoadData();
             CheckAction();
-            LoadRoomNumber();
         }
         private void CheckAction()
         {
@@ -57,8 +56,10 @@ namespace EventDriven.Project.UI.UserControlUI
             List<RoomInfoModel> allRooms = roomController.GetAllRooms();
             RoomInfoModel selectedRoom = allRooms.Where(ar => ar.RoomID == assignedRoom.RoomID).First();
             cbRoom.SelectedItem = selectedRoom.RoomType;
-            cbRoomNo.Enabled = true;
-            cbRoomNo.SelectedItem = selectedRoom.RoomNumber.ToString();
+            LoadRoomNumber();
+            cbRoomNo.SelectedIndexChanged -= cbRoomNo_SelectedIndexChanged;
+            cbRoomNo.SelectedIndex = cbRoomNo.Items.IndexOf(selectedRoom.RoomNumber.ToString());
+            cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
             dateStartDate.Value = assignedRoom.StartDate;
             dateEndDate.Value = assignedRoom.EndDate ?? DateTime.Now;
 
@@ -195,6 +196,8 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void LoadTextbox()
         {
+            cbRoom.Items.Clear();
+
             TextBox[] textBoxes = { txtDoctor, txtDoctor2, txtDoctor3, txtNurse, txtNurse2, txtNurse3 };
             TextBox[] doctorTextboxes = { txtDoctor, txtDoctor2, txtDoctor3 };
             TextBox[] nurseTextboxes = { txtNurse, txtNurse2, txtNurse3 };
@@ -243,11 +246,9 @@ namespace EventDriven.Project.UI.UserControlUI
                 cbRoom.Items.Add(room.RoomType);
             }
 
-
         }
         private void LoadRoomNumber()
         {
-            cbRoomNo.Enabled = true;
             cbRoomNo.Items.Clear();
             if (cbRoom.SelectedItem != null)
             {
@@ -269,7 +270,6 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 cbRoomNo.Items.Add("Please select a Room");
                 cbRoomNo.SelectedIndex = 0;
-                cbRoomNo.Enabled = false;
             }
         }
         private void cbRoomNo_SelectedIndexChanged(object sender, EventArgs e)

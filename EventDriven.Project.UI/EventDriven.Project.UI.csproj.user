@@ -25,6 +25,9 @@
     <Compile Update="UserControlUI\MedicalRecord.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControlUI\MedicalRecordCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControlUI\PatientInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
