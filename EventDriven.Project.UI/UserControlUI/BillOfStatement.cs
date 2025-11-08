@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Drawing.Printing;
 
 namespace EventDriven.Project.UI.UserControlUI
 {
@@ -30,7 +21,7 @@ namespace EventDriven.Project.UI.UserControlUI
 
             Graphics g = e.Graphics;
 
-            g.DrawString("Bill of Statement", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(100, 50));
+            g.DrawString("Billing Statement", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(100, 50));
 
             g.DrawString("Generated: " + DateTime.Now.ToString("MM/dd/yyyy"), new Font("Arial", 12), Brushes.Gray, new PointF(100, 90));
 

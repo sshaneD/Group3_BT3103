@@ -173,7 +173,7 @@
             btnBOS.Name = "btnBOS";
             btnBOS.Size = new Size(205, 35);
             btnBOS.TabIndex = 43;
-            btnBOS.Text = "Bill of Statement";
+            btnBOS.Text = "Billing Statement";
             btnBOS.UseVisualStyleBackColor = true;
             btnBOS.Click += btnBOS_Click;
             // 
