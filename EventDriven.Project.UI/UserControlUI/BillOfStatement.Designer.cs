@@ -132,46 +132,43 @@
             // 
             // lblPatientName
             // 
-            lblPatientName.AutoSize = true;
             lblPatientName.Font = new Font("Segoe UI", 12F);
-            lblPatientName.Location = new Point(395, 179);
+            lblPatientName.Location = new Point(204, 179);
             lblPatientName.Name = "lblPatientName";
-            lblPatientName.Size = new Size(247, 28);
+            lblPatientName.Size = new Size(438, 28);
             lblPatientName.TabIndex = 8;
             lblPatientName.Text = "Stefanie Shane Delos Reyes";
+            lblPatientName.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblPatientID
             // 
-            lblPatientID.AutoSize = true;
             lblPatientID.Font = new Font("Segoe UI", 12F);
-            lblPatientID.Location = new Point(560, 215);
+            lblPatientID.Location = new Point(534, 215);
             lblPatientID.Name = "lblPatientID";
-            lblPatientID.Size = new Size(67, 28);
+            lblPatientID.Size = new Size(108, 28);
             lblPatientID.TabIndex = 9;
             lblPatientID.Text = "10001";
-            lblPatientID.TextAlign = ContentAlignment.TopRight;
+            lblPatientID.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblGender
             // 
-            lblGender.AutoSize = true;
             lblGender.Font = new Font("Segoe UI", 12F);
-            lblGender.Location = new Point(554, 251);
+            lblGender.Location = new Point(527, 251);
             lblGender.Name = "lblGender";
-            lblGender.Size = new Size(74, 28);
+            lblGender.Size = new Size(115, 28);
             lblGender.TabIndex = 10;
             lblGender.Text = "Female";
-            lblGender.TextAlign = ContentAlignment.TopRight;
+            lblGender.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblBirthday
             // 
-            lblBirthday.AutoSize = true;
             lblBirthday.Font = new Font("Segoe UI", 12F);
-            lblBirthday.Location = new Point(516, 282);
+            lblBirthday.Location = new Point(485, 282);
             lblBirthday.Name = "lblBirthday";
-            lblBirthday.Size = new Size(116, 28);
+            lblBirthday.Size = new Size(157, 28);
             lblBirthday.TabIndex = 11;
             lblBirthday.Text = "11/22/2004";
-            lblBirthday.TextAlign = ContentAlignment.TopRight;
+            lblBirthday.TextAlign = ContentAlignment.MiddleRight;
             // 
             // panel1
             // 
@@ -213,6 +210,10 @@
             printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
             // 
             // BillOfStatement
             // 

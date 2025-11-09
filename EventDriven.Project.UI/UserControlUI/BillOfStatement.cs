@@ -1,13 +1,27 @@
 ﻿using System.Drawing.Printing;
+using EventDriven.Project.Businesslogic.Controller;
+using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI.UserControlUI
 {
     public partial class BillOfStatement : UserControl
     {
+        PatientController patientController;
+        int selectedPatientID;
         public BillOfStatement()
         {
             InitializeComponent();
-            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            patientController = new PatientController();
+            selectedPatientID = FormMain.selectedPatientID;
+            LoadPatientDetails();
+        }
+        private void LoadPatientDetails()
+        {
+            PatientModel patient = patientController.GetPatientById(selectedPatientID);
+            lblPatientID.Text = patient.PatientID.ToString();
+            lblPatientName.Text = $"{patient.FirstName} {patient.MiddleName} {patient.LastName}";
+            lblGender.Text = patient.Gender;
+            lblBirthday.Text = patient.DateOfBirth.ToString("MM/dd/yyyy");
         }
 
         private void btnPrintBOS_Click(object sender, EventArgs e)

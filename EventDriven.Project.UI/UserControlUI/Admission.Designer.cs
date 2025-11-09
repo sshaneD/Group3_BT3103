@@ -31,6 +31,7 @@
             button8 = new Button();
             lblTitle = new Label();
             panel3 = new Panel();
+            cbRoomNo = new ComboBox();
             label6 = new Label();
             label12 = new Label();
             dateEndDate = new DateTimePicker();
@@ -65,7 +66,6 @@
             label3 = new Label();
             txtLN = new TextBox();
             btnTreatment = new Button();
-            cbRoomNo = new ComboBox();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -131,6 +131,17 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1426, 826);
             panel3.TabIndex = 30;
+            // 
+            // cbRoomNo
+            // 
+            cbRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRoomNo.FormattingEnabled = true;
+            cbRoomNo.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Nursery Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
+            cbRoomNo.Location = new Point(992, 146);
+            cbRoomNo.Name = "cbRoomNo";
+            cbRoomNo.Size = new Size(177, 28);
+            cbRoomNo.TabIndex = 45;
+            cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
             // 
             // label6
             // 
@@ -486,20 +497,9 @@
             btnTreatment.Name = "btnTreatment";
             btnTreatment.Size = new Size(251, 35);
             btnTreatment.TabIndex = 17;
-            btnTreatment.Text = "Treatment";
+            btnTreatment.Text = "Add Medical Details";
             btnTreatment.UseVisualStyleBackColor = true;
             btnTreatment.Click += btnViewDN_Click;
-            // 
-            // cbRoomNo
-            // 
-            cbRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbRoomNo.FormattingEnabled = true;
-            cbRoomNo.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Nursery Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
-            cbRoomNo.Location = new Point(992, 146);
-            cbRoomNo.Name = "cbRoomNo";
-            cbRoomNo.Size = new Size(177, 28);
-            cbRoomNo.TabIndex = 45;
-            cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
             // 
             // Admission
             // 

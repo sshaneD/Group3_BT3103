@@ -106,6 +106,8 @@
     <Build Include="dbo\StoredProcedure\GetTreatmentByRecordID.sql" />
     <Build Include="dbo\StoredProcedure\GetMedicationByRecordID.sql" />
     <Build Include="dbo\StoredProcedure\AddMedication.sql" />
+    <Build Include="dbo\Tables\Billings.sql" />
+    <Build Include="dbo\Tables\AdmissionHistory.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />

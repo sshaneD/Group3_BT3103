@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Billings]
+(
+	[BillingID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[PatientID] INT NOT NULL,
+
+)
