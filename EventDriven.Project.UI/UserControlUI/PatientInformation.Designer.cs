@@ -40,6 +40,7 @@
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnBOS = new Button();
+            btnDischarge = new Button();
             ((System.ComponentModel.ISupportInitialize)DGPatientRecord).BeginInit();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -161,9 +162,10 @@
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Controls.Add(btnMedRecord);
             flowLayoutPanel1.Controls.Add(btnBOS);
+            flowLayoutPanel1.Controls.Add(btnDischarge);
             flowLayoutPanel1.Location = new Point(62, 113);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(970, 49);
+            flowLayoutPanel1.Size = new Size(981, 49);
             flowLayoutPanel1.TabIndex = 44;
             // 
             // btnBOS
@@ -176,6 +178,17 @@
             btnBOS.Text = "Billing Statement";
             btnBOS.UseVisualStyleBackColor = true;
             btnBOS.Click += btnBOS_Click;
+            // 
+            // btnDischarge
+            // 
+            btnDischarge.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDischarge.Location = new Point(786, 3);
+            btnDischarge.Name = "btnDischarge";
+            btnDischarge.Size = new Size(166, 35);
+            btnDischarge.TabIndex = 44;
+            btnDischarge.Text = "Discharge";
+            btnDischarge.UseVisualStyleBackColor = true;
+            btnDischarge.Click += btnDischarge_Click;
             // 
             // PatientInformation
             // 
@@ -208,5 +221,6 @@
         private Button btnMedRecord;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnBOS;
+        private Button btnDischarge;
     }
 }

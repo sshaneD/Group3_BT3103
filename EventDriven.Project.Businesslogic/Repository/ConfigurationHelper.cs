@@ -6,7 +6,7 @@ namespace EventDriven.Project.Businesslogic.Repository
     {
         public static string GetConnectionString()
         {
-            return "Data Source=KOUTAIBA;Initial Catalog=STEF;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+           
             switch (Environment.MachineName)
             {
                 case "KOUTAIBA":
