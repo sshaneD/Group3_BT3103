@@ -9,6 +9,7 @@ namespace EventDriven.Project.UI.UserControlUI
         #region Local Variables
         public event EventHandler GoToPatientInfo;
         public event EventHandler GoToTreatment;
+        public event EventHandler GoToAdmissionHistory;
         private PatientController patientController;
         private StaffController staffController;
         private RoomController roomController;
@@ -41,11 +42,10 @@ namespace EventDriven.Project.UI.UserControlUI
         private void LoadData()
         {
             PatientModel patient = patientController.GetPatientById(FormMain.selectedPatientID);
-            AssignedRoomModel assignedRoom = roomController.GetAssignedRoom(FormMain.selectedPatientID);
+            CurrentRoomModel assignedRoom = roomController.GetCurrentRoom(FormMain.selectedPatientID);
             txtFN.Text = patient.FirstName;
             txtMN.Text = patient.MiddleName;
             txtLN.Text = patient.LastName;
-            dateAdmission.Value = patient.AdmissionDate;
             dateOfBirth.Value = patient.DateOfBirth;
             cbGender.Text = patient.Gender;
             txtGN.Text = patient.GuardianName;
@@ -99,7 +99,6 @@ namespace EventDriven.Project.UI.UserControlUI
                     FirstName = txtFN.Text,
                     MiddleName = txtMN.Text,
                     LastName = txtLN.Text,
-                    AdmissionDate = dateAdmission.Value.Date,
                     DateOfBirth = dateOfBirth.Value.Date,
                     Age = calculateAge(dateOfBirth.Value.Date),
                     Gender = cbGender.Text,
@@ -121,7 +120,6 @@ namespace EventDriven.Project.UI.UserControlUI
                     FirstName = txtFN.Text,
                     MiddleName = txtMN.Text,
                     LastName = txtLN.Text,
-                    AdmissionDate = dateAdmission.Value.Date,
                     DateOfBirth = dateOfBirth.Value.Date,
                     Age = calculateAge(dateOfBirth.Value.Date),
                     Gender = cbGender.Text,
@@ -286,11 +284,15 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 RoomID = selectedRoom.RoomID,
                 PatientID = FormMain.AdmissionAction.Equals("Add") ? patientController.GetNextPatientID() - 1 : FormMain.selectedPatientID,
-                BedNumber = (roomNumber.OccupiedBeds + 1).ToString(),
+                BedNumber = roomNumber.OccupiedBeds + 1,
                 StartDate = DateTime.Now,
                 EndDate = null
             };
             roomController.AssignRoom(assignedRoom);
+        }
+        private void btnViewAdmissionHistory_Click(object sender, EventArgs e)
+        {
+            GoToAdmissionHistory?.Invoke(this, EventArgs.Empty);
         }
     }
 }

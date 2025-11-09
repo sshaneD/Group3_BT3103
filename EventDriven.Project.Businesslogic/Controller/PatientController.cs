@@ -45,5 +45,9 @@ namespace EventDriven.Project.Businesslogic.Controller
         {
             return patientRepo.GetNextPatientID();
         }
+        public List<AdmissionCardModel> GetAllAdmissionCards()
+        {
+            return patientRepo.GetAllAdmissionCards();
+        }
     }
 }

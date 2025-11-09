@@ -4,5 +4,6 @@
 	@Diagnosis VARCHAR(50),
 	@Notes VARCHAR(MAX)
 AS
-	INSERT INTO MedicalRecords(PatientID, RecordDate, Diagnosis, Notes)
-	VALUES (@PatientID, @RecordDate, @Diagnosis, @Notes)
+	INSERT INTO MedicalRecords(AdmissionID, PatientID, RecordDate, Diagnosis, Notes)
+	VALUES ((SELECT TOP 1 AdmissionID FROM Admissions WHERE Admissions.PatientID = @PatientID ORDER BY AdmissionID DESC),
+	@PatientID, @RecordDate, @Diagnosis, @Notes)

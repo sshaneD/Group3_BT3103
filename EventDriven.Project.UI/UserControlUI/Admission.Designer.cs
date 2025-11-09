@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button8 = new Button();
+            btnViewAdmissionHistory = new Button();
             lblTitle = new Label();
             panel3 = new Panel();
+            cbRoomNo = new ComboBox();
             label6 = new Label();
             label12 = new Label();
             dateEndDate = new DateTimePicker();
@@ -65,19 +66,19 @@
             label3 = new Label();
             txtLN = new TextBox();
             btnTreatment = new Button();
-            cbRoomNo = new ComboBox();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // button8
+            // btnViewAdmissionHistory
             // 
-            button8.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            button8.Location = new Point(1325, 81);
-            button8.Name = "button8";
-            button8.Size = new Size(251, 35);
-            button8.TabIndex = 18;
-            button8.Text = "View Admission History\r\n";
-            button8.UseVisualStyleBackColor = true;
+            btnViewAdmissionHistory.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            btnViewAdmissionHistory.Location = new Point(1325, 81);
+            btnViewAdmissionHistory.Name = "btnViewAdmissionHistory";
+            btnViewAdmissionHistory.Size = new Size(251, 35);
+            btnViewAdmissionHistory.TabIndex = 18;
+            btnViewAdmissionHistory.Text = "View Admission History\r\n";
+            btnViewAdmissionHistory.UseVisualStyleBackColor = true;
+            btnViewAdmissionHistory.Click += btnViewAdmissionHistory_Click;
             // 
             // lblTitle
             // 
@@ -131,6 +132,17 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1426, 826);
             panel3.TabIndex = 30;
+            // 
+            // cbRoomNo
+            // 
+            cbRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRoomNo.FormattingEnabled = true;
+            cbRoomNo.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Nursery Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
+            cbRoomNo.Location = new Point(992, 146);
+            cbRoomNo.Name = "cbRoomNo";
+            cbRoomNo.Size = new Size(177, 28);
+            cbRoomNo.TabIndex = 45;
+            cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
             // 
             // label6
             // 
@@ -490,22 +502,11 @@
             btnTreatment.UseVisualStyleBackColor = true;
             btnTreatment.Click += btnViewDN_Click;
             // 
-            // cbRoomNo
-            // 
-            cbRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbRoomNo.FormattingEnabled = true;
-            cbRoomNo.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Nursery Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
-            cbRoomNo.Location = new Point(992, 146);
-            cbRoomNo.Name = "cbRoomNo";
-            cbRoomNo.Size = new Size(177, 28);
-            cbRoomNo.TabIndex = 45;
-            cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
-            // 
             // Admission
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button8);
+            Controls.Add(btnViewAdmissionHistory);
             Controls.Add(lblTitle);
             Controls.Add(panel3);
             Controls.Add(btnTreatment);
@@ -519,7 +520,7 @@
 
         #endregion
 
-        private Button button8;
+        private Button btnViewAdmissionHistory;
         private Label lblTitle;
         private Panel panel3;
         private Label label13;

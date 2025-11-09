@@ -85,11 +85,12 @@ namespace EventDriven.Project.Businesslogic.Repository
                     {
                         if (reader.Read())
                         {
-                            medicalRecord.RecordID = reader.GetInt32(0);
-                            medicalRecord.PatientID = reader.GetInt32(1);
-                            medicalRecord.RecordDate = reader.GetDateTime(2);
-                            medicalRecord.Diagnosis = reader.GetString(3);
-                            medicalRecord.Notes = reader.GetString(4);
+                            medicalRecord.AdmissionID = reader.GetInt32(0);
+                            medicalRecord.RecordID = reader.GetInt32(1);
+                            medicalRecord.PatientID = reader.GetInt32(2);
+                            medicalRecord.RecordDate = reader.GetDateTime(3);
+                            medicalRecord.Diagnosis = reader.GetString(4);
+                            medicalRecord.Notes = reader.GetString(5);
                         }
                     }
                 }
@@ -164,11 +165,12 @@ namespace EventDriven.Project.Businesslogic.Repository
                         {
                             medicalRecords.Add(new MedicalRecordModel()
                             {
-                                RecordID = reader.GetInt32(0),
-                                PatientID = reader.GetInt32(1),
-                                RecordDate = reader.GetDateTime(2),
-                                Diagnosis = reader.GetString(3),
-                                Notes = reader.GetString(4)
+                                AdmissionID = reader.GetInt32(0),
+                                RecordID = reader.GetInt32(1),
+                                PatientID = reader.GetInt32(2),
+                                RecordDate = reader.GetDateTime(3),
+                                Diagnosis = reader.GetString(4),
+                                Notes = reader.GetString(5)
                             });
                         }
                     }

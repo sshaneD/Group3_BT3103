@@ -90,7 +90,7 @@ namespace EventDriven.Project.UI
                     btnPatientInfo.BackColor = Color.LightGray;
                 }
                 admission.GoToPatientInfo += (s, e) => ShowControl(new PatientInformation());
-
+                admission.GoToAdmissionHistory += (s, e) => ShowControl(new AdmissionHistory());
             }
 
             else if (userControl is RoomManagement roomManagement)
