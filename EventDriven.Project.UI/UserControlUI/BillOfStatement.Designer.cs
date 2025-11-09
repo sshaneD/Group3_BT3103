@@ -57,9 +57,9 @@
             lblBOS.ForeColor = SystemColors.ButtonHighlight;
             lblBOS.Location = new Point(33, 19);
             lblBOS.Name = "lblBOS";
-            lblBOS.Size = new Size(232, 37);
+            lblBOS.Size = new Size(239, 37);
             lblBOS.TabIndex = 0;
-            lblBOS.Text = "Bill of Statement";
+            lblBOS.Text = "Billing Statement";
             // 
             // lblpatient
             // 
