@@ -95,13 +95,26 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void LoadRoom()
         {
-            AssignedRoomModel assignedRoom = roomController.GetAssignedRoom(selectedPatientID);
-            RoomInfoModel roomInfo = roomController.GetRoomByRoomID(assignedRoom.RoomID);
+            if (roomController.GetCurrentRoom(selectedPatientID) == null)
+            {
+                lblRoomType.Text = "Room Type: N/A";
+                lblRoomNum.Text = "Room Number: N/A";
+                lblDate.Text = "N/A";
+                panelAssignment.Visible = false;
+                panelDischarged.Visible = true;
+                return;
+            }
+            else
+            {
+                panelAssignment.Visible = true;
+                panelDischarged.Visible = false;
+                CurrentRoomModel assignedRoom = roomController.GetCurrentRoom(selectedPatientID);
 
-            lblRoomType.Text = $"Room Type: {roomInfo.RoomType}";
-            lblRoomNum.Text = $"Room Number: {roomInfo.RoomNumber} ({assignedRoom.BedNumber})";
-            string endDate = assignedRoom.EndDate.HasValue ? assignedRoom.EndDate.Value.ToShortDateString() : "N/A";
-            lblDate.Text = $"{assignedRoom.StartDate.ToShortDateString()} - {endDate}";
+                lblRoomType.Text = $"Room Type: {assignedRoom.RoomType}";
+                lblRoomNum.Text = $"Room Number: {assignedRoom.RoomNumber} (Bed {assignedRoom.BedNumber})";
+                string endDate = assignedRoom.EndDate.HasValue ? assignedRoom.EndDate.Value.ToShortDateString() : "N/A";
+                lblDate.Text = $"{assignedRoom.StartDate.ToShortDateString()} - {endDate}";
+            }
         }
         private void LoadMedicalRecords()
         {

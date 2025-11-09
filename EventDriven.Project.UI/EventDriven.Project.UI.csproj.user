@@ -25,7 +25,7 @@
     <Compile Update="UserControlUI\Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControlUI\DischargeHistory.cs">
+    <Compile Update="UserControlUI\AdmissionHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControlUI\MedicalRecord.cs">

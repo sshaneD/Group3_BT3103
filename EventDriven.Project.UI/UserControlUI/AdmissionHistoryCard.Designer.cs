@@ -31,17 +31,17 @@
             lblName = new Label();
             label2 = new Label();
             lblPatientID = new Label();
-            label4 = new Label();
-            date = new DateTimePicker();
+            lblAdmitted = new Label();
             label1 = new Label();
-            label3 = new Label();
+            lblDiagnosis = new Label();
+            lblDischarged = new Label();
             SuspendLayout();
             // 
             // lblName
             // 
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI", 14.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblName.Location = new Point(59, 20);
+            lblName.Location = new Point(59, 19);
             lblName.Name = "lblName";
             lblName.Size = new Size(323, 32);
             lblName.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(69, 56);
+            label2.Location = new Point(69, 55);
             label2.Name = "label2";
             label2.Size = new Size(106, 28);
             label2.TabIndex = 1;
@@ -61,61 +61,62 @@
             // 
             lblPatientID.AutoSize = true;
             lblPatientID.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPatientID.Location = new Point(181, 56);
+            lblPatientID.Location = new Point(181, 55);
             lblPatientID.Name = "lblPatientID";
             lblPatientID.Size = new Size(50, 28);
             lblPatientID.TabIndex = 2;
             lblPatientID.Text = "1001";
             // 
-            // label4
+            // lblAdmitted
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(864, 56);
-            label4.Name = "label4";
-            label4.Size = new Size(132, 28);
-            label4.TabIndex = 3;
-            label4.Text = "Admitted on:";
-            // 
-            // date
-            // 
-            date.CalendarFont = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            date.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            date.Location = new Point(1002, 56);
-            date.Name = "date";
-            date.Size = new Size(316, 29);
-            date.TabIndex = 4;
-            date.Value = new DateTime(2025, 11, 9, 15, 29, 36, 0);
+            lblAdmitted.AutoSize = true;
+            lblAdmitted.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAdmitted.Location = new Point(984, 33);
+            lblAdmitted.Name = "lblAdmitted";
+            lblAdmitted.Size = new Size(233, 28);
+            lblAdmitted.TabIndex = 3;
+            lblAdmitted.Text = "Admitted on: 01/01/0001";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(70, 90);
+            label1.Location = new Point(70, 89);
             label1.Name = "label1";
             label1.Size = new Size(105, 28);
             label1.TabIndex = 5;
             label1.Text = "Diagnosis:";
             // 
-            // label3
+            // lblDiagnosis
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(181, 90);
-            label3.Name = "label3";
-            label3.Size = new Size(39, 28);
-            label3.TabIndex = 6;
-            label3.Text = "Flu";
+            lblDiagnosis.AutoSize = true;
+            lblDiagnosis.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDiagnosis.Location = new Point(181, 89);
+            lblDiagnosis.Name = "lblDiagnosis";
+            lblDiagnosis.Size = new Size(39, 28);
+            lblDiagnosis.TabIndex = 6;
+            lblDiagnosis.Text = "Flu";
+            // 
+            // lblDischarged
+            // 
+            lblDischarged.AutoSize = true;
+            lblDischarged.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDischarged.Location = new Point(984, 76);
+            lblDischarged.Name = "lblDischarged";
+            lblDischarged.Size = new Size(249, 28);
+            lblDischarged.TabIndex = 7;
+            lblDischarged.Text = "Discharged on: 01/01/0001";
             // 
             // AdmissionHistoryCard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             BorderStyle = BorderStyle.FixedSingle;
-            Controls.Add(label3);
+            Controls.Add(lblDischarged);
+            Controls.Add(lblDiagnosis);
             Controls.Add(label1);
-            Controls.Add(date);
-            Controls.Add(label4);
+            Controls.Add(lblAdmitted);
             Controls.Add(lblPatientID);
             Controls.Add(label2);
             Controls.Add(lblName);
@@ -130,9 +131,9 @@
         private Label lblName;
         private Label label2;
         private Label lblPatientID;
-        private Label label4;
-        private DateTimePicker date;
+        private Label lblAdmitted;
         private Label label1;
-        private Label label3;
+        private Label lblDiagnosis;
+        private Label lblDischarged;
     }
 }

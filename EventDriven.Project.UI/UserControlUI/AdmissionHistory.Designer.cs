@@ -1,6 +1,6 @@
 ﻿namespace EventDriven.Project.UI.UserControlUI
 {
-    partial class DischargeHistory
+    partial class AdmissionHistory
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowAdmissions = new FlowLayoutPanel();
             label1 = new Label();
             SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flowAdmissions
             // 
-            flowLayoutPanel1.BackColor = Color.LightGray;
-            flowLayoutPanel1.Location = new Point(82, 192);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1410, 769);
-            flowLayoutPanel1.TabIndex = 0;
+            flowAdmissions.AutoScroll = true;
+            flowAdmissions.BackColor = Color.FromArgb(217, 217, 217);
+            flowAdmissions.Location = new Point(82, 192);
+            flowAdmissions.Name = "flowAdmissions";
+            flowAdmissions.Size = new Size(1410, 769);
+            flowAdmissions.TabIndex = 0;
             // 
             // label1
             // 
@@ -50,13 +51,13 @@
             label1.TabIndex = 1;
             label1.Text = "Admission History";
             // 
-            // DischargeHistory
+            // AdmissionHistory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
-            Controls.Add(flowLayoutPanel1);
-            Name = "DischargeHistory";
+            Controls.Add(flowAdmissions);
+            Name = "AdmissionHistory";
             Size = new Size(1637, 998);
             ResumeLayout(false);
             PerformLayout();
@@ -64,7 +65,7 @@
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flowAdmissions;
         private Label label1;
     }
 }
