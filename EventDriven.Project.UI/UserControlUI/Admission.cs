@@ -19,13 +19,13 @@ namespace EventDriven.Project.UI.UserControlUI
             patientController = new PatientController();
             staffController = new StaffController();
             roomController = new RoomController();
-            LoadData();
             CheckAction();
         }
         private void CheckAction()
         {
             if (FormMain.AdmissionAction == "Add")
             {
+                ClearData();
                 btnSubmit.Text = "Admit";
                 btnCancel.Visible = false;
                 lblTitle.Text = "Admission Form";
@@ -52,6 +52,7 @@ namespace EventDriven.Project.UI.UserControlUI
             txtGCN.Text = patient.GuardianNo;
 
             LoadTextbox();
+            LoadRoomTypes();
 
             List<RoomInfoModel> allRooms = roomController.GetAllRooms();
             RoomInfoModel selectedRoom = allRooms.Where(ar => ar.RoomID == assignedRoom.RoomID).First();
@@ -63,6 +64,26 @@ namespace EventDriven.Project.UI.UserControlUI
             dateStartDate.Value = assignedRoom.StartDate;
             dateEndDate.Value = assignedRoom.EndDate ?? DateTime.Now;
 
+        }
+        private void ClearData()
+        {
+            txtFN.Clear();
+            txtMN.Clear();
+            txtLN.Clear();
+            dateAdmission.Value = DateTime.Now.Date;
+            dateOfBirth.Value = DateTime.Now.Date;
+            cbGender.SelectedIndex = -1;
+            txtGN.Clear();
+            txtGCN.Clear();
+            cbRoom.SelectedIndex = -1;
+            cbRoomNo.SelectedIndex = -1;
+            txtDoctor.Clear();
+            txtDoctor2.Clear();
+            txtDoctor3.Clear();
+            txtNurse.Clear();
+            txtNurse2.Clear();
+            txtNurse3.Clear();
+            FormMain.assignedStaff.Clear();
         }
         private void btnADCancel_Click(object sender, EventArgs e)
         {
@@ -90,23 +111,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 assignRoom();
                 MessageBox.Show("Patient admitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                txtFN.Clear();
-                txtMN.Clear();
-                txtLN.Clear();
-                dateAdmission.Value = DateTime.Now.Date;
-                dateOfBirth.Value = DateTime.Now.Date;
-                cbGender.SelectedIndex = -1;
-                txtGN.Clear();
-                txtGCN.Clear();
-                cbRoom.SelectedIndex = -1;
-                cbRoomNo.SelectedIndex = -1;
-                txtDoctor.Clear();
-                txtDoctor2.Clear();
-                txtDoctor3.Clear();
-                txtNurse.Clear();
-                txtNurse2.Clear();
-                txtNurse3.Clear();
-                FormMain.assignedStaff.Clear();
+                ClearData();
             }
             else if (FormMain.AdmissionAction == "Edit")
             {
@@ -129,23 +134,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 MessageBox.Show("Patient information updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GoToPatientInfo?.Invoke(this, EventArgs.Empty);
 
-                txtFN.Clear();
-                txtMN.Clear();
-                txtLN.Clear();
-                dateAdmission.Value = DateTime.Now.Date;
-                dateOfBirth.Value = DateTime.Now.Date;
-                cbGender.SelectedIndex = -1;
-                txtGN.Clear();
-                txtGCN.Clear();
-                cbRoom.SelectedIndex = -1;
-                cbRoomNo.SelectedIndex = -1;
-                txtDoctor.Clear();
-                txtDoctor2.Clear();
-                txtDoctor3.Clear();
-                txtNurse.Clear();
-                txtNurse2.Clear();
-                txtNurse3.Clear();
-                FormMain.assignedStaff.Clear();
+                ClearData();
             }
         }
         private void AssignStaff()
@@ -196,8 +185,6 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void LoadTextbox()
         {
-            cbRoom.Items.Clear();
-
             TextBox[] textBoxes = { txtDoctor, txtDoctor2, txtDoctor3, txtNurse, txtNurse2, txtNurse3 };
             TextBox[] doctorTextboxes = { txtDoctor, txtDoctor2, txtDoctor3 };
             TextBox[] nurseTextboxes = { txtNurse, txtNurse2, txtNurse3 };
@@ -230,7 +217,10 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 nurseTextboxes[i].Text = $"{nurses[i].FirstName} {nurses[i].LastName} ({nurses[i].DepartmentName})";
             }
-
+        }
+        private void LoadRoomTypes()
+        {
+            cbRoom.Items.Clear();
             List<RoomOccupationModel> rooms =
             [
                 roomController.GetRoomTypeAvailability("Ward"),
