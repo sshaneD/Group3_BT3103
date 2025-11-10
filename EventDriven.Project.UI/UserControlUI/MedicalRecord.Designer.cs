@@ -272,6 +272,7 @@
             btnDelete.TabIndex = 15;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // label6
             // 
@@ -282,7 +283,6 @@
             label6.Size = new Size(124, 32);
             label6.TabIndex = 4;
             label6.Text = "Diagnosis:";
-            label6.Click += label6_Click;
             // 
             // txtDiagnosis
             // 
@@ -376,7 +376,6 @@
             Controls.Add(txtDiagnosis);
             Controls.Add(label6);
             Controls.Add(panel7);
-            Controls.Add(panelDischarged);
             Controls.Add(panelAssignment);
             Controls.Add(panel1);
             Controls.Add(label1);

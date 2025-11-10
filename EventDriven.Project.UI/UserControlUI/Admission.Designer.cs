@@ -498,7 +498,7 @@
             btnTreatment.Name = "btnTreatment";
             btnTreatment.Size = new Size(251, 35);
             btnTreatment.TabIndex = 17;
-            btnTreatment.Text = "Treatment";
+            btnTreatment.Text = "Add Medical Details";
             btnTreatment.UseVisualStyleBackColor = true;
             btnTreatment.Click += btnViewDN_Click;
             // 

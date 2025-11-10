@@ -108,6 +108,7 @@
     <Build Include="dbo\StoredProcedure\AddMedication.sql" />
     <Build Include="dbo\Tables\Admissions.sql" />
     <Build Include="dbo\StoredProcedure\GetAllAdmissionCards.sql" />
+    <Build Include="dbo\StoredProcedure\DeleteMedicalRecordByID.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />
