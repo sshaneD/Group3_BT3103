@@ -28,6 +28,7 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 ClearData();
                 btnSubmit.Text = "Admit";
+                btnTreatment.Visible = false;
                 btnCancel.Visible = false;
                 lblTitle.Text = "Admission Form";
             }
@@ -35,6 +36,7 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 LoadData();
                 btnSubmit.Text = "Save";
+                btnTreatment.Visible = true;
                 btnCancel.Visible = true;
                 lblTitle.Text = "Edit Patient Information";
             }

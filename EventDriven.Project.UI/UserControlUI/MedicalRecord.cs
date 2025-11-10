@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using EventDriven.Project.Businesslogic.Controller;
+﻿using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI.UserControlUI
@@ -35,7 +26,6 @@ namespace EventDriven.Project.UI.UserControlUI
             LoadPatient();
             LoadStaff();
             LoadRoom();
-            ClearMedicalRecord();
             LoadMedicalRecords();
         }
         private void LoadPatient()
@@ -118,13 +108,18 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void LoadMedicalRecords()
         {
+            ClearMedicalRecord();
+            flowMedicalRecords.Controls.Clear();
             List<MedicalRecordModel> medicalRecords = medicalRecordController.GetPatientMedicalRecords(selectedPatientID);
-            foreach (MedicalRecordModel medicalRecord in medicalRecords)
+            if (medicalRecords.Count > 0)
             {
-                FormMain.selectedRecordID = medicalRecord.RecordID;
-                ShowControl(new MedicalRecordCard(medicalRecord.RecordID));
+                FormMain.selectedRecordID = medicalRecords[0].RecordID;
+                LoadMedicalRecord(medicalRecords[0].RecordID);
+                foreach (MedicalRecordModel medicalRecord in medicalRecords)
+                {
+                    ShowControl(new MedicalRecordCard(medicalRecord.RecordID));
+                }
             }
-            LoadMedicalRecord(FormMain.selectedRecordID);
         }
         private void LoadMedicalRecord(int recordID)
         {
@@ -133,14 +128,22 @@ namespace EventDriven.Project.UI.UserControlUI
             MedicationModel medication = medicalRecordController.GetMedicationByRecordID(recordID);
             txtDiagnosis.Text = medicalRecord.Diagnosis;
             txtNotes.Text = medicalRecord.Notes;
-            txtTreatment.Text = treatment.TreatmentType;
-            txtMedication.Text = medication.MedicationName;
+            if (!string.IsNullOrEmpty(treatment.TreatmentType))
+                txtTreatment.Text = treatment.TreatmentType;
+            else
+                txtTreatment.Text = string.Empty;
+
+            if (!string.IsNullOrEmpty(medication.MedicationName))
+                txtMedication.Text = $"{medication.MedicationName} {Environment.NewLine}{medication.FrequencyCount} Every {medication.FrequencyValue} {medication.FrequencyType}";
+            else
+                txtMedication.Text = string.Empty;
         }
         private void ClearMedicalRecord()
         {
-            FormMain.selectedRecordID = 0;
             txtDiagnosis.Clear();
             txtNotes.Clear();
+            txtTreatment.Clear();
+            txtMedication.Clear();
         }
         private void ShowControl(UserControl control)
         {
@@ -150,17 +153,40 @@ namespace EventDriven.Project.UI.UserControlUI
             }
             flowMedicalRecords.Controls.Add(control);
         }
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             GoToPatientInfo?.Invoke(this, EventArgs.Empty);
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show(
+                "Are you sure you want to delete this record? This cannot be undone.",
+                "Delete Medical Record",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (res == DialogResult.Yes)
+            {
+                medicalRecordController.DeleteMedicalRecordByID(FormMain.selectedRecordID);
+                FormMain.selectedRecordID = 0;
+                LoadMedicalRecords();
+                MessageBox.Show(
+                    "Medical Record Deleted Successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            else
+            {
+                MessageBox.Show("Deletion Cancelled",
+                    "Cancelled",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+            }
         }
     }
 }

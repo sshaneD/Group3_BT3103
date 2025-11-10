@@ -85,8 +85,8 @@ namespace EventDriven.Project.Businesslogic.Repository
                     {
                         if (reader.Read())
                         {
-                            medicalRecord.AdmissionID = reader.GetInt32(0);
-                            medicalRecord.RecordID = reader.GetInt32(1);
+                            medicalRecord.RecordID = reader.GetInt32(0);
+                            medicalRecord.AdmissionID = reader.GetInt32(1);
                             medicalRecord.PatientID = reader.GetInt32(2);
                             medicalRecord.RecordDate = reader.GetDateTime(3);
                             medicalRecord.Diagnosis = reader.GetString(4);
@@ -165,8 +165,8 @@ namespace EventDriven.Project.Businesslogic.Repository
                         {
                             medicalRecords.Add(new MedicalRecordModel()
                             {
-                                AdmissionID = reader.GetInt32(0),
-                                RecordID = reader.GetInt32(1),
+                                RecordID = reader.GetInt32(0),
+                                AdmissionID = reader.GetInt32(1),
                                 PatientID = reader.GetInt32(2),
                                 RecordDate = reader.GetDateTime(3),
                                 Diagnosis = reader.GetString(4),
@@ -177,6 +177,19 @@ namespace EventDriven.Project.Businesslogic.Repository
                 }
             }
             return medicalRecords;
+        }
+        public void DeleteMedicalRecordByID(int RecordID)
+        {
+            using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("DeleteMedicalRecordByID", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@RecordID", RecordID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
