@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button8 = new Button();
+            btnViewAdmissionHistory = new Button();
             lblTitle = new Label();
             panel3 = new Panel();
             cbRoomNo = new ComboBox();
@@ -69,15 +69,16 @@
             panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // button8
+            // btnViewAdmissionHistory
             // 
-            button8.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            button8.Location = new Point(1325, 81);
-            button8.Name = "button8";
-            button8.Size = new Size(251, 35);
-            button8.TabIndex = 18;
-            button8.Text = "View Admission History\r\n";
-            button8.UseVisualStyleBackColor = true;
+            btnViewAdmissionHistory.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            btnViewAdmissionHistory.Location = new Point(1325, 81);
+            btnViewAdmissionHistory.Name = "btnViewAdmissionHistory";
+            btnViewAdmissionHistory.Size = new Size(251, 35);
+            btnViewAdmissionHistory.TabIndex = 18;
+            btnViewAdmissionHistory.Text = "View Admission History\r\n";
+            btnViewAdmissionHistory.UseVisualStyleBackColor = true;
+            btnViewAdmissionHistory.Click += btnViewAdmissionHistory_Click;
             // 
             // lblTitle
             // 
@@ -505,7 +506,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button8);
+            Controls.Add(btnViewAdmissionHistory);
             Controls.Add(lblTitle);
             Controls.Add(panel3);
             Controls.Add(btnTreatment);
@@ -519,7 +520,7 @@
 
         #endregion
 
-        private Button button8;
+        private Button btnViewAdmissionHistory;
         private Label lblTitle;
         private Panel panel3;
         private Label label13;

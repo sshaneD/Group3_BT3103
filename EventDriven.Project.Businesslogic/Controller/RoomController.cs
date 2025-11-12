@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EventDriven.Project.Businesslogic.Repository;
+﻿using EventDriven.Project.Businesslogic.Repository;
 using EventDriven.Project.Model;
 
 namespace EventDriven.Project.Businesslogic.Controller
@@ -43,9 +38,13 @@ namespace EventDriven.Project.Businesslogic.Controller
         {
             roomRepository.DeleteAssignedRoom(PatientID);
         }
-        public AssignedRoomModel GetAssignedRoom(int PatientID)
+        public List<AssignedRoomModel> GetAssignedRoom(int PatientID)
         {
             return roomRepository.GetAssignedRoom(PatientID);
+        }
+        public CurrentRoomModel GetCurrentRoom(int PatientID)
+        {
+            return roomRepository.GetCurrentRoom(PatientID);
         }
     }
 }

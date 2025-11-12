@@ -49,7 +49,6 @@ namespace EventDriven.Project.UI
                     else
                     {
                         MessageBox.Show("Invalid Credentials. You have " + loginAttempts + " more attempts.");
-                        txtUsername.Clear();
                         txtPassword.Clear();
                     }
                 }

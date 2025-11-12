@@ -134,7 +134,6 @@
             panelAssignment.Controls.Add(txtDoctorList);
             panelAssignment.Controls.Add(label13);
             panelAssignment.Controls.Add(label12);
-            panelAssignment.Controls.Add(panelDischarged);
             panelAssignment.Location = new Point(32, 307);
             panelAssignment.Name = "panelAssignment";
             panelAssignment.Size = new Size(1019, 172);
@@ -227,7 +226,7 @@
             // panelDischarged
             // 
             panelDischarged.Controls.Add(label2);
-            panelDischarged.Location = new Point(0, 0);
+            panelDischarged.Location = new Point(32, 307);
             panelDischarged.Name = "panelDischarged";
             panelDischarged.Size = new Size(1019, 172);
             panelDischarged.TabIndex = 12;
@@ -273,6 +272,7 @@
             btnDelete.TabIndex = 15;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // label6
             // 
@@ -283,7 +283,6 @@
             label6.Size = new Size(124, 32);
             label6.TabIndex = 4;
             label6.Text = "Diagnosis:";
-            label6.Click += label6_Click;
             // 
             // txtDiagnosis
             // 
@@ -380,6 +379,7 @@
             Controls.Add(panelAssignment);
             Controls.Add(panel1);
             Controls.Add(label1);
+            Controls.Add(panelDischarged);
             Name = "MedicalRecord";
             Size = new Size(1637, 998);
             panel1.ResumeLayout(false);

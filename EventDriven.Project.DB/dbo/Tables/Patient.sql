@@ -4,7 +4,6 @@
 	[FirstName] varchar(50) NOT NULL,
 	[MiddleName] varchar(50) NOT NULL,
 	[LastName] varchar(50) NOT NULL DEFAULT GETDATE(),
-	[AdmissionDate] DateTime NOT NULL,
 	[DateOfBirth] DateTime NOT NULL,
 	[Age] int NOT NULL,
 	[Gender] varchar(50) NOT NULL,

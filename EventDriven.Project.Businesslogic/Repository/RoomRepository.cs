@@ -28,10 +28,10 @@ namespace EventDriven.Project.Businesslogic.Repository
                         {
                             rooms.Add(new RoomModel()
                             {
-                                RoomNumber = reader.GetInt32(0),
-                                BedNumbers = reader.GetInt32(1),
-                                OccupiedBeds = reader.GetInt32(2),
-                                AvailableBeds = reader.GetInt32(3)
+                                RoomNumber = (int)reader["RoomNumber"],
+                                BedNumbers = (int)reader["BedNumbers"],
+                                OccupiedBeds = (int)reader["OccupiedBeds"],
+                                AvailableBeds = (int)reader["AvailableBeds"]
                             });
                         }
                     }
@@ -176,9 +176,9 @@ namespace EventDriven.Project.Businesslogic.Repository
                 }
             }        
         }
-        public AssignedRoomModel GetAssignedRoom(int PatientID)
+        public List<AssignedRoomModel> GetAssignedRoom(int PatientID)
         {
-            AssignedRoomModel assignedRoom = null;
+            List<AssignedRoomModel> assignedRooms = null;
             using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
             {
                 conn.Open();
@@ -188,13 +188,42 @@ namespace EventDriven.Project.Businesslogic.Repository
                     cmd.Parameters.AddWithValue("@PatientID", PatientID);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
+                        while (reader.Read())
+                        {
+                            assignedRooms.Add(new AssignedRoomModel()
+                            {
+                                RoomID = reader.GetInt32(2),
+                                PatientID = reader.GetInt32(3),
+                                BedNumber = reader.GetInt32(4),
+                                StartDate = reader.GetDateTime(5),
+                                EndDate = reader.IsDBNull(6) ? null : reader.GetDateTime(5)
+                            });
+                        }
+                    }
+                }
+            }
+            return assignedRooms;
+        }
+        public CurrentRoomModel GetCurrentRoom(int PatientID)
+        {
+            CurrentRoomModel currentRoom = null;
+            using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("GetCurrentRoom", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
                         if (reader.Read())
                         {
-                            assignedRoom = new AssignedRoomModel()
+                            currentRoom = new CurrentRoomModel()
                             {
-                                RoomID = reader.GetInt32(1),
-                                PatientID = reader.GetInt32(2),
-                                BedNumber = reader.GetString(3),
+                                RoomID = reader.GetInt32(0),
+                                RoomType = reader.GetString(1),
+                                RoomNumber = reader.GetInt32(2),
+                                BedNumber = reader.GetInt32(3),
                                 StartDate = reader.GetDateTime(4),
                                 EndDate = reader.IsDBNull(5) ? null : reader.GetDateTime(5)
                             };
@@ -202,7 +231,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                     }
                 }
             }
-            return assignedRoom;
+            return currentRoom;
         }
     }
 }
