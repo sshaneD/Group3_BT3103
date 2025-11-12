@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillOfStatement));
             lblBOS = new Label();
             lblpatient = new Label();
@@ -41,21 +43,21 @@
             lblPatientID = new Label();
             lblGender = new Label();
             lblBirthday = new Label();
-            panel1 = new Panel();
             btnPayment = new Button();
             btnPrintBOS = new Button();
             printPreviewDialog1 = new PrintPreviewDialog();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblBOS
             // 
             lblBOS.AutoSize = true;
             lblBOS.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBOS.ForeColor = SystemColors.ButtonHighlight;
-            lblBOS.Location = new Point(33, 19);
+            lblBOS.ForeColor = SystemColors.ActiveCaptionText;
+            lblBOS.Location = new Point(34, 38);
             lblBOS.Name = "lblBOS";
             lblBOS.Size = new Size(239, 37);
             lblBOS.TabIndex = 0;
@@ -113,12 +115,39 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.BackgroundColor = Color.FromArgb(217, 217, 217);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(131, 400);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.ShowCellToolTips = false;
+            dataGridView1.ShowEditingIcon = false;
             dataGridView1.Size = new Size(1339, 486);
             dataGridView1.TabIndex = 6;
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             // 
             // label5
             // 
@@ -132,55 +161,43 @@
             // 
             // lblPatientName
             // 
-            lblPatientName.AutoSize = true;
             lblPatientName.Font = new Font("Segoe UI", 12F);
-            lblPatientName.Location = new Point(395, 179);
+            lblPatientName.Location = new Point(204, 179);
             lblPatientName.Name = "lblPatientName";
-            lblPatientName.Size = new Size(247, 28);
+            lblPatientName.Size = new Size(438, 28);
             lblPatientName.TabIndex = 8;
             lblPatientName.Text = "Stefanie Shane Delos Reyes";
+            lblPatientName.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblPatientID
             // 
-            lblPatientID.AutoSize = true;
             lblPatientID.Font = new Font("Segoe UI", 12F);
-            lblPatientID.Location = new Point(560, 215);
+            lblPatientID.Location = new Point(534, 215);
             lblPatientID.Name = "lblPatientID";
-            lblPatientID.Size = new Size(67, 28);
+            lblPatientID.Size = new Size(108, 28);
             lblPatientID.TabIndex = 9;
             lblPatientID.Text = "10001";
-            lblPatientID.TextAlign = ContentAlignment.TopRight;
+            lblPatientID.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblGender
             // 
-            lblGender.AutoSize = true;
             lblGender.Font = new Font("Segoe UI", 12F);
-            lblGender.Location = new Point(554, 251);
+            lblGender.Location = new Point(527, 251);
             lblGender.Name = "lblGender";
-            lblGender.Size = new Size(74, 28);
+            lblGender.Size = new Size(115, 28);
             lblGender.TabIndex = 10;
             lblGender.Text = "Female";
-            lblGender.TextAlign = ContentAlignment.TopRight;
+            lblGender.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblBirthday
             // 
-            lblBirthday.AutoSize = true;
             lblBirthday.Font = new Font("Segoe UI", 12F);
-            lblBirthday.Location = new Point(516, 282);
+            lblBirthday.Location = new Point(485, 282);
             lblBirthday.Name = "lblBirthday";
-            lblBirthday.Size = new Size(116, 28);
+            lblBirthday.Size = new Size(157, 28);
             lblBirthday.TabIndex = 11;
             lblBirthday.Text = "11/22/2004";
-            lblBirthday.TextAlign = ContentAlignment.TopRight;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Silver;
-            panel1.Controls.Add(lblBOS);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1637, 75);
-            panel1.TabIndex = 12;
+            lblBirthday.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnPayment
             // 
@@ -200,7 +217,7 @@
             btnPrintBOS.Name = "btnPrintBOS";
             btnPrintBOS.Size = new Size(207, 40);
             btnPrintBOS.TabIndex = 14;
-            btnPrintBOS.Text = "Print Bill of Statement";
+            btnPrintBOS.Text = "Print Billing Statement";
             btnPrintBOS.UseVisualStyleBackColor = true;
             btnPrintBOS.Click += btnPrintBOS_Click;
             // 
@@ -209,18 +226,46 @@
             printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
             printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
             printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.Enabled = true;
             printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
             printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.ShowIcon = false;
             printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // txtSearch
+            // 
+            txtSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtSearch.Font = new Font("Segoe UI", 11F);
+            txtSearch.Location = new Point(984, 123);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(361, 32);
+            txtSearch.TabIndex = 15;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.Location = new Point(1354, 123);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(116, 32);
+            btnSearch.TabIndex = 16;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // BillOfStatement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearch);
+            Controls.Add(lblBOS);
             Controls.Add(btnPrintBOS);
             Controls.Add(btnPayment);
-            Controls.Add(panel1);
             Controls.Add(lblBirthday);
             Controls.Add(lblGender);
             Controls.Add(lblPatientID);
@@ -235,8 +280,6 @@
             Name = "BillOfStatement";
             Size = new Size(1637, 998);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -255,10 +298,11 @@
         private Label lblPatientID;
         private Label lblGender;
         private Label lblBirthday;
-        private Panel panel1;
         private Button btnPayment;
         private Button btnPrintBOS;
         private PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private TextBox txtSearch;
+        private Button btnSearch;
     }
 }

@@ -256,5 +256,24 @@ namespace EventDriven.Project.Businesslogic.Repository
             }
             return null;
         }
+        public List<int> GetPatientAdmissionIDs(int PatientID)
+        {
+            List<int> admissions = new List<int>();
+            using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("GetPatientAdmissionIDs", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                            admissions.Add((int)reader["AdmissionID"]);
+                    }
+                }
+            }
+            return admissions;
+        }
     }
 }

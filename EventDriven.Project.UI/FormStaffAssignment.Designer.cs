@@ -35,8 +35,6 @@
             dataGridAssignmentM = new DataGridView();
             btnCancelAssign = new Button();
             lblStaff = new Label();
-            btnSearch = new Button();
-            txtSearchStaff = new TextBox();
             btnAssignStaff = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -51,8 +49,6 @@
             panel1.Controls.Add(dataGridAssignmentM);
             panel1.Controls.Add(btnCancelAssign);
             panel1.Controls.Add(lblStaff);
-            panel1.Controls.Add(btnSearch);
-            panel1.Controls.Add(txtSearchStaff);
             panel1.Controls.Add(btnAssignStaff);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -93,7 +89,7 @@
             dataGridAssignmentM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridAssignmentM.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridAssignmentM.EnableHeadersVisualStyles = false;
-            dataGridAssignmentM.Location = new Point(91, 214);
+            dataGridAssignmentM.Location = new Point(88, 157);
             dataGridAssignmentM.Name = "dataGridAssignmentM";
             dataGridAssignmentM.ReadOnly = true;
             dataGridAssignmentM.RowHeadersVisible = false;
@@ -118,29 +114,11 @@
             // 
             lblStaff.AutoSize = true;
             lblStaff.Font = new Font("Microsoft JhengHei UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStaff.Location = new Point(93, 177);
+            lblStaff.Location = new Point(90, 120);
             lblStaff.Name = "lblStaff";
             lblStaff.Size = new Size(178, 23);
             lblStaff.TabIndex = 14;
             lblStaff.Text = "Available Doctor/s:";
-            // 
-            // btnSearch
-            // 
-            btnSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(422, 117);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(94, 29);
-            btnSearch.TabIndex = 13;
-            btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // txtSearchStaff
-            // 
-            txtSearchStaff.Location = new Point(93, 117);
-            txtSearchStaff.Name = "txtSearchStaff";
-            txtSearchStaff.PlaceholderText = "Search Doctor";
-            txtSearchStaff.Size = new Size(302, 27);
-            txtSearchStaff.TabIndex = 12;
             // 
             // btnAssignStaff
             // 
@@ -185,8 +163,6 @@
         private DataGridView dataGridAssignmentM;
         private Button btnCancelAssign;
         private Label lblStaff;
-        private Button btnSearch;
-        private TextBox txtSearchStaff;
         private Button btnAssignStaff;
     }
 }

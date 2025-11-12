@@ -8,46 +8,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EventDriven.Project.Businesslogic.Controller;
+using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI
 {
     public partial class FormPayment : Form
     {
-        public FormPayment()
+        BillingController billingController;
+        BillingModel selectedBilling;
+        BillingModel billingSummary;
+        int admissionID;
+        public FormPayment(int AdmissionID)
         {
             InitializeComponent();
-            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            billingController = new BillingController();
+            admissionID = AdmissionID;
+            selectedBilling = billingController.GenerateBilling(admissionID);
+            lblTotalAmount.Text = selectedBilling.Balance.ToString();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
-
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-
-            DialogResult result = MessageBox.Show("Payment Received. Do you want to print the receipt?", "Transaction Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            int billingID = selectedBilling.BillingID;
+            decimal payment = Convert.ToDecimal(txtAmountPaid.Text);
+            string remarks = txtRemarks.Text;
+            billingSummary = billingController.ConfirmPayment(billingID, payment, remarks);
+            string change = string.Empty;
+            if (billingSummary.Balance <= 0)
+            {
+                change = $"Change: {billingSummary.TotalAmount - billingSummary.AmountPaid}{Environment.NewLine}";
+            }
+            DialogResult result = MessageBox.Show(change + "Do you want to print the receipt?", "Payment Received", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                printPreviewDialog1.Document = printDocument1;
                 printPreviewDialog1.ShowDialog();
-
-
-
-
+                Close();
             }
             else
             {
                 Close();
             }
         }
-
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             Graphics g = e.Graphics;
 
-            g.DrawString("Bill of Statement", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(100, 50));
+            g.DrawString("Receipt", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(100, 50));
 
             g.DrawString("Generated: " + DateTime.Now.ToString("MM/dd/yyyy"), new Font("Arial", 12), Brushes.Gray, new PointF(100, 90));
 
@@ -59,31 +69,40 @@ namespace EventDriven.Project.UI
             g.DrawString("Total", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(600, 140));
 
             int y = 170;
+
+            List<BillingDetailsModel> billingDetails = billingController.GetBillingDetails(admissionID); 
             decimal total = 0;
-            for (int i = 1; i <= 5; i++)
+            foreach (var detail in billingDetails)
             {
-                g.DrawString("Product " + i, new Font("Arial", 11), Brushes.Black, new PointF(100, y));
-                g.DrawString("₱" + (100 * i), new Font("Arial", 11), Brushes.Black, new PointF(400, y));
-                g.DrawString(i.ToString(), new Font("Arial", 11), Brushes.Black, new PointF(500, y));
-                g.DrawString("₱" + (100 * i * i), new Font("Arial", 11), Brushes.Black, new PointF(600, y));
+                g.DrawString(detail.Service, new Font("Arial", 11), Brushes.Black, new PointF(100, y));
+                g.DrawString(detail.Quantity.ToString(), new Font("Arial", 11), Brushes.Black, new PointF(400, y));
+                g.DrawString($"₱{detail.Price}", new Font("Arial", 11), Brushes.Black, new PointF(500, y));
+                g.DrawString($"₱{detail.Total}", new Font("Arial", 11), Brushes.Black, new PointF(600, y));
                 y += 30;
-                total += (100 * i * i);
+                total += detail.Total;
             }
 
             g.DrawLine(Pens.Black, 100, y, 700, y);
             g.DrawString("Total Amount:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 30));
             g.DrawString("Payment Received:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 60));
             g.DrawString("Remaining Balance:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 90));
-            g.DrawString("₱" + total.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 30));
-            g.DrawString("₱" + total.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 60));
-            g.DrawString("₱" + total.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 90));
-
-
-            g.DrawString("End of Report", new Font("Arial", 10, FontStyle.Italic), Brushes.Gray, new PointF(100, y + 150));
+            g.DrawString("Remarks:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 120));
+            g.DrawString("₱" + billingSummary.TotalAmount.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 30));
+            g.DrawString("₱" + billingSummary.AmountPaid.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 60));
+            g.DrawString("₱" + billingSummary.Balance.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 90));
+            g.DrawString(billingSummary.Remarks, new Font("Arial", 14), Brushes.Black, new PointF(100, y + 150));
         }
-        private void label5_Click(object sender, EventArgs e)
+        private void txtAmountPaid_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
 
+            if (e.KeyChar == '.' && txtAmountPaid.Text.Contains("."))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
