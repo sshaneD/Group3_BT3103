@@ -175,8 +175,16 @@ namespace EventDriven.Project.UI.UserControlUI
 
         private void btnDischarge_Click(object sender, EventArgs e)
         {
-            GoToDischarge?.Invoke(this, EventArgs.Empty);
-
+            if (DGPatientRecord.CurrentRow != null)
+            {
+                int selected = Convert.ToInt32(DGPatientRecord.SelectedRows[0].Cells[0].Value);
+                FormMain.selectedPatientID = selected;
+                GoToDischarge?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient", "No Patient Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

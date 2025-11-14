@@ -13,10 +13,10 @@
     <Compile Update="RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="UserControlUI\Admission.cs">
-      <SubType>UserControl</SubType>
+    <Compile Update="RoundedPictureBox.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Update="UserControlUI\AdmissionHistory.cs">
+    <Compile Update="UserControlUI\Admission.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControlUI\AdmissionHistoryCard.cs">
@@ -26,6 +26,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControlUI\Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControlUI\AdmissionHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControlUI\Discharge.cs">
