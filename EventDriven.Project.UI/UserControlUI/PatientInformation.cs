@@ -20,6 +20,7 @@ namespace EventDriven.Project.UI.UserControlUI
         public event EventHandler GoToAdmissionEdit;
         public event EventHandler GoToMedicalRecord;
         public event EventHandler GoToBOS;
+        public event EventHandler GoToDischarge;
         private PatientController patientController;
         private StaffController staffController;
         private RoomController roomController;
@@ -47,6 +48,7 @@ namespace EventDriven.Project.UI.UserControlUI
                     btnEdit.Visible = false;
                     btnDelete.Visible = false;
                     btnMedRecord.Visible = false;
+                    btnDischarge.Visible = false;
                     break;
             }
         }
@@ -169,6 +171,12 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 MessageBox.Show("Please select a patient", "No Patient Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnDischarge_Click(object sender, EventArgs e)
+        {
+            GoToDischarge?.Invoke(this, EventArgs.Empty);
+
         }
     }
 }

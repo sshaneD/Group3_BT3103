@@ -76,6 +76,7 @@ namespace EventDriven.Project.UI
                 patientInfo.GoToAdmissionEdit += (s, e) => ShowControl(new Admission());
                 patientInfo.GoToMedicalRecord += (s, e) => ShowControl(new MedicalRecord());
                 patientInfo.GoToBOS += (s, e) => ShowControl(new BillOfStatement());
+                patientInfo.GoToDischarge += (s, e) => ShowControl(new Discharge());
 
             }
             else if (userControl is Admission admission)
