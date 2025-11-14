@@ -79,6 +79,7 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
+            PatientModel patient = patientController.GetPatientById(selectedPatientID);
 
             Graphics g = e.Graphics;
 
@@ -88,12 +89,21 @@ namespace EventDriven.Project.UI.UserControlUI
 
             g.DrawLine(Pens.Black, 100, 120, 700, 120);
 
-            g.DrawString("Service/Item", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, 140));
-            g.DrawString("Quantity/Days", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(350, 140));
-            g.DrawString("Price", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(490, 140));
-            g.DrawString("Total", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(600, 140));
+            g.DrawString($"{patient.FirstName} {patient.MiddleName} {patient.LastName}", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, new PointF(100, 140));
+            g.DrawString($"Patient ID: {patient.PatientID}", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, 170));
+            g.DrawString(patient.Gender, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, 200));
+            g.DrawString($"{patient.Age} Years Old", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, 230));
 
-            int y = 170;
+           
+            g.DrawLine(Pens.Black, 100, 270, 700, 270);
+            
+            g.DrawString("Service/Item", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, 280));
+            g.DrawString("Quantity/Days", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(350, 280));
+            g.DrawString("Price", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(490, 280));
+            g.DrawString("Total", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(600, 280));
+                
+
+            int y = 310;
 
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(selectedPatientID);
             List<BillingDetailsModel> billingDetails = new List<BillingDetailsModel>();
@@ -113,7 +123,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 GrandTotal += detail.Total;
             }
 
-            g.DrawLine(Pens.Black, 100, y, 700, y);
+            g.DrawLine(Pens.Black, 100, y + 20, 700, y + 20);
             g.DrawString("Total Amount:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 30));
             g.DrawString($"₱{GrandTotal}", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 30));
 
@@ -158,7 +168,6 @@ namespace EventDriven.Project.UI.UserControlUI
                 }
             }
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text.Trim());
