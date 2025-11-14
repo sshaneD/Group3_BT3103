@@ -275,5 +275,19 @@ namespace EventDriven.Project.Businesslogic.Repository
             }
             return admissions;
         }
+        public void DischargePatient(int PatientID, int AdmissionID)
+        {
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("DischargePatient", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.Parameters.AddWithValue("@AdmissionID", AdmissionID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

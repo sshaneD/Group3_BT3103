@@ -39,28 +39,28 @@
             lblPatientID = new Label();
             label5 = new Label();
             roundedPanel2 = new RoundedPanel();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            flowLayoutPanel7 = new FlowLayoutPanel();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
+            txtNotes = new TextBox();
+            txtDuration = new TextBox();
+            txtFrequency = new TextBox();
+            txtMedication = new TextBox();
+            txtTreatment = new TextBox();
+            txtDiagnosis = new TextBox();
             label17 = new Label();
             label16 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             label2 = new Label();
             label12 = new Label();
             label14 = new Label();
             label15 = new Label();
             label18 = new Label();
             roundedPanel4 = new RoundedPanel();
-            textBox2 = new TextBox();
-            label20 = new Label();
-            textBox1 = new TextBox();
+            txtBalance = new TextBox();
+            lblStatus = new Label();
+            txtTotal = new TextBox();
             label22 = new Label();
             label21 = new Label();
             label19 = new Label();
             label13 = new Label();
-            button1 = new Button();
+            btnDischarge = new Button();
             pictureBox1 = new PictureBox();
             roundedPanel1.SuspendLayout();
             roundedPanel2.SuspendLayout();
@@ -142,9 +142,9 @@
             lblRoomName.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblRoomName.Location = new Point(87, 115);
             lblRoomName.Name = "lblRoomName";
-            lblRoomName.Size = new Size(162, 25);
+            lblRoomName.Size = new Size(48, 25);
             lblRoomName.TabIndex = 4;
-            lblRoomName.Text = "Emergency Room";
+            lblRoomName.Text = "N/A";
             // 
             // label7
             // 
@@ -181,14 +181,14 @@
             roundedPanel2.BackColor = Color.Silver;
             roundedPanel2.BorderColor = Color.LightGray;
             roundedPanel2.BorderThickness = 0F;
-            roundedPanel2.Controls.Add(flowLayoutPanel5);
-            roundedPanel2.Controls.Add(flowLayoutPanel7);
-            roundedPanel2.Controls.Add(flowLayoutPanel4);
-            roundedPanel2.Controls.Add(flowLayoutPanel3);
-            roundedPanel2.Controls.Add(flowLayoutPanel2);
+            roundedPanel2.Controls.Add(txtNotes);
+            roundedPanel2.Controls.Add(txtDuration);
+            roundedPanel2.Controls.Add(txtFrequency);
+            roundedPanel2.Controls.Add(txtMedication);
+            roundedPanel2.Controls.Add(txtTreatment);
+            roundedPanel2.Controls.Add(txtDiagnosis);
             roundedPanel2.Controls.Add(label17);
             roundedPanel2.Controls.Add(label16);
-            roundedPanel2.Controls.Add(flowLayoutPanel1);
             roundedPanel2.Controls.Add(label2);
             roundedPanel2.Controls.Add(label12);
             roundedPanel2.Controls.Add(label14);
@@ -199,45 +199,65 @@
             roundedPanel2.Size = new Size(890, 452);
             roundedPanel2.TabIndex = 7;
             // 
-            // flowLayoutPanel5
+            // txtNotes
             // 
-            flowLayoutPanel5.BackColor = SystemColors.Control;
-            flowLayoutPanel5.Location = new Point(694, 227);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Size = new Size(127, 52);
-            flowLayoutPanel5.TabIndex = 10;
+            txtNotes.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtNotes.Location = new Point(33, 348);
+            txtNotes.Multiline = true;
+            txtNotes.Name = "txtNotes";
+            txtNotes.ReadOnly = true;
+            txtNotes.Size = new Size(788, 77);
+            txtNotes.TabIndex = 16;
             // 
-            // flowLayoutPanel7
+            // txtDuration
             // 
-            flowLayoutPanel7.BackColor = SystemColors.Control;
-            flowLayoutPanel7.Location = new Point(33, 348);
-            flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Size = new Size(788, 77);
-            flowLayoutPanel7.TabIndex = 9;
+            txtDuration.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtDuration.Location = new Point(638, 227);
+            txtDuration.Multiline = true;
+            txtDuration.Name = "txtDuration";
+            txtDuration.ReadOnly = true;
+            txtDuration.Size = new Size(183, 52);
+            txtDuration.TabIndex = 15;
             // 
-            // flowLayoutPanel4
+            // txtFrequency
             // 
-            flowLayoutPanel4.BackColor = SystemColors.Control;
-            flowLayoutPanel4.Location = new Point(444, 227);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(127, 52);
-            flowLayoutPanel4.TabIndex = 9;
+            txtFrequency.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtFrequency.Location = new Point(381, 227);
+            txtFrequency.Multiline = true;
+            txtFrequency.Name = "txtFrequency";
+            txtFrequency.ReadOnly = true;
+            txtFrequency.Size = new Size(183, 52);
+            txtFrequency.TabIndex = 14;
             // 
-            // flowLayoutPanel3
+            // txtMedication
             // 
-            flowLayoutPanel3.BackColor = SystemColors.Control;
-            flowLayoutPanel3.Location = new Point(33, 227);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(292, 52);
-            flowLayoutPanel3.TabIndex = 8;
+            txtMedication.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtMedication.Location = new Point(33, 227);
+            txtMedication.Multiline = true;
+            txtMedication.Name = "txtMedication";
+            txtMedication.ReadOnly = true;
+            txtMedication.Size = new Size(292, 52);
+            txtMedication.TabIndex = 13;
             // 
-            // flowLayoutPanel2
+            // txtTreatment
             // 
-            flowLayoutPanel2.BackColor = SystemColors.Control;
-            flowLayoutPanel2.Location = new Point(444, 59);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(377, 103);
-            flowLayoutPanel2.TabIndex = 8;
+            txtTreatment.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtTreatment.Location = new Point(444, 59);
+            txtTreatment.Multiline = true;
+            txtTreatment.Name = "txtTreatment";
+            txtTreatment.ReadOnly = true;
+            txtTreatment.Size = new Size(377, 103);
+            txtTreatment.TabIndex = 12;
+            // 
+            // txtDiagnosis
+            // 
+            txtDiagnosis.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtDiagnosis.Location = new Point(33, 59);
+            txtDiagnosis.Multiline = true;
+            txtDiagnosis.Name = "txtDiagnosis";
+            txtDiagnosis.ReadOnly = true;
+            txtDiagnosis.Size = new Size(377, 103);
+            txtDiagnosis.TabIndex = 11;
             // 
             // label17
             // 
@@ -259,19 +279,11 @@
             label16.TabIndex = 1;
             label16.Text = "Diagnosis:";
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.BackColor = SystemColors.Control;
-            flowLayoutPanel1.Location = new Point(33, 59);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(377, 103);
-            flowLayoutPanel1.TabIndex = 7;
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(444, 199);
+            label2.Location = new Point(381, 199);
             label2.Name = "label2";
             label2.Size = new Size(106, 25);
             label2.TabIndex = 6;
@@ -281,7 +293,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(694, 199);
+            label12.Location = new Point(638, 199);
             label12.Name = "label12";
             label12.Size = new Size(93, 25);
             label12.TabIndex = 5;
@@ -322,9 +334,9 @@
             roundedPanel4.BackColor = Color.Silver;
             roundedPanel4.BorderColor = Color.LightGray;
             roundedPanel4.BorderThickness = 0F;
-            roundedPanel4.Controls.Add(textBox2);
-            roundedPanel4.Controls.Add(label20);
-            roundedPanel4.Controls.Add(textBox1);
+            roundedPanel4.Controls.Add(txtBalance);
+            roundedPanel4.Controls.Add(lblStatus);
+            roundedPanel4.Controls.Add(txtTotal);
             roundedPanel4.Controls.Add(label22);
             roundedPanel4.Controls.Add(label21);
             roundedPanel4.Controls.Add(label19);
@@ -334,37 +346,39 @@
             roundedPanel4.Size = new Size(438, 254);
             roundedPanel4.TabIndex = 8;
             // 
-            // textBox2
+            // txtBalance
             // 
-            textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.Location = new Point(222, 58);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(147, 34);
-            textBox2.TabIndex = 13;
+            txtBalance.Font = new Font("Segoe UI", 12F);
+            txtBalance.Location = new Point(222, 58);
+            txtBalance.Name = "txtBalance";
+            txtBalance.ReadOnly = true;
+            txtBalance.Size = new Size(147, 34);
+            txtBalance.TabIndex = 13;
             // 
-            // label20
+            // lblStatus
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(36, 172);
-            label20.Name = "label20";
-            label20.Size = new Size(76, 37);
-            label20.TabIndex = 12;
-            label20.Text = "PAID";
+            lblStatus.AutoSize = true;
+            lblStatus.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatus.Location = new Point(55, 171);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(76, 37);
+            lblStatus.TabIndex = 12;
+            lblStatus.Text = "PAID";
             // 
-            // textBox1
+            // txtTotal
             // 
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(55, 58);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(147, 34);
-            textBox1.TabIndex = 10;
+            txtTotal.Font = new Font("Segoe UI", 12F);
+            txtTotal.Location = new Point(55, 58);
+            txtTotal.Name = "txtTotal";
+            txtTotal.ReadOnly = true;
+            txtTotal.Size = new Size(147, 34);
+            txtTotal.TabIndex = 10;
             // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label22.Location = new Point(222, 22);
+            label22.Location = new Point(222, 27);
             label22.Name = "label22";
             label22.Size = new Size(83, 25);
             label22.TabIndex = 9;
@@ -374,7 +388,7 @@
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.Location = new Point(22, 133);
+            label21.Location = new Point(55, 136);
             label21.Name = "label21";
             label21.Size = new Size(149, 25);
             label21.TabIndex = 8;
@@ -400,15 +414,16 @@
             label13.TabIndex = 11;
             label13.Text = "Billing Summary";
             // 
-            // button1
+            // btnDischarge
             // 
-            button1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(1371, 888);
-            button1.Name = "button1";
-            button1.Size = new Size(199, 45);
-            button1.TabIndex = 12;
-            button1.Text = "Confirm Discharge";
-            button1.UseVisualStyleBackColor = true;
+            btnDischarge.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDischarge.Location = new Point(1371, 888);
+            btnDischarge.Name = "btnDischarge";
+            btnDischarge.Size = new Size(199, 45);
+            btnDischarge.TabIndex = 12;
+            btnDischarge.Text = "Confirm Discharge";
+            btnDischarge.UseVisualStyleBackColor = true;
+            btnDischarge.Click += btnDischarge_Click;
             // 
             // pictureBox1
             // 
@@ -424,7 +439,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
+            Controls.Add(btnDischarge);
             Controls.Add(label13);
             Controls.Add(roundedPanel4);
             Controls.Add(label18);
@@ -466,21 +481,21 @@
         private Label label16;
         private Label label18;
         private Label label17;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private FlowLayoutPanel flowLayoutPanel4;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private FlowLayoutPanel flowLayoutPanel7;
-        private FlowLayoutPanel flowLayoutPanel5;
         private RoundedPanel roundedPanel4;
-        private TextBox textBox2;
-        private Label label20;
-        private TextBox textBox1;
+        private TextBox txtBalance;
+        private Label lblStatus;
+        private TextBox txtTotal;
         private Label label22;
         private Label label21;
         private Label label19;
         private Label label13;
-        private Button button1;
+        private Button btnDischarge;
         private PictureBox pictureBox1;
+        private TextBox txtNotes;
+        private TextBox txtDuration;
+        private TextBox txtFrequency;
+        private TextBox txtMedication;
+        private TextBox txtTreatment;
+        private TextBox txtDiagnosis;
     }
 }
