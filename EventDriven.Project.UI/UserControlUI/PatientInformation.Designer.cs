@@ -117,6 +117,7 @@
             DGPatientRecord.EnableHeadersVisualStyles = false;
             DGPatientRecord.Location = new Point(49, 168);
             DGPatientRecord.Name = "DGPatientRecord";
+            DGPatientRecord.ReadOnly = true;
             DGPatientRecord.RowHeadersVisible = false;
             DGPatientRecord.RowHeadersWidth = 51;
             DGPatientRecord.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

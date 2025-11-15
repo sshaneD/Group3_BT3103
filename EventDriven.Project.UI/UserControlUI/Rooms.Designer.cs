@@ -167,9 +167,9 @@
             lblOccupied.BackColor = Color.White;
             lblOccupied.Cursor = Cursors.Hand;
             lblOccupied.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblOccupied.Location = new Point(79, 79);
+            lblOccupied.Location = new Point(63, 79);
             lblOccupied.Name = "lblOccupied";
-            lblOccupied.Size = new Size(128, 57);
+            lblOccupied.Size = new Size(160, 57);
             lblOccupied.TabIndex = 30;
             lblOccupied.Text = "13/30";
             lblOccupied.TextAlign = ContentAlignment.MiddleCenter;

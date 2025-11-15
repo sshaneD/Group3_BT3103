@@ -3,7 +3,7 @@
 AS
 	SELECT
 		(r.RoomID) AS RoomID,
-		(SUM(ra.PatientID)) AS OccupiedBeds,
+		(COUNT(ra.PatientID)) AS OccupiedBeds,
 		r.Capacity
 	FROM Rooms r
 	INNER JOIN RoomAssignments ra ON r.RoomID = ra.RoomID

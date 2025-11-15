@@ -15,7 +15,7 @@ namespace EventDriven.Project.UI.UserControlUI
             loadRoomBeds();
         }
 
-        private void loadRoomBeds()
+        private void loadRoomBeds() 
         {
 
             RoomOccupationModel wardBeds = roomController.GetRoomTypeAvailability("Ward");
@@ -27,7 +27,7 @@ namespace EventDriven.Project.UI.UserControlUI
             lblWardBeds.Text = wardBeds.TotalAvailableBeds.ToString() + "/" + wardBeds.Capacity;
             lblPRBeds.Text = PRBeds.TotalAvailableBeds.ToString() + "/" + PRBeds.Capacity;
             lblNRBeds.Text = NRBeds.TotalAvailableBeds.ToString() + "/" + NRBeds.Capacity;
-            lblERBeds.Text = ERBeds.TotalAvailableBeds.ToString() + "/" + ERBeds.Capacity;
+            lblERBeds.Text = ERBeds.TotalAvailableBeds + "/" + ERBeds.Capacity;
             lblICUBeds.Text = ICUBeds.TotalAvailableBeds.ToString() + "/" + ICUBeds.Capacity;
             lblNICUBeds.Text = NICUBeds.TotalAvailableBeds.ToString() + "/" + NICUBeds.Capacity;
         }
