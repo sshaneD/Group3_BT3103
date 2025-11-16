@@ -21,6 +21,6 @@ AS
 	Age = @Age,
 	Gender = @Gender,
 	GuardianName = @GuardianName,
-	GuardianNo = @GuardianName 
+	GuardianNo = @GuardianNo
 
 	Where PatientID = @PatientID

@@ -33,9 +33,9 @@ namespace EventDriven.Project.UI
             string remarks = txtRemarks.Text;
             billingSummary = billingController.ConfirmPayment(billingID, payment, remarks);
             string change = string.Empty;
-            if (billingSummary.Balance <= 0)
+            if (billingSummary.Balance < 0)
             {
-                change = $"Change: {billingSummary.TotalAmount - billingSummary.AmountPaid}{Environment.NewLine}";
+                change = $"Change: {billingSummary.AmountPaid - billingSummary.TotalAmount}{Environment.NewLine}";
             }
             DialogResult result = MessageBox.Show(change + "Do you want to print the receipt?", "Payment Received", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
@@ -99,7 +99,7 @@ namespace EventDriven.Project.UI
             g.DrawString("Remarks:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 120));
             g.DrawString("₱" + billingSummary.TotalAmount.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 30));
             g.DrawString("₱" + billingSummary.AmountPaid.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 60));
-            g.DrawString("₱" + billingSummary.Balance.ToString(), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 90));
+            g.DrawString("₱" + (billingSummary.Balance < 0 ? 0 : billingSummary.Balance), new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 90));
             g.DrawString(billingSummary.Remarks, new Font("Arial", 14), Brushes.Black, new PointF(100, y + 150));
         }
         private void txtAmountPaid_KeyPress(object sender, KeyPressEventArgs e)

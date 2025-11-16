@@ -14,7 +14,7 @@ BEGIN
     FROM Admissions
     WHERE AdmissionID = @AdmissionID;
 
-    SELECT @RoomCharges = ISNULL(SUM(DATEDIFF(DAY, RA.StartDate, ISNULL(RA.EndDate, GETDATE())) * R.RatePerDay), 0)
+    SELECT @RoomCharges = ISNULL(SUM((DATEDIFF(DAY, RA.StartDate, ISNULL(RA.EndDate, GETDATE())) + 1) * R.RatePerDay), 0)
     FROM RoomAssignments RA
     INNER JOIN Rooms R ON RA.RoomID = R.RoomID
     WHERE RA.AdmissionID = @AdmissionID;

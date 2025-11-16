@@ -30,65 +30,65 @@
         {
             panel1 = new Panel();
             roundedPanel1 = new RoundedPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            lblWardBeds = new Label();
+            label13 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            label13 = new Label();
             btnWard = new Button();
-            lblWardBeds = new Label();
             roundedPanel2 = new RoundedPanel();
             btnPR = new Button();
             label1 = new Label();
+            flowLayoutPanel6 = new FlowLayoutPanel();
+            lblPRBeds = new Label();
+            label17 = new Label();
             pictureBox2 = new PictureBox();
             roundedPanel3 = new RoundedPanel();
+            flowLayoutPanel5 = new FlowLayoutPanel();
+            lblNRBeds = new Label();
+            label14 = new Label();
             label15 = new Label();
             pictureBox3 = new PictureBox();
             btnNR = new Button();
             roundedPanel4 = new RoundedPanel();
             label4 = new Label();
             pictureBox4 = new PictureBox();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            lblERBeds = new Label();
+            label7 = new Label();
             btnER = new Button();
             roundedPanel5 = new RoundedPanel();
             label5 = new Label();
             pictureBox5 = new PictureBox();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            lblICUBeds = new Label();
+            label9 = new Label();
             btnICU = new Button();
             roundedPanel6 = new RoundedPanel();
             label6 = new Label();
             pictureBox6 = new PictureBox();
-            btnNICU = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            lblERBeds = new Label();
-            label7 = new Label();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            lblICUBeds = new Label();
-            label9 = new Label();
             flowLayoutPanel4 = new FlowLayoutPanel();
             lblNICUBeds = new Label();
             label11 = new Label();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            lblNRBeds = new Label();
-            label14 = new Label();
-            flowLayoutPanel6 = new FlowLayoutPanel();
-            lblPRBeds = new Label();
-            label17 = new Label();
+            btnNICU = new Button();
             roundedPanel1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             roundedPanel2.SuspendLayout();
+            flowLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             roundedPanel3.SuspendLayout();
+            flowLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             roundedPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            flowLayoutPanel2.SuspendLayout();
             roundedPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            flowLayoutPanel3.SuspendLayout();
             roundedPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
-            flowLayoutPanel6.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -113,6 +113,41 @@
             roundedPanel1.Name = "roundedPanel1";
             roundedPanel1.Size = new Size(410, 350);
             roundedPanel1.TabIndex = 31;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(lblWardBeds);
+            flowLayoutPanel1.Controls.Add(label13);
+            flowLayoutPanel1.Location = new Point(76, 185);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(245, 62);
+            flowLayoutPanel1.TabIndex = 37;
+            // 
+            // lblWardBeds
+            // 
+            lblWardBeds.Anchor = AnchorStyles.None;
+            lblWardBeds.BackColor = Color.White;
+            lblWardBeds.Cursor = Cursors.Hand;
+            lblWardBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWardBeds.Location = new Point(3, 0);
+            lblWardBeds.Name = "lblWardBeds";
+            lblWardBeds.Size = new Size(149, 57);
+            lblWardBeds.TabIndex = 28;
+            lblWardBeds.Text = "13/30";
+            lblWardBeds.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            label13.Anchor = AnchorStyles.None;
+            label13.AutoSize = true;
+            label13.BackColor = Color.White;
+            label13.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label13.ForeColor = SystemColors.AppWorkspace;
+            label13.Location = new Point(158, 13);
+            label13.Name = "label13";
+            label13.Size = new Size(60, 30);
+            label13.TabIndex = 29;
+            label13.Text = "Beds";
             // 
             // label2
             // 
@@ -139,19 +174,6 @@
             pictureBox1.TabIndex = 31;
             pictureBox1.TabStop = false;
             // 
-            // label13
-            // 
-            label13.Anchor = AnchorStyles.None;
-            label13.AutoSize = true;
-            label13.BackColor = Color.White;
-            label13.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            label13.ForeColor = SystemColors.AppWorkspace;
-            label13.Location = new Point(137, 13);
-            label13.Name = "label13";
-            label13.Size = new Size(60, 30);
-            label13.TabIndex = 29;
-            label13.Text = "Beds";
-            // 
             // btnWard
             // 
             btnWard.Anchor = AnchorStyles.None;
@@ -164,19 +186,6 @@
             btnWard.Text = "View Details";
             btnWard.UseVisualStyleBackColor = false;
             btnWard.Click += btnWard_Click;
-            // 
-            // lblWardBeds
-            // 
-            lblWardBeds.Anchor = AnchorStyles.None;
-            lblWardBeds.BackColor = Color.White;
-            lblWardBeds.Cursor = Cursors.Hand;
-            lblWardBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblWardBeds.Location = new Point(3, 0);
-            lblWardBeds.Name = "lblWardBeds";
-            lblWardBeds.Size = new Size(128, 57);
-            lblWardBeds.TabIndex = 28;
-            lblWardBeds.Text = "13/30";
-            lblWardBeds.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // roundedPanel2
             // 
@@ -220,6 +229,41 @@
             label1.TabIndex = 26;
             label1.Text = "PRIVATE ROOM";
             // 
+            // flowLayoutPanel6
+            // 
+            flowLayoutPanel6.Controls.Add(lblPRBeds);
+            flowLayoutPanel6.Controls.Add(label17);
+            flowLayoutPanel6.Location = new Point(89, 188);
+            flowLayoutPanel6.Name = "flowLayoutPanel6";
+            flowLayoutPanel6.Size = new Size(227, 62);
+            flowLayoutPanel6.TabIndex = 38;
+            // 
+            // lblPRBeds
+            // 
+            lblPRBeds.Anchor = AnchorStyles.None;
+            lblPRBeds.BackColor = Color.White;
+            lblPRBeds.Cursor = Cursors.Hand;
+            lblPRBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPRBeds.Location = new Point(3, 0);
+            lblPRBeds.Name = "lblPRBeds";
+            lblPRBeds.Size = new Size(128, 57);
+            lblPRBeds.TabIndex = 28;
+            lblPRBeds.Text = "13/30";
+            lblPRBeds.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label17
+            // 
+            label17.Anchor = AnchorStyles.None;
+            label17.AutoSize = true;
+            label17.BackColor = Color.White;
+            label17.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label17.ForeColor = SystemColors.AppWorkspace;
+            label17.Location = new Point(137, 13);
+            label17.Name = "label17";
+            label17.Size = new Size(60, 30);
+            label17.TabIndex = 29;
+            label17.Text = "Beds";
+            // 
             // pictureBox2
             // 
             pictureBox2.Anchor = AnchorStyles.None;
@@ -245,6 +289,41 @@
             roundedPanel3.Name = "roundedPanel3";
             roundedPanel3.Size = new Size(410, 350);
             roundedPanel3.TabIndex = 33;
+            // 
+            // flowLayoutPanel5
+            // 
+            flowLayoutPanel5.Controls.Add(lblNRBeds);
+            flowLayoutPanel5.Controls.Add(label14);
+            flowLayoutPanel5.Location = new Point(88, 188);
+            flowLayoutPanel5.Name = "flowLayoutPanel5";
+            flowLayoutPanel5.Size = new Size(227, 62);
+            flowLayoutPanel5.TabIndex = 39;
+            // 
+            // lblNRBeds
+            // 
+            lblNRBeds.Anchor = AnchorStyles.None;
+            lblNRBeds.BackColor = Color.White;
+            lblNRBeds.Cursor = Cursors.Hand;
+            lblNRBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNRBeds.Location = new Point(3, 0);
+            lblNRBeds.Name = "lblNRBeds";
+            lblNRBeds.Size = new Size(128, 57);
+            lblNRBeds.TabIndex = 28;
+            lblNRBeds.Text = "13/30";
+            lblNRBeds.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            label14.Anchor = AnchorStyles.None;
+            label14.AutoSize = true;
+            label14.BackColor = Color.White;
+            label14.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label14.ForeColor = SystemColors.AppWorkspace;
+            label14.Location = new Point(137, 13);
+            label14.Name = "label14";
+            label14.Size = new Size(60, 30);
+            label14.TabIndex = 29;
+            label14.Text = "Beds";
             // 
             // label15
             // 
@@ -324,6 +403,41 @@
             pictureBox4.TabIndex = 31;
             pictureBox4.TabStop = false;
             // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(lblERBeds);
+            flowLayoutPanel2.Controls.Add(label7);
+            flowLayoutPanel2.Location = new Point(79, 194);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(245, 62);
+            flowLayoutPanel2.TabIndex = 38;
+            // 
+            // lblERBeds
+            // 
+            lblERBeds.Anchor = AnchorStyles.None;
+            lblERBeds.BackColor = Color.White;
+            lblERBeds.Cursor = Cursors.Hand;
+            lblERBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblERBeds.Location = new Point(3, 0);
+            lblERBeds.Name = "lblERBeds";
+            lblERBeds.Size = new Size(146, 57);
+            lblERBeds.TabIndex = 28;
+            lblERBeds.Text = "13/30";
+            lblERBeds.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.None;
+            label7.AutoSize = true;
+            label7.BackColor = Color.White;
+            label7.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label7.ForeColor = SystemColors.AppWorkspace;
+            label7.Location = new Point(155, 13);
+            label7.Name = "label7";
+            label7.Size = new Size(60, 30);
+            label7.TabIndex = 29;
+            label7.Text = "Beds";
+            // 
             // btnER
             // 
             btnER.Anchor = AnchorStyles.None;
@@ -377,6 +491,41 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 31;
             pictureBox5.TabStop = false;
+            // 
+            // flowLayoutPanel3
+            // 
+            flowLayoutPanel3.Controls.Add(lblICUBeds);
+            flowLayoutPanel3.Controls.Add(label9);
+            flowLayoutPanel3.Location = new Point(86, 194);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(227, 62);
+            flowLayoutPanel3.TabIndex = 38;
+            // 
+            // lblICUBeds
+            // 
+            lblICUBeds.Anchor = AnchorStyles.None;
+            lblICUBeds.BackColor = Color.White;
+            lblICUBeds.Cursor = Cursors.Hand;
+            lblICUBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblICUBeds.Location = new Point(3, 0);
+            lblICUBeds.Name = "lblICUBeds";
+            lblICUBeds.Size = new Size(128, 57);
+            lblICUBeds.TabIndex = 28;
+            lblICUBeds.Text = "13/30";
+            lblICUBeds.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.None;
+            label9.AutoSize = true;
+            label9.BackColor = Color.White;
+            label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            label9.ForeColor = SystemColors.AppWorkspace;
+            label9.Location = new Point(137, 13);
+            label9.Name = "label9";
+            label9.Size = new Size(60, 30);
+            label9.TabIndex = 29;
+            label9.Text = "Beds";
             // 
             // btnICU
             // 
@@ -432,98 +581,6 @@
             pictureBox6.TabIndex = 31;
             pictureBox6.TabStop = false;
             // 
-            // btnNICU
-            // 
-            btnNICU.Anchor = AnchorStyles.None;
-            btnNICU.BackColor = Color.FromArgb(11, 143, 172);
-            btnNICU.ForeColor = Color.White;
-            btnNICU.Location = new Point(107, 257);
-            btnNICU.Name = "btnNICU";
-            btnNICU.Size = new Size(196, 50);
-            btnNICU.TabIndex = 30;
-            btnNICU.Text = "View Details";
-            btnNICU.UseVisualStyleBackColor = false;
-            btnNICU.Click += btnNICU_Click;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(lblWardBeds);
-            flowLayoutPanel1.Controls.Add(label13);
-            flowLayoutPanel1.Location = new Point(94, 185);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(227, 62);
-            flowLayoutPanel1.TabIndex = 37;
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.Controls.Add(lblERBeds);
-            flowLayoutPanel2.Controls.Add(label7);
-            flowLayoutPanel2.Location = new Point(97, 194);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(227, 62);
-            flowLayoutPanel2.TabIndex = 38;
-            // 
-            // lblERBeds
-            // 
-            lblERBeds.Anchor = AnchorStyles.None;
-            lblERBeds.BackColor = Color.White;
-            lblERBeds.Cursor = Cursors.Hand;
-            lblERBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblERBeds.Location = new Point(3, 0);
-            lblERBeds.Name = "lblERBeds";
-            lblERBeds.Size = new Size(128, 57);
-            lblERBeds.TabIndex = 28;
-            lblERBeds.Text = "13/30";
-            lblERBeds.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.None;
-            label7.AutoSize = true;
-            label7.BackColor = Color.White;
-            label7.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            label7.ForeColor = SystemColors.AppWorkspace;
-            label7.Location = new Point(137, 13);
-            label7.Name = "label7";
-            label7.Size = new Size(60, 30);
-            label7.TabIndex = 29;
-            label7.Text = "Beds";
-            // 
-            // flowLayoutPanel3
-            // 
-            flowLayoutPanel3.Controls.Add(lblICUBeds);
-            flowLayoutPanel3.Controls.Add(label9);
-            flowLayoutPanel3.Location = new Point(86, 194);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(227, 62);
-            flowLayoutPanel3.TabIndex = 38;
-            // 
-            // lblICUBeds
-            // 
-            lblICUBeds.Anchor = AnchorStyles.None;
-            lblICUBeds.BackColor = Color.White;
-            lblICUBeds.Cursor = Cursors.Hand;
-            lblICUBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblICUBeds.Location = new Point(3, 0);
-            lblICUBeds.Name = "lblICUBeds";
-            lblICUBeds.Size = new Size(128, 57);
-            lblICUBeds.TabIndex = 28;
-            lblICUBeds.Text = "13/30";
-            lblICUBeds.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            label9.Anchor = AnchorStyles.None;
-            label9.AutoSize = true;
-            label9.BackColor = Color.White;
-            label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            label9.ForeColor = SystemColors.AppWorkspace;
-            label9.Location = new Point(137, 13);
-            label9.Name = "label9";
-            label9.Size = new Size(60, 30);
-            label9.TabIndex = 29;
-            label9.Text = "Beds";
-            // 
             // flowLayoutPanel4
             // 
             flowLayoutPanel4.Controls.Add(lblNICUBeds);
@@ -559,75 +616,18 @@
             label11.TabIndex = 29;
             label11.Text = "Beds";
             // 
-            // flowLayoutPanel5
+            // btnNICU
             // 
-            flowLayoutPanel5.Controls.Add(lblNRBeds);
-            flowLayoutPanel5.Controls.Add(label14);
-            flowLayoutPanel5.Location = new Point(88, 188);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Size = new Size(227, 62);
-            flowLayoutPanel5.TabIndex = 39;
-            // 
-            // lblNRBeds
-            // 
-            lblNRBeds.Anchor = AnchorStyles.None;
-            lblNRBeds.BackColor = Color.White;
-            lblNRBeds.Cursor = Cursors.Hand;
-            lblNRBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNRBeds.Location = new Point(3, 0);
-            lblNRBeds.Name = "lblNRBeds";
-            lblNRBeds.Size = new Size(128, 57);
-            lblNRBeds.TabIndex = 28;
-            lblNRBeds.Text = "13/30";
-            lblNRBeds.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            label14.Anchor = AnchorStyles.None;
-            label14.AutoSize = true;
-            label14.BackColor = Color.White;
-            label14.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            label14.ForeColor = SystemColors.AppWorkspace;
-            label14.Location = new Point(137, 13);
-            label14.Name = "label14";
-            label14.Size = new Size(60, 30);
-            label14.TabIndex = 29;
-            label14.Text = "Beds";
-            // 
-            // flowLayoutPanel6
-            // 
-            flowLayoutPanel6.Controls.Add(lblPRBeds);
-            flowLayoutPanel6.Controls.Add(label17);
-            flowLayoutPanel6.Location = new Point(89, 188);
-            flowLayoutPanel6.Name = "flowLayoutPanel6";
-            flowLayoutPanel6.Size = new Size(227, 62);
-            flowLayoutPanel6.TabIndex = 38;
-            // 
-            // lblPRBeds
-            // 
-            lblPRBeds.Anchor = AnchorStyles.None;
-            lblPRBeds.BackColor = Color.White;
-            lblPRBeds.Cursor = Cursors.Hand;
-            lblPRBeds.Font = new Font("Segoe UI Semibold", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPRBeds.Location = new Point(3, 0);
-            lblPRBeds.Name = "lblPRBeds";
-            lblPRBeds.Size = new Size(128, 57);
-            lblPRBeds.TabIndex = 28;
-            lblPRBeds.Text = "13/30";
-            lblPRBeds.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            label17.Anchor = AnchorStyles.None;
-            label17.AutoSize = true;
-            label17.BackColor = Color.White;
-            label17.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            label17.ForeColor = SystemColors.AppWorkspace;
-            label17.Location = new Point(137, 13);
-            label17.Name = "label17";
-            label17.Size = new Size(60, 30);
-            label17.TabIndex = 29;
-            label17.Text = "Beds";
+            btnNICU.Anchor = AnchorStyles.None;
+            btnNICU.BackColor = Color.FromArgb(11, 143, 172);
+            btnNICU.ForeColor = Color.White;
+            btnNICU.Location = new Point(107, 257);
+            btnNICU.Name = "btnNICU";
+            btnNICU.Size = new Size(196, 50);
+            btnNICU.TabIndex = 30;
+            btnNICU.Text = "View Details";
+            btnNICU.UseVisualStyleBackColor = false;
+            btnNICU.Click += btnNICU_Click;
             // 
             // RoomManagement
             // 
@@ -644,34 +644,34 @@
             Size = new Size(1637, 998);
             roundedPanel1.ResumeLayout(false);
             roundedPanel1.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             roundedPanel2.ResumeLayout(false);
             roundedPanel2.PerformLayout();
+            flowLayoutPanel6.ResumeLayout(false);
+            flowLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             roundedPanel3.ResumeLayout(false);
             roundedPanel3.PerformLayout();
+            flowLayoutPanel5.ResumeLayout(false);
+            flowLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             roundedPanel4.ResumeLayout(false);
             roundedPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel2.PerformLayout();
             roundedPanel5.ResumeLayout(false);
             roundedPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            flowLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel3.PerformLayout();
             roundedPanel6.ResumeLayout(false);
             roundedPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
-            flowLayoutPanel3.ResumeLayout(false);
-            flowLayoutPanel3.PerformLayout();
             flowLayoutPanel4.ResumeLayout(false);
             flowLayoutPanel4.PerformLayout();
-            flowLayoutPanel5.ResumeLayout(false);
-            flowLayoutPanel5.PerformLayout();
-            flowLayoutPanel6.ResumeLayout(false);
-            flowLayoutPanel6.PerformLayout();
             ResumeLayout(false);
         }
 
