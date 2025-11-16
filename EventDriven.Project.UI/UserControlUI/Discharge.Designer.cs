@@ -208,6 +208,8 @@
             txtNotes.ReadOnly = true;
             txtNotes.Size = new Size(788, 77);
             txtNotes.TabIndex = 16;
+            txtNotes.TabStop = false;
+            txtNotes.Enter += removeFocus;
             // 
             // txtDuration
             // 
@@ -218,6 +220,8 @@
             txtDuration.ReadOnly = true;
             txtDuration.Size = new Size(183, 52);
             txtDuration.TabIndex = 15;
+            txtDuration.TabStop = false;
+            txtDuration.Enter += removeFocus;
             // 
             // txtFrequency
             // 
@@ -228,6 +232,8 @@
             txtFrequency.ReadOnly = true;
             txtFrequency.Size = new Size(183, 52);
             txtFrequency.TabIndex = 14;
+            txtFrequency.TabStop = false;
+            txtFrequency.Enter += removeFocus;
             // 
             // txtMedication
             // 
@@ -238,6 +244,8 @@
             txtMedication.ReadOnly = true;
             txtMedication.Size = new Size(292, 52);
             txtMedication.TabIndex = 13;
+            txtMedication.TabStop = false;
+            txtMedication.Enter += removeFocus;
             // 
             // txtTreatment
             // 
@@ -248,6 +256,8 @@
             txtTreatment.ReadOnly = true;
             txtTreatment.Size = new Size(377, 103);
             txtTreatment.TabIndex = 12;
+            txtTreatment.TabStop = false;
+            txtTreatment.Enter += removeFocus;
             // 
             // txtDiagnosis
             // 
@@ -258,6 +268,8 @@
             txtDiagnosis.ReadOnly = true;
             txtDiagnosis.Size = new Size(377, 103);
             txtDiagnosis.TabIndex = 11;
+            txtDiagnosis.TabStop = false;
+            txtDiagnosis.Enter += removeFocus;
             // 
             // label17
             // 
@@ -354,6 +366,8 @@
             txtBalance.ReadOnly = true;
             txtBalance.Size = new Size(147, 34);
             txtBalance.TabIndex = 13;
+            txtBalance.TabStop = false;
+            txtBalance.Enter += removeFocus;
             // 
             // lblStatus
             // 
@@ -373,6 +387,8 @@
             txtTotal.ReadOnly = true;
             txtTotal.Size = new Size(147, 34);
             txtTotal.TabIndex = 10;
+            txtTotal.TabStop = false;
+            txtTotal.Enter += removeFocus;
             // 
             // label22
             // 

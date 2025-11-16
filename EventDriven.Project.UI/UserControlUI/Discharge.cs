@@ -97,7 +97,7 @@ namespace EventDriven.Project.UI.UserControlUI
 
             BillingModel billing = billingController.GenerateBilling(selectedAdmission.AdmissionID);
             txtTotal.Text = billing.TotalAmount.ToString();
-            txtBalance.Text = billing.Balance.ToString();
+            txtBalance.Text = billing.Balance < 0 ? "0.00" : billing.Balance.ToString();
             string statusText = string.Empty;
             if (billing.Balance == billing.TotalAmount)
                 statusText = "NOT PAID";
@@ -107,7 +107,10 @@ namespace EventDriven.Project.UI.UserControlUI
                 statusText = "PAID";
             lblStatus.Text = statusText;
         }
-
+        private void removeFocus(object sender, EventArgs e)
+        {
+            ActiveControl = null;
+        }
         private void btnDischarge_Click(object sender, EventArgs e)
         {
             if (lblStatus.Text.Equals("NOT PAID"))
