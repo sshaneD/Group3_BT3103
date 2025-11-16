@@ -116,7 +116,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 return;
             }
             DialogResult res = MessageBox.Show("Are you sure you want to discharge this patient?", "Confirm Discharge", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res  == DialogResult.Yes)
+            if (res == DialogResult.Yes)
             {
                 patientController.DischargePatient(selectedPatientID, selectedAdmissionID);
                 MessageBox.Show("Patient Discharged Successfully!", "Discharge Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -125,6 +125,12 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 MessageBox.Show("Discharge Cancelled", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnID_Click(object sender, EventArgs e)
+        {
+            FormValidID formValidID = new FormValidID();
+            formValidID.ShowDialog();
         }
     }
 }

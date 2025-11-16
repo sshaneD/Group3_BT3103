@@ -43,9 +43,6 @@
     <Compile Update="UserControlUI\PatientInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControlUI\Payment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="UserControlUI\RoomManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>

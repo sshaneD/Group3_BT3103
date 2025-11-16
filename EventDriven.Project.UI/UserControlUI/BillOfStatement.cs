@@ -85,9 +85,10 @@ namespace EventDriven.Project.UI.UserControlUI
 
             
             Font titleFont = new Font("Arial", 22, FontStyle.Bold);
-            Font headerFont = new Font("Arial", 14, FontStyle.Bold);
-            Font subHeaderFont = new Font("Arial", 12, FontStyle.Bold);
+            Font headerFont = new Font("Arial", 16, FontStyle.Bold);
+            Font subHeaderFont = new Font("Arial", 14, FontStyle.Bold);
             Font normalFont = new Font("Arial", 11);
+            Font pInfoFont = new Font("Arial", 12);
             Font fadedFont = new Font("Arial", 10, FontStyle.Italic);
 
             int left = 80;
@@ -120,16 +121,16 @@ namespace EventDriven.Project.UI.UserControlUI
             y += 30;
 
             g.DrawString($"{patient.FirstName} {patient.MiddleName} {patient.LastName}",
-                normalFont, Brushes.Black, left, y);
+                pInfoFont, Brushes.Black, left, y);
             y += 20;
 
-            g.DrawString($"Patient ID: {patient.PatientID}", normalFont, Brushes.Black, left, y);
+            g.DrawString($"Patient ID: {patient.PatientID}", pInfoFont, Brushes.Black, left, y);
             y += 20;
 
-            g.DrawString($"Gender: {patient.Gender}", normalFont, Brushes.Black, left, y);
+            g.DrawString($"Gender: {patient.Gender}", pInfoFont, Brushes.Black, left, y);
             y += 20;
 
-            g.DrawString($"Age: {patient.Age} Years Old", normalFont, Brushes.Black, left, y);
+            g.DrawString($"Age: {patient.Age} Years Old", pInfoFont, Brushes.Black, left, y);
             y += 30;
 
             g.DrawLine(Pens.Black, left, y, right, y);

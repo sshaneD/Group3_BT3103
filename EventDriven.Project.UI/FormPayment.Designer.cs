@@ -42,6 +42,7 @@
             panelBorder = new Panel();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
+            button1 = new Button();
             panel1.SuspendLayout();
             panelBorder.SuspendLayout();
             SuspendLayout();
@@ -152,6 +153,7 @@
             // 
             panelBorder.BackColor = Color.Transparent;
             panelBorder.BorderStyle = BorderStyle.FixedSingle;
+            panelBorder.Controls.Add(button1);
             panelBorder.Controls.Add(label3);
             panelBorder.Controls.Add(txtRemarks);
             panelBorder.Controls.Add(txtAmountPaid);
@@ -176,6 +178,16 @@
             printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(618, 93);
+            button1.Name = "button1";
+            button1.Size = new Size(165, 39);
+            button1.TabIndex = 12;
+            button1.Text = "Valid ID Form";
+            button1.UseVisualStyleBackColor = true;
             // 
             // FormPayment
             // 
@@ -215,5 +227,6 @@
         private Panel panelBorder;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
+        private Button button1;
     }
 }
