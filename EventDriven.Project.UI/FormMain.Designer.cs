@@ -201,10 +201,11 @@
             // 
             // MainPanel
             // 
+            MainPanel.BackColor = SystemColors.Control;
             MainPanel.Controls.Add(pictureBox2);
-            MainPanel.Location = new Point(283, 84);
+            MainPanel.Location = new Point(285, 84);
             MainPanel.Name = "MainPanel";
-            MainPanel.Size = new Size(1637, 998);
+            MainPanel.Size = new Size(1635, 998);
             MainPanel.TabIndex = 3;
             // 
             // FormMain

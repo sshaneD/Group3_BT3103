@@ -46,7 +46,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
+            BackColor = SystemColors.Control;
             Controls.Add(pictureBox2);
             Name = "Dashboard";
             Size = new Size(1637, 998);

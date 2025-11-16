@@ -31,7 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgRooms = new DataGridView();
-            panel1 = new Panel();
             btnBack = new Button();
             lblRoomType = new Label();
             lblPrice = new Label();
@@ -48,6 +47,7 @@
             // 
             dgRooms.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgRooms.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgRooms.BackgroundColor = Color.Gainsboro;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
@@ -78,23 +78,19 @@
             dgRooms.TabIndex = 10;
             dgRooms.TabStop = false;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.LightGray;
-            panel1.Location = new Point(178, 344);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1307, 34);
-            panel1.TabIndex = 11;
-            // 
             // btnBack
             // 
+            btnBack.BackColor = Color.FromArgb(11, 143, 172);
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Microsoft JhengHei UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = Color.White;
             btnBack.Location = new Point(1447, 910);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(110, 39);
             btnBack.TabIndex = 12;
             btnBack.Text = "Back";
-            btnBack.UseVisualStyleBackColor = true;
+            btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
             // 
             // lblRoomType
@@ -180,7 +176,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel2);
             Controls.Add(btnBack);
-            Controls.Add(panel1);
             Controls.Add(dgRooms);
             Name = "Rooms";
             Size = new Size(1637, 998);
@@ -194,7 +189,6 @@
 
         #endregion
         private DataGridView dgRooms;
-        private Panel panel1;
         private Button btnBack;
         private Label lblRoomType;
         private Label lblPrice;

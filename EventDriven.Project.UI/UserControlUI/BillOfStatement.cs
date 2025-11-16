@@ -83,53 +83,106 @@ namespace EventDriven.Project.UI.UserControlUI
 
             Graphics g = e.Graphics;
 
-            g.DrawString("Billing Statement", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(100, 50));
-
-            g.DrawString("Generated: " + DateTime.Now.ToString("MM/dd/yyyy"), new Font("Arial", 12), Brushes.Gray, new PointF(100, 90));
-
-            g.DrawLine(Pens.Black, 100, 120, 700, 120);
-
-            g.DrawString($"{patient.FirstName} {patient.MiddleName} {patient.LastName}", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, new PointF(100, 140));
-            g.DrawString($"Patient ID: {patient.PatientID}", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, 170));
-            g.DrawString(patient.Gender, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, 200));
-            g.DrawString($"{patient.Age} Years Old", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, 230));
-
-           
-            g.DrawLine(Pens.Black, 100, 270, 700, 270);
             
-            g.DrawString("Service/Item", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(100, 280));
-            g.DrawString("Quantity/Days", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(350, 280));
-            g.DrawString("Price", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(490, 280));
-            g.DrawString("Total", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(600, 280));
-                
+            Font titleFont = new Font("Arial", 22, FontStyle.Bold);
+            Font headerFont = new Font("Arial", 14, FontStyle.Bold);
+            Font subHeaderFont = new Font("Arial", 12, FontStyle.Bold);
+            Font normalFont = new Font("Arial", 11);
+            Font fadedFont = new Font("Arial", 10, FontStyle.Italic);
 
-            int y = 310;
+            int left = 80;
+            int right = 720;
+            int y = 60;
+
+            
+            g.DrawString("APEX MEDICAL CENTER", titleFont, Brushes.Black,
+                new RectangleF(left, y, 650, 40),
+                new StringFormat() { Alignment = StringAlignment.Center });
+
+            y += 50;
+
+            g.DrawString("Billing Statement", headerFont, Brushes.Black,
+                new RectangleF(left, y, 650, 30),
+                new StringFormat() { Alignment = StringAlignment.Center });
+
+            y += 40;
+
+            g.DrawString("Generated: " + DateTime.Now.ToString("MM/dd/yyyy"),
+                normalFont, Brushes.Gray, left, y);
+
+            y += 20;
+
+            g.DrawLine(Pens.Black, left, y, right, y);
+            y += 20;
+
+            
+            g.DrawString("Patient Information", subHeaderFont, Brushes.Black, left, y);
+            y += 30;
+
+            g.DrawString($"{patient.FirstName} {patient.MiddleName} {patient.LastName}",
+                normalFont, Brushes.Black, left, y);
+            y += 20;
+
+            g.DrawString($"Patient ID: {patient.PatientID}", normalFont, Brushes.Black, left, y);
+            y += 20;
+
+            g.DrawString($"Gender: {patient.Gender}", normalFont, Brushes.Black, left, y);
+            y += 20;
+
+            g.DrawString($"Age: {patient.Age} Years Old", normalFont, Brushes.Black, left, y);
+            y += 30;
+
+            g.DrawLine(Pens.Black, left, y, right, y);
+            y += 20;
+
+            g.DrawString("Service / Item", subHeaderFont, Brushes.Black, left, y);
+            g.DrawString("Quantity", subHeaderFont, Brushes.Black, left + 300, y);
+            g.DrawString("Price", subHeaderFont, Brushes.Black, left + 430, y);
+            g.DrawString("Total", subHeaderFont, Brushes.Black, left + 540, y);
+
+            y += 25;
+            g.DrawLine(Pens.Black, left, y, right, y);
+            y += 15;
+
+            int itemY = y;
 
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(selectedPatientID);
             List<BillingDetailsModel> billingDetails = new List<BillingDetailsModel>();
             decimal GrandTotal = 0;
+
             foreach (int admissionID in admissionIDs)
             {
                 List<BillingDetailsModel> details = billingController.GetBillingDetails(admissionID);
                 billingDetails.AddRange(details);
             }
+
             foreach (var detail in billingDetails)
             {
-                g.DrawString(detail.Service, new Font("Arial", 11), Brushes.Black, new PointF(100, y));
-                g.DrawString(detail.Quantity.ToString(), new Font("Arial", 11), Brushes.Black, new PointF(400, y));
-                g.DrawString($"₱{detail.Price}", new Font("Arial", 11), Brushes.Black, new PointF(500, y));
-                g.DrawString($"₱{detail.Total}", new Font("Arial", 11), Brushes.Black, new PointF(600, y));
-                y += 30;
+                g.DrawString(detail.Service, normalFont, Brushes.Black, left, itemY);
+                g.DrawString(detail.Quantity.ToString(), normalFont, Brushes.Black, left + 320, itemY);
+                g.DrawString($"₱{detail.Price}", normalFont, Brushes.Black, left + 430, itemY);
+                g.DrawString($"₱{detail.Total}", normalFont, Brushes.Black, left + 540, itemY);
+
+                itemY += 25;
                 GrandTotal += detail.Total;
             }
 
-            g.DrawLine(Pens.Black, 100, y + 20, 700, y + 20);
-            g.DrawString("Total Amount:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 30));
-            g.DrawString($"₱{GrandTotal}", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(580, y + 30));
+            y = itemY + 20;
+            g.DrawLine(Pens.Black, left, y, right, y);
+            y += 20;
 
+        
+            g.DrawString("Total Amount:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, left, y);
+            g.DrawString($"₱{GrandTotal}", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, left + 500, y);
 
-            g.DrawString("End of Report", new Font("Arial", 10, FontStyle.Italic), Brushes.Gray, new PointF(100, y + 90));
+            y += 40;
+
+            g.DrawLine(Pens.Gray, left, y, right, y);
+            y += 15;
+
+            g.DrawString("End of Report", fadedFont, Brushes.Gray, left, y);
         }
+
         private void btnPayment_Click(object sender, EventArgs e)
         {
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(selectedPatientID);
@@ -174,6 +227,16 @@ namespace EventDriven.Project.UI.UserControlUI
             selectedPatientID = patients[0].PatientID;
             LoadPatientDetails();
             LoadBillingDetails();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

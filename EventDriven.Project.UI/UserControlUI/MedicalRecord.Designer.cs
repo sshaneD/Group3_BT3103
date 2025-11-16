@@ -265,13 +265,17 @@
             // 
             // btnDelete
             // 
+            btnDelete.BackColor = Color.FromArgb(11, 143, 172);
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            btnDelete.ForeColor = Color.White;
             btnDelete.Location = new Point(907, 905);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(144, 47);
             btnDelete.TabIndex = 15;
             btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // label6
@@ -352,13 +356,17 @@
             // 
             // btnExit
             // 
+            btnExit.BackColor = Color.FromArgb(11, 143, 172);
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            btnExit.ForeColor = Color.White;
             btnExit.Location = new Point(1451, 28);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(144, 47);
             btnExit.TabIndex = 13;
             btnExit.Text = "Back";
-            btnExit.UseVisualStyleBackColor = true;
+            btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
             // 
             // MedicalRecord

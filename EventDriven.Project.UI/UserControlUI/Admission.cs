@@ -296,5 +296,10 @@ namespace EventDriven.Project.UI.UserControlUI
         {
             GoToAdmissionHistory?.Invoke(this, EventArgs.Empty);
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
