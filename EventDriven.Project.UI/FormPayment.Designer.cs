@@ -49,7 +49,7 @@
             // txtAmountPaid
             // 
             txtAmountPaid.Font = new Font("Segoe UI", 11F);
-            txtAmountPaid.Location = new Point(57, 199);
+            txtAmountPaid.Location = new Point(57, 172);
             txtAmountPaid.Name = "txtAmountPaid";
             txtAmountPaid.PlaceholderText = "Enter Amount";
             txtAmountPaid.Size = new Size(341, 32);
@@ -60,7 +60,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(57, 163);
+            label3.Location = new Point(57, 136);
             label3.Name = "label3";
             label3.Size = new Size(177, 28);
             label3.TabIndex = 8;
