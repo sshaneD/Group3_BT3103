@@ -32,14 +32,15 @@
             btnCancel = new Button();
             btnSave = new Button();
             panel3 = new Panel();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            txtName = new TextBox();
+            label4 = new Label();
+            txtIDNumber = new TextBox();
+            cbType = new ComboBox();
             label3 = new Label();
             label1 = new Label();
             panel2 = new Panel();
             label2 = new Label();
             label4 = new Label();
-            textBox2 = new TextBox();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -56,7 +57,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(665, 394);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
             // 
             // btnCancel
             // 
@@ -78,39 +78,57 @@
             btnSave.TabIndex = 2;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // panel3
             // 
             panel3.BackColor = SystemColors.Control;
-            panel3.Controls.Add(textBox2);
+            panel3.Controls.Add(txtName);
             panel3.Controls.Add(label4);
-            panel3.Controls.Add(textBox1);
-            panel3.Controls.Add(comboBox1);
+            panel3.Controls.Add(txtIDNumber);
+            panel3.Controls.Add(cbType);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label1);
             panel3.Location = new Point(27, 85);
             panel3.Name = "panel3";
             panel3.Size = new Size(590, 212);
             panel3.TabIndex = 1;
-            panel3.Paint += panel3_Paint;
             // 
-            // textBox1
+            // txtName
             // 
-            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(212, 137);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(343, 30);
-            textBox1.TabIndex = 4;
+            txtName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtName.Location = new Point(212, 91);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(343, 30);
+            txtName.TabIndex = 6;
             // 
-            // comboBox1
+            // label4
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Philippine Passport", "PhilSys / PhilID (National ID)", "Driver’s License (LTO)", "Unified Multi-Purpose ID (UMID)", "Social Security System (SSS) ID", "Government Service Insurance System (GSIS) ID", "Professional Regulation Commission (PRC) ID / License", "Voter’s ID / Voter’s Registration Card (COMELEC)", "PhilHealth ID Card", "Postal ID (Philippine Postal ID)" });
-            comboBox1.Location = new Point(212, 47);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(343, 28);
-            comboBox1.TabIndex = 3;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(24, 93);
+            label4.Name = "label4";
+            label4.Size = new Size(71, 28);
+            label4.TabIndex = 5;
+            label4.Text = "Name:";
+            // 
+            // txtIDNumber
+            // 
+            txtIDNumber.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtIDNumber.Location = new Point(212, 137);
+            txtIDNumber.Name = "txtIDNumber";
+            txtIDNumber.Size = new Size(343, 30);
+            txtIDNumber.TabIndex = 4;
+            // 
+            // cbType
+            // 
+            cbType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbType.FormattingEnabled = true;
+            cbType.Items.AddRange(new object[] { "Philippine Passport", "PhilSys / PhilID (National ID)", "Driver’s License (LTO)", "Unified Multi-Purpose ID (UMID)", "Social Security System (SSS) ID", "Government Service Insurance System (GSIS) ID", "Professional Regulation Commission (PRC) ID / License", "Voter’s ID / Voter’s Registration Card (COMELEC)", "PhilHealth ID Card", "Postal ID (Philippine Postal ID)" });
+            cbType.Location = new Point(212, 47);
+            cbType.Name = "cbType";
+            cbType.Size = new Size(343, 28);
+            cbType.TabIndex = 3;
             // 
             // label3
             // 
@@ -162,14 +180,6 @@
             label4.TabIndex = 5;
             label4.Text = "Name:";
             // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(212, 91);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(343, 30);
-            textBox2.TabIndex = 6;
-            // 
             // FormValidID
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -193,14 +203,14 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private ComboBox comboBox1;
+        private ComboBox cbType;
         private Label label3;
         private Label label2;
         private Label label1;
         private Button btnSave;
-        private TextBox textBox1;
+        private TextBox txtIDNumber;
         private Button btnCancel;
-        private TextBox textBox2;
+        private TextBox txtName;
         private Label label4;
     }
 }

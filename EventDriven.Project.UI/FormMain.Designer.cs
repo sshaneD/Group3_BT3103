@@ -188,6 +188,7 @@
             btnDischarge.TabIndex = 7;
             btnDischarge.Text = "Discharge";
             btnDischarge.UseVisualStyleBackColor = true;
+            btnDischarge.Click += btnDischarge_Click;
             // 
             // pictureBox2
             // 

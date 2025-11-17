@@ -35,6 +35,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Gender = (string)reader["Gender"],
                                     GuardianName = (string)reader["GuardianName"],
                                     GuardianNo = (string)reader["GuardianNo"],
+                                    Status = (string)reader["Status"]
                                 };
                                 patients.Add(patient);
                             }
@@ -76,6 +77,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Gender = (string)reader["Gender"],
                                     GuardianName = (string)reader["GuardianName"],
                                     GuardianNo = (string)reader["GuardianNo"],
+                                    Status = (string)reader["Status"]
                                 };
                                 return patient;
                             }
@@ -169,6 +171,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Gender = (string)reader["Gender"],
                                     GuardianName = (string)reader["GuardianName"],
                                     GuardianNo = (string)reader["GuardianNo"],
+                                    Status = (string)reader["Status"]
                                 });
                             }
                             return patients;

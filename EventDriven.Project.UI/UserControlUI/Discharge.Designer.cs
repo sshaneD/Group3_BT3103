@@ -61,7 +61,7 @@
             label19 = new Label();
             label13 = new Label();
             btnDischarge = new Button();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
             btnSearch = new Button();
             btnID = new Button();
             roundedPanel1.SuspendLayout();
@@ -95,9 +95,8 @@
             lblPatientName.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPatientName.Location = new Point(14, 31);
             lblPatientName.Name = "lblPatientName";
-            lblPatientName.Size = new Size(327, 35);
+            lblPatientName.Size = new Size(0, 35);
             lblPatientName.TabIndex = 0;
-            lblPatientName.Text = "Stefanie Shane Delos Reyes";
             // 
             // roundedPanel1
             // 
@@ -123,9 +122,8 @@
             lblAdmissionDate.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAdmissionDate.Location = new Point(172, 158);
             lblAdmissionDate.Name = "lblAdmissionDate";
-            lblAdmissionDate.Size = new Size(113, 25);
+            lblAdmissionDate.Size = new Size(0, 25);
             lblAdmissionDate.TabIndex = 6;
-            lblAdmissionDate.Text = "10/24/2025";
             // 
             // label9
             // 
@@ -143,9 +141,8 @@
             lblRoomName.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblRoomName.Location = new Point(87, 115);
             lblRoomName.Name = "lblRoomName";
-            lblRoomName.Size = new Size(48, 25);
+            lblRoomName.Size = new Size(0, 25);
             lblRoomName.TabIndex = 4;
-            lblRoomName.Text = "N/A";
             // 
             // label7
             // 
@@ -163,9 +160,8 @@
             lblPatientID.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPatientID.Location = new Point(113, 77);
             lblPatientID.Name = "lblPatientID";
-            lblPatientID.Size = new Size(50, 25);
+            lblPatientID.Size = new Size(0, 25);
             lblPatientID.TabIndex = 2;
-            lblPatientID.Text = "1001";
             // 
             // label5
             // 
@@ -376,9 +372,8 @@
             lblStatus.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblStatus.Location = new Point(55, 171);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(76, 37);
+            lblStatus.Size = new Size(0, 37);
             lblStatus.TabIndex = 12;
-            lblStatus.Text = "PAID";
             // 
             // txtTotal
             // 
@@ -446,13 +441,15 @@
             btnDischarge.UseVisualStyleBackColor = false;
             btnDischarge.Click += btnDischarge_Click;
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Font = new Font("Segoe UI", 11F);
-            textBox1.Location = new Point(1168, 166);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(320, 32);
-            textBox1.TabIndex = 14;
+            txtSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtSearch.Font = new Font("Segoe UI", 11F);
+            txtSearch.Location = new Point(1168, 166);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(320, 32);
+            txtSearch.TabIndex = 14;
             // 
             // btnSearch
             // 
@@ -467,6 +464,7 @@
             btnSearch.TabIndex = 15;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnID
             // 
@@ -481,6 +479,7 @@
             btnID.TabIndex = 16;
             btnID.Text = "Valid ID Form";
             btnID.UseVisualStyleBackColor = false;
+            btnID.Visible = false;
             btnID.Click += btnID_Click;
             // 
             // Discharge
@@ -490,7 +489,7 @@
             BackColor = SystemColors.Control;
             Controls.Add(btnID);
             Controls.Add(btnSearch);
-            Controls.Add(textBox1);
+            Controls.Add(txtSearch);
             Controls.Add(btnDischarge);
             Controls.Add(label13);
             Controls.Add(roundedPanel4);
@@ -546,7 +545,7 @@
         private TextBox txtMedication;
         private TextBox txtTreatment;
         private TextBox txtDiagnosis;
-        private TextBox textBox1;
+        private TextBox txtSearch;
         private Button btnSearch;
         private Button btnID;
     }

@@ -9,6 +9,7 @@ namespace EventDriven.Project.UI
         public static int selectedPatientID = 0;
         public static int selectedRecordID = 0;
         public static string staffRole;
+        public static bool receivedValidID = false;
         public static RoomInfoModel SelectedRoom;
         public static List<StaffModel> assignedStaff = new List<StaffModel>();
         public FormMain()
@@ -119,7 +120,7 @@ namespace EventDriven.Project.UI
                 medicalRecord.GoToPatientInfo += (s, e) => ShowControl(new PatientInformation());
             }
 
-                MainPanel.Controls.Clear();
+            MainPanel.Controls.Clear();
             MainPanel.Controls.Add(userControl);
         }
 
@@ -131,6 +132,11 @@ namespace EventDriven.Project.UI
         private void btnBilling_Click(object sender, EventArgs e)
         {
             ShowControl(new BillOfStatement());
+        }
+
+        private void btnDischarge_Click(object sender, EventArgs e)
+        {
+            ShowControl(new Discharge());
         }
     }
 }

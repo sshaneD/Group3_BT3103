@@ -42,7 +42,8 @@
             panelBorder = new Panel();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
-            button1 = new Button();
+            lblChange = new Label();
+            label6 = new Label();
             panel1.SuspendLayout();
             panelBorder.SuspendLayout();
             SuspendLayout();
@@ -56,6 +57,7 @@
             txtAmountPaid.Size = new Size(341, 32);
             txtAmountPaid.TabIndex = 9;
             txtAmountPaid.KeyPress += txtAmountPaid_KeyPress;
+            txtAmountPaid.Leave += txtAmountPaid_Leave;
             // 
             // label3
             // 
@@ -69,13 +71,13 @@
             // 
             // lblTotalAmount
             // 
-            lblTotalAmount.AutoSize = true;
             lblTotalAmount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalAmount.Location = new Point(303, 94);
+            lblTotalAmount.Location = new Point(264, 94);
             lblTotalAmount.Name = "lblTotalAmount";
-            lblTotalAmount.Size = new Size(96, 28);
+            lblTotalAmount.Size = new Size(135, 28);
             lblTotalAmount.TabIndex = 7;
             lblTotalAmount.Text = "12,000.00";
+            lblTotalAmount.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -153,8 +155,9 @@
             // 
             panelBorder.BackColor = Color.Transparent;
             panelBorder.BorderStyle = BorderStyle.FixedSingle;
-            panelBorder.Controls.Add(button1);
+            panelBorder.Controls.Add(lblChange);
             panelBorder.Controls.Add(label3);
+            panelBorder.Controls.Add(label6);
             panelBorder.Controls.Add(txtRemarks);
             panelBorder.Controls.Add(txtAmountPaid);
             panelBorder.Controls.Add(label4);
@@ -179,15 +182,25 @@
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
-            // button1
+            // lblChange
             // 
-            button1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(618, 93);
-            button1.Name = "button1";
-            button1.Size = new Size(165, 39);
-            button1.TabIndex = 12;
-            button1.Text = "Valid ID Form";
-            button1.UseVisualStyleBackColor = true;
+            lblChange.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblChange.Location = new Point(263, 223);
+            lblChange.Name = "lblChange";
+            lblChange.Size = new Size(135, 28);
+            lblChange.TabIndex = 16;
+            lblChange.Text = "0.00";
+            lblChange.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(57, 223);
+            label6.Name = "label6";
+            label6.Size = new Size(86, 28);
+            label6.TabIndex = 15;
+            label6.Text = "Change:";
             // 
             // FormPayment
             // 
@@ -227,6 +240,7 @@
         private Panel panelBorder;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
-        private Button button1;
+        private Label lblChange;
+        private Label label6;
     }
 }
