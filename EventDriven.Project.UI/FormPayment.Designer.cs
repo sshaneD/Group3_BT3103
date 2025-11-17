@@ -42,6 +42,8 @@
             panelBorder = new Panel();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
+            lblChange = new Label();
+            label6 = new Label();
             panel1.SuspendLayout();
             panelBorder.SuspendLayout();
             SuspendLayout();
@@ -49,18 +51,19 @@
             // txtAmountPaid
             // 
             txtAmountPaid.Font = new Font("Segoe UI", 11F);
-            txtAmountPaid.Location = new Point(57, 199);
+            txtAmountPaid.Location = new Point(57, 172);
             txtAmountPaid.Name = "txtAmountPaid";
             txtAmountPaid.PlaceholderText = "Enter Amount";
             txtAmountPaid.Size = new Size(341, 32);
             txtAmountPaid.TabIndex = 9;
             txtAmountPaid.KeyPress += txtAmountPaid_KeyPress;
+            txtAmountPaid.Leave += txtAmountPaid_Leave;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(57, 163);
+            label3.Location = new Point(57, 136);
             label3.Name = "label3";
             label3.Size = new Size(177, 28);
             label3.TabIndex = 8;
@@ -68,13 +71,13 @@
             // 
             // lblTotalAmount
             // 
-            lblTotalAmount.AutoSize = true;
             lblTotalAmount.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalAmount.Location = new Point(303, 94);
+            lblTotalAmount.Location = new Point(264, 94);
             lblTotalAmount.Name = "lblTotalAmount";
-            lblTotalAmount.Size = new Size(96, 28);
+            lblTotalAmount.Size = new Size(135, 28);
             lblTotalAmount.TabIndex = 7;
             lblTotalAmount.Text = "12,000.00";
+            lblTotalAmount.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -152,7 +155,9 @@
             // 
             panelBorder.BackColor = Color.Transparent;
             panelBorder.BorderStyle = BorderStyle.FixedSingle;
+            panelBorder.Controls.Add(lblChange);
             panelBorder.Controls.Add(label3);
+            panelBorder.Controls.Add(label6);
             panelBorder.Controls.Add(txtRemarks);
             panelBorder.Controls.Add(txtAmountPaid);
             panelBorder.Controls.Add(label4);
@@ -176,6 +181,26 @@
             printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
+            // 
+            // lblChange
+            // 
+            lblChange.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblChange.Location = new Point(263, 223);
+            lblChange.Name = "lblChange";
+            lblChange.Size = new Size(135, 28);
+            lblChange.TabIndex = 16;
+            lblChange.Text = "0.00";
+            lblChange.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(57, 223);
+            label6.Name = "label6";
+            label6.Size = new Size(86, 28);
+            label6.TabIndex = 15;
+            label6.Text = "Change:";
             // 
             // FormPayment
             // 
@@ -215,5 +240,7 @@
         private Panel panelBorder;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
+        private Label lblChange;
+        private Label label6;
     }
 }

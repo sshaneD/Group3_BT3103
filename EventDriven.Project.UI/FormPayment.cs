@@ -28,23 +28,41 @@ namespace EventDriven.Project.UI
         }
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            PatientModel patient = patientController.GetPatientById(selectedPatientID);
             int billingID = selectedBilling.BillingID;
             decimal payment = Convert.ToDecimal(txtAmountPaid.Text);
             string remarks = txtRemarks.Text;
+            if (Convert.ToDecimal(txtAmountPaid.Text) < (Convert.ToDecimal(lblTotalAmount.Text) * Convert.ToDecimal(0.5)))
+            {
+                MessageBox.Show($"Amount paid is less than 50% of the total amount. Please pay at least {Convert.ToDecimal(lblTotalAmount.Text) * Convert.ToDecimal(0.5)}.", "Insufficient Payment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             billingSummary = billingController.ConfirmPayment(billingID, payment, remarks);
             string change = string.Empty;
             if (billingSummary.Balance < 0)
             {
                 change = $"Change: {billingSummary.AmountPaid - billingSummary.TotalAmount}{Environment.NewLine}";
             }
+            if (patient.Status.Equals("Discharged") && billingSummary.Balance <= 0)
+            {
+                MessageBox.Show("Valid ID has been returned", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
             DialogResult result = MessageBox.Show(change + "Do you want to print the receipt?", "Payment Received", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
                 printPreviewDialog1.ShowDialog();
+                FormMain.selectedPatientID = 0;
+                FormMain.selectedRecordID = 0;
+                FormMain.SelectedRoom = new RoomInfoModel();
+                FormMain.assignedStaff.Clear();
                 Close();
             }
             else
             {
+                FormMain.selectedPatientID = 0;
+                FormMain.selectedRecordID = 0;
+                FormMain.SelectedRoom = new RoomInfoModel();
+                FormMain.assignedStaff.Clear();
                 Close();
             }
         }
@@ -113,6 +131,11 @@ namespace EventDriven.Project.UI
             {
                 e.Handled = true;
             }
+        }
+        private void txtAmountPaid_Leave(object sender, EventArgs e)
+        {
+            decimal change = Convert.ToDecimal(txtAmountPaid.Text) - Convert.ToDecimal(lblTotalAmount.Text);
+            lblChange.Text = change <= 0 ? "0" : change.ToString();
         }
     }
 }

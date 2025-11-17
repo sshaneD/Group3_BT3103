@@ -59,5 +59,10 @@ namespace EventDriven.Project.UI
             MessageBox.Show("Medical details added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

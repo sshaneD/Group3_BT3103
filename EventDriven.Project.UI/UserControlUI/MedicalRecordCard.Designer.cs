@@ -116,12 +116,16 @@
             // 
             // btnView
             // 
-            btnView.Location = new Point(382, 188);
+            btnView.BackColor = Color.FromArgb(11, 143, 172);
+            btnView.FlatAppearance.BorderSize = 0;
+            btnView.FlatStyle = FlatStyle.System;
+            btnView.ForeColor = Color.White;
+            btnView.Location = new Point(371, 190);
             btnView.Name = "btnView";
             btnView.Size = new Size(94, 29);
             btnView.TabIndex = 6;
             btnView.Text = "View";
-            btnView.UseVisualStyleBackColor = true;
+            btnView.UseVisualStyleBackColor = false;
             btnView.Click += btnView_Click;
             // 
             // MedicalRecordCard
