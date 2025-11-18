@@ -42,7 +42,7 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void LoadData()
         {
-
+            FormMain.receivedValidID = false;
             PatientModel patient = patientController.GetPatientById(selectedPatientID);
             lblPatientName.Text = $"{patient.FirstName} {patient.MiddleName} {patient.LastName}";
             lblPatientID.Text = patient.PatientID.ToString();
@@ -138,6 +138,7 @@ namespace EventDriven.Project.UI.UserControlUI
             DialogResult res = MessageBox.Show("Are you sure you want to discharge this patient?", "Confirm Discharge", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
+                FormMain.receivedValidID = false;
                 patientController.DischargePatient(selectedPatientID, selectedAdmissionID);
                 MessageBox.Show("Patient Discharged Successfully!", "Discharge Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -146,14 +147,12 @@ namespace EventDriven.Project.UI.UserControlUI
                 MessageBox.Show("Discharge Cancelled", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text.Trim());
             selectedPatientID = patients[0].PatientID;
             LoadData();
         }
-
         private void btnID_Click(object sender, EventArgs e)
         {
             FormValidID formValidID = new FormValidID();

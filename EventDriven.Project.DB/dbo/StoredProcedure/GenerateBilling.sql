@@ -8,6 +8,7 @@ BEGIN
             @RoomCharges DECIMAL(10,2),
             @TreatmentCharges DECIMAL(10,2),
             @MedicationCharges DECIMAL(10,2),
+            @DoctorCharges DECIMAL(10,2),
             @TotalAmount DECIMAL(10,2);
 
     SELECT @PatientID = PatientID
@@ -29,7 +30,12 @@ BEGIN
     INNER JOIN MedicalRecords MR ON M.RecordID = MR.RecordID
     WHERE MR.AdmissionID = @AdmissionID;
 
-    SET @TotalAmount = @RoomCharges + @TreatmentCharges + @MedicationCharges;
+    SELECT @DoctorCharges = ISNULL(COUNT(*) * 800, 0)
+    FROM StaffAssignment SA
+    WHERE SA.PatientID = @PatientID
+      AND SA.Role = 'Doctor';
+
+    SET @TotalAmount = @RoomCharges + @TreatmentCharges + @MedicationCharges + @DoctorCharges;
 
     IF EXISTS (SELECT 1 FROM Billings WHERE AdmissionID = @AdmissionID)
     BEGIN

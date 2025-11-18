@@ -270,6 +270,7 @@
             // 
             dateStartDate.Format = DateTimePickerFormat.Short;
             dateStartDate.Location = new Point(21, 136);
+            dateStartDate.Value = DateTime.Today;
             dateStartDate.Name = "dateStartDate";
             dateStartDate.Size = new Size(218, 27);
             dateStartDate.TabIndex = 41;

@@ -40,7 +40,6 @@
             label1 = new Label();
             panel2 = new Panel();
             label2 = new Label();
-            label4 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -170,16 +169,6 @@
             label2.TabIndex = 1;
             label2.Text = " Valid ID Information Form";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(24, 93);
-            label4.Name = "label4";
-            label4.Size = new Size(71, 28);
-            label4.TabIndex = 5;
-            label4.Text = "Name:";
-            // 
             // FormValidID
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -189,7 +178,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormValidID";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormValidID";
+            Text = "a";
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
