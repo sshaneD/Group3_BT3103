@@ -36,6 +36,20 @@ BEGIN
         T.Price AS Total
     FROM Treatments T
     INNER JOIN MedicalRecords MR ON T.RecordID = MR.RecordID
-    WHERE MR.AdmissionID = @AdmissionID;
+    WHERE MR.AdmissionID = @AdmissionID
+
+    UNION ALL
+
+    SELECT
+        A.AdmissionID,
+        CONCAT('Dr. ', S.LastName) AS Service,
+        1 AS Quantity,
+        800 AS Price,
+        800 AS Total
+    FROM StaffAssignment SA
+    INNER JOIN Staff S ON SA.StaffID = S.StaffID
+    INNER JOIN Admissions A ON SA.PatientID = A.PatientID
+    WHERE S.Role = 'Doctor'
+      AND A.AdmissionID = @AdmissionID;
 END;
 GO

@@ -87,9 +87,9 @@ namespace EventDriven.Project.UI.UserControlUI
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             PatientModel patient = patientController.GetPatientById(selectedPatientID);
-
             Graphics g = e.Graphics;
 
+            
             Font titleFont = new Font("Arial", 22, FontStyle.Bold);
             Font headerFont = new Font("Arial", 16, FontStyle.Bold);
             Font subHeaderFont = new Font("Arial", 14, FontStyle.Bold);
@@ -97,27 +97,27 @@ namespace EventDriven.Project.UI.UserControlUI
             Font pInfoFont = new Font("Arial", 12);
             Font fadedFont = new Font("Arial", 10, FontStyle.Italic);
 
+            
             int left = 80;
             int right = 720;
             int y = 60;
 
+            
             g.DrawString("APEX MEDICAL CENTER", titleFont, Brushes.Black,
-                new RectangleF(left, y, 650, 40),
+                new RectangleF(left, y, right - left, 40),
                 new StringFormat() { Alignment = StringAlignment.Center });
-
             y += 50;
 
             g.DrawString("Billing Statement", headerFont, Brushes.Black,
-                new RectangleF(left, y, 650, 30),
+                new RectangleF(left, y, right - left, 30),
                 new StringFormat() { Alignment = StringAlignment.Center });
-
             y += 40;
 
-            g.DrawString("Generated: " + DateTime.Now.ToString("MM/dd/yyyy"),
-                normalFont, Brushes.Gray, left, y);
+            
+            g.DrawString("Generated: " + DateTime.Now.ToString("MM/dd/yyyy"), normalFont, Brushes.Gray, left, y);
+            y += 25;
 
-            y += 20;
-
+            
             g.DrawLine(Pens.Black, left, y, right, y);
             y += 20;
 
@@ -125,20 +125,29 @@ namespace EventDriven.Project.UI.UserControlUI
             g.DrawString("Patient Information", subHeaderFont, Brushes.Black, left, y);
             y += 30;
 
-            g.DrawString($"{patient.FirstName} {patient.MiddleName} {patient.LastName}",
-                pInfoFont, Brushes.Black, left, y);
+            g.DrawString($"{patient.FirstName} {patient.MiddleName} {patient.LastName}", pInfoFont, Brushes.Black, left, y);
             y += 20;
-
             g.DrawString($"Patient ID: {patient.PatientID}", pInfoFont, Brushes.Black, left, y);
             y += 20;
-
             g.DrawString($"Gender: {patient.Gender}", pInfoFont, Brushes.Black, left, y);
             y += 20;
-            g.DrawString($"Gender: {patient.Gender}", pInfoFont, Brushes.Black, left, y);
-            y += 20;
+            g.DrawString($"Age: {patient.Age} Years Old", pInfoFont, Brushes.Black, left, y);
+            y += 30;
 
-            y = 310;
+            
+            Font tableHeaderFont = new Font("Arial", 12, FontStyle.Bold);
+            int colService = left;
+            int colQty = left + 320;
+            int colPrice = left + 430;
+            int colTotal = left + 540;
 
+            g.DrawString("Service/Item", tableHeaderFont, Brushes.Black, colService, y);
+            g.DrawString("Quantity/Days", tableHeaderFont, Brushes.Black, colQty, y);
+            g.DrawString("Price", tableHeaderFont, Brushes.Black, colPrice, y);
+            g.DrawString("Total", tableHeaderFont, Brushes.Black, colTotal, y);
+            y += 25;
+
+           
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(selectedPatientID);
             List<BillingDetailsModel> billingDetails = new List<BillingDetailsModel>();
             BillingModel billing = billingController.GenerateBilling(admissionIDs[0]);
@@ -152,35 +161,38 @@ namespace EventDriven.Project.UI.UserControlUI
 
             foreach (var detail in billingDetails)
             {
-                g.DrawString(detail.Service, normalFont, Brushes.Black, left, y);
-                g.DrawString(detail.Quantity.ToString(), normalFont, Brushes.Black, left + 320, y);
-                g.DrawString($"₱{detail.Price}", normalFont, Brushes.Black, left + 430, y);
-                g.DrawString($"₱{detail.Total}", normalFont, Brushes.Black, left + 540, y);
+                
+                if (billingDetails.IndexOf(detail) % 2 == 1)
+                    g.FillRectangle(Brushes.LightGray, left, y, right - left, 25);
+
+                g.DrawString(detail.Service, normalFont, Brushes.Black, colService, y);
+                g.DrawString(detail.Quantity.ToString(), normalFont, Brushes.Black, colQty + 50, y);
+                g.DrawString($"₱{detail.Price:N2}", normalFont, Brushes.Black, colPrice + 30, y);
+                g.DrawString($"₱{detail.Total:N2}", normalFont, Brushes.Black, colTotal + 30, y);
 
                 y += 25;
                 GrandTotal += detail.Total;
             }
 
-            g.DrawLine(Pens.Black, 100, y + 20, 700, y + 20);
-            g.DrawString("Total Amount:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, y + 30));
-        
-            g.DrawString("Total Amount:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, left, y);
-            g.DrawString("Amount Paid:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, left, y + 30);
-            g.DrawString("Balance:", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, left, y + 60);
-            g.DrawString($"₱{GrandTotal}", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, left + 500, y);
-            g.DrawString($"₱{billing.AmountPaid}", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, left + 500, y + 30);
-            g.DrawString($"₱{billing.Balance}", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, left + 500, y + 60);
+                        g.DrawLine(Pens.Black, left, y + 5, right, y + 5);
+            y += 20;
 
-            y += 130;
+            
+            Font totalsFont = new Font("Arial", 14, FontStyle.Bold);
+            g.DrawString("Total Amount:", totalsFont, Brushes.Black, left, y);
+            g.DrawString("Amount Paid:", totalsFont, Brushes.Black, left, y + 30);
+            g.DrawString("Balance:", totalsFont, Brushes.Black, left, y + 60);
 
+            g.DrawString($"₱{GrandTotal:N2}", totalsFont, Brushes.Black, left + 500, y);
+            g.DrawString($"₱{billing.AmountPaid:N2}", totalsFont, Brushes.Black, left + 500, y + 30);
+            g.DrawString($"₱{billing.Balance:N2}", totalsFont, Brushes.Black, left + 500, y + 60);
+            y += 100;
+
+            
             g.DrawLine(Pens.Gray, left, y, right, y);
             y += 15;
-
-            g.DrawString("End of Report", fadedFont, Brushes.Gray, left, y);
-
             g.DrawString("End of Report", fadedFont, Brushes.Gray, left, y);
         }
-
         private void btnPayment_Click(object sender, EventArgs e)
         {
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(selectedPatientID);
@@ -203,6 +215,10 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 FormPayment payment = new FormPayment(selectedBilling.AdmissionID);
                 payment.ShowDialog();
+                if (payment.DialogResult == DialogResult.OK)
+                {
+                    LoadBillingDetails();
+                }
             }
             else
             {
