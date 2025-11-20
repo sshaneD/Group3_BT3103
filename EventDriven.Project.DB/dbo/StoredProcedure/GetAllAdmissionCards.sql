@@ -11,7 +11,7 @@ AS
 		Admissions ac
 	INNER JOIN 
 		Patient p ON ac.PatientID = p.PatientID
-	INNER JOIN
+	LEFT JOIN
 		MedicalRecords mr ON ac.AdmissionID = mr.AdmissionID
 	ORDER BY 
 		ac.AdmissionDate DESC;

@@ -172,8 +172,11 @@ namespace EventDriven.Project.UI
         }
         private void txtAmountPaid_Leave(object sender, EventArgs e)
         {
-            decimal change = Convert.ToDecimal(txtAmountPaid.Text) - Convert.ToDecimal(lblTotalAmount.Text);
-            lblChange.Text = change <= 0 ? "0" : change.ToString();
+            if (!string.IsNullOrEmpty(txtAmountPaid.Text))
+            {
+                decimal change = Convert.ToDecimal(txtAmountPaid.Text) - Convert.ToDecimal(lblTotalAmount.Text);
+                lblChange.Text = change <= 0 ? "0" : change.ToString();
+            }
         }
     }
 }

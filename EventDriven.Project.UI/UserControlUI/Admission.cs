@@ -225,7 +225,7 @@ namespace EventDriven.Project.UI.UserControlUI
             [
                 roomController.GetRoomTypeAvailability("Ward"),
                 roomController.GetRoomTypeAvailability("Private Room"),
-                roomController.GetRoomTypeAvailability("Nursery Room"),
+                roomController.GetRoomTypeAvailability("Pediatric Room"),
                 roomController.GetRoomTypeAvailability("Emergency Room"),
                 roomController.GetRoomTypeAvailability("Intensive Care Unit (ICU)"),
                 roomController.GetRoomTypeAvailability("Neonatal Intensive Care Unit (NICU)"),

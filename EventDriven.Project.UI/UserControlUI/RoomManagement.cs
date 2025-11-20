@@ -20,7 +20,7 @@ namespace EventDriven.Project.UI.UserControlUI
 
             RoomOccupationModel wardBeds = roomController.GetRoomTypeAvailability("Ward");
             RoomOccupationModel PRBeds = roomController.GetRoomTypeAvailability("Private Room");
-            RoomOccupationModel NRBeds = roomController.GetRoomTypeAvailability("Nursery Room");
+            RoomOccupationModel NRBeds = roomController.GetRoomTypeAvailability("Pediatric Room");
             RoomOccupationModel ERBeds = roomController.GetRoomTypeAvailability("Emergency Room");
             RoomOccupationModel ICUBeds = roomController.GetRoomTypeAvailability("Intensive Care Unit (ICU)");
             RoomOccupationModel NICUBeds = roomController.GetRoomTypeAvailability("Neonatal Intensive Care Unit (NICU)");
@@ -59,7 +59,7 @@ namespace EventDriven.Project.UI.UserControlUI
 
         private void btnNR_Click(object sender, EventArgs e)
         {
-            selectRoom("Nursery Room");
+            selectRoom("Pediatric Room");
             GoToRooms?.Invoke(this, EventArgs.Empty);
         }
 

@@ -4,6 +4,6 @@
     [PatientID] INT NULL, 
     [StaffID] INT NULL, 
     [Role] NVARCHAR(50) NULL,
-    FOREIGN KEY ([PatientID]) REFERENCES [dbo].[Patient]([PatientID]),
+    FOREIGN KEY ([PatientID]) REFERENCES [dbo].[Patient]([PatientID]) ON DELETE CASCADE,
     FOREIGN KEY ([StaffID]) REFERENCES [dbo].[Staff]([StaffID])
 )

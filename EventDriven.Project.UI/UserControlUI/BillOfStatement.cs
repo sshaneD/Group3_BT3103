@@ -167,8 +167,8 @@ namespace EventDriven.Project.UI.UserControlUI
 
                 g.DrawString(detail.Service, normalFont, Brushes.Black, colService, y);
                 g.DrawString(detail.Quantity.ToString(), normalFont, Brushes.Black, colQty + 50, y);
-                g.DrawString($"₱{detail.Price:N2}", normalFont, Brushes.Black, colPrice + 30, y);
-                g.DrawString($"₱{detail.Total:N2}", normalFont, Brushes.Black, colTotal + 30, y);
+                g.DrawString($"{detail.Price:C2}", normalFont, Brushes.Black, colPrice + 30, y);
+                g.DrawString($"{detail.Total:C2}", normalFont, Brushes.Black, colTotal + 30, y);
 
                 y += 25;
                 GrandTotal += detail.Total;
@@ -183,9 +183,9 @@ namespace EventDriven.Project.UI.UserControlUI
             g.DrawString("Amount Paid:", totalsFont, Brushes.Black, left, y + 30);
             g.DrawString("Balance:", totalsFont, Brushes.Black, left, y + 60);
 
-            g.DrawString($"₱{GrandTotal:N2}", totalsFont, Brushes.Black, left + 500, y);
-            g.DrawString($"₱{billing.AmountPaid:N2}", totalsFont, Brushes.Black, left + 500, y + 30);
-            g.DrawString($"₱{billing.Balance:N2}", totalsFont, Brushes.Black, left + 500, y + 60);
+            g.DrawString($"{GrandTotal:C2}", totalsFont, Brushes.Black, left + 500, y);
+            g.DrawString($"{billing.AmountPaid:C2}", totalsFont, Brushes.Black, left + 500, y + 30);
+            g.DrawString($"{billing.Balance:C2}", totalsFont, Brushes.Black, left + 500, y + 60);
             y += 100;
 
             
@@ -227,13 +227,26 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.Value != null && (e.Value is int || e.Value is decimal))
+            if (e.ColumnIndex == 2)
             {
-                if (Convert.ToDecimal(e.Value) == 0)
+                if (Convert.ToInt32(e.Value) <= 0)
                 {
                     e.Value = "";
-                    e.FormattingApplied = true;
                 }
+            }
+            if (e.Value != null && (e.Value is decimal))
+            {
+                if (Convert.ToDecimal(e.Value) <= 0)
+                {
+                    e.Value = "0.00";
+                }
+                if (Convert.ToDecimal(e.Value) == 0 && !(e.RowIndex == dataGridView1.RowCount - 2 && e.ColumnIndex == dataGridView1.ColumnCount - 1))
+                {
+                    e.Value = "";
+                    return;
+                }
+                e.Value = Convert.ToDecimal(e.Value).ToString("C2");
+                e.FormattingApplied = true;
             }
         }
         private void btnSearch_Click(object sender, EventArgs e)
@@ -242,16 +255,6 @@ namespace EventDriven.Project.UI.UserControlUI
             selectedPatientID = patients[0].PatientID;
             LoadPatientDetails();
             LoadBillingDetails();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

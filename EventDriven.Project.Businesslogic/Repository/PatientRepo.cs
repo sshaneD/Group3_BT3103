@@ -8,7 +8,6 @@ namespace EventDriven.Project.Businesslogic.Repository
     internal class PatientRepo
     {
         private string CONNECTIONSTRING = ConfigurationHelper.GetConnectionString();
-
         public List<PatientModel> GetAllPatient()
         {
             try
@@ -242,7 +241,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     AdmissionID = (int)reader["AdmissionID"],
                                     PatientID = (int)reader["PatientID"],
                                     PatientName = (string)reader["PatientName"],
-                                    Diagnosis = (string)reader["Diagnosis"],
+                                    Diagnosis = string.IsNullOrEmpty(reader["Diagnosis"].ToString()) ? string.Empty : (string)reader["Diagnosis"],
                                     AdmissionDate = (DateTime)reader["AdmissionDate"],
                                     DischargeDate = reader["DischargeDate"] as DateTime?
                                 };
@@ -289,6 +288,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                     cmd.Parameters.AddWithValue("@PatientID", PatientID);
                     cmd.Parameters.AddWithValue("@AdmissionID", AdmissionID);
                     cmd.ExecuteNonQuery();
+
                 }
             }
         }

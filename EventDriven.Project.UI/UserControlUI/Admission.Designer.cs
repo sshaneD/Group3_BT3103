@@ -227,7 +227,7 @@
             // 
             cbRoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRoomNo.FormattingEnabled = true;
-            cbRoomNo.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Nursery Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
+            cbRoomNo.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Pediatric Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
             cbRoomNo.Location = new Point(295, 64);
             cbRoomNo.Name = "cbRoomNo";
             cbRoomNo.Size = new Size(177, 28);
@@ -301,7 +301,7 @@
             // 
             cbRoom.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRoom.FormattingEnabled = true;
-            cbRoom.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Nursery Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
+            cbRoom.Items.AddRange(new object[] { "Ward", "Private Room", "Emergency Room", "Pediatric Room", "Intensive Care Unit (ICU)", "Neonatal Intensive Care Unit (NICU)" });
             cbRoom.Location = new Point(21, 64);
             cbRoom.Name = "cbRoom";
             cbRoom.Size = new Size(268, 28);

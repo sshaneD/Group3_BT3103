@@ -288,7 +288,7 @@ VALUES
 (14, 208, 'Private Room', 3000.00, 1),
 (15, 209, 'Private Room', 3000.00, 1),
 (16, 210, 'Private Room', 3000.00, 1),
-(17, 301, 'Nursery Room', 2000.00, 10),
+(17, 301, 'Pediatric Room', 2000.00, 20),
 (18, 401, 'Intensive Care Unit (ICU)', 8000.00, 1),
 (19, 402, 'Intensive Care Unit (ICU)', 8000.00, 1),
 (20, 403, 'Intensive Care Unit (ICU)', 8000.00, 1),

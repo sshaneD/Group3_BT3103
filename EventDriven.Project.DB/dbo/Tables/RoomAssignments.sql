@@ -7,7 +7,7 @@
     [BedNumber] INT NULL,
     [StartDate] DATETIME NOT NULL,
     [EndDate] DATETIME NULL,
-    FOREIGN KEY (AdmissionID) REFERENCES Admissions(AdmissionID),
+    FOREIGN KEY (AdmissionID) REFERENCES Admissions(AdmissionID) ON DELETE CASCADE,
     FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID),
     FOREIGN KEY (PatientID) REFERENCES Patient(PatientID)
 )
