@@ -34,7 +34,6 @@ namespace EventDriven.Project.UI
 
             MedicalRecordModel medicalRecord = new MedicalRecordModel();
             medicalRecord.PatientID = selectedPatientID;
-            medicalRecord.RecordDate = dateRecordDate.Value;
             medicalRecord.Diagnosis = txtDiagnosis.Text;
             medicalRecord.Notes = txtNotes.Text;
 

@@ -48,10 +48,8 @@
             label2 = new Label();
             label12 = new Label();
             btnSave = new Button();
-            label14 = new Label();
             btnCancel = new Button();
             label13 = new Label();
-            dateRecordDate = new DateTimePicker();
             txtTreatmentPrice = new TextBox();
             label5 = new Label();
             label4 = new Label();
@@ -103,10 +101,8 @@
             roundedPanel1.Controls.Add(panel4);
             roundedPanel1.Controls.Add(label12);
             roundedPanel1.Controls.Add(btnSave);
-            roundedPanel1.Controls.Add(label14);
             roundedPanel1.Controls.Add(btnCancel);
             roundedPanel1.Controls.Add(label13);
-            roundedPanel1.Controls.Add(dateRecordDate);
             roundedPanel1.Controls.Add(txtTreatmentPrice);
             roundedPanel1.Controls.Add(label5);
             roundedPanel1.Controls.Add(label4);
@@ -298,16 +294,6 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label14.Location = new Point(830, 18);
-            label14.Name = "label14";
-            label14.Size = new Size(127, 28);
-            label14.TabIndex = 27;
-            label14.Text = "Record Date:";
-            // 
             // btnCancel
             // 
             btnCancel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
@@ -328,14 +314,6 @@
             label13.Size = new Size(56, 31);
             label13.TabIndex = 25;
             label13.Text = "PHP";
-            // 
-            // dateRecordDate
-            // 
-            dateRecordDate.Format = DateTimePickerFormat.Short;
-            dateRecordDate.Location = new Point(963, 20);
-            dateRecordDate.Name = "dateRecordDate";
-            dateRecordDate.Size = new Size(120, 27);
-            dateRecordDate.TabIndex = 26;
             // 
             // txtTreatmentPrice
             // 
@@ -490,8 +468,6 @@
         private TextBox txtTreatmentPrice;
         private NumericUpDown numMedDuration;
         private Label label11;
-        private Label label14;
-        private DateTimePicker dateRecordDate;
         private NumericUpDown numMedFrequencyCount;
         private RoundedPanel roundedPanel1;
         private Label label12;

@@ -328,7 +328,7 @@
             label15.Name = "label15";
             label15.Size = new Size(201, 29);
             label15.TabIndex = 26;
-            label15.Text = "NURSERY ROOM";
+            label15.Text = "PEDIATRIC ROOM";
             // 
             // pictureBox3
             // 

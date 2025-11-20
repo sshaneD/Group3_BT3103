@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using EventDriven.Project.Businesslogic.Controller;
+﻿using EventDriven.Project.Businesslogic.Controller;
 using EventDriven.Project.Model;
 
 namespace EventDriven.Project.UI.UserControlUI
@@ -37,15 +28,21 @@ namespace EventDriven.Project.UI.UserControlUI
             }
             txtSearch.AutoCompleteCustomSource = names;
 
+            btnDischarge.Visible = false;
             if (FormMain.selectedPatientID != 0)
                 LoadData();
         }
         private void LoadData()
         {
+            btnDischarge.Visible = true;
             FormMain.receivedValidID = false;
             PatientModel patient = patientController.GetPatientById(selectedPatientID);
             lblPatientName.Text = $"{patient.FirstName} {patient.MiddleName} {patient.LastName}";
             lblPatientID.Text = patient.PatientID.ToString();
+            if (patient.Status.Equals("Discharged"))
+            {
+                btnDischarge.Visible = false;
+            }
 
             CurrentRoomModel room = roomController.GetCurrentRoom(selectedPatientID);
             lblRoomName.Text = room.RoomType;
@@ -112,7 +109,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 statusText = "PARTIALLY PAID";
             else if (billing.Balance <= 0)
                 statusText = "PAID";
-            lblStatus.Text = statusText;
+                lblStatus.Text = statusText;
 
             if (lblStatus.Text.Equals("PARTIALLY PAID"))
                 btnID.Visible = true;
@@ -140,6 +137,7 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 FormMain.receivedValidID = false;
                 patientController.DischargePatient(selectedPatientID, selectedAdmissionID);
+                ClearData();
                 MessageBox.Show("Patient Discharged Successfully!", "Discharge Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -157,6 +155,24 @@ namespace EventDriven.Project.UI.UserControlUI
         {
             FormValidID formValidID = new FormValidID();
             formValidID.ShowDialog();
+        }
+        private void ClearData()
+        {
+            lblAdmissionDate.Text = string.Empty;
+            lblPatientID.Text = string.Empty;
+            lblPatientName.Text = string.Empty;
+            lblRoomName.Text = string.Empty;
+            lblStatus.Text = string.Empty;
+
+            txtBalance.Clear();
+            txtDiagnosis.Clear();
+            txtDuration.Clear();
+            txtFrequency.Clear();
+            txtMedication.Clear();
+            txtNotes.Clear();
+            txtSearch.Clear();
+            txtTotal.Clear();
+            txtTreatment.Clear();
         }
     }
 }

@@ -103,7 +103,6 @@
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.Size = new Size(1307, 324);
             dataGridView1.TabIndex = 6;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             // 
             // label5
@@ -303,7 +302,6 @@
             roundedPanel1.Name = "roundedPanel1";
             roundedPanel1.Size = new Size(742, 236);
             roundedPanel1.TabIndex = 18;
-            roundedPanel1.Paint += roundedPanel1_Paint;
             // 
             // panel2
             // 

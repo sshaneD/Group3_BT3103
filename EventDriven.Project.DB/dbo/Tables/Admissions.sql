@@ -4,5 +4,5 @@
 	[PatientID] INT NOT NULL,
 	[AdmissionDate] DATETIME NOT NULL,
 	[DischargeDate] DATETIME NULL,
-	FOREIGN KEY ([PatientID]) REFERENCES [dbo].[Patient]([PatientID])
+	FOREIGN KEY ([PatientID]) REFERENCES [dbo].[Patient]([PatientID]) ON DELETE CASCADE
 )
