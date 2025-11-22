@@ -31,13 +31,11 @@ namespace EventDriven.Project.UI
             if (role.Equals("Doctor"))
             {
                 labelTitle.Text = "Doctor Assignment";
-                txtSearchStaff.PlaceholderText = "Search Doctor";
                 lblStaff.Text = "Available Doctors";
             }
             else
             {
                 labelTitle.Text = "Nurse Assignment";
-                txtSearchStaff.PlaceholderText = "Search Nurse";
                 lblStaff.Text = "Available Nurses";
             }
         }
@@ -58,17 +56,6 @@ namespace EventDriven.Project.UI
             dataGridAssignmentM.Columns["DepartmentName"].HeaderText = "Department";
             dataGridAssignmentM.Columns["FirstName"].HeaderText = "First Name";
             dataGridAssignmentM.Columns["LastName"].HeaderText = "Last Name";
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
-
-        private void lblStaff_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCancelAssign_Click(object sender, EventArgs e)

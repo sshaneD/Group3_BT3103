@@ -45,5 +45,17 @@ namespace EventDriven.Project.Businesslogic.Controller
         {
             return patientRepo.GetNextPatientID();
         }
+        public List<AdmissionCardModel> GetAllAdmissionCards()
+        {
+            return patientRepo.GetAllAdmissionCards();
+        }
+        public List<int> GetPatientAdmissionIDs(int PatientID)
+        {
+            return patientRepo.GetPatientAdmissionIDs(PatientID);
+        }
+        public void DischargePatient(int PatientID, int AdmissionID)
+        {
+            patientRepo.DischargePatient(PatientID, AdmissionID);
+        }
     }
 }

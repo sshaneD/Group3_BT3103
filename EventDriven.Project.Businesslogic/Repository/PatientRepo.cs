@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices.Marshalling;
-using System.Text;
-using System.Threading.Tasks;
 using EventDriven.Project.Model;
 
 namespace EventDriven.Project.Businesslogic.Repository
@@ -15,7 +9,7 @@ namespace EventDriven.Project.Businesslogic.Repository
     {
         private string CONNECTIONSTRING = ConfigurationHelper.GetConnectionString();
 
-        public List <PatientModel> GetAllPatient()
+        public List<PatientModel> GetAllPatient()
         {
             try
             {
@@ -23,16 +17,19 @@ namespace EventDriven.Project.Businesslogic.Repository
                 using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("dbo.GetAllPatients", conn)) {
+                    using (SqlCommand cmd = new SqlCommand("dbo.GetAllPatients", conn))
+                    {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        using (SqlDataReader reader = cmd.ExecuteReader()) {
-                            while (reader.Read()) {
-                                PatientModel patient = new PatientModel {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                PatientModel patient = new PatientModel
+                                {
                                     PatientID = (int)reader["PatientID"],
                                     FirstName = (string)reader["FirstName"],
                                     MiddleName = (string)reader["MiddleName"],
                                     LastName = (string)reader["LastName"],
-                                    AdmissionDate = (DateTime)reader["AdmissionDate"],
                                     DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Age = (int)reader["Age"],
                                     Gender = (string)reader["Gender"],
@@ -46,13 +43,12 @@ namespace EventDriven.Project.Businesslogic.Repository
                     }
                 }
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
             }
             return null;
         }
-
         public PatientModel GetPatientByID(int ID)
         {
             try
@@ -75,7 +71,6 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     FirstName = (string)reader["FirstName"],
                                     MiddleName = (string)reader["MiddleName"],
                                     LastName = (string)reader["LastName"],
-                                    AdmissionDate = (DateTime)reader["AdmissionDate"],
                                     DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Age = (int)reader["Age"],
                                     Gender = (string)reader["Gender"],
@@ -94,7 +89,6 @@ namespace EventDriven.Project.Businesslogic.Repository
             }
             return null;
         }
-
         public void EditPatient(PatientModel patient)
         {
             try
@@ -108,7 +102,6 @@ namespace EventDriven.Project.Businesslogic.Repository
                     cmd.Parameters.AddWithValue("@FirstName", patient.FirstName);
                     cmd.Parameters.AddWithValue("@MiddleName", patient.MiddleName);
                     cmd.Parameters.AddWithValue("@LastName", patient.LastName);
-                    cmd.Parameters.AddWithValue("@AdmissionDate", patient.AdmissionDate);
                     cmd.Parameters.AddWithValue("@DateOfBirth", patient.DateOfBirth);
                     cmd.Parameters.AddWithValue("@Age", patient.Age);
                     cmd.Parameters.AddWithValue("@Gender", patient.Gender);
@@ -122,7 +115,7 @@ namespace EventDriven.Project.Businesslogic.Repository
 
             }
         }
-        public void AddPatient(PatientModel patient) 
+        public void AddPatient(PatientModel patient)
         {
             try
             {
@@ -135,7 +128,6 @@ namespace EventDriven.Project.Businesslogic.Repository
                         cmd.Parameters.AddWithValue("@FirstName", patient.FirstName);
                         cmd.Parameters.AddWithValue("@MiddleName", patient.MiddleName);
                         cmd.Parameters.AddWithValue("@LastName", patient.LastName);
-                        cmd.Parameters.AddWithValue("@AdmissionDate", patient.AdmissionDate);
                         cmd.Parameters.AddWithValue("@DateOfBirth", patient.DateOfBirth);
                         cmd.Parameters.AddWithValue("@Age", patient.Age);
                         cmd.Parameters.AddWithValue("@Gender", patient.Gender);
@@ -145,12 +137,12 @@ namespace EventDriven.Project.Businesslogic.Repository
                     }
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                Debug.WriteLine (ex.Message);
+                Debug.WriteLine(ex.Message);
             }
         }
-        public List<PatientModel> SearchPatient(string SearchTerm) 
+        public List<PatientModel> SearchPatient(string SearchTerm)
         {
             try
             {
@@ -172,7 +164,6 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     FirstName = (string)reader["FirstName"],
                                     MiddleName = (string)reader["MiddleName"],
                                     LastName = (string)reader["LastName"],
-                                    AdmissionDate = (DateTime)reader["AdmissionDate"],
                                     DateOfBirth = (DateTime)reader["DateOfBirth"],
                                     Age = (int)reader["Age"],
                                     Gender = (string)reader["Gender"],
@@ -225,6 +216,76 @@ namespace EventDriven.Project.Businesslogic.Repository
                         }
                         else return 0;
                     }
+                }
+            }
+        }
+        public List<AdmissionCardModel> GetAllAdmissionCards()
+        {
+            try
+            {
+                List<AdmissionCardModel> admissionCards = new List<AdmissionCardModel>();
+                using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("dbo.GetAllAdmissionCards", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                AdmissionCardModel admissionCard = new AdmissionCardModel
+                                {
+                                    AdmissionID = (int)reader["AdmissionID"],
+                                    PatientID = (int)reader["PatientID"],
+                                    PatientName = (string)reader["PatientName"],
+                                    Diagnosis = (string)reader["Diagnosis"],
+                                    AdmissionDate = (DateTime)reader["AdmissionDate"],
+                                    DischargeDate = reader["DischargeDate"] as DateTime?
+                                };
+                                admissionCards.Add(admissionCard);
+                            }
+                            return admissionCards;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return null;
+        }
+        public List<int> GetPatientAdmissionIDs(int PatientID)
+        {
+            List<int> admissions = new List<int>();
+            using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("GetPatientAdmissionIDs", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                            admissions.Add((int)reader["AdmissionID"]);
+                    }
+                }
+            }
+            return admissions;
+        }
+        public void DischargePatient(int PatientID, int AdmissionID)
+        {
+            using (SqlConnection con = new SqlConnection(CONNECTIONSTRING))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("DischargePatient", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.Parameters.AddWithValue("@AdmissionID", AdmissionID);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

@@ -4,7 +4,6 @@
 	@FirstName Varchar(50),
 	@MiddleName Varchar(50),
 	@LastName Varchar(50),
-	@AdmissionDate DateTime,
 	@DateOfBirth DateTime,
 	@Age int,
 	@Gender Varchar(50),
@@ -18,11 +17,10 @@ AS
 	FirstName = @FirstName,
 	MiddleName = @MiddleName,
 	LastName = @LastName,
-	AdmissionDate = @AdmissionDate,
 	DateOfBirth = @DateOfBirth,
 	Age = @Age,
 	Gender = @Gender,
 	GuardianName = @GuardianName,
-	GuardianNo = @GuardianName 
+	GuardianNo = @GuardianNo
 
 	Where PatientID = @PatientID

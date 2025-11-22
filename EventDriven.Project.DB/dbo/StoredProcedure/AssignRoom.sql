@@ -1,9 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[AssignRoom]
 	@RoomID INT,
 	@PatientID INT,
-	@BedNumber VARCHAR(50),
+	@BedNumber INT,
 	@StartDate DATETIME,
 	@EndDate DATETIME = NULL
 AS
-	INSERT INTO RoomAssignments (RoomID, PatientID, BedNumber, StartDate, EndDate)
-	VALUES (@RoomID, @PatientID, @BedNumber, @StartDate, @EndDate)
+	INSERT INTO RoomAssignments (AdmissionID, RoomID, PatientID, BedNumber, StartDate, EndDate)
+	VALUES ((SELECT TOP 1 AdmissionID FROM Admissions WHERE Admissions.PatientID = @PatientID ORDER BY AdmissionID DESC),
+	@RoomID, @PatientID, @BedNumber, @StartDate, @EndDate)

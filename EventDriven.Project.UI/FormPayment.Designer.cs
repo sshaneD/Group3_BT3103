@@ -29,43 +29,42 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPayment));
-            textBox1 = new TextBox();
+            txtAmountPaid = new TextBox();
             label3 = new Label();
             lblTotalAmount = new Label();
             label2 = new Label();
             label1 = new Label();
             label4 = new Label();
-            textBox2 = new TextBox();
+            txtRemarks = new TextBox();
             btnConfirm = new Button();
             btnCancel = new Button();
             panel1 = new Panel();
             panelBorder = new Panel();
-            lblChange = new Label();
-            label5 = new Label();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             panel1.SuspendLayout();
             panelBorder.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // txtAmountPaid
             // 
-            textBox1.Font = new Font("Segoe UI", 11F);
-            textBox1.Location = new Point(58, 243);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Enter Amount";
-            textBox1.Size = new Size(341, 32);
-            textBox1.TabIndex = 9;
+            txtAmountPaid.Font = new Font("Segoe UI", 11F);
+            txtAmountPaid.Location = new Point(57, 199);
+            txtAmountPaid.Name = "txtAmountPaid";
+            txtAmountPaid.PlaceholderText = "Enter Amount";
+            txtAmountPaid.Size = new Size(341, 32);
+            txtAmountPaid.TabIndex = 9;
+            txtAmountPaid.KeyPress += txtAmountPaid_KeyPress;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(58, 207);
+            label3.Location = new Point(57, 163);
             label3.Name = "label3";
-            label3.Size = new Size(172, 28);
+            label3.Size = new Size(177, 28);
             label3.TabIndex = 8;
-            label3.Text = "Amount Received";
+            label3.Text = "Amount Received:";
             // 
             // lblTotalAmount
             // 
@@ -102,21 +101,21 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(58, 305);
+            label4.Location = new Point(57, 269);
             label4.Name = "label4";
             label4.Size = new Size(151, 28);
             label4.TabIndex = 10;
             label4.Text = "Payment Notes";
             // 
-            // textBox2
+            // txtRemarks
             // 
-            textBox2.Font = new Font("Segoe UI", 11F);
-            textBox2.Location = new Point(58, 341);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Remarks";
-            textBox2.Size = new Size(614, 120);
-            textBox2.TabIndex = 11;
+            txtRemarks.Font = new Font("Segoe UI", 11F);
+            txtRemarks.Location = new Point(57, 305);
+            txtRemarks.Multiline = true;
+            txtRemarks.Name = "txtRemarks";
+            txtRemarks.PlaceholderText = "Remarks";
+            txtRemarks.Size = new Size(614, 152);
+            txtRemarks.TabIndex = 11;
             // 
             // btnConfirm
             // 
@@ -153,40 +152,26 @@
             // 
             panelBorder.BackColor = Color.Transparent;
             panelBorder.BorderStyle = BorderStyle.FixedSingle;
-            panelBorder.Controls.Add(lblChange);
-            panelBorder.Controls.Add(label5);
+            panelBorder.Controls.Add(label3);
+            panelBorder.Controls.Add(txtRemarks);
+            panelBorder.Controls.Add(txtAmountPaid);
+            panelBorder.Controls.Add(label4);
             panelBorder.Dock = DockStyle.Fill;
             panelBorder.Location = new Point(0, 0);
             panelBorder.Name = "panelBorder";
             panelBorder.Size = new Size(829, 558);
             panelBorder.TabIndex = 6;
             // 
-            // lblChange
+            // printDocument1
             // 
-            lblChange.AutoSize = true;
-            lblChange.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblChange.Location = new Point(302, 131);
-            lblChange.Name = "lblChange";
-            lblChange.Size = new Size(96, 28);
-            lblChange.TabIndex = 15;
-            lblChange.Text = "12,000.00";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(57, 131);
-            label5.Name = "label5";
-            label5.Size = new Size(86, 28);
-            label5.TabIndex = 15;
-            label5.Text = "Change:";
-            label5.Click += label5_Click;
+            printDocument1.PrintPage += printDocument1_PrintPage;
             // 
             // printPreviewDialog1
             // 
             printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
             printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
             printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.Enabled = true;
             printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
             printPreviewDialog1.Name = "printPreviewDialog1";
@@ -200,10 +185,6 @@
             Controls.Add(panel1);
             Controls.Add(btnCancel);
             Controls.Add(btnConfirm);
-            Controls.Add(textBox2);
-            Controls.Add(label4);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
             Controls.Add(lblTotalAmount);
             Controls.Add(label2);
             Controls.Add(panelBorder);
@@ -221,19 +202,17 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox txtAmountPaid;
         private Label label3;
         private Label lblTotalAmount;
         private Label label2;
         private Label label1;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox txtRemarks;
         private Button btnConfirm;
         private Button btnCancel;
         private Panel panel1;
         private Panel panelBorder;
-        private Label label5;
-        private Label lblChange;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
     }

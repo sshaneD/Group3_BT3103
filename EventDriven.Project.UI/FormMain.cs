@@ -79,6 +79,7 @@ namespace EventDriven.Project.UI
                 patientInfo.GoToAdmissionEdit += (s, e) => ShowControl(new Admission());
                 patientInfo.GoToMedicalRecord += (s, e) => ShowControl(new MedicalRecord());
                 patientInfo.GoToBOS += (s, e) => ShowControl(new BillOfStatement());
+                patientInfo.GoToDischarge += (s, e) => ShowControl(new Discharge());
 
             }
             else if (userControl is Admission admission)
@@ -93,7 +94,7 @@ namespace EventDriven.Project.UI
                     btnPatientInfo.BackColor = Color.LightGray;
                 }
                 admission.GoToPatientInfo += (s, e) => ShowControl(new PatientInformation());
-
+                admission.GoToAdmissionHistory += (s, e) => ShowControl(new AdmissionHistory());
             }
 
             else if (userControl is RoomManagement roomManagement)
