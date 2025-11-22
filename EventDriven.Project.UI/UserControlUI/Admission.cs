@@ -224,7 +224,7 @@ namespace EventDriven.Project.UI.UserControlUI
             [
                 roomController.GetRoomTypeAvailability("Ward"),
                 roomController.GetRoomTypeAvailability("Private Room"),
-                roomController.GetRoomTypeAvailability("Nursery Room"),
+                roomController.GetRoomTypeAvailability("Pediatric Room"),
                 roomController.GetRoomTypeAvailability("Emergency Room"),
                 roomController.GetRoomTypeAvailability("Intensive Care Unit (ICU)"),
                 roomController.GetRoomTypeAvailability("Neonatal Intensive Care Unit (NICU)"),
@@ -286,14 +286,26 @@ namespace EventDriven.Project.UI.UserControlUI
                 RoomID = selectedRoom.RoomID,
                 PatientID = FormMain.AdmissionAction.Equals("Add") ? patientController.GetNextPatientID() - 1 : FormMain.selectedPatientID,
                 BedNumber = roomNumber.OccupiedBeds + 1,
-                StartDate = DateTime.Now,
-                EndDate = null
+                StartDate = dateStartDate.Value.Date,
+                EndDate = dateEndDate.Checked == true ? dateEndDate.Value.Date : null,
             };
+            if (FormMain.AdmissionAction.Equals("Edit"))
+            {
+                CurrentRoomModel currentRoom = roomController.GetCurrentRoom(FormMain.selectedPatientID);
+                if (currentRoom.RoomID == assignedRoom.RoomID)
+                {
+                    return;
+                }
+            }
             roomController.AssignRoom(assignedRoom);
         }
         private void btnViewAdmissionHistory_Click(object sender, EventArgs e)
         {
             GoToAdmissionHistory?.Invoke(this, EventArgs.Empty);
+        }
+        private void removeFocus(object sender, EventArgs e)
+        {
+            ActiveControl = null;
         }
     }
 }

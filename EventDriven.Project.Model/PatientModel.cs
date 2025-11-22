@@ -17,6 +17,7 @@ namespace EventDriven.Project.Model
         public string Gender { get; set; }
         public string GuardianName { get; set; }
         public string GuardianNo { get; set; }
+        public string Status { get; set; }
 
     }
 }

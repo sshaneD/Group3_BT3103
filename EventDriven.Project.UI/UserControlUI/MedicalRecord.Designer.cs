@@ -57,11 +57,13 @@
             txtNotes = new TextBox();
             label9 = new Label();
             btnExit = new Button();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             panelAssignment.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
             panelDischarged.SuspendLayout();
             panel7.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -265,13 +267,17 @@
             // 
             // btnDelete
             // 
+            btnDelete.BackColor = Color.FromArgb(11, 143, 172);
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            btnDelete.ForeColor = Color.White;
             btnDelete.Location = new Point(907, 905);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(144, 47);
             btnDelete.TabIndex = 15;
             btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // label6
@@ -287,28 +293,31 @@
             // txtDiagnosis
             // 
             txtDiagnosis.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            txtDiagnosis.Location = new Point(32, 538);
+            txtDiagnosis.Location = new Point(18, 29);
             txtDiagnosis.Multiline = true;
             txtDiagnosis.Name = "txtDiagnosis";
-            txtDiagnosis.Size = new Size(306, 218);
+            txtDiagnosis.ReadOnly = true;
+            txtDiagnosis.Size = new Size(306, 177);
             txtDiagnosis.TabIndex = 0;
             // 
             // txtTreatment
             // 
             txtTreatment.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            txtTreatment.Location = new Point(383, 538);
+            txtTreatment.Location = new Point(361, 29);
             txtTreatment.Multiline = true;
             txtTreatment.Name = "txtTreatment";
-            txtTreatment.Size = new Size(306, 218);
+            txtTreatment.ReadOnly = true;
+            txtTreatment.Size = new Size(306, 177);
             txtTreatment.TabIndex = 6;
             // 
             // txtMedication
             // 
             txtMedication.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            txtMedication.Location = new Point(745, 538);
+            txtMedication.Location = new Point(717, 29);
             txtMedication.Multiline = true;
             txtMedication.Name = "txtMedication";
-            txtMedication.Size = new Size(306, 218);
+            txtMedication.ReadOnly = true;
+            txtMedication.Size = new Size(306, 177);
             txtMedication.TabIndex = 7;
             // 
             // label7
@@ -333,18 +342,20 @@
             // 
             // txtNotes
             // 
+            txtNotes.BackColor = Color.White;
             txtNotes.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            txtNotes.Location = new Point(32, 806);
+            txtNotes.Location = new Point(17, 816);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
-            txtNotes.Size = new Size(855, 146);
+            txtNotes.ReadOnly = true;
+            txtNotes.Size = new Size(855, 136);
             txtNotes.TabIndex = 10;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            label9.Location = new Point(35, 769);
+            label9.Location = new Point(35, 781);
             label9.Name = "label9";
             label9.Size = new Size(84, 32);
             label9.TabIndex = 11;
@@ -352,28 +363,41 @@
             // 
             // btnExit
             // 
+            btnExit.BackColor = Color.FromArgb(11, 143, 172);
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            btnExit.ForeColor = Color.White;
             btnExit.Location = new Point(1451, 28);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(144, 47);
             btnExit.TabIndex = 13;
             btnExit.Text = "Back";
-            btnExit.UseVisualStyleBackColor = true;
+            btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(txtMedication);
+            panel2.Controls.Add(txtTreatment);
+            panel2.Controls.Add(txtDiagnosis);
+            panel2.Location = new Point(17, 534);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1042, 236);
+            panel2.TabIndex = 16;
             // 
             // MedicalRecord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(txtNotes);
+            Controls.Add(panel2);
             Controls.Add(btnDelete);
             Controls.Add(btnExit);
             Controls.Add(label9);
-            Controls.Add(txtNotes);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(txtMedication);
-            Controls.Add(txtTreatment);
-            Controls.Add(txtDiagnosis);
             Controls.Add(label6);
             Controls.Add(panel7);
             Controls.Add(panelAssignment);
@@ -391,6 +415,8 @@
             panelDischarged.ResumeLayout(false);
             panelDischarged.PerformLayout();
             panel7.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -431,5 +457,6 @@
         private Label lblDate;
         private Panel panelDischarged;
         private Label label2;
+        private Panel panel2;
     }
 }

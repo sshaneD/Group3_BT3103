@@ -8,7 +8,6 @@ namespace EventDriven.Project.Businesslogic.Repository
     internal class PatientRepo
     {
         private string CONNECTIONSTRING = ConfigurationHelper.GetConnectionString();
-
         public List<PatientModel> GetAllPatient()
         {
             try
@@ -35,6 +34,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Gender = (string)reader["Gender"],
                                     GuardianName = (string)reader["GuardianName"],
                                     GuardianNo = (string)reader["GuardianNo"],
+                                    Status = (string)reader["Status"]
                                 };
                                 patients.Add(patient);
                             }
@@ -76,6 +76,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Gender = (string)reader["Gender"],
                                     GuardianName = (string)reader["GuardianName"],
                                     GuardianNo = (string)reader["GuardianNo"],
+                                    Status = (string)reader["Status"]
                                 };
                                 return patient;
                             }
@@ -169,6 +170,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     Gender = (string)reader["Gender"],
                                     GuardianName = (string)reader["GuardianName"],
                                     GuardianNo = (string)reader["GuardianNo"],
+                                    Status = (string)reader["Status"]
                                 });
                             }
                             return patients;
@@ -239,7 +241,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                                     AdmissionID = (int)reader["AdmissionID"],
                                     PatientID = (int)reader["PatientID"],
                                     PatientName = (string)reader["PatientName"],
-                                    Diagnosis = (string)reader["Diagnosis"],
+                                    Diagnosis = string.IsNullOrEmpty(reader["Diagnosis"].ToString()) ? string.Empty : (string)reader["Diagnosis"],
                                     AdmissionDate = (DateTime)reader["AdmissionDate"],
                                     DischargeDate = reader["DischargeDate"] as DateTime?
                                 };
@@ -286,6 +288,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                     cmd.Parameters.AddWithValue("@PatientID", PatientID);
                     cmd.Parameters.AddWithValue("@AdmissionID", AdmissionID);
                     cmd.ExecuteNonQuery();
+
                 }
             }
         }

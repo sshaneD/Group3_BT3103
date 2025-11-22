@@ -34,7 +34,6 @@ namespace EventDriven.Project.UI
 
             MedicalRecordModel medicalRecord = new MedicalRecordModel();
             medicalRecord.PatientID = selectedPatientID;
-            medicalRecord.RecordDate = dateRecordDate.Value;
             medicalRecord.Diagnosis = txtDiagnosis.Text;
             medicalRecord.Notes = txtNotes.Text;
 
@@ -58,6 +57,11 @@ namespace EventDriven.Project.UI
 
             MessageBox.Show("Medical details added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

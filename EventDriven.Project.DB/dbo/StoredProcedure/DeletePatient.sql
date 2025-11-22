@@ -1,4 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[DeletePatient]
-	@PatientID int 
-	as 
-	Delete From Patient where PatientID = @PatientID
+	@PatientID INT
+AS 
+	DELETE FROM Patient WHERE PatientID = @PatientID

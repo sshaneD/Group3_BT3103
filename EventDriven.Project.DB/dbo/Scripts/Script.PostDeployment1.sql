@@ -19,58 +19,58 @@ VALUES
 ('receptionist','receptionist1234','receptionist');
 
 INSERT INTO [dbo].[Patient]
-(FirstName, MiddleName, LastName, DateOfBirth, Age, Gender, GuardianName, GuardianNo)
+(FirstName, MiddleName, LastName, DateOfBirth, Age, Gender, GuardianName, GuardianNo, Status)
 VALUES
-('Ethan','Ramirez','Cruz','2013-05-10',12,'Male','Maria Cruz','09171234567'),
-('Sophia','Lopez','Santos','2016-08-22',9,'Female','Carlo Santos','09182345678'),
-('Daniel','Moreno','Reyes','2010-02-15',15,'Male','Liza Reyes','09293456789'),
-('Mia','Garcia','Torres','2014-11-05',11,'Female','Juan Torres','09304567891'),
-('Liam','Flores','Mendoza','2011-03-09',14,'Male','Ana Mendoza','09415678902'),
-('Chloe','Ramos','Ramirez','2015-09-18',10,'Female','Pedro Ramirez','09526789013'),
-('Noah','Reyes','Villanueva','2012-06-25',13,'Male','Grace Villanueva','09637890124'),
-('Isabella','Dela Cruz','Bautista','2017-12-02',8,'Female','Marco Bautista','09748901235'),
-('Lucas','Mendoza','Navarro','2009-01-19',16,'Male','Rosa Navarro','09859012346'),
-('Ava','Castro','Dela Cruz','2018-10-27',7,'Female','Jose Dela Cruz','09160123457'),
-('Elijah','Torres','Ramos','2013-04-11',12,'Male','Karen Ramos','09171235678'),
-('Aria','Villanueva','Flores','2010-07-30',15,'Female','Roberto Flores','09182346789'),
-('Mason','Gutierrez','Gutierrez','2011-09-14',14,'Male','Teresa Gutierrez','09193457890'),
-('Amelia','Cruz','Castillo','2014-12-08',11,'Female','Edgar Castillo','09204568901'),
-('Benjamin','Lozano','Morales','2016-05-21',9,'Male','Clara Morales','09315679012'),
-('Harper','Santos','Santiago','2012-02-07',13,'Female','Ramon Santiago','09426780123'),
-('James','Perez','Perez','2009-06-03',16,'Male','Julia Perez','09537891234'),
-('Emily','Bautista','Lozano','2015-08-25',10,'Female','Mario Lozano','09648902345'),
-('Alexander','Fernandez','Bautista','2010-09-29',15,'Male','Cecilia Bautista','09759013456'),
-('Abigail','Rivera','Rivera','2017-11-16',8,'Female','Hector Rivera','09860124567'),
-('Michael','Jimenez','Jimenez','2011-04-02',14,'Male','Sonia Jimenez','09171235679'),
-('Grace','Aguilar','Aguilar','2013-07-09',12,'Female','Leo Aguilar','09182346780'),
-('William','Fernandez','Fernandez','2012-03-28',13,'Male','Andrea Fernandez','09193457891'),
-('Ella','Salazar','Salazar','2018-09-19',7,'Female','Carlo Salazar','09204568902'),
-('Henry','Gonzales','Gonzales','2010-01-13',15,'Male','Pilar Gonzales','09315679013'),
-('Scarlett','Lim','Lim','2015-10-10',10,'Female','Alvin Lim','09426780124'),
-('Jacob','Cruz','Cruz','2014-02-26',11,'Male','Maria Cruz','09537891235'),
-('Victoria','Ramos','Ramos','2009-03-05',16,'Female','Karen Ramos','09648902346'),
-('Matthew','Reyes','Reyes','2013-11-15',12,'Male','Liza Reyes','09759013457'),
-('Sofia','Navarro','Navarro','2016-06-07',9,'Female','Rosa Navarro','09860124568'),
-('David','Santiago','Santiago','2011-07-23',14,'Male','Ramon Santiago','09171235670'),
-('Avery','Mendoza','Mendoza','2012-10-14',13,'Female','Ana Mendoza','09182346781'),
-('Joseph','Villanueva','Villanueva','2010-12-01',15,'Male','Grace Villanueva','09193457892'),
-('Lily','Torres','Torres','2017-09-20',8,'Female','Juan Torres','09204568903'),
-('Samuel','Santos','Santos','2015-05-02',10,'Male','Carlo Santos','09315679014'),
-('Natalie','Cruz','Cruz','2014-08-13',11,'Female','Maria Cruz','09426780125'),
-('Anthony','Gutierrez','Gutierrez','2011-03-27',14,'Male','Teresa Gutierrez','09537891236'),
-('Zoey','Castillo','Castillo','2012-01-18',13,'Female','Edgar Castillo','09648902347'),
-('Andrew','Morales','Morales','2009-05-25',16,'Male','Clara Morales','09759013458'),
-('Hannah','Ramos','Ramos','2018-04-11',7,'Female','Karen Ramos','09860124569'),
-('Christopher','Reyes','Reyes','2013-09-30',12,'Male','Liza Reyes','09171235671'),
-('Layla','Navarro','Navarro','2016-11-07',9,'Female','Rosa Navarro','09182346782'),
-('Joshua','Aguilar','Aguilar','2010-07-05',15,'Male','Leo Aguilar','09193457893'),
-('Zoella','Santiago','Santiago','2017-02-03',8,'Female','Ramon Santiago','09204568904'),
-('Ryan','Mendoza','Mendoza','2011-06-15',14,'Male','Ana Mendoza','09315679015'),
-('Penelope','Villanueva','Villanueva','2015-01-24',10,'Female','Grace Villanueva','09426780126'),
-('Isaac','Cruz','Cruz','2012-05-09',13,'Male','Maria Cruz','09537891237'),
-('Camila','Perez','Perez','2009-08-28',16,'Female','Julia Perez','09648902348'),
-('Oliver','Jimenez','Jimenez','2013-03-17',12,'Male','Sonia Jimenez','09759013459'),
-('Aurora','Torres','Torres','2014-10-22',11,'Female','Juan Torres','09860124560');
+('Ethan','Javier','Cruz','2013-05-10',12,'Male','Maria Cruz','09171234567','Admitted'),
+('Sophia','Elena','Santos','2016-08-22',9,'Female','Carlo Santos','09182345678','Admitted'),
+('Daniel','Hector','Reyes','2010-02-15',15,'Male','Liza Reyes','09293456789','Discharged'),
+('Mia','Louise','Torres','2014-11-05',11,'Female','Juan Torres','09304567891','Admitted'),
+('Liam','Gabriel','Mendoza','2011-03-09',14,'Male','Ana Mendoza','09415678902','Discharged'),
+('Chloe','Denise','Ramirez','2015-09-18',10,'Female','Pedro Ramirez','09526789013','Admitted'),
+('Noah','Francis','Villanueva','2012-06-25',13,'Male','Grace Villanueva','09637890124','Discharged'),
+('Isabella','Rose','Bautista','2017-12-02',8,'Female','Marco Bautista','09748901235','Admitted'),
+('Lucas','Nathan','Navarro','2009-01-19',16,'Male','Rosa Navarro','09859012346','Discharged'),
+('Ava','Nicole','Dela Cruz','2018-10-27',7,'Female','Jose Dela Cruz','09160123457','Admitted'),
+('Elijah','Thomas','Ramos','2013-04-11',12,'Male','Karen Ramos','09171235678','Admitted'),
+('Aria','Mae','Flores','2010-07-30',15,'Female','Roberto Flores','09182346789','Discharged'),
+('Mason','Rafael','Gutierrez','2011-09-14',14,'Male','Teresa Gutierrez','09193457890','Admitted'),
+('Amelia','Faith','Castillo','2014-12-08',11,'Female','Edgar Castillo','09204568901','Discharged'),
+('Benjamin','Joel','Morales','2016-05-21',9,'Male','Clara Morales','09315679012','Admitted'),
+('Harper','Celeste','Santiago','2012-02-07',13,'Female','Ramon Santiago','09426780123','Discharged'),
+('James','Patrick','Perez','2009-06-03',16,'Male','Julia Perez','09537891234','Discharged'),
+('Emily','Sarah','Lozano','2015-08-25',10,'Female','Mario Lozano','09648902345','Admitted'),
+('Alexander','Julian','Bautista','2010-09-29',15,'Male','Cecilia Bautista','09759013456','Admitted'),
+('Abigail','Hope','Rivera','2017-11-16',8,'Female','Hector Rivera','09860124567','Discharged'),
+('Michael','Andre','Jimenez','2011-04-02',14,'Male','Sonia Jimenez','09171235679','Admitted'),
+('Grace','Elaine','Aguilar','2013-07-09',12,'Female','Leo Aguilar','09182346780','Admitted'),
+('William','Marcus','Fernandez','2012-03-28',13,'Male','Andrea Fernandez','09193457891','Admitted'),
+('Ella','Marion','Salazar','2018-09-19',7,'Female','Carlo Salazar','09204568902','Admitted'),
+('Henry','Joseph','Gonzales','2010-01-13',15,'Male','Pilar Gonzales','09315679013','Admitted'),
+('Scarlett','Diana','Lim','2015-10-10',10,'Female','Alvin Lim','09426780124','Admitted'),
+('Jacob','Vincent','Cruz','2014-02-26',11,'Male','Maria Cruz','09537891235','Discharged'),
+('Victoria','Iris','Ramos','2009-03-05',16,'Female','Karen Ramos','09648902346','Admitted'),
+('Matthew','Reid','Reyes','2013-11-15',12,'Male','Liza Reyes','09759013457','Admitted'),
+('Sofia','Anne','Navarro','2016-06-07',9,'Female','Rosa Navarro','09860124568','Admitted'),
+('David','Christian','Santiago','2011-07-23',14,'Male','Ramon Santiago','09171235670','Admitted'),
+('Avery','Lou','Mendoza','2012-10-14',13,'Female','Ana Mendoza','09182346781','Admitted'),
+('Joseph','Clark','Villanueva','2010-12-01',15,'Male','Grace Villanueva','09193457892','Admitted'),
+('Lily','Dawn','Torres','2017-09-20',8,'Female','Juan Torres','09204568903','Admitted'),
+('Samuel','Dean','Santos','2015-05-02',10,'Male','Carlo Santos','09315679014','Admitted'),
+('Natalie','Eve','Cruz','2014-08-13',11,'Female','Maria Cruz','09426780125','Admitted'),
+('Anthony','Paul','Gutierrez','2011-03-27',14,'Male','Teresa Gutierrez','09537891236','Admitted'),
+('Zoey','Kate','Castillo','2012-01-18',13,'Female','Edgar Castillo','09648902347','Admitted'),
+('Andrew','Shawn','Morales','2009-05-25',16,'Male','Clara Morales','09759013458','Admitted'),
+('Hannah','Tess','Ramos','2018-04-11',7,'Female','Karen Ramos','09860124569','Admitted'),
+('Christopher','Joel','Reyes','2013-09-30',12,'Male','Liza Reyes','09171235671','Admitted'),
+('Layla','Aimee','Navarro','2016-11-07',9,'Female','Rosa Navarro','09182346782','Discharged'),
+('Joshua','Kyle','Aguilar','2010-07-05',15,'Male','Leo Aguilar','09193457893','Discharged'),
+('Zoella','Marie','Santiago','2017-02-03',8,'Female','Ramon Santiago','09204568904','Admitted'),
+('Ryan','Cole','Mendoza','2011-06-15',14,'Male','Ana Mendoza','09315679015','Discharged'),
+('Penelope','Hazel','Villanueva','2015-01-24',10,'Female','Grace Villanueva','09426780126','Admitted'),
+('Isaac','Rowan','Cruz','2012-05-09',13,'Male','Maria Cruz','09537891237','Admitted'),
+('Camila','Joy','Perez','2009-08-28',16,'Female','Julia Perez','09648902348','Admitted'),
+('Oliver','Zane','Jimenez','2013-03-17',12,'Male','Sonia Jimenez','09759013459','Admitted'),
+('Aurora','Belle','Torres','2014-10-22',11,'Female','Juan Torres','09860124560','Admitted');
 
 INSERT INTO [dbo].[Admissions] ([PatientID], [AdmissionDate], [DischargeDate])
 VALUES
@@ -169,36 +169,106 @@ VALUES
 ('03030', 6, 'Noel', 'Roxas', 'Nurse', '11:00PM-7:00AM');
 
 INSERT INTO [dbo].[StaffAssignment] ([PatientID], [StaffID], [Role])
-SELECT 1000, 3001, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3001 UNION ALL
-SELECT 1000, 3002, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3002 UNION ALL
-SELECT 1001, 3003, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3003 UNION ALL
-SELECT 1001, 3004, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3004 UNION ALL
-SELECT 1002, 3005, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3005 UNION ALL
-SELECT 1002, 3006, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3006 UNION ALL
-SELECT 1003, 3007, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3007 UNION ALL
-SELECT 1003, 3008, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3008 UNION ALL
-SELECT 1004, 3009, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3009 UNION ALL
-SELECT 1004, 3010, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3010 UNION ALL
-SELECT 1005, 3011, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3011 UNION ALL
-SELECT 1005, 3012, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3012 UNION ALL
-SELECT 1006, 3013, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3013 UNION ALL
-SELECT 1006, 3014, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3014 UNION ALL
-SELECT 1007, 3015, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3015 UNION ALL
-SELECT 1007, 3016, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3016 UNION ALL
-SELECT 1008, 3017, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3017 UNION ALL
-SELECT 1008, 3018, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3018 UNION ALL
-SELECT 1009, 3019, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3019 UNION ALL
-SELECT 1009, 3020, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3020 UNION ALL
-SELECT 1010, 3021, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3021 UNION ALL
-SELECT 1010, 3022, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3022 UNION ALL
-SELECT 1011, 3023, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3023 UNION ALL
-SELECT 1011, 3024, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3024 UNION ALL
-SELECT 1012, 3025, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3025 UNION ALL
-SELECT 1012, 3026, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3026 UNION ALL
-SELECT 1013, 3027, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3027 UNION ALL
-SELECT 1013, 3028, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3028 UNION ALL
-SELECT 1014, 3029, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3029 UNION ALL
-SELECT 1014, 3030, [Role] FROM [dbo].[Staff] WHERE [StaffID] = 3030;
+SELECT 1000, 3001, [Role] FROM Staff WHERE StaffID = 3001 UNION ALL
+SELECT 1000, 3002, [Role] FROM Staff WHERE StaffID = 3002 UNION ALL
+SELECT 1001, 3003, [Role] FROM Staff WHERE StaffID = 3003 UNION ALL
+SELECT 1001, 3004, [Role] FROM Staff WHERE StaffID = 3004 UNION ALL
+SELECT 1002, 3005, [Role] FROM Staff WHERE StaffID = 3005 UNION ALL
+SELECT 1002, 3006, [Role] FROM Staff WHERE StaffID = 3006 UNION ALL
+SELECT 1003, 3007, [Role] FROM Staff WHERE StaffID = 3007 UNION ALL
+SELECT 1003, 3008, [Role] FROM Staff WHERE StaffID = 3008 UNION ALL
+SELECT 1004, 3009, [Role] FROM Staff WHERE StaffID = 3009 UNION ALL
+SELECT 1004, 3010, [Role] FROM Staff WHERE StaffID = 3010 UNION ALL
+SELECT 1005, 3011, [Role] FROM Staff WHERE StaffID = 3011 UNION ALL
+SELECT 1005, 3012, [Role] FROM Staff WHERE StaffID = 3012 UNION ALL
+SELECT 1006, 3013, [Role] FROM Staff WHERE StaffID = 3013 UNION ALL
+SELECT 1006, 3014, [Role] FROM Staff WHERE StaffID = 3014 UNION ALL
+SELECT 1007, 3001, [Role] FROM Staff WHERE StaffID = 3001 UNION ALL
+SELECT 1007, 3002, [Role] FROM Staff WHERE StaffID = 3002 UNION ALL
+SELECT 1008, 3003, [Role] FROM Staff WHERE StaffID = 3003 UNION ALL
+SELECT 1008, 3004, [Role] FROM Staff WHERE StaffID = 3004 UNION ALL
+SELECT 1009, 3005, [Role] FROM Staff WHERE StaffID = 3005 UNION ALL
+SELECT 1009, 3006, [Role] FROM Staff WHERE StaffID = 3006 UNION ALL
+SELECT 1010, 3007, [Role] FROM Staff WHERE StaffID = 3007 UNION ALL
+SELECT 1010, 3008, [Role] FROM Staff WHERE StaffID = 3008 UNION ALL
+SELECT 1011, 3009, [Role] FROM Staff WHERE StaffID = 3009 UNION ALL
+SELECT 1011, 3010, [Role] FROM Staff WHERE StaffID = 3010 UNION ALL
+SELECT 1012, 3011, [Role] FROM Staff WHERE StaffID = 3011 UNION ALL
+SELECT 1012, 3012, [Role] FROM Staff WHERE StaffID = 3012 UNION ALL
+SELECT 1013, 3013, [Role] FROM Staff WHERE StaffID = 3013 UNION ALL
+SELECT 1013, 3014, [Role] FROM Staff WHERE StaffID = 3014 UNION ALL
+SELECT 1014, 3001, [Role] FROM Staff WHERE StaffID = 3001 UNION ALL
+SELECT 1014, 3002, [Role] FROM Staff WHERE StaffID = 3002 UNION ALL
+SELECT 1015, 3003, [Role] FROM Staff WHERE StaffID = 3003 UNION ALL
+SELECT 1015, 3004, [Role] FROM Staff WHERE StaffID = 3004 UNION ALL
+SELECT 1016, 3005, [Role] FROM Staff WHERE StaffID = 3005 UNION ALL
+SELECT 1016, 3006, [Role] FROM Staff WHERE StaffID = 3006 UNION ALL
+SELECT 1017, 3007, [Role] FROM Staff WHERE StaffID = 3007 UNION ALL
+SELECT 1017, 3008, [Role] FROM Staff WHERE StaffID = 3008 UNION ALL
+SELECT 1018, 3009, [Role] FROM Staff WHERE StaffID = 3009 UNION ALL
+SELECT 1018, 3010, [Role] FROM Staff WHERE StaffID = 3010 UNION ALL
+SELECT 1019, 3011, [Role] FROM Staff WHERE StaffID = 3011 UNION ALL
+SELECT 1019, 3012, [Role] FROM Staff WHERE StaffID = 3012 UNION ALL
+SELECT 1020, 3013, [Role] FROM Staff WHERE StaffID = 3013 UNION ALL
+SELECT 1020, 3014, [Role] FROM Staff WHERE StaffID = 3014 UNION ALL
+SELECT 1021, 3001, [Role] FROM Staff WHERE StaffID = 3001 UNION ALL
+SELECT 1021, 3002, [Role] FROM Staff WHERE StaffID = 3002 UNION ALL
+SELECT 1022, 3003, [Role] FROM Staff WHERE StaffID = 3003 UNION ALL
+SELECT 1022, 3004, [Role] FROM Staff WHERE StaffID = 3004 UNION ALL
+SELECT 1023, 3005, [Role] FROM Staff WHERE StaffID = 3005 UNION ALL
+SELECT 1023, 3006, [Role] FROM Staff WHERE StaffID = 3006 UNION ALL
+SELECT 1024, 3007, [Role] FROM Staff WHERE StaffID = 3007 UNION ALL
+SELECT 1024, 3008, [Role] FROM Staff WHERE StaffID = 3008 UNION ALL
+SELECT 1025, 3009, [Role] FROM Staff WHERE StaffID = 3009 UNION ALL
+SELECT 1025, 3010, [Role] FROM Staff WHERE StaffID = 3010 UNION ALL
+SELECT 1026, 3011, [Role] FROM Staff WHERE StaffID = 3011 UNION ALL
+SELECT 1026, 3012, [Role] FROM Staff WHERE StaffID = 3012 UNION ALL
+SELECT 1027, 3013, [Role] FROM Staff WHERE StaffID = 3013 UNION ALL
+SELECT 1027, 3014, [Role] FROM Staff WHERE StaffID = 3014 UNION ALL
+SELECT 1028, 3001, [Role] FROM Staff WHERE StaffID = 3001 UNION ALL
+SELECT 1028, 3002, [Role] FROM Staff WHERE StaffID = 3002 UNION ALL
+SELECT 1029, 3003, [Role] FROM Staff WHERE StaffID = 3003 UNION ALL
+SELECT 1029, 3004, [Role] FROM Staff WHERE StaffID = 3004 UNION ALL
+SELECT 1030, 3005, [Role] FROM Staff WHERE StaffID = 3005 UNION ALL
+SELECT 1030, 3006, [Role] FROM Staff WHERE StaffID = 3006 UNION ALL
+SELECT 1031, 3007, [Role] FROM Staff WHERE StaffID = 3007 UNION ALL
+SELECT 1031, 3008, [Role] FROM Staff WHERE StaffID = 3008 UNION ALL
+SELECT 1032, 3009, [Role] FROM Staff WHERE StaffID = 3009 UNION ALL
+SELECT 1032, 3010, [Role] FROM Staff WHERE StaffID = 3010 UNION ALL
+SELECT 1033, 3011, [Role] FROM Staff WHERE StaffID = 3011 UNION ALL
+SELECT 1033, 3012, [Role] FROM Staff WHERE StaffID = 3012 UNION ALL
+SELECT 1034, 3013, [Role] FROM Staff WHERE StaffID = 3013 UNION ALL
+SELECT 1034, 3014, [Role] FROM Staff WHERE StaffID = 3014 UNION ALL
+SELECT 1035, 3001, [Role] FROM Staff WHERE StaffID = 3001 UNION ALL
+SELECT 1035, 3002, [Role] FROM Staff WHERE StaffID = 3002 UNION ALL
+SELECT 1036, 3003, [Role] FROM Staff WHERE StaffID = 3003 UNION ALL
+SELECT 1036, 3004, [Role] FROM Staff WHERE StaffID = 3004 UNION ALL
+SELECT 1037, 3005, [Role] FROM Staff WHERE StaffID = 3005 UNION ALL
+SELECT 1037, 3006, [Role] FROM Staff WHERE StaffID = 3006 UNION ALL
+SELECT 1038, 3007, [Role] FROM Staff WHERE StaffID = 3007 UNION ALL
+SELECT 1038, 3008, [Role] FROM Staff WHERE StaffID = 3008 UNION ALL
+SELECT 1039, 3009, [Role] FROM Staff WHERE StaffID = 3009 UNION ALL
+SELECT 1039, 3010, [Role] FROM Staff WHERE StaffID = 3010 UNION ALL
+SELECT 1040, 3011, [Role] FROM Staff WHERE StaffID = 3011 UNION ALL
+SELECT 1040, 3012, [Role] FROM Staff WHERE StaffID = 3012 UNION ALL
+SELECT 1041, 3013, [Role] FROM Staff WHERE StaffID = 3013 UNION ALL
+SELECT 1041, 3014, [Role] FROM Staff WHERE StaffID = 3014 UNION ALL
+SELECT 1042, 3001, [Role] FROM Staff WHERE StaffID = 3001 UNION ALL
+SELECT 1042, 3002, [Role] FROM Staff WHERE StaffID = 3002 UNION ALL
+SELECT 1043, 3003, [Role] FROM Staff WHERE StaffID = 3003 UNION ALL
+SELECT 1043, 3004, [Role] FROM Staff WHERE StaffID = 3004 UNION ALL
+SELECT 1044, 3005, [Role] FROM Staff WHERE StaffID = 3005 UNION ALL
+SELECT 1044, 3006, [Role] FROM Staff WHERE StaffID = 3006 UNION ALL
+SELECT 1045, 3007, [Role] FROM Staff WHERE StaffID = 3007 UNION ALL
+SELECT 1045, 3008, [Role] FROM Staff WHERE StaffID = 3008 UNION ALL
+SELECT 1046, 3009, [Role] FROM Staff WHERE StaffID = 3009 UNION ALL
+SELECT 1046, 3010, [Role] FROM Staff WHERE StaffID = 3010 UNION ALL
+SELECT 1047, 3011, [Role] FROM Staff WHERE StaffID = 3011 UNION ALL
+SELECT 1047, 3012, [Role] FROM Staff WHERE StaffID = 3012 UNION ALL
+SELECT 1048, 3013, [Role] FROM Staff WHERE StaffID = 3013 UNION ALL
+SELECT 1048, 3014, [Role] FROM Staff WHERE StaffID = 3014 UNION ALL
+SELECT 1049, 3001, [Role] FROM Staff WHERE StaffID = 3001 UNION ALL
+SELECT 1049, 3002, [Role] FROM Staff WHERE StaffID = 3002;
 
 INSERT INTO [dbo].[Rooms] ([RoomID], [RoomNumber], [RoomType], [RatePerDay], [Capacity])
 VALUES
@@ -218,7 +288,7 @@ VALUES
 (14, 208, 'Private Room', 3000.00, 1),
 (15, 209, 'Private Room', 3000.00, 1),
 (16, 210, 'Private Room', 3000.00, 1),
-(17, 301, 'Nursery Room', 2000.00, 10),
+(17, 301, 'Pediatric Room', 2000.00, 20),
 (18, 401, 'Intensive Care Unit (ICU)', 8000.00, 1),
 (19, 402, 'Intensive Care Unit (ICU)', 8000.00, 1),
 (20, 403, 'Intensive Care Unit (ICU)', 8000.00, 1),
@@ -226,34 +296,59 @@ VALUES
 (22, 502, 'Neonatal Intensive Care Unit (NICU)', 9000.00, 1),
 (23, 503, 'Neonatal Intensive Care Unit (NICU)', 9000.00, 1);
 
-INSERT INTO [dbo].[RoomAssignments] 
-([AdmissionID], [RoomID], [PatientID], [BedNumber], [StartDate], [EndDate])
-VALUES
-(1, 1, 1000, 1, '2025-01-05', NULL),
-(2, 1, 1001, 2, '2025-01-10', '2025-02-10'),
-(3, 2, 1002, 1, '2025-01-12', NULL),
-(4, 2, 1003, 2, '2025-01-15', '2025-02-20'),
-(5, 3, 1004, 1, '2025-01-20', NULL),
-(6, 4, 1005, 1, '2025-01-25', NULL),
-(7, 4, 1006, 2, '2025-01-27', '2025-02-25'),
-(8, 5, 1007, 1, '2025-02-01', NULL),
-(9, 6, 1008, 1, '2025-02-03', NULL),
-(10, 7, 1009, 1, '2025-02-05', '2025-03-05'),
-(11, 8, 1010, 1, '2025-02-08', NULL),
-(12, 9, 1011, 1, '2025-02-10', '2025-03-10'),
-(13, 10, 1012, 1, '2025-02-12', NULL),
-(14, 11, 1013, 1, '2025-02-14', NULL),
-(15, 12, 1014, 1, '2025-02-16', NULL),
-(16, 13, 1015, 1, '2025-02-18', '2025-03-15'),
-(17, 14, 1016, 1, '2025-02-20', NULL),
-(18, 15, 1017, 1, '2025-02-22', NULL),
-(19, 16, 1018, 1, '2025-02-25', '2025-03-20'),
-(20, 17, 1019, 1, '2025-02-28', NULL),
-(21, 18, 1020, 1, '2025-03-01', NULL),
-(22, 19, 1021, 1, '2025-03-02', NULL),
-(23, 20, 1022, 1, '2025-03-03', NULL),
-(24, 21, 1023, 1, '2025-03-04', NULL),
-(25, 22, 1024, 1, '2025-03-05', NULL);
+INSERT INTO [dbo].[RoomAssignments] (AdmissionID, RoomID, PatientID, BedNumber, StartDate, EndDate) VALUES
+(1, 17, 1000, 1, '2025-10-20', NULL),
+(2, 17, 1001, 2, '2025-10-21', NULL),
+(3, 2, 1002, 1, '2025-10-22', '2025-10-24'),
+(3, 3, 1002, 1, '2025-10-24', '2025-10-25'),
+(4, 17, 1003, 3, '2025-10-22', NULL),
+(5, 2, 1004, 2, '2025-10-23', '2025-10-28'),
+(6, 17, 1005, 4, '2025-10-23', NULL),
+(7, 3, 1006, 2, '2025-10-24', '2025-10-29'),
+(8, 17, 1007, 5, '2025-10-24', NULL),
+(9, 7, 1008, 1, '2025-10-25', '2025-10-30'),
+(10, 17, 1009, 6, '2025-10-25', NULL),
+(11, 17, 1010, 7, '2025-10-26', '2025-10-29'),
+(11, 2, 1010, 3, '2025-10-29', '2025-10-31'),
+(12, 4, 1011, 1, '2025-10-26', '2025-10-31'),
+(13, 5, 1012, 1, '2025-10-27', NULL),
+(14, 17, 1013, 8, '2025-10-27', '2025-11-01'),
+(15, 17, 1014, 9, '2025-10-28', '2025-11-02'),
+(16, 6, 1015, 1, '2025-10-28', NULL),
+(17, 3, 1016, 3, '2025-10-29', '2025-11-03'),
+(18, 17, 1017, 10, '2025-10-29', NULL),
+(19, 5, 1018, 2, '2025-10-30', '2025-11-04'),
+(20, 17, 1019, 11, '2025-10-30', '2025-11-04'),
+(21, 8, 1020, 1, '2025-10-31', '2025-11-05'),
+(22, 17, 1021, 12, '2025-10-31', NULL),
+(23, 17, 1022, 13, '2025-11-01', NULL),
+(24, 4, 1023, 2, '2025-11-01', '2025-11-06'),
+(25, 17, 1024, 14, '2025-11-02', NULL),
+(26, 2, 1025, 4, '2025-11-02', '2025-11-07'),
+(27, 3, 1026, 4, '2025-11-03', NULL),
+(28, 6, 1027, 2, '2025-11-03', '2025-11-08'),
+(29, 9, 1028, 1, '2025-11-04', NULL),
+(30, 10, 1029, 1, '2025-11-04', '2025-11-09'),
+(31, 3, 1030, 5, '2025-11-05', '2025-11-10'),
+(32, 17, 1031, 15, '2025-11-05', '2025-11-10'),
+(33, 17, 1032, 16, '2025-11-06', NULL),
+(34, 17, 1033, 17, '2025-11-06', '2025-11-11'),
+(35, 5, 1034, 3, '2025-11-07', NULL),
+(36, 17, 1035, 18, '2025-11-07', '2025-11-12'),
+(37, 6, 1036, 3, '2025-11-08', '2025-11-13'),
+(38, 2, 1037, 1, '2025-11-08', '2025-11-14'),
+(39, 3, 1038, 6, '2025-11-09', NULL),
+(40, 17, 1039, 19, '2025-11-09', '2025-11-14'),
+(41, 17, 1040, 20, '2025-11-09', NULL),
+(42, 6, 1041, 4, '2025-11-10', NULL),
+(43, 17, 1042, 21, '2025-11-10', '2025-11-15'),
+(44, 17, 1043, 22, '2025-11-10', NULL),
+(45, 11, 1044, 1, '2025-11-11', '2025-11-16'),
+(46, 17, 1045, 23, '2025-11-11', NULL),
+(47, 3, 1046, 7, '2025-11-12', NULL),
+(48, 17, 1047, 24, '2025-11-12', '2025-11-17'),
+(49, 17, 1048, 25, '2025-11-13', NULL),
+(50, 17, 1049, 26, '2025-11-13', NULL);
 
 INSERT INTO [dbo].[MedicalRecords] ([AdmissionID], [PatientID], [RecordDate], [Diagnosis], [Notes])
 VALUES

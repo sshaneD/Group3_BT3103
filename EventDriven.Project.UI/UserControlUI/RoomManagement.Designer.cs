@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             roundedPanel1 = new RoundedPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             lblWardBeds = new Label();
@@ -90,14 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             flowLayoutPanel4.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Silver;
-            panel1.Location = new Point(0, -3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1637, 66);
-            panel1.TabIndex = 12;
             // 
             // roundedPanel1
             // 
@@ -337,7 +328,7 @@
             label15.Name = "label15";
             label15.Size = new Size(201, 29);
             label15.TabIndex = 26;
-            label15.Text = "NURSERY ROOM";
+            label15.Text = "PEDIATRIC ROOM";
             // 
             // pictureBox3
             // 
@@ -637,7 +628,6 @@
             Controls.Add(roundedPanel5);
             Controls.Add(roundedPanel4);
             Controls.Add(roundedPanel3);
-            Controls.Add(panel1);
             Controls.Add(roundedPanel2);
             Controls.Add(roundedPanel1);
             Name = "RoomManagement";
@@ -676,7 +666,6 @@
         }
 
         #endregion
-        private Panel panel1;
         private RoundedPanel roundedPanel1;
         private Label label2;
         private PictureBox pictureBox1;
