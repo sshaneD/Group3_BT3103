@@ -53,6 +53,11 @@ namespace EventDriven.Project.UI
                 }
             }
             dataGridAssignmentM.DataSource = allStaff;
+            dataGridAssignmentM.Columns["Role"].Visible = false;
+            dataGridAssignmentM.Columns["StaffID"].Visible = false;
+            dataGridAssignmentM.Columns["DepartmentName"].HeaderText = "Department";
+            dataGridAssignmentM.Columns["FirstName"].HeaderText = "First Name";
+            dataGridAssignmentM.Columns["LastName"].HeaderText = "Last Name";
         }
 
         private void button3_Click(object sender, EventArgs e)

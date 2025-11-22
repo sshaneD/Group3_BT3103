@@ -63,7 +63,6 @@ namespace EventDriven.Project.UI.UserControlUI
             cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
             dateStartDate.Value = assignedRoom.StartDate;
             dateEndDate.Value = assignedRoom.EndDate ?? DateTime.Now;
-
         }
         private void ClearData()
         {
