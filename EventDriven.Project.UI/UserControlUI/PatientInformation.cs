@@ -31,6 +31,13 @@ namespace EventDriven.Project.UI.UserControlUI
             staffController = new StaffController();
             roomController = new RoomController();
             DGPatientRecord.DataSource = patientController.GetAllPatients();
+            DGPatientRecord.Columns["PatientID"].HeaderText = "Patient ID";
+            DGPatientRecord.Columns["FirstName"].HeaderText = "First Name";
+            DGPatientRecord.Columns["MiddleName"].HeaderText = "Middle Name";
+            DGPatientRecord.Columns["LastName"].HeaderText = "Last Name";
+            DGPatientRecord.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+            DGPatientRecord.Columns["GuardianName"].HeaderText = " Guardian Name";
+            DGPatientRecord.Columns["GuardianNo"].HeaderText = "Guardian No";
             CheckLoggedUser();
         }
 

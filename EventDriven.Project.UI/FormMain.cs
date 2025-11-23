@@ -12,6 +12,9 @@ namespace EventDriven.Project.UI
         public static bool receivedValidID = false;
         public static RoomInfoModel SelectedRoom;
         public static List<StaffModel> assignedStaff = new List<StaffModel>();
+        public static string ValidIDType = string.Empty;
+        public static string ValidIDName = string.Empty;
+        public static string ValidIDNum = string.Empty;
         public FormMain()
         {
             InitializeComponent();
