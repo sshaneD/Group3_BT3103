@@ -54,7 +54,6 @@
             txtSearch.PlaceholderText = "Search for Patient ID or Name";
             txtSearch.Size = new Size(373, 33);
             txtSearch.TabIndex = 41;
-            txtSearch.TextChanged += txtSearch_TextChanged;
             txtSearch.KeyPress += txtSearch_KeyPress;
             // 
             // btnSearch
@@ -123,6 +122,7 @@
             DGPatientRecord.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGPatientRecord.Size = new Size(1539, 795);
             DGPatientRecord.TabIndex = 36;
+            DGPatientRecord.ColumnHeaderMouseClick += DGPatientRecord_ColumnHeaderMouseClick;
             // 
             // panel1
             // 

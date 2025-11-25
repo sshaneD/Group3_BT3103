@@ -16,7 +16,7 @@ namespace EventDriven.Project.Businesslogic.Repository
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PatientID", medicalRecord.PatientID);
-                    cmd.Parameters.AddWithValue("@RecordDate", medicalRecord.RecordDate);
+                    cmd.Parameters.AddWithValue("@RecordDate", DateTime.Today);
                     cmd.Parameters.AddWithValue("@Diagnosis", medicalRecord.Diagnosis);
                     cmd.Parameters.AddWithValue("@Notes", medicalRecord.Notes);
                     cmd.ExecuteNonQuery();

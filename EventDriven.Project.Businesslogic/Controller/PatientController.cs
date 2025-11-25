@@ -57,5 +57,17 @@ namespace EventDriven.Project.Businesslogic.Controller
         {
             patientRepo.DischargePatient(PatientID, AdmissionID);
         }
+        public void AddValidID(ValidIDModel validID)
+        {
+            patientRepo.AddValidID(validID);
+        }
+        public ValidIDModel GetValidIDByPatientID(int PatientID)
+        {
+            return patientRepo.GetValidIDByPatientID(PatientID);
+        }
+        public void DeleteValidID(int PatientID)
+        {
+            patientRepo.DeleteValidID(PatientID);
+        }
     }
 }

@@ -6,5 +6,5 @@
     [Quantity] INT NOT NULL, 
     [Price] DECIMAL(10, 2) NOT NULL, 
     [Total] AS (Quantity * Price) PERSISTED,
-    FOREIGN KEY (BillingID) REFERENCES Billings(BillingID)
+    FOREIGN KEY (BillingID) REFERENCES Billings(BillingID) ON DELETE CASCADE
 )

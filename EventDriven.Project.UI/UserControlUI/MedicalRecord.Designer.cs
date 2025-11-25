@@ -228,6 +228,7 @@
             // 
             // panelDischarged
             // 
+            panelDischarged.BackColor = Color.White;
             panelDischarged.Controls.Add(label2);
             panelDischarged.Location = new Point(32, 307);
             panelDischarged.Name = "panelDischarged";

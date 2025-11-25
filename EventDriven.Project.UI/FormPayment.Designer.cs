@@ -45,7 +45,7 @@
             label8 = new Label();
             label7 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
+            txtAmountReceived = new TextBox();
             lblChange = new Label();
             label6 = new Label();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
@@ -59,7 +59,7 @@
             // txtAmountPaid
             // 
             txtAmountPaid.Font = new Font("Segoe UI", 11F);
-            txtAmountPaid.Location = new Point(25, 115);
+            txtAmountPaid.Location = new Point(316, 110);
             txtAmountPaid.Name = "txtAmountPaid";
             txtAmountPaid.PlaceholderText = "Enter Amount";
             txtAmountPaid.Size = new Size(254, 32);
@@ -199,7 +199,7 @@
             panel3.Controls.Add(label7);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(txtAmountReceived);
             panel3.Controls.Add(lblChange);
             panel3.Controls.Add(lblTotalAmount);
             panel3.Controls.Add(label3);
@@ -240,14 +240,16 @@
             label5.TabIndex = 15;
             label5.Text = "PHP";
             // 
-            // textBox1
+            // txtAmountReceived
             // 
-            textBox1.Font = new Font("Segoe UI", 11F);
-            textBox1.Location = new Point(316, 115);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Enter Amount";
-            textBox1.Size = new Size(254, 32);
-            textBox1.TabIndex = 17;
+            txtAmountReceived.Font = new Font("Segoe UI", 11F);
+            txtAmountReceived.Location = new Point(25, 110);
+            txtAmountReceived.Name = "txtAmountReceived";
+            txtAmountReceived.PlaceholderText = "Enter Amount";
+            txtAmountReceived.Size = new Size(254, 32);
+            txtAmountReceived.TabIndex = 17;
+            txtAmountReceived.KeyPress += txtAmountReceived_KeyPress;
+            txtAmountReceived.Leave += txtAmountReceived_Leave;
             // 
             // lblChange
             // 
@@ -326,7 +328,7 @@
         private Label label8;
         private Label label7;
         private Label label5;
-        private TextBox textBox1;
+        private TextBox txtAmountReceived;
         private Panel panel2;
         private Panel panel3;
     }

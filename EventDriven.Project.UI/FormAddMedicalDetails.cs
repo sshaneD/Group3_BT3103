@@ -42,6 +42,12 @@ namespace EventDriven.Project.UI
             treatment.TreatmentType = txtTreatment.Text;
             treatment.Price = Convert.ToDecimal(txtTreatmentPrice.Text);
 
+            if (!string.IsNullOrEmpty(treatment.TreatmentType) && treatment.Price <= 0)
+            {
+                MessageBox.Show("Please enter a valid price for the treatment.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             MedicationModel medication = new MedicationModel();
             medication.RecordID = nextRecordID;
             medication.MedicationName = txtMedication.Text;
@@ -50,6 +56,27 @@ namespace EventDriven.Project.UI
             medication.FrequencyType = cbFrequencyType.SelectedItem.ToString();
             medication.Duration = Convert.ToInt32(numMedDuration.Value);
             medication.Price = Convert.ToDecimal(txtMedPrice.Text);
+
+            if (!string.IsNullOrEmpty(medication.MedicationName))
+            {
+                if ((medication.FrequencyCount <= 0 || medication.FrequencyValue <= 0 || medication.Duration <= 0))
+                {
+                    MessageBox.Show("Please enter valid frequency and duration values for the medication.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if ((medication.Duration * 24) / medication.FrequencyValue * medication.FrequencyCount <= 0)
+                {
+                    MessageBox.Show("The calculated total doses for the medication must be greater than zero.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (medication.Price <= 0)
+                {
+                    MessageBox.Show("Please enter a valid price for the medication.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
 
             medicalRecordController.AddMedicalRecord(medicalRecord);
             medicalRecordController.AddTreatment(treatment);
