@@ -108,7 +108,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 statusText = "PARTIALLY PAID";
             else if (billing.Balance <= 0)
                 statusText = "PAID";
-                lblStatus.Text = statusText;
+            lblStatus.Text = statusText;
 
             if (lblStatus.Text.Equals("PARTIALLY PAID") || (lblStatus.Text.Equals("PAID") && patientController.GetValidIDByPatientID(selectedPatientID) != null))
                 btnID.Visible = true;
@@ -128,7 +128,7 @@ namespace EventDriven.Project.UI.UserControlUI
             }
             else if (lblStatus.Text.Equals("PARTIALLY PAID") && patientController.GetValidIDByPatientID(FormMain.selectedPatientID) == null)
             {
-                MessageBox.Show("Valid ID Required", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Valid ID is required before discharge", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
             DialogResult res = MessageBox.Show("Are you sure you want to discharge this patient?", "Confirm Discharge", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -178,6 +178,11 @@ namespace EventDriven.Project.UI.UserControlUI
             txtSearch.Clear();
             txtTotal.Clear();
             txtTreatment.Clear();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
