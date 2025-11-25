@@ -40,17 +40,17 @@
             label5 = new Label();
             roundedPanel2 = new RoundedPanel();
             txtNotes = new TextBox();
-            txtDuration = new TextBox();
-            txtFrequency = new TextBox();
-            txtMedication = new TextBox();
             txtTreatment = new TextBox();
             txtDiagnosis = new TextBox();
             label17 = new Label();
             label16 = new Label();
+            label15 = new Label();
+            txtDuration = new TextBox();
+            txtFrequency = new TextBox();
+            txtMedication = new TextBox();
             label2 = new Label();
             label12 = new Label();
             label14 = new Label();
-            label15 = new Label();
             label18 = new Label();
             roundedPanel4 = new RoundedPanel();
             txtBalance = new TextBox();
@@ -64,26 +64,32 @@
             txtSearch = new TextBox();
             btnSearch = new Button();
             btnID = new Button();
+            panel1 = new Panel();
+            roundedPanel3 = new RoundedPanel();
+            panel2 = new Panel();
             roundedPanel1.SuspendLayout();
             roundedPanel2.SuspendLayout();
             roundedPanel4.SuspendLayout();
+            panel1.SuspendLayout();
+            roundedPanel3.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(33, 39);
+            label1.Location = new Point(123, 37);
             label1.Name = "label1";
-            label1.Size = new Size(146, 38);
+            label1.Size = new Size(281, 38);
             label1.TabIndex = 0;
-            label1.Text = "Discharge";
+            label1.Text = "Discharge Summary";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(78, 119);
+            label3.Location = new Point(109, 26);
             label3.Name = "label3";
             label3.Size = new Size(238, 35);
             label3.TabIndex = 1;
@@ -100,7 +106,7 @@
             // 
             // roundedPanel1
             // 
-            roundedPanel1.BackColor = Color.Gainsboro;
+            roundedPanel1.BackColor = SystemColors.Control;
             roundedPanel1.BorderColor = Color.LightGray;
             roundedPanel1.BorderThickness = 0F;
             roundedPanel1.Controls.Add(lblAdmissionDate);
@@ -111,9 +117,9 @@
             roundedPanel1.Controls.Add(label5);
             roundedPanel1.Controls.Add(lblPatientName);
             roundedPanel1.CornerRadius = 10;
-            roundedPanel1.Location = new Point(78, 166);
+            roundedPanel1.Location = new Point(109, 81);
             roundedPanel1.Name = "roundedPanel1";
-            roundedPanel1.Size = new Size(431, 254);
+            roundedPanel1.Size = new Size(688, 254);
             roundedPanel1.TabIndex = 3;
             // 
             // lblAdmissionDate
@@ -175,95 +181,56 @@
             // 
             // roundedPanel2
             // 
-            roundedPanel2.BackColor = Color.Gainsboro;
+            roundedPanel2.BackColor = SystemColors.Control;
             roundedPanel2.BorderColor = Color.LightGray;
             roundedPanel2.BorderThickness = 0F;
             roundedPanel2.Controls.Add(txtNotes);
-            roundedPanel2.Controls.Add(txtDuration);
-            roundedPanel2.Controls.Add(txtFrequency);
-            roundedPanel2.Controls.Add(txtMedication);
             roundedPanel2.Controls.Add(txtTreatment);
             roundedPanel2.Controls.Add(txtDiagnosis);
             roundedPanel2.Controls.Add(label17);
             roundedPanel2.Controls.Add(label16);
-            roundedPanel2.Controls.Add(label2);
-            roundedPanel2.Controls.Add(label12);
-            roundedPanel2.Controls.Add(label14);
             roundedPanel2.Controls.Add(label15);
             roundedPanel2.CornerRadius = 10;
-            roundedPanel2.Location = new Point(78, 487);
+            roundedPanel2.Location = new Point(109, 406);
             roundedPanel2.Name = "roundedPanel2";
-            roundedPanel2.Size = new Size(890, 452);
+            roundedPanel2.Size = new Size(457, 326);
             roundedPanel2.TabIndex = 7;
             // 
             // txtNotes
             // 
+            txtNotes.BackColor = SystemColors.Window;
             txtNotes.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtNotes.Location = new Point(33, 348);
+            txtNotes.Location = new Point(33, 241);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
             txtNotes.ReadOnly = true;
-            txtNotes.Size = new Size(788, 77);
+            txtNotes.Size = new Size(386, 69);
             txtNotes.TabIndex = 16;
             txtNotes.TabStop = false;
             txtNotes.Enter += removeFocus;
             // 
-            // txtDuration
-            // 
-            txtDuration.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtDuration.Location = new Point(638, 227);
-            txtDuration.Multiline = true;
-            txtDuration.Name = "txtDuration";
-            txtDuration.ReadOnly = true;
-            txtDuration.Size = new Size(183, 52);
-            txtDuration.TabIndex = 15;
-            txtDuration.TabStop = false;
-            txtDuration.Enter += removeFocus;
-            // 
-            // txtFrequency
-            // 
-            txtFrequency.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtFrequency.Location = new Point(381, 227);
-            txtFrequency.Multiline = true;
-            txtFrequency.Name = "txtFrequency";
-            txtFrequency.ReadOnly = true;
-            txtFrequency.Size = new Size(183, 52);
-            txtFrequency.TabIndex = 14;
-            txtFrequency.TabStop = false;
-            txtFrequency.Enter += removeFocus;
-            // 
-            // txtMedication
-            // 
-            txtMedication.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtMedication.Location = new Point(33, 227);
-            txtMedication.Multiline = true;
-            txtMedication.Name = "txtMedication";
-            txtMedication.ReadOnly = true;
-            txtMedication.Size = new Size(292, 52);
-            txtMedication.TabIndex = 13;
-            txtMedication.TabStop = false;
-            txtMedication.Enter += removeFocus;
-            // 
             // txtTreatment
             // 
+            txtTreatment.BackColor = SystemColors.Window;
             txtTreatment.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtTreatment.Location = new Point(444, 59);
+            txtTreatment.Location = new Point(33, 146);
             txtTreatment.Multiline = true;
             txtTreatment.Name = "txtTreatment";
             txtTreatment.ReadOnly = true;
-            txtTreatment.Size = new Size(377, 103);
+            txtTreatment.Size = new Size(386, 50);
             txtTreatment.TabIndex = 12;
             txtTreatment.TabStop = false;
             txtTreatment.Enter += removeFocus;
             // 
             // txtDiagnosis
             // 
+            txtDiagnosis.BackColor = SystemColors.Window;
             txtDiagnosis.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtDiagnosis.Location = new Point(33, 59);
+            txtDiagnosis.Location = new Point(33, 51);
             txtDiagnosis.Multiline = true;
             txtDiagnosis.Name = "txtDiagnosis";
             txtDiagnosis.ReadOnly = true;
-            txtDiagnosis.Size = new Size(377, 103);
+            txtDiagnosis.Size = new Size(386, 50);
             txtDiagnosis.TabIndex = 11;
             txtDiagnosis.TabStop = false;
             txtDiagnosis.Enter += removeFocus;
@@ -272,7 +239,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(444, 31);
+            label17.Location = new Point(33, 113);
             label17.Name = "label17";
             label17.Size = new Size(104, 25);
             label17.TabIndex = 8;
@@ -282,17 +249,66 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(33, 31);
+            label16.Location = new Point(33, 18);
             label16.Name = "label16";
             label16.Size = new Size(100, 25);
             label16.TabIndex = 1;
             label16.Text = "Diagnosis:";
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.Location = new Point(33, 208);
+            label15.Name = "label15";
+            label15.Size = new Size(68, 25);
+            label15.TabIndex = 2;
+            label15.Text = "Notes:";
+            // 
+            // txtDuration
+            // 
+            txtDuration.BackColor = SystemColors.Window;
+            txtDuration.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtDuration.Location = new Point(214, 203);
+            txtDuration.Multiline = true;
+            txtDuration.Name = "txtDuration";
+            txtDuration.ReadOnly = true;
+            txtDuration.Size = new Size(106, 52);
+            txtDuration.TabIndex = 15;
+            txtDuration.TabStop = false;
+            txtDuration.Enter += removeFocus;
+            // 
+            // txtFrequency
+            // 
+            txtFrequency.BackColor = SystemColors.Window;
+            txtFrequency.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtFrequency.Location = new Point(33, 203);
+            txtFrequency.Multiline = true;
+            txtFrequency.Name = "txtFrequency";
+            txtFrequency.ReadOnly = true;
+            txtFrequency.Size = new Size(106, 52);
+            txtFrequency.TabIndex = 14;
+            txtFrequency.TabStop = false;
+            txtFrequency.Enter += removeFocus;
+            // 
+            // txtMedication
+            // 
+            txtMedication.BackColor = SystemColors.Window;
+            txtMedication.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtMedication.Location = new Point(33, 59);
+            txtMedication.Multiline = true;
+            txtMedication.Name = "txtMedication";
+            txtMedication.ReadOnly = true;
+            txtMedication.Size = new Size(287, 52);
+            txtMedication.TabIndex = 13;
+            txtMedication.TabStop = false;
+            txtMedication.Enter += removeFocus;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(381, 199);
+            label2.Location = new Point(33, 161);
             label2.Name = "label2";
             label2.Size = new Size(106, 25);
             label2.TabIndex = 6;
@@ -302,7 +318,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(638, 199);
+            label12.Location = new Point(214, 161);
             label12.Name = "label12";
             label12.Size = new Size(93, 25);
             label12.TabIndex = 5;
@@ -312,27 +328,17 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(33, 199);
+            label14.Location = new Point(33, 22);
             label14.Name = "label14";
             label14.Size = new Size(114, 25);
             label14.TabIndex = 3;
             label14.Text = "Medication:";
             // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.Location = new Point(33, 320);
-            label15.Name = "label15";
-            label15.Size = new Size(68, 25);
-            label15.TabIndex = 2;
-            label15.Text = "Notes:";
-            // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(78, 449);
+            label18.Location = new Point(109, 359);
             label18.Name = "label18";
             label18.Size = new Size(219, 35);
             label18.TabIndex = 9;
@@ -340,7 +346,7 @@
             // 
             // roundedPanel4
             // 
-            roundedPanel4.BackColor = Color.Gainsboro;
+            roundedPanel4.BackColor = SystemColors.Control;
             roundedPanel4.BorderColor = Color.LightGray;
             roundedPanel4.BorderThickness = 0F;
             roundedPanel4.Controls.Add(txtBalance);
@@ -350,13 +356,14 @@
             roundedPanel4.Controls.Add(label21);
             roundedPanel4.Controls.Add(label19);
             roundedPanel4.CornerRadius = 10;
-            roundedPanel4.Location = new Point(530, 166);
+            roundedPanel4.Location = new Point(824, 81);
             roundedPanel4.Name = "roundedPanel4";
             roundedPanel4.Size = new Size(438, 254);
             roundedPanel4.TabIndex = 8;
             // 
             // txtBalance
             // 
+            txtBalance.BackColor = SystemColors.Window;
             txtBalance.Font = new Font("Segoe UI", 12F);
             txtBalance.Location = new Point(222, 58);
             txtBalance.Name = "txtBalance";
@@ -377,6 +384,7 @@
             // 
             // txtTotal
             // 
+            txtTotal.BackColor = SystemColors.Window;
             txtTotal.Font = new Font("Segoe UI", 12F);
             txtTotal.Location = new Point(55, 58);
             txtTotal.Name = "txtTotal";
@@ -420,7 +428,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 14.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(541, 119);
+            label13.Location = new Point(824, 26);
             label13.Name = "label13";
             label13.Size = new Size(204, 35);
             label13.TabIndex = 11;
@@ -433,7 +441,7 @@
             btnDischarge.FlatStyle = FlatStyle.Flat;
             btnDischarge.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDischarge.ForeColor = Color.White;
-            btnDischarge.Location = new Point(1371, 888);
+            btnDischarge.Location = new Point(1030, 664);
             btnDischarge.Name = "btnDischarge";
             btnDischarge.Size = new Size(199, 45);
             btnDischarge.TabIndex = 12;
@@ -445,22 +453,23 @@
             // 
             txtSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtSearch.Font = new Font("Segoe UI", 11F);
-            txtSearch.Location = new Point(1168, 166);
+            txtSearch.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(15, 13);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(320, 32);
+            txtSearch.PlaceholderText = "Search for Patient Name or ID";
+            txtSearch.Size = new Size(636, 38);
             txtSearch.TabIndex = 14;
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = Color.FromArgb(11, 143, 172);
+            btnSearch.BackColor = Color.White;
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(1494, 166);
+            btnSearch.ForeColor = Color.FromArgb(11, 143, 172);
+            btnSearch.Location = new Point(657, 13);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(94, 32);
+            btnSearch.Size = new Size(155, 38);
             btnSearch.TabIndex = 15;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
@@ -468,35 +477,72 @@
             // 
             // btnID
             // 
-            btnID.BackColor = Color.FromArgb(11, 143, 172);
+            btnID.BackColor = Color.White;
             btnID.FlatAppearance.BorderSize = 0;
             btnID.FlatStyle = FlatStyle.Flat;
             btnID.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnID.ForeColor = Color.White;
-            btnID.Location = new Point(1340, 215);
+            btnID.ForeColor = Color.FromArgb(11, 143, 172);
+            btnID.Location = new Point(1111, 12);
             btnID.Name = "btnID";
-            btnID.Size = new Size(248, 43);
+            btnID.Size = new Size(248, 38);
             btnID.TabIndex = 16;
             btnID.Text = "Valid ID Form";
             btnID.UseVisualStyleBackColor = false;
             btnID.Visible = false;
             btnID.Click += btnID_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Gainsboro;
+            panel1.Controls.Add(roundedPanel3);
+            panel1.Controls.Add(label13);
+            panel1.Controls.Add(btnDischarge);
+            panel1.Controls.Add(roundedPanel4);
+            panel1.Controls.Add(label18);
+            panel1.Controls.Add(roundedPanel2);
+            panel1.Controls.Add(roundedPanel1);
+            panel1.Controls.Add(label3);
+            panel1.Location = new Point(123, 169);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1371, 768);
+            panel1.TabIndex = 17;
+            panel1.Paint += panel1_Paint;
+            // 
+            // roundedPanel3
+            // 
+            roundedPanel3.BackColor = SystemColors.Control;
+            roundedPanel3.BorderColor = Color.LightGray;
+            roundedPanel3.BorderThickness = 0F;
+            roundedPanel3.Controls.Add(label14);
+            roundedPanel3.Controls.Add(txtMedication);
+            roundedPanel3.Controls.Add(txtDuration);
+            roundedPanel3.Controls.Add(txtFrequency);
+            roundedPanel3.Controls.Add(label2);
+            roundedPanel3.Controls.Add(label12);
+            roundedPanel3.CornerRadius = 10;
+            roundedPanel3.Location = new Point(592, 406);
+            roundedPanel3.Name = "roundedPanel3";
+            roundedPanel3.Size = new Size(376, 326);
+            roundedPanel3.TabIndex = 17;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(11, 143, 172);
+            panel2.Controls.Add(btnSearch);
+            panel2.Controls.Add(txtSearch);
+            panel2.Controls.Add(btnID);
+            panel2.Location = new Point(123, 105);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1371, 59);
+            panel2.TabIndex = 18;
+            // 
             // Discharge
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            Controls.Add(btnID);
-            Controls.Add(btnSearch);
-            Controls.Add(txtSearch);
-            Controls.Add(btnDischarge);
-            Controls.Add(label13);
-            Controls.Add(roundedPanel4);
-            Controls.Add(label18);
-            Controls.Add(roundedPanel2);
-            Controls.Add(roundedPanel1);
-            Controls.Add(label3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(label1);
             Name = "Discharge";
             Size = new Size(1637, 998);
@@ -506,6 +552,12 @@
             roundedPanel2.PerformLayout();
             roundedPanel4.ResumeLayout(false);
             roundedPanel4.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            roundedPanel3.ResumeLayout(false);
+            roundedPanel3.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -548,5 +600,8 @@
         private TextBox txtSearch;
         private Button btnSearch;
         private Button btnID;
+        private Panel panel1;
+        private RoundedPanel roundedPanel3;
+        private Panel panel2;
     }
 }

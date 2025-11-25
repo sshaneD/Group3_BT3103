@@ -34,7 +34,7 @@ namespace EventDriven.Project.UI
             string remarks = txtRemarks.Text;
             if (Convert.ToDecimal(txtAmountPaid.Text) < (Convert.ToDecimal(lblTotalAmount.Text) * Convert.ToDecimal(0.5)))
             {
-                MessageBox.Show($"Amount paid is less than 50% of the total amount. Please pay at least {Convert.ToDecimal(lblTotalAmount.Text) * Convert.ToDecimal(0.5)}.", "Insufficient Payment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Partial payments require at least 50% of the total amount. Please pay at least {Convert.ToDecimal(lblTotalAmount.Text) * Convert.ToDecimal(0.5)}.", "Insufficient Payment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             billingSummary = billingController.ConfirmPayment(billingID, payment, remarks);
@@ -156,7 +156,7 @@ namespace EventDriven.Project.UI
             g.DrawString(billingSummary.Remarks, headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 100);
         }
 
-        
+
 
         private void txtAmountPaid_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -177,6 +177,11 @@ namespace EventDriven.Project.UI
                 decimal change = Convert.ToDecimal(txtAmountPaid.Text) - Convert.ToDecimal(lblTotalAmount.Text);
                 lblChange.Text = change <= 0 ? "0" : change.ToString();
             }
+        }
+
+        private void FormPayment_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

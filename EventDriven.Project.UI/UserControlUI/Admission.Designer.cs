@@ -270,10 +270,10 @@
             // 
             dateStartDate.Format = DateTimePickerFormat.Short;
             dateStartDate.Location = new Point(21, 136);
-            dateStartDate.Value = DateTime.Today;
             dateStartDate.Name = "dateStartDate";
             dateStartDate.Size = new Size(218, 27);
             dateStartDate.TabIndex = 41;
+            dateStartDate.Value = new DateTime(2025, 11, 23, 0, 0, 0, 0);
             // 
             // label13
             // 
@@ -510,6 +510,7 @@
             txtFN.Location = new Point(57, 81);
             txtFN.Multiline = true;
             txtFN.Name = "txtFN";
+            txtFN.PlaceholderText = "Required";
             txtFN.Size = new Size(475, 39);
             txtFN.TabIndex = 2;
             // 
@@ -562,6 +563,7 @@
             txtLN.Location = new Point(57, 239);
             txtLN.Multiline = true;
             txtLN.Name = "txtLN";
+            txtLN.PlaceholderText = "Required";
             txtLN.Size = new Size(473, 39);
             txtLN.TabIndex = 4;
             // 
