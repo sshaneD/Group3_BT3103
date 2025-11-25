@@ -176,11 +176,6 @@ namespace EventDriven.Project.UI.UserControlUI
                 int selected = Convert.ToInt32(DGPatientRecord.SelectedRows[0].Cells[0].Value);
                 FormMain.selectedPatientID = selected;
                 PatientModel patient = patientController.GetPatientById(selected);
-                if (patient.Status.Equals("Discharged"))
-                {
-                    MessageBox.Show("This patient is already discharged", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
                 GoToDischarge?.Invoke(this, EventArgs.Empty);
             }
             else

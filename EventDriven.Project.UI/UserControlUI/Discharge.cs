@@ -149,13 +149,8 @@ namespace EventDriven.Project.UI.UserControlUI
             selectedPatientID = patients[0].PatientID;
             FormMain.selectedPatientID = selectedPatientID;
             PatientModel patient = patientController.GetPatientById(selectedPatientID);
-            if (patient.Status.Equals("Discharged"))
-            {
-                MessageBox.Show("This patient is already discharged", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtSearch.Clear();
-                return;
-            }
             LoadData();
+            txtSearch.Clear();
         }
         private void btnID_Click(object sender, EventArgs e)
         {
