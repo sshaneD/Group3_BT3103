@@ -8,6 +8,6 @@
     [TotalAmount] DECIMAL(10,2) NOT NULL,
     [AmountPaid] DECIMAL(10,2) NOT NULL DEFAULT 0,
     [Balance] AS (TotalAmount - AmountPaid) PERSISTED,
-    FOREIGN KEY (AdmissionID) REFERENCES Admissions(AdmissionID),
+    FOREIGN KEY (AdmissionID) REFERENCES Admissions(AdmissionID) ON DELETE CASCADE,
     FOREIGN KEY (PatientID) REFERENCES Patient(PatientID)
 );

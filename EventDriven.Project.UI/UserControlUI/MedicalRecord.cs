@@ -34,6 +34,16 @@ namespace EventDriven.Project.UI.UserControlUI
             lblPatientID.Text = $"Patient ID: {patient.PatientID}";
             lblAge.Text = $"{patient.Age} Years Old";
             lblGender.Text = patient.Gender;
+            if (patient.Status.Equals("Discharged"))
+            {
+                panelAssignment.Visible = false;
+                panelDischarged.Visible = true;
+            }
+            else
+            {
+                panelAssignment.Visible = true;
+                panelDischarged.Visible = false;
+            }
         }
         private void LoadStaff()
         {
@@ -90,14 +100,10 @@ namespace EventDriven.Project.UI.UserControlUI
                 lblRoomType.Text = "Room Type: N/A";
                 lblRoomNum.Text = "Room Number: N/A";
                 lblDate.Text = "N/A";
-                panelAssignment.Visible = false;
-                panelDischarged.Visible = true;
                 return;
             }
             else
             {
-                panelAssignment.Visible = true;
-                panelDischarged.Visible = false;
                 CurrentRoomModel assignedRoom = roomController.GetCurrentRoom(selectedPatientID);
 
                 lblRoomType.Text = $"Room Type: {assignedRoom.RoomType}";

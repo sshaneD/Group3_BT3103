@@ -19,9 +19,9 @@ BEGIN
     SELECT 
         MR.AdmissionID,
         M.MedicationName AS Service,
-        (M.FrequencyCount * (24 / M.FrequencyValue)) * M.Duration AS Quantity,
+        ((24 * M.Duration) / M.FrequencyValue) * M.FrequencyCount AS Quantity,
         M.Price AS Price,
-        ((M.FrequencyCount * (24 / M.FrequencyValue)) * M.Duration) * M.Price AS Total
+        (((24 * M.Duration) / M.FrequencyValue) * M.FrequencyCount) * M.Price AS Total
     FROM Medications M
     INNER JOIN MedicalRecords MR ON M.RecordID = MR.RecordID
     WHERE MR.AdmissionID = @AdmissionID
