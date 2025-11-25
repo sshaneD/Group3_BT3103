@@ -31,6 +31,10 @@ namespace EventDriven.Project.UI.UserControlUI
             staffController = new StaffController();
             roomController = new RoomController();
             DGPatientRecord.DataSource = patientController.GetAllPatients();
+            foreach (DataGridViewColumn column in DGPatientRecord.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.Automatic;
+            }
             DGPatientRecord.Columns["PatientID"].HeaderText = "Patient ID";
             DGPatientRecord.Columns["FirstName"].HeaderText = "First Name";
             DGPatientRecord.Columns["MiddleName"].HeaderText = "Middle Name";
@@ -40,7 +44,6 @@ namespace EventDriven.Project.UI.UserControlUI
             DGPatientRecord.Columns["GuardianNo"].HeaderText = "Guardian No";
             CheckLoggedUser();
         }
-
         private void CheckLoggedUser()
         {
             switch (FormLogin.Role)
@@ -64,7 +67,6 @@ namespace EventDriven.Project.UI.UserControlUI
             FormMain.AdmissionAction = "Add";
             GoToAdmissionAdd?.Invoke(this, EventArgs.Empty);
         }
-
         private void button8_Click(object sender, EventArgs e)
         {
             if (DGPatientRecord.CurrentRow != null)
@@ -81,7 +83,6 @@ namespace EventDriven.Project.UI.UserControlUI
             FormMain.AdmissionAction = "Edit";
             GoToAdmissionEdit?.Invoke(this, EventArgs.Empty);
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             List<int> selectedPatients = new List<int>();
@@ -108,7 +109,6 @@ namespace EventDriven.Project.UI.UserControlUI
                 }
             }
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (txtSearch.Text == String.Empty)
@@ -136,9 +136,6 @@ namespace EventDriven.Project.UI.UserControlUI
             }
 
         }
-
-
-
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -146,12 +143,6 @@ namespace EventDriven.Project.UI.UserControlUI
                 btnSearch.PerformClick();
             }
         }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBOS_Click(object sender, EventArgs e)
         {
             if (DGPatientRecord.CurrentRow != null)
@@ -165,7 +156,6 @@ namespace EventDriven.Project.UI.UserControlUI
                 MessageBox.Show("Please select a patient", "No Patient Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btnMedRecord_Click(object sender, EventArgs e)
         {
             if (DGPatientRecord.CurrentRow != null)
@@ -179,7 +169,6 @@ namespace EventDriven.Project.UI.UserControlUI
                 MessageBox.Show("Please select a patient", "No Patient Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btnDischarge_Click(object sender, EventArgs e)
         {
             if (DGPatientRecord.CurrentRow != null)
@@ -198,6 +187,30 @@ namespace EventDriven.Project.UI.UserControlUI
             {
                 MessageBox.Show("Please select a patient", "No Patient Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+        private void DGPatientRecord_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string columnName = DGPatientRecord.Columns[e.ColumnIndex].DataPropertyName;
+            bool ascending = true;
+
+            if (DGPatientRecord.Tag is Tuple<string, bool> lastSort &&
+                lastSort.Item1 == columnName)
+            {
+                ascending = !lastSort.Item2;
+            }
+
+            var dataSource = (List<PatientModel>)DGPatientRecord.DataSource;
+
+            if (ascending)
+                DGPatientRecord.DataSource = dataSource.OrderBy(p => GetPropertyValue(p, columnName)).ToList();
+            else
+                DGPatientRecord.DataSource = dataSource.OrderByDescending(p => GetPropertyValue(p, columnName)).ToList();
+
+            DGPatientRecord.Tag = Tuple.Create(columnName, ascending);
+        }
+        private object GetPropertyValue(PatientModel patient, string propertyName)
+        {
+            return typeof(PatientModel).GetProperty(propertyName).GetValue(patient);
         }
     }
 }

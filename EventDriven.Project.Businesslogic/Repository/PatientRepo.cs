@@ -292,5 +292,73 @@ namespace EventDriven.Project.Businesslogic.Repository
                 }
             }
         }
+        public void AddValidID(ValidIDModel validID)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("AddValidID", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@PatientID", validID.PatientID);
+                        cmd.Parameters.AddWithValue("@Type", validID.Type);
+                        cmd.Parameters.AddWithValue("@Name", validID.Name);
+                        cmd.Parameters.AddWithValue("@Number", validID.Number);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+        public ValidIDModel GetValidIDByPatientID (int PatientID)
+        {
+            ValidIDModel validID = null;
+            using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("GetValidIDByPatientID", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    using (SqlDataReader reader =  cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            validID = new ValidIDModel()
+                            {
+                                PatientID = reader.GetInt32(0),
+                                Type = reader.GetString(1),
+                                Name = reader.GetString(2),
+                                Number = reader.GetString(3)
+                            };
+                        }
+                    }
+                }
+            }
+            return validID;
+        }
+        public void DeleteValidID(int PatientID)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(CONNECTIONSTRING))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("DeleteValidID", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+        }
     }
 }

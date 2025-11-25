@@ -114,6 +114,10 @@
     <Build Include="dbo\StoredProcedure\GetPatientAdmissionIDs.sql" />
     <Build Include="dbo\StoredProcedure\ConfirmPayment.sql" />
     <Build Include="dbo\StoredProcedure\DischargePatient.sql" />
+    <Build Include="dbo\Tables\ValidID.sql" />
+    <Build Include="dbo\StoredProcedure\AddValidID.sql" />
+    <Build Include="dbo\StoredProcedure\GetValidIDByPatientID.sql" />
+    <Build Include="dbo\StoredProcedure\DeleteValidID.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\Script.PostDeployment1.sql" />

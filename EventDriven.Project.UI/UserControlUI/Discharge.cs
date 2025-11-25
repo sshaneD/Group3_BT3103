@@ -35,7 +35,6 @@ namespace EventDriven.Project.UI.UserControlUI
         private void LoadData()
         {
             btnDischarge.Visible = true;
-            FormMain.receivedValidID = false;
             PatientModel patient = patientController.GetPatientById(selectedPatientID);
             lblPatientName.Text = $"{patient.FirstName} {patient.MiddleName} {patient.LastName}";
             lblPatientID.Text = patient.PatientID.ToString();
@@ -111,7 +110,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 statusText = "PAID";
                 lblStatus.Text = statusText;
 
-            if (lblStatus.Text.Equals("PARTIALLY PAID"))
+            if (lblStatus.Text.Equals("PARTIALLY PAID") || (lblStatus.Text.Equals("PAID") && patientController.GetValidIDByPatientID(selectedPatientID) != null))
                 btnID.Visible = true;
             else
                 btnID.Visible = false;
@@ -127,7 +126,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 MessageBox.Show("This patient has not yet paid their balance.", "Cannot Discharge", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (lblStatus.Text.Equals("PARTIALLY PAID") && !FormMain.receivedValidID)
+            else if (lblStatus.Text.Equals("PARTIALLY PAID") && patientController.GetValidIDByPatientID(FormMain.selectedPatientID) == null)
             {
                 MessageBox.Show("Valid ID Required", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
@@ -135,7 +134,6 @@ namespace EventDriven.Project.UI.UserControlUI
             DialogResult res = MessageBox.Show("Are you sure you want to discharge this patient?", "Confirm Discharge", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
-                FormMain.receivedValidID = false;
                 patientController.DischargePatient(selectedPatientID, selectedAdmissionID);
                 ClearData();
                 MessageBox.Show("Patient Discharged Successfully!", "Discharge Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -149,12 +147,24 @@ namespace EventDriven.Project.UI.UserControlUI
         {
             List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text.Trim());
             selectedPatientID = patients[0].PatientID;
+            FormMain.selectedPatientID = selectedPatientID;
+            PatientModel patient = patientController.GetPatientById(selectedPatientID);
+            if (patient.Status.Equals("Discharged"))
+            {
+                MessageBox.Show("This patient is already discharged", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSearch.Clear();
+                return;
+            }
             LoadData();
         }
         private void btnID_Click(object sender, EventArgs e)
         {
             FormValidID formValidID = new FormValidID();
             formValidID.ShowDialog();
+            if (formValidID.DialogResult == DialogResult.OK)
+            {
+                btnID.Visible = false;
+            }
         }
         private void ClearData()
         {

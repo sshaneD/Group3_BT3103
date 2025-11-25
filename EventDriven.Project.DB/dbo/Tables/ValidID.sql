@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[ValidID]
+(
+	[PatientID] INT NOT NULL UNIQUE,
+	[Type] VARCHAR(50) NOT NULL,
+	[Name] VARCHAR(100) NOT NULL,
+	[Number] VARCHAR(50) NOT NULL,
+	FOREIGN KEY (PatientID) REFERENCES Patient(PatientID)
+)

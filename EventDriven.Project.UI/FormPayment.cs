@@ -43,10 +43,6 @@ namespace EventDriven.Project.UI
             {
                 change = $"Change: {billingSummary.AmountPaid - billingSummary.TotalAmount}{Environment.NewLine}";
             }
-            if (patient.Status.Equals("Discharged") && billingSummary.Balance <= 0 && FormMain.receivedValidID.Equals(true))
-            {
-                MessageBox.Show("Valid ID has been returned", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
             DialogResult result = MessageBox.Show(change + "Do you want to print the receipt?", "Payment Received", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {

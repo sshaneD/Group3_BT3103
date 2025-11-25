@@ -7,7 +7,7 @@
 	[DateOfBirth] DateTime NOT NULL,
 	[Age] int NOT NULL,
 	[Gender] varchar(50) NOT NULL,
-	[GuardianName] varchar(50) NOT NULL,
-	[GuardianNo] varchar(50) NOT NULL, 
+	[GuardianName] varchar(50) NULL,
+	[GuardianNo] varchar(50) NULL, 
     [Status] VARCHAR(50) NULL DEFAULT 'Admitted'
 )
