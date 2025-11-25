@@ -122,7 +122,7 @@
             btnPayment.FlatStyle = FlatStyle.Flat;
             btnPayment.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPayment.ForeColor = Color.White;
-            btnPayment.Location = new Point(1328, 882);
+            btnPayment.Location = new Point(1220, 882);
             btnPayment.Name = "btnPayment";
             btnPayment.Size = new Size(205, 40);
             btnPayment.TabIndex = 13;
@@ -136,7 +136,7 @@
             btnPrintBOS.FlatStyle = FlatStyle.Flat;
             btnPrintBOS.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPrintBOS.ForeColor = Color.White;
-            btnPrintBOS.Location = new Point(1115, 882);
+            btnPrintBOS.Location = new Point(1006, 882);
             btnPrintBOS.Name = "btnPrintBOS";
             btnPrintBOS.Size = new Size(207, 40);
             btnPrintBOS.TabIndex = 14;
@@ -166,7 +166,7 @@
             txtSearch.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSearch.Location = new Point(118, 109);
             txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "Search Patient or ID";
+            txtSearch.PlaceholderText = "Search for Patient Name or ID";
             txtSearch.Size = new Size(742, 38);
             txtSearch.TabIndex = 15;
             // 
