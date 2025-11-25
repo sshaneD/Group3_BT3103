@@ -12,6 +12,8 @@ namespace EventDriven.Project.UI
         BillingModel billingSummary;
         int selectedPatientID;
         int admissionID;
+        decimal change = 0;
+        decimal amountReceived = 0;
         public FormPayment(int AdmissionID)
         {
             InitializeComponent();
@@ -28,6 +30,19 @@ namespace EventDriven.Project.UI
         }
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrEmpty(txtAmountPaid.Text) || string.IsNullOrEmpty(txtAmountReceived.Text))
+                {
+                    MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             PatientModel patient = patientController.GetPatientById(selectedPatientID);
             int billingID = selectedBilling.BillingID;
             decimal payment = Convert.ToDecimal(txtAmountPaid.Text);
@@ -119,6 +134,7 @@ namespace EventDriven.Project.UI
                 List<BillingDetailsModel> details = billingController.GetBillingDetails(admissionID);
                 billingDetails.AddRange(details);
             }
+            billingDetails.RemoveAll(b => string.IsNullOrEmpty(b.Service));
 
             Font tableFont = new Font("Arial", 11);
             foreach (var detail in billingDetails)
@@ -138,18 +154,22 @@ namespace EventDriven.Project.UI
             g.DrawLine(Pens.Black, margin, y, pageWidth - margin, y);
             y += 20;
 
-            RectangleF summaryRect = new RectangleF(margin, y, pageWidth - 2 * margin, 120);
+            RectangleF summaryRect = new RectangleF(margin, y, pageWidth - 2 * margin, 150);
             g.DrawRectangle(Pens.Black, summaryRect.X, summaryRect.Y, summaryRect.Width, summaryRect.Height);
 
             g.DrawString("Total Amount:", headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 10);
             g.DrawString("Payment Received:", headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 40);
-            g.DrawString("Remaining Balance:", headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 70);
-            g.DrawString("Remarks:", headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 100);
+            g.DrawString("Amount Paid:", headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 70);
+            g.DrawString("Change:", headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 100);
+            g.DrawString("Remaining Balance:", headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 130);
+            g.DrawString("Remarks:", headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 160);
 
-            g.DrawString("₱" + billingSummary.TotalAmount.ToString("N2"), headerFont, Brushes.Black, summaryRect.X + 450, summaryRect.Y + 10);
-            g.DrawString("₱" + billingSummary.AmountPaid.ToString("N2"), headerFont, Brushes.Black, summaryRect.X + 450, summaryRect.Y + 40);
-            g.DrawString("₱" + (billingSummary.Balance < 0 ? 0 : billingSummary.Balance).ToString("N2"), headerFont, Brushes.Black, summaryRect.X + 450, summaryRect.Y + 70);
-            g.DrawString(billingSummary.Remarks, headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 100);
+            g.DrawString(billingSummary.TotalAmount.ToString("C2"), headerFont, Brushes.Black, summaryRect.X + 450, summaryRect.Y + 10);
+            g.DrawString(amountReceived.ToString("C2"), headerFont, Brushes.Black, summaryRect.X + 450, summaryRect.Y + 40);
+            g.DrawString(billingSummary.AmountPaid.ToString("C2"), headerFont, Brushes.Black, summaryRect.X + 450, summaryRect.Y + 70);
+            g.DrawString(change.ToString("C2"), headerFont, Brushes.Black, summaryRect.X + 450, summaryRect.Y + 100);
+            g.DrawString((billingSummary.Balance < 0 ? 0 : billingSummary.Balance).ToString("C2"), headerFont, Brushes.Black, summaryRect.X + 450, summaryRect.Y + 130);
+            g.DrawString(billingSummary.Remarks, headerFont, Brushes.Black, summaryRect.X + 10, summaryRect.Y + 180);
         }
 
 
@@ -170,14 +190,38 @@ namespace EventDriven.Project.UI
         {
             if (!string.IsNullOrEmpty(txtAmountPaid.Text))
             {
-                decimal change = Convert.ToDecimal(txtAmountPaid.Text) - Convert.ToDecimal(lblTotalAmount.Text);
-                lblChange.Text = change <= 0 ? "0" : change.ToString();
+                change = Convert.ToDecimal(txtAmountReceived.Text) - Convert.ToDecimal(txtAmountPaid.Text);
+                lblChange.Text = change <= 0 ? "0.00" : change.ToString("N2");
+                if (Convert.ToDecimal(lblTotalAmount.Text) < Convert.ToDecimal(txtAmountPaid.Text))
+                {
+                    txtAmountPaid.Text = "0.00";
+                    MessageBox.Show("Amount Paid cannot be greater than Total Amount", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
             }
+
         }
 
         private void FormPayment_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtAmountReceived_Leave(object sender, EventArgs e)
+        {
+            amountReceived = Convert.ToDecimal(txtAmountReceived.Text);
+        }
+
+        private void txtAmountReceived_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && txtAmountPaid.Text.Contains("."))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

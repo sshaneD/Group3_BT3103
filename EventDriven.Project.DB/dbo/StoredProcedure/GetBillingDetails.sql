@@ -19,12 +19,13 @@ BEGIN
     SELECT 
         MR.AdmissionID,
         M.MedicationName AS Service,
-        ((24 * M.Duration) / M.FrequencyValue) * M.FrequencyCount AS Quantity,
+        ISNULL(((24 * NULLIF(M.Duration, 0)) / M.FrequencyValue) * M.FrequencyCount, 0) AS Quantity,
         M.Price AS Price,
-        (((24 * M.Duration) / M.FrequencyValue) * M.FrequencyCount) * M.Price AS Total
+        ISNULL((((24 * NULLIF(M.Duration, 0)) / M.FrequencyValue) * M.FrequencyCount) * M.Price, 0) AS Total
     FROM Medications M
     INNER JOIN MedicalRecords MR ON M.RecordID = MR.RecordID
     WHERE MR.AdmissionID = @AdmissionID
+    AND M.MedicationName IS NOT NULL
 
     UNION ALL
 
@@ -37,6 +38,7 @@ BEGIN
     FROM Treatments T
     INNER JOIN MedicalRecords MR ON T.RecordID = MR.RecordID
     WHERE MR.AdmissionID = @AdmissionID
+    AND T.TreatmentType IS NOT NULL
 
     UNION ALL
 

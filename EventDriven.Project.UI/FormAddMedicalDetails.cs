@@ -57,22 +57,25 @@ namespace EventDriven.Project.UI
             medication.Duration = Convert.ToInt32(numMedDuration.Value);
             medication.Price = Convert.ToDecimal(txtMedPrice.Text);
 
-            if (!string.IsNullOrEmpty(medication.MedicationName) && (medication.FrequencyCount <= 0 || medication.FrequencyValue <= 0 || medication.Duration <= 0))
+            if (!string.IsNullOrEmpty(medication.MedicationName))
             {
-                MessageBox.Show("Please enter valid frequency and duration values for the medication.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                if ((medication.FrequencyCount <= 0 || medication.FrequencyValue <= 0 || medication.Duration <= 0))
+                {
+                    MessageBox.Show("Please enter valid frequency and duration values for the medication.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            if ((medication.Duration * 24) / medication.FrequencyValue * medication.FrequencyCount <= 0)
-            {
-                MessageBox.Show("The calculated total doses for the medication must be greater than zero.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                if ((medication.Duration * 24) / medication.FrequencyValue * medication.FrequencyCount <= 0)
+                {
+                    MessageBox.Show("The calculated total doses for the medication must be greater than zero.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            if (!string.IsNullOrEmpty(medication.MedicationName) && medication.Price <= 0)
-            {
-                MessageBox.Show("Please enter a valid price for the medication.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (medication.Price <= 0)
+                {
+                    MessageBox.Show("Please enter a valid price for the medication.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
             medicalRecordController.AddMedicalRecord(medicalRecord);

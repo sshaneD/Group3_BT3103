@@ -2,7 +2,7 @@
 (
 	[PatientID] int IDENTITY(1000,1) primary key,
 	[FirstName] varchar(50) NOT NULL,
-	[MiddleName] varchar(50) NOT NULL,
+	[MiddleName] varchar(50) NULL,
 	[LastName] varchar(50) NOT NULL,
 	[DateOfBirth] DateTime NOT NULL,
 	[Age] int NOT NULL,

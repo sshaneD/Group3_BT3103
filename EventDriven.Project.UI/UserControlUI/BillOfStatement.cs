@@ -60,6 +60,7 @@ namespace EventDriven.Project.UI.UserControlUI
                 List<BillingDetailsModel> details = billingController.GetBillingDetails(admissionID);
                 billingDetails.AddRange(details);
             }
+            billingDetails.RemoveAll(b => string.IsNullOrEmpty(b.Service));
             billingDetails.Add(new BillingDetailsModel());
             billingDetails.Add(new BillingDetailsModel());
             billingDetails.Add(new BillingDetailsModel()
@@ -197,6 +198,11 @@ namespace EventDriven.Project.UI.UserControlUI
         {
             List<int> admissionIDs = patientController.GetPatientAdmissionIDs(selectedPatientID);
             FormMain.selectedPatientID = selectedPatientID;
+            if (selectedPatientID <= 0)
+            {
+                MessageBox.Show("Please select a patient.", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
             List<BillingModel> billings = new List<BillingModel>();
             foreach (int admissionID in admissionIDs)
             {
@@ -247,6 +253,12 @@ namespace EventDriven.Project.UI.UserControlUI
                 }
                 e.Value = Convert.ToDecimal(e.Value).ToString("C2");
                 e.FormattingApplied = true;
+            }
+            if (e.RowIndex == dataGridView1.RowCount - 3 ||
+                e.RowIndex == dataGridView1.RowCount - 2 ||
+                e.RowIndex == dataGridView1.RowCount - 1)
+            {
+                e.CellStyle.Font = new Font(dataGridView1.Font, FontStyle.Bold);
             }
         }
         private void btnSearch_Click(object sender, EventArgs e)

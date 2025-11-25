@@ -93,6 +93,21 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtFN.Text) || string.IsNullOrWhiteSpace(txtLN.Text) ||
+                    string.IsNullOrWhiteSpace(cbGender.Text) || cbRoom.SelectedIndex == -1 ||
+                    cbRoomNo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (FormMain.AdmissionAction == "Add")
             {
                 PatientModel newPatient = new PatientModel

@@ -204,6 +204,7 @@
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
             txtNotes.ReadOnly = true;
+            txtNotes.ScrollBars = ScrollBars.Vertical;
             txtNotes.Size = new Size(386, 69);
             txtNotes.TabIndex = 16;
             txtNotes.TabStop = false;
@@ -217,6 +218,7 @@
             txtTreatment.Multiline = true;
             txtTreatment.Name = "txtTreatment";
             txtTreatment.ReadOnly = true;
+            txtTreatment.ScrollBars = ScrollBars.Vertical;
             txtTreatment.Size = new Size(386, 50);
             txtTreatment.TabIndex = 12;
             txtTreatment.TabStop = false;
@@ -230,6 +232,7 @@
             txtDiagnosis.Multiline = true;
             txtDiagnosis.Name = "txtDiagnosis";
             txtDiagnosis.ReadOnly = true;
+            txtDiagnosis.ScrollBars = ScrollBars.Vertical;
             txtDiagnosis.Size = new Size(386, 50);
             txtDiagnosis.TabIndex = 11;
             txtDiagnosis.TabStop = false;
@@ -273,6 +276,7 @@
             txtDuration.Multiline = true;
             txtDuration.Name = "txtDuration";
             txtDuration.ReadOnly = true;
+            txtDuration.ScrollBars = ScrollBars.Vertical;
             txtDuration.Size = new Size(106, 52);
             txtDuration.TabIndex = 15;
             txtDuration.TabStop = false;
@@ -286,6 +290,7 @@
             txtFrequency.Multiline = true;
             txtFrequency.Name = "txtFrequency";
             txtFrequency.ReadOnly = true;
+            txtFrequency.ScrollBars = ScrollBars.Vertical;
             txtFrequency.Size = new Size(106, 52);
             txtFrequency.TabIndex = 14;
             txtFrequency.TabStop = false;
@@ -299,6 +304,7 @@
             txtMedication.Multiline = true;
             txtMedication.Name = "txtMedication";
             txtMedication.ReadOnly = true;
+            txtMedication.ScrollBars = ScrollBars.Vertical;
             txtMedication.Size = new Size(287, 52);
             txtMedication.TabIndex = 13;
             txtMedication.TabStop = false;

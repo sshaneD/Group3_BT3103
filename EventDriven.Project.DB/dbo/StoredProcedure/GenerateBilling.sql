@@ -5,10 +5,10 @@ BEGIN
     SET NOCOUNT ON;
 
     DECLARE @PatientID INT,
-            @RoomCharges DECIMAL(10,2),
-            @TreatmentCharges DECIMAL(10,2),
-            @MedicationCharges DECIMAL(10,2),
-            @DoctorCharges DECIMAL(10,2),
+            @RoomCharges DECIMAL(10,2) = 0,
+            @TreatmentCharges DECIMAL(10,2) = 0,
+            @MedicationCharges DECIMAL(10,2) = 0,
+            @DoctorCharges DECIMAL(10,2) = 0,
             @TotalAmount DECIMAL(10,2);
 
     SELECT @PatientID = PatientID
@@ -25,7 +25,7 @@ BEGIN
     INNER JOIN MedicalRecords MR ON T.RecordID = MR.RecordID
     WHERE MR.AdmissionID = @AdmissionID;
 
-    SELECT @MedicationCharges = ISNULL(SUM(M.FrequencyCount * (24 / M.FrequencyValue) * M.Duration * M.Price), 0)
+    SELECT @MedicationCharges = ISNULL(SUM(M.FrequencyCount * (24 / NULLIF(M.FrequencyValue, 0)) * M.Duration * M.Price), 0)
     FROM Medications M
     INNER JOIN MedicalRecords MR ON M.RecordID = MR.RecordID
     WHERE MR.AdmissionID = @AdmissionID;
