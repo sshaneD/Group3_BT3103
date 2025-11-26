@@ -73,7 +73,7 @@
             btnDelete.Location = new Point(257, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(121, 35);
-            btnDelete.TabIndex = 39;
+            btnDelete.TabIndex = 3;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
@@ -84,7 +84,7 @@
             btnEdit.Location = new Point(130, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(121, 35);
-            btnEdit.TabIndex = 38;
+            btnEdit.TabIndex = 2;
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += button8_Click;
@@ -95,7 +95,7 @@
             btnAdd.Location = new Point(3, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(121, 35);
-            btnAdd.TabIndex = 37;
+            btnAdd.TabIndex = 1;
             btnAdd.Text = "Add ";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += button7_Click;
@@ -123,6 +123,7 @@
             DGPatientRecord.Size = new Size(1539, 795);
             DGPatientRecord.TabIndex = 36;
             DGPatientRecord.ColumnHeaderMouseClick += DGPatientRecord_ColumnHeaderMouseClick;
+            DGPatientRecord.SelectionChanged += DGPatientRecord_SelectionChanged;
             // 
             // panel1
             // 
@@ -140,7 +141,7 @@
             btnMedRecord.Location = new Point(384, 3);
             btnMedRecord.Name = "btnMedRecord";
             btnMedRecord.Size = new Size(185, 35);
-            btnMedRecord.TabIndex = 42;
+            btnMedRecord.TabIndex = 4;
             btnMedRecord.Text = "Medical Record";
             btnMedRecord.UseVisualStyleBackColor = true;
             btnMedRecord.Click += btnMedRecord_Click;
@@ -175,7 +176,7 @@
             btnBOS.Location = new Point(575, 3);
             btnBOS.Name = "btnBOS";
             btnBOS.Size = new Size(205, 35);
-            btnBOS.TabIndex = 43;
+            btnBOS.TabIndex = 5;
             btnBOS.Text = "Billing Statement";
             btnBOS.UseVisualStyleBackColor = true;
             btnBOS.Click += btnBOS_Click;

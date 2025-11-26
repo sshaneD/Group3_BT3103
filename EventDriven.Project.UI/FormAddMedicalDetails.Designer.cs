@@ -340,9 +340,9 @@
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             label4.Location = new Point(63, 89);
             label4.Name = "label4";
-            label4.Size = new Size(105, 28);
+            label4.Size = new Size(114, 28);
             label4.TabIndex = 9;
-            label4.Text = "Diagnosis:";
+            label4.Text = "*Diagnosis:";
             // 
             // txtNotes
             // 

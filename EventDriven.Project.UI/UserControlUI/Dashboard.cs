@@ -15,6 +15,7 @@ namespace EventDriven.Project.UI.UserControlUI
         public Dashboard()
         {
             InitializeComponent();
+            FormMain.selectedPatientID = 0;
         }
     }
 }

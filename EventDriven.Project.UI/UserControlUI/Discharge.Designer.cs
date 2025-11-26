@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Discharge));
             label1 = new Label();
             label3 = new Label();
             lblPatientName = new Label();
@@ -67,12 +68,17 @@
             panel1 = new Panel();
             roundedPanel3 = new RoundedPanel();
             panel2 = new Panel();
+            btnPrint = new Button();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             roundedPanel1.SuspendLayout();
             roundedPanel2.SuspendLayout();
             roundedPanel4.SuspendLayout();
             panel1.SuspendLayout();
             roundedPanel3.SuspendLayout();
             panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -488,7 +494,7 @@
             btnID.FlatStyle = FlatStyle.Flat;
             btnID.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnID.ForeColor = Color.FromArgb(11, 143, 172);
-            btnID.Location = new Point(1111, 12);
+            btnID.Location = new Point(166, 3);
             btnID.Name = "btnID";
             btnID.Size = new Size(248, 38);
             btnID.TabIndex = 16;
@@ -534,13 +540,53 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(11, 143, 172);
+            panel2.Controls.Add(flowLayoutPanel1);
             panel2.Controls.Add(btnSearch);
             panel2.Controls.Add(txtSearch);
-            panel2.Controls.Add(btnID);
             panel2.Location = new Point(123, 105);
             panel2.Name = "panel2";
             panel2.Size = new Size(1371, 59);
             panel2.TabIndex = 18;
+            // 
+            // btnPrint
+            // 
+            btnPrint.BackColor = Color.White;
+            btnPrint.FlatAppearance.BorderSize = 0;
+            btnPrint.FlatStyle = FlatStyle.Flat;
+            btnPrint.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPrint.ForeColor = Color.FromArgb(11, 143, 172);
+            btnPrint.Location = new Point(5, 3);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(155, 38);
+            btnPrint.TabIndex = 17;
+            btnPrint.Text = "Print";
+            btnPrint.UseVisualStyleBackColor = false;
+            btnPrint.Click += btnPrint_Click;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(btnID);
+            flowLayoutPanel1.Controls.Add(btnPrint);
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new Point(951, 8);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(417, 48);
+            flowLayoutPanel1.TabIndex = 18;
             // 
             // Discharge
             // 
@@ -564,6 +610,7 @@
             roundedPanel3.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -609,5 +656,9 @@
         private Panel panel1;
         private RoundedPanel roundedPanel3;
         private Panel panel2;
+        private Button btnPrint;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

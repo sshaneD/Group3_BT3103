@@ -11,6 +11,7 @@ namespace EventDriven.Project.UI.UserControlUI
         public RoomManagement()
         {
             InitializeComponent();
+            FormMain.selectedPatientID = 0;
             roomController = new RoomController();
             loadRoomBeds();
         }
