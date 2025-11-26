@@ -30,6 +30,11 @@ namespace EventDriven.Project.UI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtDiagnosis.Text))
+            {
+                MessageBox.Show("Please fill in diagnosis", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error); 
+                return;
+            }
             int nextRecordID = medicalRecordController.GetNextMedicalRecordID();
 
             MedicalRecordModel medicalRecord = new MedicalRecordModel();

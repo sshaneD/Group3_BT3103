@@ -282,6 +282,7 @@ namespace EventDriven.Project.UI.UserControlUI
             }
             List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text.Trim());
             selectedPatientID = patients[0].PatientID;
+            FormMain.selectedPatientID = selectedPatientID;
             LoadPatientDetails();
             LoadBillingDetails();
         }
