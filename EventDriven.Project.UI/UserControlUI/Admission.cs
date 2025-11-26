@@ -26,6 +26,7 @@ namespace EventDriven.Project.UI.UserControlUI
         {
             if (FormMain.AdmissionAction == "Add")
             {
+                FormMain.selectedPatientID = 0;
                 ClearData();
                 btnSubmit.Text = "Admit";
                 btnTreatment.Visible = false;
@@ -303,7 +304,7 @@ namespace EventDriven.Project.UI.UserControlUI
         private void assignRoom()
         {
             List<RoomInfoModel> allRooms = roomController.GetAllRooms();
-            string roomNum = string.Empty;
+            string roomNum = cbRoomNo.Text;
             if (cbRoomNo.SelectedItem.ToString().Contains("(Current)"))
             {
                 roomNum = cbRoomNo.Text.Replace(" (Current)", "");

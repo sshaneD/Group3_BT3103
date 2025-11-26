@@ -22,6 +22,7 @@ namespace EventDriven.Project.UI.UserControlUI
         {
             InitializeComponent();
 
+            FormMain.selectedPatientID = 0;
             roomController = new RoomController();
             room = FormMain.SelectedRoom;
         }

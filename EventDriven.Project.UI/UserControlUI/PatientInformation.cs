@@ -52,6 +52,7 @@ namespace EventDriven.Project.UI.UserControlUI
                     break;
                 case "receptionist":
                     btnBOS.Visible = false;
+                    btnDelete.Visible = false;
                     break;
                 case "cashier":
                     btnAdd.Visible = false;
@@ -206,6 +207,24 @@ namespace EventDriven.Project.UI.UserControlUI
         private object GetPropertyValue(PatientModel patient, string propertyName)
         {
             return typeof(PatientModel).GetProperty(propertyName).GetValue(patient);
+        }
+
+        private void DGPatientRecord_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DGPatientRecord.SelectedRows.Count > 1)
+            {
+                btnEdit.Enabled = false;
+                btnMedRecord.Enabled = false;
+                btnBOS.Enabled = false;
+                btnDischarge.Enabled = false;
+            }
+            if (DGPatientRecord.SelectedRows.Count <= 1)
+            {
+                btnEdit.Enabled = true;
+                btnMedRecord.Enabled = true;
+                btnBOS.Enabled = true;
+                btnDischarge.Enabled = true;
+            }
         }
     }
 }

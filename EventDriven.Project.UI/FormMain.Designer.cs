@@ -77,7 +77,7 @@
             button7.Location = new Point(1806, 28);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
-            button7.TabIndex = 3;
+            button7.TabIndex = 7;
             button7.Text = "Log out";
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
@@ -125,7 +125,7 @@
             btnHome.Margin = new Padding(20, 30, 3, 3);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(248, 61);
-            btnHome.TabIndex = 2;
+            btnHome.TabIndex = 1;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += button1_Click;
@@ -137,7 +137,7 @@
             btnPatientInfo.Margin = new Padding(20, 30, 3, 3);
             btnPatientInfo.Name = "btnPatientInfo";
             btnPatientInfo.Size = new Size(248, 61);
-            btnPatientInfo.TabIndex = 3;
+            btnPatientInfo.TabIndex = 2;
             btnPatientInfo.Text = "Patient Information";
             btnPatientInfo.UseVisualStyleBackColor = true;
             btnPatientInfo.Click += button2_Click;
@@ -149,7 +149,7 @@
             btnAdmission.Margin = new Padding(20, 30, 3, 3);
             btnAdmission.Name = "btnAdmission";
             btnAdmission.Size = new Size(248, 61);
-            btnAdmission.TabIndex = 5;
+            btnAdmission.TabIndex = 3;
             btnAdmission.Text = "Admission";
             btnAdmission.UseVisualStyleBackColor = true;
             btnAdmission.Click += button4_Click;
@@ -173,7 +173,7 @@
             btnBilling.Margin = new Padding(20, 30, 3, 3);
             btnBilling.Name = "btnBilling";
             btnBilling.Size = new Size(248, 61);
-            btnBilling.TabIndex = 6;
+            btnBilling.TabIndex = 5;
             btnBilling.Text = "Billing";
             btnBilling.UseVisualStyleBackColor = true;
             btnBilling.Click += btnBilling_Click;
@@ -185,7 +185,7 @@
             btnDischarge.Margin = new Padding(20, 30, 3, 3);
             btnDischarge.Name = "btnDischarge";
             btnDischarge.Size = new Size(248, 61);
-            btnDischarge.TabIndex = 7;
+            btnDischarge.TabIndex = 6;
             btnDischarge.Text = "Discharge";
             btnDischarge.UseVisualStyleBackColor = true;
             btnDischarge.Click += btnDischarge_Click;

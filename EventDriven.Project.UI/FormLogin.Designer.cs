@@ -49,7 +49,7 @@ namespace EventDriven.Project.UI
             txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(442, 37);
-            txtUsername.TabIndex = 3;
+            txtUsername.TabIndex = 1;
             txtUsername.TextChanged += txtUsername_TextChanged;
             // 
             // lblFname
@@ -70,7 +70,7 @@ namespace EventDriven.Project.UI
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(442, 37);
-            txtPassword.TabIndex = 5;
+            txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
             txtPassword.KeyPress += txtPassword_KeyPress;
             // 
@@ -93,7 +93,7 @@ namespace EventDriven.Project.UI
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(158, 49);
-            btnCancel.TabIndex = 16;
+            btnCancel.TabIndex = 5;
             btnCancel.Text = "Exit";
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
@@ -106,7 +106,7 @@ namespace EventDriven.Project.UI
             btnLogin.Margin = new Padding(3, 4, 3, 4);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(158, 49);
-            btnLogin.TabIndex = 15;
+            btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
@@ -137,7 +137,7 @@ namespace EventDriven.Project.UI
             checkBox1.Location = new Point(123, 591);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(175, 99);
-            checkBox1.TabIndex = 19;
+            checkBox1.TabIndex = 3;
             checkBox1.Text = "Show Password";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;

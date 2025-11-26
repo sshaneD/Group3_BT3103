@@ -86,6 +86,11 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void btnPrintBOS_Click(object sender, EventArgs e)
         {
+            if (FormMain.selectedPatientID <= 0)
+            {
+                MessageBox.Show("Please select a patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             printPreviewDialog1.ShowDialog();
         }
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
@@ -266,6 +271,15 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtSearch.Text.Length == 0)
+            {
+                return;
+            }
+            if (patientController.SearchPatient(txtSearch.Text).Count <= 0)
+            {
+                MessageBox.Show("Patient not found", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             List<PatientModel> patients = patientController.SearchPatient(txtSearch.Text.Trim());
             selectedPatientID = patients[0].PatientID;
             LoadPatientDetails();

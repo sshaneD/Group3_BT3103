@@ -14,6 +14,7 @@ namespace EventDriven.Project.UI
         public FormMain()
         {
             InitializeComponent();
+            ActiveControl = btnHome;
             AdmissionAction = "Add";
             ShowControl(new Dashboard());
             CheckLoggedUser();
