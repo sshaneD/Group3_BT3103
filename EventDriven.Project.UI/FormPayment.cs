@@ -208,6 +208,7 @@ namespace EventDriven.Project.UI
 
         private void txtAmountReceived_Leave(object sender, EventArgs e)
         {
+            if(!string.IsNullOrEmpty(txtAmountReceived.Text))
             amountReceived = Convert.ToDecimal(txtAmountReceived.Text);
         }
 

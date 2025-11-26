@@ -58,7 +58,6 @@
             label9 = new Label();
             btnExit = new Button();
             panel2 = new Panel();
-            button1 = new Button();
             panel1.SuspendLayout();
             panelAssignment.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
@@ -389,25 +388,10 @@
             panel2.Size = new Size(1042, 236);
             panel2.TabIndex = 16;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(11, 143, 172);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(1296, 28);
-            button1.Name = "button1";
-            button1.Size = new Size(144, 47);
-            button1.TabIndex = 17;
-            button1.Text = "Print";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // MedicalRecord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
             Controls.Add(txtNotes);
             Controls.Add(panel2);
             Controls.Add(btnDelete);
@@ -475,6 +459,5 @@
         private Panel panelDischarged;
         private Label label2;
         private Panel panel2;
-        private Button button1;
     }
 }

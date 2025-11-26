@@ -14,3 +14,4 @@ AS
 		Rooms r ON ra.RoomID = r.RoomID
 	WHERE 
 		ra.PatientID = @PatientID
+    ORDER BY ra.RoomAssignmentID DESC
