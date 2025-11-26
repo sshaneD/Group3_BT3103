@@ -14,11 +14,14 @@ namespace EventDriven.Project.UI.UserControlUI
         public BillOfStatement()
         {
             InitializeComponent();
+
             patientController = new PatientController();
             billingController = new BillingController();
             selectedPatientID = FormMain.selectedPatientID;
             names = new AutoCompleteStringCollection();
+
             patients = patientController.GetAllPatients();
+
             foreach (PatientModel patient in patients)
             {
                 names.Add($"{patient.FirstName} {patient.MiddleName} {patient.LastName}");

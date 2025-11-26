@@ -62,6 +62,10 @@ namespace EventDriven.Project.UI.UserControlUI
             LoadRoomNumber();
             cbRoomNo.SelectedIndexChanged -= cbRoomNo_SelectedIndexChanged;
             cbRoomNo.SelectedIndex = cbRoomNo.Items.IndexOf(selectedRoom.RoomNumber.ToString());
+            if (cbRoomNo.SelectedIndex == -1)
+            {
+                cbRoomNo.SelectedIndex = cbRoomNo.Items.IndexOf(selectedRoom.RoomNumber.ToString() + " (Current)");
+            }
             cbRoomNo.SelectedIndexChanged += cbRoomNo_SelectedIndexChanged;
             dateStartDate.Value = assignedRoom.StartDate;
             dateEndDate.Value = assignedRoom.EndDate ?? DateTime.Now;
@@ -253,6 +257,7 @@ namespace EventDriven.Project.UI.UserControlUI
         }
         private void LoadRoomNumber()
         {
+            CurrentRoomModel assignedRoom = roomController.GetCurrentRoom(FormMain.selectedPatientID);
             cbRoomNo.Items.Clear();
             if (cbRoom.SelectedItem != null)
             {
@@ -263,6 +268,10 @@ namespace EventDriven.Project.UI.UserControlUI
                     if (room.AvailableBeds > 0)
                     {
                         cbRoomNo.Items.Add(room.RoomNumber.ToString());
+                    }
+                    else if (assignedRoom.RoomNumber == room.RoomNumber)
+                    {
+                        cbRoomNo.Items.Add($"{room.RoomNumber} (Current)");
                     }
                     else
                     {
@@ -294,8 +303,13 @@ namespace EventDriven.Project.UI.UserControlUI
         private void assignRoom()
         {
             List<RoomInfoModel> allRooms = roomController.GetAllRooms();
-            RoomInfoModel selectedRoom = allRooms.Where(ar => ar.RoomType == cbRoom.SelectedItem.ToString() && ar.RoomNumber == Convert.ToInt32(cbRoomNo.SelectedItem.ToString())).First();
-            RoomNumberModel roomNumber = roomController.GetRoomNumberInfo(Convert.ToInt32(cbRoomNo.SelectedItem.ToString()));
+            string roomNum = string.Empty;
+            if (cbRoomNo.SelectedItem.ToString().Contains("(Current)"))
+            {
+                roomNum = cbRoomNo.Text.Replace(" (Current)", "");
+            }
+            RoomInfoModel selectedRoom = allRooms.Where(ar => ar.RoomType == cbRoom.SelectedItem.ToString() && ar.RoomNumber == Convert.ToInt32(roomNum)).First();
+            RoomNumberModel roomNumber = roomController.GetRoomNumberInfo(Convert.ToInt32(roomNum));
             AssignedRoomModel assignedRoom = new AssignedRoomModel
             {
                 RoomID = selectedRoom.RoomID,

@@ -31,9 +31,6 @@
             flowAdmissions = new FlowLayoutPanel();
             label1 = new Label();
             panel1 = new Panel();
-            btnSearch = new Button();
-            textBox1 = new TextBox();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // flowAdmissions
@@ -58,31 +55,10 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(11, 143, 172);
-            panel1.Controls.Add(btnSearch);
-            panel1.Controls.Add(textBox1);
             panel1.Location = new Point(101, 121);
             panel1.Name = "panel1";
             panel1.Size = new Size(1410, 58);
             panel1.TabIndex = 2;
-            // 
-            // btnSearch
-            // 
-            btnSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(1294, 15);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(94, 34);
-            btnSearch.TabIndex = 1;
-            btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(935, 15);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Search Patient Name";
-            textBox1.Size = new Size(353, 34);
-            textBox1.TabIndex = 0;
             // 
             // AdmissionHistory
             // 
@@ -94,8 +70,6 @@
             Controls.Add(label1);
             Name = "AdmissionHistory";
             Size = new Size(1637, 998);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -105,7 +79,5 @@
         private FlowLayoutPanel flowAdmissions;
         private Label label1;
         private Panel panel1;
-        private TextBox textBox1;
-        private Button btnSearch;
     }
 }

@@ -282,9 +282,9 @@
             label13.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.Location = new Point(295, 39);
             label13.Name = "label13";
-            label13.Size = new Size(92, 22);
+            label13.Size = new Size(100, 22);
             label13.TabIndex = 29;
-            label13.Text = "Room No:";
+            label13.Text = "*Room No:";
             // 
             // label9
             // 
@@ -293,9 +293,9 @@
             label9.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.Location = new Point(21, 39);
             label9.Name = "label9";
-            label9.Size = new Size(63, 22);
+            label9.Size = new Size(71, 22);
             label9.TabIndex = 21;
-            label9.Text = "Room:";
+            label9.Text = "*Room:";
             // 
             // cbRoom
             // 
@@ -500,9 +500,9 @@
             label2.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(57, 57);
             label2.Name = "label2";
-            label2.Size = new Size(104, 22);
+            label2.Size = new Size(112, 22);
             label2.TabIndex = 6;
-            label2.Text = "First Name:";
+            label2.Text = "*First Name:";
             // 
             // txtFN
             // 
@@ -510,7 +510,6 @@
             txtFN.Location = new Point(57, 81);
             txtFN.Multiline = true;
             txtFN.Name = "txtFN";
-            txtFN.PlaceholderText = "Required";
             txtFN.Size = new Size(475, 39);
             txtFN.TabIndex = 2;
             // 
@@ -521,9 +520,9 @@
             label5.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(586, 138);
             label5.Name = "label5";
-            label5.Size = new Size(76, 22);
+            label5.Size = new Size(84, 22);
             label5.TabIndex = 13;
-            label5.Text = "Gender:";
+            label5.Text = "*Gender:";
             // 
             // cbGender
             // 
@@ -542,9 +541,9 @@
             label4.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(586, 57);
             label4.Name = "label4";
-            label4.Size = new Size(99, 22);
+            label4.Size = new Size(107, 22);
             label4.TabIndex = 10;
-            label4.Text = "Birth Date:";
+            label4.Text = "*Birth Date:";
             // 
             // label3
             // 
@@ -553,9 +552,9 @@
             label3.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(59, 214);
             label3.Name = "label3";
-            label3.Size = new Size(102, 22);
+            label3.Size = new Size(110, 22);
             label3.TabIndex = 8;
-            label3.Text = "Last Name:";
+            label3.Text = "*Last Name:";
             // 
             // txtLN
             // 
@@ -563,7 +562,6 @@
             txtLN.Location = new Point(57, 239);
             txtLN.Multiline = true;
             txtLN.Name = "txtLN";
-            txtLN.PlaceholderText = "Required";
             txtLN.Size = new Size(473, 39);
             txtLN.TabIndex = 4;
             // 
